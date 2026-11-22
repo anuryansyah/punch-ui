@@ -1,0 +1,333 @@
+{
+  "catalog": {
+    "badge": "Documentation & Catalog",
+    "title": "Punch UI Component Catalog",
+    "description": "Select a component below to explore its live preview, variants, props reference, and CLI installation command.",
+    "viewDetails": "Component Details"
+  },
+  "detailPage": {
+    "livePreviewHeading": "Live Preview & Source Code",
+    "propsReferenceHeading": "Props Reference",
+    "tableHeaders": {
+      "prop": "Prop",
+      "type": "Type / Values",
+      "default": "Default",
+      "description": "Description"
+    },
+    "designNotesHeading": "Usage Notes"
+  },
+  "components": {
+    "button": {
+      "title": "Button",
+      "tier": "Tier 1 • Foundation",
+      "description": "Interactive button component to trigger actions or navigation with multiple variants, sizes, icons, and status states.",
+      "sections": {
+        "status-semantik": "1. Variant",
+        "size": "2. Size",
+        "default": "3. Default",
+        "secondary": "4. Secondary",
+        "outline": "5. Outline",
+        "no-shadow": "6. No Shadow",
+        "ghost": "7. Ghost",
+        "with-icon": "8. With Icon",
+        "icon-only": "9. Icon",
+        "disable": "10. Disable",
+        "spinner": "11. Spinner"
+      },
+      "props": {
+        "variant": "Determines the button visual style: follows the active theme palette (default, secondary, outline, noShadow, ghost) or semantic status colors (success, info, warning, danger).",
+        "size": "Controls button height and padding: sm (32px), default (40px), lg (48px), or icon (40x40px square).",
+        "noShadow": "Removes the hard shadow (shadow-none) and mechanical press translation on any color variant (e.g., <Button variant=\"danger\" noShadow />).",
+        "isLoading": "Renders a spinning Loader2 icon on the left, automatically disables the button, and sets the aria-busy attribute.",
+        "loadingText": "Optional replacement text displayed while isLoading is true (e.g., 'Saving...').",
+        "disabled": "Disables click interactions and mechanical press effect with 50% opacity.",
+        "asChild": "Forwards all Button styling and props to a single child element (such as Next.js <Link />) via Radix Slot."
+      },
+      "usageNotes": [
+        "Navigation with Next.js Link: Use the asChild prop (<Button asChild><Link href=\"/docs\">Open</Link></Button>) so the element renders as a valid semantic <a> tag.",
+        "Form Submission Handling: Pass isLoading and loadingText during async API requests to prevent duplicate form submissions.",
+        "Icon-Only Buttons: When using size=\"icon\" without a visible text label, always provide an aria-label attribute for screen reader accessibility.",
+        "Flat Button Combinations: Combine the boolean noShadow prop with any color variant (e.g., <Button variant=\"danger\" noShadow />) inside dense table rows or toolbars."
+      ]
+    },
+    "card": {
+      "title": "Card",
+      "tier": "Tier 1 • Foundation",
+      "description": "Container for dashboard KPI cards, metric summaries, forms, and grouped data modules.",
+      "sections": {
+        "basic": "1. Basic Card",
+        "composition": "2. Composition",
+        "variant": "3. Variant",
+        "status": "4. Status Variant",
+        "accent-header": "5. Accent Header",
+        "kpi": "6. KPI & Metric Card",
+        "form": "7. Card with Form",
+        "interactive": "8. Interactive Card",
+        "no-shadow": "9. No Shadow"
+      },
+      "props": {
+        "variant": "Determines the card surface palette: theme colors (default, primary, secondary, muted) or semantic status colors (success, info, warning, danger).",
+        "noShadow": "Removes the hard shadow (shadow-none) for nested cards or dense grid layouts.",
+        "interactive": "Enables pointer cursor, subtle hover lift, and mechanical press translation when clicked.",
+        "headerVariant": "The variant prop on <CardHeader /> ('default' | 'primary' | 'secondary' | 'muted') to style the header bar as an accent color block.",
+        "subComponents": "Composed of CardHeader, CardTitle, CardDescription, CardAction, CardContent, and CardFooter for structured card anatomy."
+      },
+      "usageNotes": [
+        "Placing Actions in Header: Use <CardAction /> inside <CardHeader className=\"flex-row items-start justify-between\"> to align badges or action buttons to the top-right corner.",
+        "Nested Cards: When placing a Card inside another Card, enable the noShadow prop on the inner card to avoid stacked double shadows.",
+        "Clickable Cards: Enable the interactive prop when the entire card acts as a selectable option (such as pricing tier cards or catalog items)."
+      ]
+    },
+    "badge": {
+      "title": "Badge",
+      "tier": "Tier 1 • Foundation",
+      "description": "Compact high-contrast label for theme accents, semantic status indicators, category tags, and numeric counters.",
+      "sections": {
+        "variant": "1. Variant",
+        "status": "2. Status Variant",
+        "size": "3. Size",
+        "with-icon": "4. With Icon",
+        "dot": "5. With Status Dot",
+        "counter": "6. Counter Badge",
+        "link": "7. Clickable / Link Badge",
+        "no-shadow": "8. No Shadow"
+      },
+      "props": {
+        "variant": "Determines the badge palette: theme colors (default, secondary, outline, muted) or semantic status colors (success, info, warning, danger).",
+        "size": "Controls badge font size and padding: sm (10px), default (12px), or lg (14px).",
+        "noShadow": "Removes the hard shadow (shadow-none) on any color variant, ideal for dense table cells or nested counters inside buttons.",
+        "dot": "Renders a bordered circular status dot indicator on the left side of the label (ideal for Online / Offline states).",
+        "asChild": "Forwards all Badge styling and props to a single child element (such as <Link /> or <a>) via Radix Slot."
+      },
+      "usageNotes": [
+        "Counters Inside Buttons: When embedding a Badge as a numeric counter inside a Button, combine size=\"sm\", noShadow, and className=\"font-mono\" to keep the button height balanced.",
+        "Clickable Filter Tags: Use the asChild prop to wrap a <Link /> or <a> element when using Badges as interactive category filters.",
+        "Live Status Indicators: Combine the dot prop with semantic variants (success, info, warning, danger) to display service or connection health in dashboard tables."
+      ]
+    },
+    "input": {
+      "title": "Input, Textarea & Label",
+      "tier": "Tier 1 • Foundation",
+      "description": "Form input controls featuring crisp focus shadow shift, size variants, icon slots, addons, file upload styling, and validation states.",
+      "sections": {
+        "basic": "1. Basic Input",
+        "label": "2. With Label & Helper Text",
+        "size": "3. Size",
+        "with-icon": "4. With Icon & Password Toggle",
+        "with-button": "5. Input with Button",
+        "addon": "6. Prefix & Suffix Addon",
+        "file": "7. File Input",
+        "validation": "8. Validation State",
+        "disabled": "9. Disabled & Read-Only",
+        "textarea": "10. Textarea",
+        "no-shadow": "11. No Shadow"
+      },
+      "props": {
+        "inputSize": "Controls the height and font size of <Input />: sm (h-8 / 32px), default (h-10 / 40px), or lg (h-12 / 48px).",
+        "state": "Sets validation border and focus outline color on <Input /> or <Textarea />: default, success (emerald), or error (ruby red + aria-invalid).",
+        "noShadow": "Removes the hard shadow both at rest and on focus, ideal when embedding Input inside a bordered prefix/suffix group or toolbar.",
+        "type": "Supports all standard HTML input types (text, email, password, number, search, file, url, tel).",
+        "disabled": "Disables user input interaction and reduces opacity to 50%.",
+        "Textarea": "The <Textarea /> component accepts the same state and noShadow props as <Input /> for multi-line text fields."
+      },
+      "usageNotes": [
+        "Pairing Label & Input: Always connect the htmlFor prop on <Label /> with a matching id on <Input /> or <Textarea /> so clicking the label focuses the input field.",
+        "Positioning Icons Inside Input: Wrap <Input /> in a <div className=\"relative\">, position the icon with absolute left-3 top-1/2 -translate-y-1/2, and add className=\"pl-9\" to the Input.",
+        "Building Prefix/Suffix Addons: Pass noShadow and className=\"border-0 rounded-none\" to <Input /> when placing it inside a 2px bordered flex group.",
+        "Handling Validation Errors: Pass state=\"error\" to automatically set aria-invalid=\"true\" along with a high-contrast destructive border."
+      ]
+    },
+    "avatar": {
+      "title": "Avatar",
+      "tier": "Tier 1 • Foundation",
+      "description": "Profile image or initials frame supporting circle & square shapes, multiple sizes, status badges, and overlapping avatar groups.",
+      "sections": {
+        "basic": "1. Basic & Image Fallback",
+        "size": "2. Size",
+        "shape": "3. Shape (Circle vs Square)",
+        "color": "4. Fallback Color",
+        "badge": "5. With Status Badge",
+        "group": "6. Avatar Group",
+        "profile": "7. User Profile Row",
+        "no-shadow": "8. No Shadow"
+      },
+      "props": {
+        "size": "Controls avatar dimensions: sm (32px), default (40px), lg (48px), or xl (64px).",
+        "shape": "Sets avatar frame geometry: circle (default for user profiles) or square (follows --radius, ideal for workspace/team logos).",
+        "noShadow": "Removes the hard shadow on the avatar, recommended when stacking avatars inside <AvatarGroup />.",
+        "AvatarBadge": "Status dot sub-component positioned at the bottom-right corner with status ('online' | 'away' | 'busy' | 'offline') and badgeSize ('sm' | 'default' | 'lg').",
+        "AvatarGroup": "Flex container with negative spacing (-space-x-3) to stack multiple collaborator avatars cleanly."
+      },
+      "usageNotes": [
+        "Automatic Fallback: Always include an <AvatarFallback /> with 1–2 user initials inside <Avatar /> so it renders cleanly if the image fails to load.",
+        "Circle vs Square: Use shape=\"circle\" (default) for people/user profiles, and shape=\"square\" for team, workspace, or organization logos.",
+        "Stacking Avatars: When placing avatars inside <AvatarGroup />, add the noShadow prop to each <Avatar /> to prevent overlapping shadows."
+      ]
+    },
+    "separator": {
+      "title": "Separator",
+      "tier": "Tier 1 • Foundation",
+      "description": "Horizontal or vertical divider line to separate content sections, with line style, thickness, and centered label support.",
+      "sections": {
+        "basic": "1. Horizontal & Vertical",
+        "variant": "2. Variant",
+        "thickness": "3. Thickness",
+        "label": "4. With Label",
+        "list": "5. Inside List / Menu"
+      },
+      "props": {
+        "orientation": "Direction of the divider line: horizontal (default) or vertical.",
+        "variant": "Line style of the divider: solid (default), dashed, dotted, or muted.",
+        "thickness": "Stroke thickness of the divider: thin (1px), default (2px), or thick (4px).",
+        "label": "Optional text or element (e.g., <Badge />) rendered in the center of a horizontal separator.",
+        "decorative": "When true (default), treated as decorative (role=\"none\"). Set false to expose role=\"separator\" to screen readers."
+      },
+      "usageNotes": [
+        "Vertical Dividers in Flex Containers: When using orientation=\"vertical\", ensure the parent container has an explicit height (e.g., className=\"flex h-5 items-center\") so the line stretches properly.",
+        "Login Form Dividers: Pass label=\"OR\" directly to render a centered text divider without writing manual flex wrappers.",
+        "Dense Lists & Menus: Inside compact lists or cards, combine variant=\"muted\" and thickness=\"thin\" for a cleaner visual hierarchy."
+      ]
+    },
+    "scroll-area": {
+      "title": "Scroll Area",
+      "tier": "Utility Component • Custom Scroll",
+      "description": "Vertical, horizontal, and bidirectional scroll container featuring a customizable Neobrutalist track and draggable thumb.",
+      "sections": {
+        "vertical": "1. Vertical Scroll",
+        "horizontal": "2. Horizontal Scroll",
+        "both": "3. Both Directions",
+        "size": "4. Scrollbar Size",
+        "ghost": "5. Ghost & No Shadow"
+      },
+      "props": {
+        "orientation": "Scrollable axis: vertical (default), horizontal, or both.",
+        "scrollbarSize": "Scrollbar thickness: 'sm' (8px default), 'md' (10px), 'lg' (14px), or a custom pixel number (e.g., 6).",
+        "variant": "Outer container style: 'default' (2px border + bg-card) or 'ghost' (borderless & shadowless for embedding inside Cards/Sidebars).",
+        "noShadow": "Removes the hard shadow on the outer ScrollArea container.",
+        "viewportClassName": "Additional CSS classes applied directly to the inner scrollable viewport."
+      },
+      "usageNotes": [
+        "Vertical Scrolling: Always provide an explicit height or max-height on ScrollArea (e.g., className=\"h-60\" or className=\"max-h-80\") so overflow triggers properly.",
+        "Horizontal Scrolling: Set orientation=\"horizontal\" and wrap inner items in a container with className=\"flex w-max\" so items expand horizontally.",
+        "Embedding Inside Cards: Pass variant=\"ghost\" when placing ScrollArea inside a Card or Sidebar to avoid double borders."
+      ]
+    },
+    "pagination": {
+      "title": "Pagination",
+      "tier": "Tier 3 • Navigation & Feedback",
+      "description": "Tactile Neobrutalist page navigation supporting ellipsis indicators, compact sizes, First/Last controls, and flat noShadow mode.",
+      "sections": {
+        "basic": "1. Basic Pagination",
+        "composition": "2. Composition",
+        "ellipsis": "3. With Ellipsis",
+        "size": "4. Size",
+        "compact": "5. Compact & First/Last Controls",
+        "no-shadow": "6. No Shadow",
+        "rows-per-page": "7. Rows Per Page"
+      },
+      "props": {
+        "isActive": "Highlights the active page button with the primary variant and sets aria-current=\"page\".",
+        "size": "Controls button dimensions on pagination links: sm, default, or icon.",
+        "noShadow": "Removes the hard shadow on pagination buttons, ideal when embedded inside a Card or table footer.",
+        "disabled": "Disables click interactions on PaginationPrevious, PaginationNext, PaginationFirst, or PaginationLast at boundary pages.",
+        "iconOnly": "Available on PaginationPrevious & PaginationNext to hide the text label and render an arrow icon button.",
+        "asChild": "Forwards all PaginationLink styles and props to a single child element (such as Next.js <Link />) via Radix Slot."
+      },
+      "usageNotes": [
+        "Next.js App Router Navigation: Use asChild on <PaginationLink asChild><Link href=\"?page=2\">2</Link></PaginationLink> for URL-driven pagination.",
+        "Compact Table Footers: Combine <PaginationFirst />, <PaginationPrevious iconOnly />, <PaginationNext iconOnly />, and <PaginationLast /> for dense Data Table footers.",
+        "Boundary States: Always pass disabled to Previous/First on page 1 and Next/Last on the final page."
+      ]
+    },
+    "table": {
+      "title": "Table",
+      "tier": "Tier 1 • Foundation",
+      "description": "Responsive Neobrutalist HTML table primitives featuring accent header blocks, vertical grid lines, striped rows, and compact density.",
+      "sections": {
+        "basic": "1. Basic Table",
+        "composition": "2. Composition",
+        "header": "3. Header Variants",
+        "grid": "4. Grid & Striped",
+        "hoverable": "5. Hoverable",
+        "compact": "6. Compact & No Shadow",
+        "actions": "7. With Avatar & Actions"
+      },
+      "props": {
+        "headerVariant": "Sets the background color of TableHeader: secondary (default accent block), primary, muted, or default (bg-card).",
+        "grid": "Adds 2px vertical borders between columns in addition to horizontal row dividers.",
+        "striped": "Applies alternating row shading (--muted) on even rows for easier scanning.",
+        "hoverable": "Highlights table rows with an accent color when hovered by the cursor.",
+        "compact": "Reduces cell padding (px-3 py-2) for high-density data views.",
+        "noShadow": "Removes the hard shadow on the outer table container.",
+        "containerClassName": "Additional CSS classes for the outer table wrapper (e.g., containerClassName=\"rounded-none border-0\" inside a Card)."
+      },
+      "usageNotes": [
+        "Embedding Inside a Card: Pass noShadow and containerClassName=\"rounded-none border-0\" on <Table /> along with className=\"p-0\" on <CardContent /> to prevent double borders.",
+        "Numeric & Currency Columns: Use font-mono and text-right on amounts, counts, and IDs so values align cleanly.",
+        "Need client-side search, sorting, or pagination? Use the Data Table component built on top of Table."
+      ]
+    },
+    "data-table": {
+      "title": "Data Table",
+      "tier": "Tier 1 • Foundation",
+      "description": "Interactive data table powered by @tanstack/react-table with search filtering, column sorting, integrated Pagination controls, row selection, and column visibility toggles.",
+      "sections": {
+        "basic": "1. Basic Data Table",
+        "composition": "2. Composition",
+        "sorting": "3. Search & Sorting",
+        "pagination": "4. With Pagination",
+        "selection": "5. Row Selection & Actions",
+        "columns": "6. Column Visibility & Grid",
+        "compact": "7. Compact & No Shadow"
+      },
+      "props": {
+        "columns": "Column definitions typed as ColumnDef<TData, TValue>[] from @tanstack/react-table.",
+        "data": "Array of records to render as table rows.",
+        "searchKey": "Column ID / accessorKey targeted by the toolbar search input.",
+        "searchPlaceholder": "Placeholder text displayed inside the search input.",
+        "paginated": "Enables @tanstack/react-table pagination with Punch UI Pagination controls and rows-per-page selector.",
+        "pageSize": "Initial number of rows per page when paginated is enabled (default: 5).",
+        "pageSizeOptions": "Selectable options for the rows-per-page dropdown (default: [5, 10, 20]).",
+        "enableColumnVisibility": "Displays a Columns toggle menu to show or hide columns dynamically.",
+        "enableRowSelection": "Enables row selection state and displays the selected row count summary.",
+        "headerVariant": "Sets the TableHeader background color (secondary, primary, muted, or default).",
+        "grid": "Adds 2px vertical borders between columns.",
+        "striped": "Applies alternating row shading (--muted) on even rows.",
+        "hoverable": "Highlights rows when hovered by the cursor.",
+        "compact": "Reduces cell padding for dense data views.",
+        "noShadow": "Removes hard shadows from the table, search input, and pagination buttons."
+      },
+      "usageNotes": [
+        "Use DataTableColumnHeader inside your column header renderer (header: ({ column }) => <DataTableColumnHeader column={column} title=\"Amount\" />) to enable click-to-sort with direction icons.",
+        "When searchKey is paired with paginated, typing in the search bar automatically resets the table to page 1 so filtered results are never hidden on an empty page.",
+        "For static tables without sorting, filtering, or pagination, prefer the lighter Table primitives."
+      ]
+    },
+    "sidebar": {
+      "title": "Sidebar",
+      "tier": "Tier 1 • Foundation",
+      "description": "Composable Neobrutalist sidebar navigation featuring solid shadowed active items, collapsible icon rail mode, nested submenus, floating variant, and a responsive mobile drawer.",
+      "sections": {
+        "basic": "1. Basic Sidebar",
+        "composition": "2. Composition",
+        "collapsible": "3. Collapsible Icon Mode",
+        "submenu": "4. Submenu & Badges",
+        "floating": "5. Floating Variant",
+        "right": "6. Right Side Panel"
+      },
+      "props": {
+        "defaultOpen": "Sets the initial open/collapsed state on SidebarProvider (default: true).",
+        "side": "Controls which edge the sidebar attaches to: left (default) or right.",
+        "variant": "Layout style of the sidebar: sidebar (default), floating (detached card with shadow-brutal), or inset.",
+        "collapsible": "Desktop collapse behavior: offcanvas (slides away), icon (shrinks to an icon rail), or none.",
+        "isActive": "Highlights the active SidebarMenuButton or SidebarMenuSubButton with a solid accent block.",
+        "tooltip": "Accessible title label displayed on hover when the sidebar is collapsed to icon mode."
+      },
+      "usageNotes": [
+        "Keyboard Shortcut: SidebarProvider automatically binds Ctrl+B (Windows/Linux) and Cmd+B (macOS) to toggle the sidebar.",
+        "Place SidebarTrigger inside your top bar so users can open the slide-over drawer on mobile or collapse the sidebar on desktop.",
+        "When wrapping Next.js <Link />, pass asChild on <SidebarMenuButton asChild><Link href=\"...\">...</Link></SidebarMenuButton>."
+      ]
+    }
+  }
+}

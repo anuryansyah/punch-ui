@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input",
+  "type": "registry:ui",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/input.tsx",
+      "content": "import * as React from \"react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { cn } from \"@/lib/utils\";\n\nconst brutalInputStyles = cva(\n  [\n    \"flex w-full overflow-hidden rounded-md border-2 bg-card font-medium text-card-foreground outline-none transition-[box-shadow,border-color]\",\n    \"placeholder:text-muted-foreground\",\n    \"focus-visible:outline-none\",\n    \"disabled:cursor-not-allowed disabled:opacity-50\",\n    \"[&[type=file]]:p-0 [&[type=file]]:pr-3.5\",\n    \"file:mr-3.5 file:h-full file:cursor-pointer file:rounded-none file:border-0 file:border-r-2 file:border-solid file:border-border file:bg-secondary file:px-3.5 file:font-sans file:text-xs file:font-bold file:text-secondary-foreground file:transition-colors hover:file:bg-primary hover:file:text-primary-foreground\",\n  ].join(\" \"),\n  {\n    variants: {\n      inputSize: {\n        sm: \"h-8 px-2.5 py-1 text-xs\",\n        default: \"h-10 px-3.5 py-2 text-sm\",\n        lg: \"h-12 px-4 py-2.5 text-base\",\n      },\n      state: {\n        default: \"border-border shadow-brutal-sm focus-visible:shadow-brutal\",\n        error:\n          \"bg-destructive/5 border-destructive shadow-brutal-error-sm focus-visible:shadow-brutal-error\",\n        success:\n          \"bg-success/5 border-success shadow-brutal-success-sm focus-visible:shadow-brutal-success\",\n      },\n      noShadow: {\n        true: \"!shadow-none focus-visible:!shadow-none\",\n        false: \"\",\n      },\n    },\n    defaultVariants: {\n      inputSize: \"default\",\n      state: \"default\",\n      noShadow: false,\n    },\n  }\n);\n\nexport interface InputProps\n  extends\n    Omit<React.InputHTMLAttributes<HTMLInputElement>, \"size\">,\n    VariantProps<typeof brutalInputStyles> {\n  noShadow?: boolean;\n}\n\n/**\n * Input Neobrutalism dengan pilihan ukuran (inputSize), status validasi (state),\n * styling file upload bawaan, dan opsi noShadow.\n */\nexport const Input = React.forwardRef<HTMLInputElement, InputProps>(\n  (\n    { className, type = \"text\", inputSize, state, noShadow = false, ...rest },\n    ref\n  ) => (\n    <input\n      ref={ref}\n      type={type}\n      aria-invalid={state === \"error\" || undefined}\n      className={cn(\n        brutalInputStyles({ inputSize, state, noShadow }),\n        className\n      )}\n      {...rest}\n    />\n  )\n);\nInput.displayName = \"Input\";\n\nexport { brutalInputStyles as inputVariants };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

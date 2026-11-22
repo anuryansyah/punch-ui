@@ -1,0 +1,186 @@
+/* 1. Default Orange (Tangerine Punch) */
+:root[data-theme="tangerine"],
+[data-theme="tangerine"] {
+  --background: #fffbf5;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --primary: #ff8a00;
+  --primary-foreground: #000000;
+  --secondary: #ffe566;
+  --secondary-foreground: #000000;
+  --muted: #f5efe6;
+  --muted-foreground: #525252;
+}
+
+/* 2. Soft Blue */
+:root[data-theme="soft-blue"],
+[data-theme="soft-blue"] {
+  --background: #e2eaf2;
+  --foreground: #000000;
+  --card: #f4f8fc;
+  --card-foreground: #000000;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #bfdbfe;
+  --secondary-foreground: #000000;
+  --muted: #d5e1ed;
+  --muted-foreground: #334155;
+}
+
+/* 3. Cyber Yellow */
+:root[data-theme="cyber-yellow"],
+[data-theme="cyber-yellow"] {
+  --background: #fef9c3;
+  --foreground: #000000;
+  --card: #fefce8;
+  --card-foreground: #000000;
+  --primary: #facc15;
+  --primary-foreground: #000000;
+  --secondary: #fde047;
+  --secondary-foreground: #000000;
+  --muted: #fef08a;
+  --muted-foreground: #422006;
+}
+
+/* 4. Deep Ink (Kanvas Terang Cool Slate + Aksen Tinta Gelap) */
+:root[data-theme="deep-ink"],
+[data-theme="deep-ink"] {
+  --background: #eef2f6;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --primary: #141923;
+  --primary-foreground: #ffffff;
+  --secondary: #a5b4fc;
+  --secondary-foreground: #000000;
+  --muted: #e2e8f0;
+  --muted-foreground: #475569;
+}
+
+/* 5. Soft Pink */
+:root[data-theme="soft-pink"],
+[data-theme="soft-pink"] {
+  --background: #fdf2f4;
+  --foreground: #000000;
+  --card: #fff8f9;
+  --card-foreground: #000000;
+  --primary: #f46b86;
+  --primary-foreground: #ffffff;
+  --secondary: #fce7f3;
+  --secondary-foreground: #000000;
+  --muted: #fce7eb;
+  --muted-foreground: #525252;
+}
+
+/* 6. Crimson Red */
+:root[data-theme="crimson-red"],
+[data-theme="crimson-red"] {
+  --background: #fdf2ef;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --primary: #dc2626;
+  --primary-foreground: #ffffff;
+  --secondary: #fed7aa;
+  --secondary-foreground: #000000;
+  --muted: #f7e6e1;
+  --muted-foreground: #525252;
+}
+
+/* Dark Mode Overrides untuk masing-masing preset */
+:root.dark[data-theme="tangerine"],
+.dark [data-theme="tangerine"] {
+  --background: #1c1917;
+  --foreground: #fafaf9;
+  --card: #292524;
+  --card-foreground: #fafaf9;
+  --primary: #ff8a00;
+  --primary-foreground: #000000;
+  --secondary: #facc15;
+  --secondary-foreground: #000000;
+  --muted: #332e2c;
+  --muted-foreground: #a8a29e;
+  --border: #fafaf9;
+  --ring: #fafaf9;
+}
+
+:root.dark[data-theme="soft-blue"],
+.dark [data-theme="soft-blue"] {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #93c5fd;
+  --secondary-foreground: #000000;
+  --muted: #334155;
+  --muted-foreground: #94a3b8;
+  --border: #f8fafc;
+  --ring: #f8fafc;
+}
+
+:root.dark[data-theme="cyber-yellow"],
+.dark [data-theme="cyber-yellow"] {
+  --background: #18181b;
+  --foreground: #fafafa;
+  --card: #27272a;
+  --card-foreground: #fafafa;
+  --primary: #facc15;
+  --primary-foreground: #000000;
+  --secondary: #fde047;
+  --secondary-foreground: #000000;
+  --muted: #3f3f46;
+  --muted-foreground: #a1a1aa;
+  --border: #fafafa;
+  --ring: #fafafa;
+}
+
+:root.dark[data-theme="deep-ink"],
+.dark [data-theme="deep-ink"] {
+  --background: #0b0f17;
+  --foreground: #f8fafc;
+  --card: #1e2533;
+  --card-foreground: #f8fafc;
+  --primary: #818cf8;
+  --primary-foreground: #000000;
+  --secondary: #c7d2fe;
+  --secondary-foreground: #000000;
+  --muted: #283142;
+  --muted-foreground: #94a3b8;
+  --border: #f8fafc;
+  --ring: #f8fafc;
+}
+
+:root.dark[data-theme="soft-pink"],
+.dark [data-theme="soft-pink"] {
+  --background: #1f1619;
+  --foreground: #fdf2f4;
+  --card: #2e2024;
+  --card-foreground: #fdf2f4;
+  --primary: #f46b86;
+  --primary-foreground: #ffffff;
+  --secondary: #fbcfe8;
+  --secondary-foreground: #000000;
+  --muted: #3d2a30;
+  --muted-foreground: #d1a3b0;
+  --border: #fdf2f4;
+  --ring: #fdf2f4;
+}
+
+:root.dark[data-theme="crimson-red"],
+.dark [data-theme="crimson-red"] {
+  --background: #1c1514;
+  --foreground: #fafaf9;
+  --card: #2b211f;
+  --card-foreground: #fafaf9;
+  --primary: #ef4444;
+  --primary-foreground: #ffffff;
+  --secondary: #fdba74;
+  --secondary-foreground: #000000;
+  --muted: #3b2d2a;
+  --muted-foreground: #b8a39e;
+  --border: #fafaf9;
+  --ring: #fafaf9;
+}

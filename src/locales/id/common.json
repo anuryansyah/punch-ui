@@ -1,0 +1,57 @@
+{
+  "topbar": {
+    "homeAndCustomizer": "Beranda & Theme Customizer"
+  },
+  "sidebar": {
+    "groups": {
+      "gettingStarted": "Memulai",
+      "tier1": "Tier 1 • Pondasi Komponen"
+    },
+    "items": {
+      "introCatalog": "Pengenalan & Katalog",
+      "homeThemes": "Halaman Utama (Themes)",
+      "button": "Button",
+      "card": "Card",
+      "badge": "Badge",
+      "input": "Input, Textarea & Label",
+      "avatar": "Avatar",
+      "separator": "Separator",
+      "table": "Table",
+      "dataTable": "Data Table",
+      "pagination": "Pagination",
+      "sidebar": "Sidebar",
+      "scrollArea": "Scroll Area"
+    },
+    "liveThemeCard": {
+      "title": "Tema Live Aktif",
+      "description": "Gunakan Theme Customizer untuk menguji kontras komponen di 6 preset warna, Light/Dark mode, dan variasi radius."
+    }
+  },
+  "toc": {
+    "title": "Di Halaman Ini",
+    "empty": "Belum ada sub-bagian pada halaman ini.",
+    "backToTop": "Kembali ke Atas"
+  },
+  "themeCustomizer": {
+    "title": "Interactive Theme Customizer",
+    "subtitle": "Uji 6 preset warna, mode Light/Dark, dan geometri sudut secara real-time (tersimpan otomatis)",
+    "reset": "Reset",
+    "copyCss": "Copy Theme CSS",
+    "copiedCss": "Copied CSS!",
+    "step1Presets": "1. Preset Warna (6 Tema)",
+    "step2Radius": "2. Border Radius",
+    "step3Mode": "3. Mode Tampilan (Light / Dark)",
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode"
+  },
+  "previewTabs": {
+    "preview": "Preview",
+    "code": "Code",
+    "copy": "Copy",
+    "copied": "Disalin!"
+  },
+  "pager": {
+    "previous": "Sebelumnya",
+    "next": "Selanjutnya"
+  }
+}

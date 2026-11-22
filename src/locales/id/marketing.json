@@ -1,0 +1,24 @@
+{
+  "hero": {
+    "badge": "Sistem Desain & 6 Tema Aktif",
+    "title": "PUNCH UI",
+    "description": "Koleksi komponen shadcn/ui bergaya Neobrutalism dengan garis tepi tegas 2px, bayangan keras 4px 4px 0px, dan 6 preset warna real-time.",
+    "ctaDocs": "Buka Dokumentasi & Live Preview"
+  },
+  "cards": {
+    "kpi": {
+      "label": "Total Pendapatan (KPI Preview)",
+      "value": "Rp 148.520.000",
+      "description": "Menggunakan font JetBrains Mono untuk keterbacaan angka maksimal."
+    },
+    "mechanical": {
+      "title": "Interaksi Mekanis",
+      "description": "Tekan tombol di bawah ini untuk merasakan efek tekan mekanis active:translate-x-[4px]:"
+    },
+    "accessibility": {
+      "title": "Aksesibilitas Keyboard",
+      "description": "Gunakan tombol Tab untuk melihat indikator fokus tegas pengganti blur ring bawaan.",
+      "placeholder": "Klik atau Tab ke input ini..."
+    }
+  }
+}

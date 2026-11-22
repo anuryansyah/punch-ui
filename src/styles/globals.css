@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Default Theme: Tangerine Punch (Default Orange) */
+    --background: #fffbf5; /* Kanvas terang warm off-white */
+    --foreground: #000000; /* Teks utama hitam pekat */
+
+    --card: #ffffff; /* Latar Card / Input / Modal */
+    --card-foreground: #000000;
+
+    --primary: #ff8a00; /* Tangerine Orange */
+    --primary-foreground: #000000;
+
+    --secondary: #ffe566; /* Soft Yellow untuk badge & highlight tabel */
+    --secondary-foreground: #000000;
+
+    --muted: #f5efe6;
+    --muted-foreground: #525252;
+
+    /* Semantic Status Tokens (Berbeda dari warna --primary 6 tema) */
+    --success: #10b981; /* Emerald Mint */
+    --success-foreground: #000000;
+
+    --info: #06b6d4; /* Electric Cyan */
+    --info-foreground: #000000;
+
+    --warning: #eab308; /* Caution Yellow */
+    --warning-foreground: #000000;
+
+    --destructive: #be123c; /* Deep Ruby Red */
+    --destructive-foreground: #ffffff;
+
+    --border: #000000; /* Warna garis tepi */
+    --ring: #000000;
+
+    /* Pengaturan Geometri & Shadow */
+    --radius: 0px; /* 0px (Sharp - Default), 4px (Crisp), 8px (Smooth), 12px (Playful) */
+    --scrollbar-size: 8px; /* Ketebalan scrollbar global (bisa dikustomisasi) */
+    --shadow: 4px 4px 0px 0px var(--border);
+    --shadow-sm: 2px 2px 0px 0px var(--border);
+    --shadow-lg: 6px 6px 0px 0px var(--border);
+  }
+
+  .dark {
+    --background: #1c1917; /* Warm Charcoal agar border hitam tetap terlihat */
+    --foreground: #fafaf9;
+
+    --card: #292524;
+    --card-foreground: #fafaf9;
+
+    --primary: #ff8a00;
+    --primary-foreground: #000000;
+
+    --secondary: #facc15;
+    --secondary-foreground: #000000;
+
+    --muted: #332e2c;
+    --muted-foreground: #a8a29e;
+
+    --border: #fafaf9;
+    --ring: #fafaf9;
+    --shadow: 4px 4px 0px 0px var(--border);
+    --shadow-sm: 2px 2px 0px 0px var(--border);
+    --shadow-lg: 6px 6px 0px 0px var(--border);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+
+  /* Global Neobrutalism Custom Scrollbar (Mengikuti --scrollbar-size, default 8px) */
+  ::-webkit-scrollbar {
+    width: var(--scrollbar-size, 8px);
+    height: var(--scrollbar-size, 8px);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--muted);
+    border-left: 1.5px solid var(--border);
+    border-top: 1.5px solid var(--border);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border: 1.5px solid var(--border);
+    border-radius: max(0px, calc(var(--radius) - 4px));
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: var(--muted);
+    border-left: 1.5px solid var(--border);
+    border-top: 1.5px solid var(--border);
+  }
+}
+
+@layer utilities {
+  .bg-success {
+    background-color: var(--success);
+  }
+  .text-success {
+    color: var(--success);
+  }
+  .text-success-foreground {
+    color: var(--success-foreground);
+  }
+  .border-success {
+    border-color: var(--success);
+  }
+  .shadow-brutal-success-sm {
+    box-shadow: 2px 2px 0px 0px var(--success);
+  }
+  .shadow-brutal-success,
+  .focus-visible\:shadow-brutal-success:focus-visible {
+    box-shadow: 4px 4px 0px 0px var(--success);
+  }
+  .shadow-brutal-error-sm {
+    box-shadow: 2px 2px 0px 0px var(--destructive);
+  }
+  .shadow-brutal-error,
+  .focus-visible\:shadow-brutal-error:focus-visible {
+    box-shadow: 4px 4px 0px 0px var(--destructive);
+  }
+  .bg-info {
+    background-color: var(--info);
+  }
+  .text-info {
+    color: var(--info);
+  }
+  .text-info-foreground {
+    color: var(--info-foreground);
+  }
+  .border-info {
+    border-color: var(--info);
+  }
+  .bg-warning {
+    background-color: var(--warning);
+  }
+  .text-warning {
+    color: var(--warning);
+  }
+  .text-warning-foreground {
+    color: var(--warning-foreground);
+  }
+  .border-warning {
+    border-color: var(--warning);
+  }
+  .bg-dot-pattern {
+    background-color: var(--background);
+    background-image: radial-gradient(
+      color-mix(in srgb, var(--foreground) 22%, transparent) 1.25px,
+      transparent 1.25px
+    );
+    background-size: 18px 18px;
+  }
+}

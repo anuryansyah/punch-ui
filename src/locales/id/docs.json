@@ -1,0 +1,333 @@
+{
+  "catalog": {
+    "badge": "Dokumentasi & Katalog",
+    "title": "Katalog Komponen Punch UI",
+    "description": "Pilih komponen di bawah ini untuk melihat live preview, variasi, referensi props, dan perintah instalasi CLI.",
+    "viewDetails": "Detail Komponen"
+  },
+  "detailPage": {
+    "livePreviewHeading": "Live Preview & Kode Sumber",
+    "propsReferenceHeading": "Referensi Props",
+    "tableHeaders": {
+      "prop": "Prop",
+      "type": "Tipe / Nilai",
+      "default": "Default",
+      "description": "Penjelasan"
+    },
+    "designNotesHeading": "Catatan Pemakaian"
+  },
+  "components": {
+    "button": {
+      "title": "Button",
+      "tier": "Tier 1 • Pondasi",
+      "description": "Komponen tombol untuk memicu aksi atau navigasi dengan berbagai pilihan varian, ukuran, ikon, dan status.",
+      "sections": {
+        "status-semantik": "1. Variant",
+        "size": "2. Size",
+        "default": "3. Default",
+        "secondary": "4. Secondary",
+        "outline": "5. Outline",
+        "no-shadow": "6. No Shadow",
+        "ghost": "7. Ghost",
+        "with-icon": "8. With Icon",
+        "icon-only": "9. Icon",
+        "disable": "10. Disable",
+        "spinner": "11. Spinner"
+      },
+      "props": {
+        "variant": "Menentukan gaya visual tombol: mengikuti warna tema aktif (default, secondary, outline, noShadow, ghost) atau warna status semantik (success, info, warning, danger).",
+        "size": "Mengatur dimensi tinggi dan padding tombol: sm (32px), default (40px), lg (48px), atau icon (persegi 40x40px).",
+        "noShadow": "Menghilangkan bayangan keras (shadow-none) dan efek geser tekan pada varian warna apa pun (misal: <Button variant=\"danger\" noShadow />).",
+        "isLoading": "Menampilkan ikon spinner berputar (Loader2) di sebelah kiri teks dan otomatis menonaktifkan tombol (disabled) serta menambahkan atribut aria-busy.",
+        "loadingText": "Teks pengganti sementara yang ditampilkan saat prop isLoading bernilai true (misal: 'Menyimpan...').",
+        "disabled": "Menonaktifkan interaksi klik dan efek tekan mekanis pada tombol dengan tingkat opasitas 50%.",
+        "asChild": "Meneruskan seluruh kelas styling Button ke elemen anak tunggal (misalnya komponen Next.js <Link />) menggunakan Radix Slot."
+      },
+      "usageNotes": [
+        "Navigasi dengan Next.js Link: Gunakan prop asChild (<Button asChild><Link href=\"/docs\">Buka</Link></Button>) agar elemen dirender sebagai tag <a> yang valid.",
+        "Penanganan Submit Form: Gunakan prop isLoading dan loadingText saat proses request API berlangsung untuk mencegah user menekan tombol submit berkali-kali.",
+        "Tombol Khusus Ikon: Saat memakai size=\"icon\" tanpa teks, selalu tambahkan atribut aria-label agar fungsinya tetap jelas bagi pembaca layar.",
+        "Kombinasi Tanpa Bayangan: Tambahkan prop boolean noShadow pada varian warna apa pun (misal <Button variant=\"danger\" noShadow />) saat tombol ditempatkan di dalam baris tabel atau toolbar yang padat."
+      ]
+    },
+    "card": {
+      "title": "Card",
+      "tier": "Tier 1 • Pondasi",
+      "description": "Kontainer untuk kartu KPI dashboard, ringkasan metrik, formulir, dan pengelompokan modul data.",
+      "sections": {
+        "basic": "1. Basic Card",
+        "composition": "2. Composition",
+        "variant": "3. Variant",
+        "status": "4. Status Variant",
+        "accent-header": "5. Accent Header",
+        "kpi": "6. KPI & Metric Card",
+        "form": "7. Card with Form",
+        "interactive": "8. Interactive Card",
+        "no-shadow": "9. No Shadow"
+      },
+      "props": {
+        "variant": "Menentukan warna permukaan kartu: mengikuti warna tema (default, primary, secondary, muted) atau status semantik (success, info, warning, danger).",
+        "noShadow": "Menghilangkan bayangan keras (shadow-none) untuk kartu di dalam kontainer lain (nested card) atau tata letak rapat.",
+        "interactive": "Mengaktifkan kursor pointer, efek angkat saat hover, dan efek tekan mekanis saat kartu diklik.",
+        "headerVariant": "Prop variant pada <CardHeader /> ('default' | 'primary' | 'secondary' | 'muted') untuk memberi blok warna tersendiri pada kepala kartu.",
+        "subComponents": "Terdiri dari CardHeader, CardTitle, CardDescription, CardAction, CardContent, dan CardFooter untuk menyusun anatomi kartu yang rapi."
+      },
+      "usageNotes": [
+        "Penempatan Tombol/Badge di Header: Gunakan <CardAction /> di dalam <CardHeader className=\"flex-row items-start justify-between\"> untuk meletakkan tombol atau badge di pojok kanan atas kartu.",
+        "Kartu di Dalam Kartu (Nested Card): Saat menaruh Card di dalam Card lain, tambahkan prop noShadow pada kartu bagian dalam agar bayangan tidak bertumpuk ganda.",
+        "Kartu yang Bisa Diklik: Gunakan prop interactive saat seluruh area kartu berfungsi sebagai tombol pilihan (seperti kartu pilihan paket atau item katalog)."
+      ]
+    },
+    "badge": {
+      "title": "Badge",
+      "tier": "Tier 1 • Pondasi",
+      "description": "Label status ringkas dengan warna kontras tinggi untuk indikator tema, status semantik, kategori, dan penghitung (counter).",
+      "sections": {
+        "variant": "1. Variant",
+        "status": "2. Status Variant",
+        "size": "3. Size",
+        "with-icon": "4. With Icon",
+        "dot": "5. With Status Dot",
+        "counter": "6. Counter Badge",
+        "link": "7. Clickable / Link Badge",
+        "no-shadow": "8. No Shadow"
+      },
+      "props": {
+        "variant": "Menentukan warna badge: mengikuti warna tema (default, secondary, outline, muted) atau warna status semantik (success, info, warning, danger).",
+        "size": "Mengatur ukuran teks dan padding badge: sm (10px), default (12px), atau lg (14px).",
+        "noShadow": "Menghilangkan bayangan keras (shadow-none) pada varian warna apa pun, cocok untuk baris tabel rapat atau di dalam tombol.",
+        "dot": "Menampilkan titik indikator bulat ber-border di sebelah kiri teks (cocok untuk status Online / Offline).",
+        "asChild": "Meneruskan seluruh kelas Badge ke elemen anak tunggal (misalnya <Link /> atau <a>) menggunakan Radix Slot."
+      },
+      "usageNotes": [
+        "Counter di Dalam Tombol: Saat menyisipkan Badge sebagai penghitung angka di dalam Button, kombinasikan size=\"sm\", noShadow, dan className=\"font-mono\" agar tinggi tombol tetap rapi.",
+        "Tag/Kategori yang Bisa Diklik: Gunakan prop asChild untuk membungkus komponen <Link /> atau <a> ketika Badge dipakai sebagai tombol filter kategori.",
+        "Indikator Status Live: Aktifkan prop dot bersama varian status (success, info, warning, danger) untuk menampilkan status koneksi atau layanan di tabel dashboard."
+      ]
+    },
+    "input": {
+      "title": "Input, Textarea & Label",
+      "tier": "Tier 1 • Pondasi",
+      "description": "Kontrol input formulir dengan perubahan bayangan tegas saat fokus, dukungan ukuran, ikon, addon, file upload, serta status validasi.",
+      "sections": {
+        "basic": "1. Basic Input",
+        "label": "2. With Label & Helper Text",
+        "size": "3. Size",
+        "with-icon": "4. With Icon & Password Toggle",
+        "with-button": "5. Input with Button",
+        "addon": "6. Prefix & Suffix Addon",
+        "file": "7. File Input",
+        "validation": "8. Validation State",
+        "disabled": "9. Disabled & Read-Only",
+        "textarea": "10. Textarea",
+        "no-shadow": "11. No Shadow"
+      },
+      "props": {
+        "inputSize": "Mengatur tinggi dan ukuran font pada <Input />: sm (h-8 / 32px), default (h-10 / 40px), atau lg (h-12 / 48px).",
+        "state": "Menampilkan warna garis tepi dan outline validasi pada <Input /> maupun <Textarea />: default, success (hijau), atau error (merah ruby + aria-invalid).",
+        "noShadow": "Menghilangkan bayangan keras pada kondisi awal maupun saat fokus, cocok untuk input yang dibungkus kontainer addon atau di dalam toolbar.",
+        "type": "Mendukung seluruh tipe input HTML standar (text, email, password, number, search, file, url, tel).",
+        "disabled": "Menonaktifkan pengisian input dan menurunkan opasitas ke 50%.",
+        "Textarea": "Komponen <Textarea /> menerima prop state dan noShadow yang sama dengan <Input /> untuk input teks multi-baris."
+      },
+      "usageNotes": [
+        "Menghubungkan Label & Input: Selalu pasangkan prop htmlFor pada <Label /> dengan atribut id yang sama pada <Input /> atau <Textarea /> agar klik pada label otomatis memfokuskan input.",
+        "Menambahkan Ikon di Dalam Input: Bungkus <Input /> dengan <div className=\"relative\">, posisikan ikon dengan absolute left-3 top-1/2 -translate-y-1/2, lalu tambahkan className=\"pl-9\" pada Input.",
+        "Membuat Input Group (Prefix/Suffix): Gunakan prop noShadow dan className=\"border-0 rounded-none\" pada <Input /> saat ditempatkan di dalam kontainer flex ber-border 2px.",
+        "Penanganan Error Validasi: Gunakan state=\"error\" untuk otomatis mengaktifkan atribut aria-invalid=\"true\" beserta garis tepi merah."
+      ]
+    },
+    "avatar": {
+      "title": "Avatar",
+      "tier": "Tier 1 • Pondasi",
+      "description": "Bingkai foto atau inisial profil pengguna dengan dukungan bentuk bulat & kotak, ukuran, status badge, dan avatar group.",
+      "sections": {
+        "basic": "1. Basic & Image Fallback",
+        "size": "2. Size",
+        "shape": "3. Shape (Circle vs Square)",
+        "color": "4. Fallback Color",
+        "badge": "5. With Status Badge",
+        "group": "6. Avatar Group",
+        "profile": "7. User Profile Row",
+        "no-shadow": "8. No Shadow"
+      },
+      "props": {
+        "size": "Mengatur dimensi avatar: sm (32px), default (40px), lg (48px), atau xl (64px).",
+        "shape": "Menentukan bentuk bingkai avatar: circle (bulat, default untuk profil pengguna) atau square (kotak mengikuti --radius, cocok untuk logo workspace).",
+        "noShadow": "Menghilangkan bayangan keras pada avatar, disarankan aktif saat menumpuk avatar di dalam <AvatarGroup />.",
+        "AvatarBadge": "Sub-komponen titik status di pojok kanan bawah avatar dengan prop status ('online' | 'away' | 'busy' | 'offline') dan badgeSize ('sm' | 'default' | 'lg').",
+        "AvatarGroup": "Kontainer flex dengan jarak rapat (-space-x-3) untuk menumpuk beberapa avatar kolaborator secara rapi."
+      },
+      "usageNotes": [
+        "Fallback Otomatis: Selalu sertakan <AvatarFallback /> berisi 1–2 huruf inisial di dalam <Avatar /> sebagai cadangan otomatis saat gambar gagal dimuat.",
+        "Penggunaan Circle vs Square: Gunakan shape=\"circle\" (default) untuk foto atau inisial pengguna, dan shape=\"square\" untuk ikon tim atau workspace.",
+        "Menumpuk Avatar: Saat menggunakan <AvatarGroup />, tambahkan prop noShadow pada setiap <Avatar /> di dalamnya agar bayangan antar-avatar tidak bertumpukan."
+      ]
+    },
+    "separator": {
+      "title": "Separator",
+      "tier": "Tier 1 • Pondasi",
+      "description": "Garis pemisah horizontal atau vertikal untuk membagi konten dengan dukungan gaya garis, ketebalan, dan label tengah.",
+      "sections": {
+        "basic": "1. Horizontal & Vertical",
+        "variant": "2. Variant",
+        "thickness": "3. Thickness",
+        "label": "4. With Label",
+        "list": "5. Inside List / Menu"
+      },
+      "props": {
+        "orientation": "Arah garis pemisah: horizontal (default) atau vertical.",
+        "variant": "Gaya garis pemisah: solid (default), dashed (putus-putus), dotted (titik-titik), atau muted (lebih lembut).",
+        "thickness": "Ketebalan garis pemisah: thin (1px), default (2px), atau thick (4px).",
+        "label": "Teks atau komponen (misal <Badge />) yang ditampilkan di tengah garis pemisah horizontal.",
+        "decorative": "Jika true (default), dianggap dekoratif (role=\"none\"). Set false untuk menyertakan role=\"separator\" bagi pembaca layar."
+      },
+      "usageNotes": [
+        "Pemisah Vertikal di Flex Container: Saat memakai orientation=\"vertical\", pastikan elemen pembungkusnya memiliki tinggi eksplisit (misal className=\"flex h-5 items-center\") agar garis vertikal terlihat.",
+        "Pemisah Form Login: Gunakan prop label=\"OR\" untuk langsung membuat garis pemisah dengan teks di tengah tanpa perlu membungkusnya dengan flex manual.",
+        "Pemisah Daftar Padat: Di dalam daftar item atau menu yang rapat, kombinasikan variant=\"muted\" dan thickness=\"thin\" agar tampilan tetap ringan."
+      ]
+    },
+    "scroll-area": {
+      "title": "Scroll Area",
+      "tier": "Komponen Pelengkap • Custom Scroll",
+      "description": "Kontainer scroll vertikal, horizontal, maupun dua arah dengan custom track dan thumb yang ketebalannya dapat dikustomisasi.",
+      "sections": {
+        "vertical": "1. Vertical Scroll",
+        "horizontal": "2. Horizontal Scroll",
+        "both": "3. Both Directions",
+        "size": "4. Scrollbar Size",
+        "ghost": "5. Ghost & No Shadow"
+      },
+      "props": {
+        "orientation": "Arah area scroll: vertical (default), horizontal, atau both (dua arah sekaligus).",
+        "scrollbarSize": "Ketebalan batang scroll: 'sm' (8px default), 'md' (10px), 'lg' (14px), atau angka pixel kustom (misal 6).",
+        "variant": "Gaya kontainer luar: 'default' (border 2px + bg-card) atau 'ghost' (tanpa border & bayangan agar menyatu di dalam Card/Sidebar).",
+        "noShadow": "Menghilangkan bayangan keras pada kontainer ScrollArea.",
+        "viewportClassName": "Class CSS tambahan khusus untuk elemen viewport bagian dalam."
+      },
+      "usageNotes": [
+        "Scroll Vertikal: Selalu berikan tinggi tetap pada ScrollArea (misal className=\"h-60\" atau className=\"max-h-80\") agar scrollbar muncul otomatis saat konten melampaui batas.",
+        "Scroll Horizontal: Setel orientation=\"horizontal\" dan bungkus elemen anak dengan className=\"flex w-max\" agar item berjejer ke samping.",
+        "Di Dalam Card atau Sidebar: Gunakan variant=\"ghost\" agar ScrollArea tidak menambah garis border ganda di dalam kontainer yang sudah ber-border."
+      ]
+    },
+    "pagination": {
+      "title": "Pagination",
+      "tier": "Tier 3 • Navigasi & Feedback",
+      "description": "Navigasi perpindahan halaman bergaya tombol fisik Neobrutalism dengan dukungan ellipsis, ukuran ringkas, kontrol First/Last, dan mode noShadow.",
+      "sections": {
+        "basic": "1. Basic Pagination",
+        "composition": "2. Composition",
+        "ellipsis": "3. With Ellipsis",
+        "size": "4. Size",
+        "compact": "5. Compact & First/Last Controls",
+        "no-shadow": "6. No Shadow",
+        "rows-per-page": "7. Rows Per Page"
+      },
+      "props": {
+        "isActive": "Menandai tombol halaman yang sedang aktif menggunakan gaya primary button dan atribut aria-current=\"page\".",
+        "size": "Mengatur ukuran tombol pagination: sm, default, atau icon.",
+        "noShadow": "Menghilangkan bayangan keras pada tombol pagination, cocok saat disematkan di dalam footer tabel atau Card.",
+        "disabled": "Menonaktifkan klik pada PaginationPrevious, PaginationNext, PaginationFirst, atau PaginationLast saat mencapai batas halaman awal/akhir.",
+        "iconOnly": "Prop khusus pada PaginationPrevious & PaginationNext untuk menyembunyikan teks label dan hanya menampilkan ikon panah.",
+        "asChild": "Meneruskan seluruh kelas PaginationLink ke elemen anak tunggal (misalnya Next.js <Link />) menggunakan Radix Slot."
+      },
+      "usageNotes": [
+        "Integrasi Next.js App Router: Gunakan prop asChild pada <PaginationLink asChild><Link href=\"?page=2\">2</Link></PaginationLink> untuk navigasi berbasis URL query string.",
+        "Pagination di Footer Data Table: Untuk area kontrol tabel yang padat, gunakan <PaginationFirst />, <PaginationPrevious iconOnly />, <PaginationNext iconOnly />, dan <PaginationLast /> dengan ukuran ringkas.",
+        "Penanganan Batas Halaman: Selalu aktifkan prop disabled pada tombol Previous saat di halaman 1 dan pada tombol Next saat di halaman terakhir."
+      ]
+    },
+    "table": {
+      "title": "Table",
+      "tier": "Tier 1 • Pondasi",
+      "description": "Komponen tabel HTML responsif bergaya Neobrutalism dengan pilihan warna header, garis grid vertikal, baris striped, dan mode compact.",
+      "sections": {
+        "basic": "1. Basic Table",
+        "composition": "2. Composition",
+        "header": "3. Header Variants",
+        "grid": "4. Grid & Striped",
+        "hoverable": "5. Hoverable",
+        "compact": "6. Compact & No Shadow",
+        "actions": "7. With Avatar & Actions"
+      },
+      "props": {
+        "headerVariant": "Menentukan warna latar TableHeader: secondary (default blok aksen), primary, muted, atau default (bg-card).",
+        "grid": "Menambahkan garis batas vertikal 2px antar-kolom selain garis pemisah horizontal.",
+        "striped": "Memberikan latar bergantian (--muted) pada baris genap agar tabel panjang mudah dibaca.",
+        "hoverable": "Menyorot baris tabel dengan warna aksen saat kursor hover di atasnya.",
+        "compact": "Mengurangi padding sel (px-3 py-2) untuk tabel dengan data padat.",
+        "noShadow": "Menghilangkan bayangan keras pada kontainer luar tabel.",
+        "containerClassName": "Class tambahan untuk wrapper luar tabel (misal containerClassName=\"rounded-none border-0\" saat di dalam Card)."
+      },
+      "usageNotes": [
+        "Menyematkan Table di Dalam Card: Tambahkan prop noShadow dan containerClassName=\"rounded-none border-0\" pada <Table /> serta className=\"p-0\" pada <CardContent /> agar garis border Card tidak bertumpuk ganda.",
+        "Angka & Kolom Nominal: Gunakan font-mono dan text-right pada kolom angka, harga, atau ID agar deretan angka sejajar rapi.",
+        "Untuk fitur interaktif seperti search, sorting kolom, dan pagination otomatis, gunakan komponen Data Table."
+      ]
+    },
+    "data-table": {
+      "title": "Data Table",
+      "tier": "Tier 1 • Pondasi",
+      "description": "Tabel data interaktif berbasis @tanstack/react-table dengan fitur search, sorting kolom, pagination terintegrasi, row selection, dan toggle visibilitas kolom.",
+      "sections": {
+        "basic": "1. Basic Data Table",
+        "composition": "2. Composition",
+        "sorting": "3. Search & Sorting",
+        "pagination": "4. With Pagination",
+        "selection": "5. Row Selection & Actions",
+        "columns": "6. Column Visibility & Grid",
+        "compact": "7. Compact & No Shadow"
+      },
+      "props": {
+        "columns": "Definisi kolom bertipe ColumnDef<TData, TValue>[] dari @tanstack/react-table.",
+        "data": "Array data yang akan dirender ke dalam baris tabel.",
+        "searchKey": "ID/accessorKey kolom yang menjadi target input pencarian di toolbar.",
+        "searchPlaceholder": "Teks placeholder untuk input pencarian.",
+        "paginated": "Mengaktifkan pagination @tanstack/react-table beserta kontrol Pagination Punch UI dan pemilih jumlah baris.",
+        "pageSize": "Jumlah baris awal per halaman saat paginated aktif (default: 5).",
+        "pageSizeOptions": "Pilihan jumlah baris pada dropdown Rows per page (default: [5, 10, 20]).",
+        "enableColumnVisibility": "Menampilkan tombol Columns untuk menyembunyikan atau menampilkan kolom secara dinamis.",
+        "enableRowSelection": "Mengaktifkan pemilihan baris (checkbox) dan menampilkan ringkasan jumlah baris terpilih.",
+        "headerVariant": "Warna latar header tabel (secondary, primary, muted, atau default).",
+        "grid": "Menambahkan garis batas vertikal 2px antar-kolom.",
+        "striped": "Memberikan latar bergantian (--muted) pada baris genap.",
+        "hoverable": "Menyorot baris saat kursor hover di atasnya.",
+        "compact": "Mengurangi padding sel untuk tampilan data padat.",
+        "noShadow": "Menghilangkan bayangan keras pada tabel, input, dan tombol pagination."
+      },
+      "usageNotes": [
+        "Gunakan DataTableColumnHeader pada definisi kolom (header: ({ column }) => <DataTableColumnHeader column={column} title=\"Amount\" />) agar kolom dapat di-sort dengan indikator panah.",
+        "Saat searchKey digunakan bersama paginated, perubahan kata kunci pencarian otomatis mereset halaman kembali ke halaman pertama.",
+        "Untuk tabel statis tanpa sorting, filtering, atau pagination, gunakan komponen Table dasar agar bundle tetap ringan."
+      ]
+    },
+    "sidebar": {
+      "title": "Sidebar",
+      "tier": "Tier 1 • Pondasi",
+      "description": "Navigasi samping Neobrutalism yang composable dengan indikator active item ber-shadow, mode collapsible icon rail, submenu bersarang, varian floating, dan drawer mobile.",
+      "sections": {
+        "basic": "1. Basic Sidebar",
+        "composition": "2. Composition",
+        "collapsible": "3. Collapsible Icon Mode",
+        "submenu": "4. Submenu & Badges",
+        "floating": "5. Floating Variant",
+        "right": "6. Right Side Panel"
+      },
+      "props": {
+        "defaultOpen": "Menentukan kondisi awal sidebar (terbuka atau tertutup) pada SidebarProvider (default: true).",
+        "side": "Menentukan posisi sidebar di sisi kiri atau kanan: left (default) atau right.",
+        "variant": "Gaya tata letak sidebar: sidebar (default), floating (melayang dengan shadow-brutal), atau inset.",
+        "collapsible": "Mode penyusutan di desktop: offcanvas (tersembunyi penuh), icon (menyusut jadi rail ikon), atau none.",
+        "isActive": "Menandai SidebarMenuButton atau SidebarMenuSubButton yang sedang aktif dengan blok warna solid.",
+        "tooltip": "Teks title yang muncul saat kursor hover di atas ikon ketika sidebar dalam mode collapsed icon."
+      },
+      "usageNotes": [
+        "Shortcut Keyboard: SidebarProvider otomatis mendengarkan Ctrl+B (Windows/Linux) atau Cmd+B (macOS) untuk toggle sidebar.",
+        "Gunakan SidebarTrigger di header aplikasi agar pengguna dapat membuka drawer mobile di layar kecil maupun mengecilkan sidebar di desktop.",
+        "Untuk item menu yang merender Next.js <Link />, tambahkan prop asChild pada <SidebarMenuButton asChild><Link href=\"...\">...</Link></SidebarMenuButton>."
+      ]
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "topbar": {
+    "homeAndCustomizer": "Home & Theme Customizer"
+  },
+  "sidebar": {
+    "groups": {
+      "gettingStarted": "Getting Started",
+      "tier1": "Tier 1 • Core Components"
+    },
+    "items": {
+      "introCatalog": "Introduction & Catalog",
+      "homeThemes": "Home (Theme Studio)",
+      "button": "Button",
+      "card": "Card",
+      "badge": "Badge",
+      "input": "Input, Textarea & Label",
+      "avatar": "Avatar",
+      "separator": "Separator",
+      "table": "Table",
+      "dataTable": "Data Table",
+      "pagination": "Pagination",
+      "sidebar": "Sidebar",
+      "scrollArea": "Scroll Area"
+    },
+    "liveThemeCard": {
+      "title": "Live Theme Active",
+      "description": "Use the Theme Customizer to test component contrast across 6 color presets, Light/Dark mode, and border radius options."
+    }
+  },
+  "toc": {
+    "title": "On This Page",
+    "empty": "No subsections on this page.",
+    "backToTop": "Back to Top"
+  },
+  "themeCustomizer": {
+    "title": "Interactive Theme Customizer",
+    "subtitle": "Test 6 color presets, Light/Dark mode, and corner geometry in real-time (auto-saved)",
+    "reset": "Reset",
+    "copyCss": "Copy Theme CSS",
+    "copiedCss": "Copied CSS!",
+    "step1Presets": "1. Color Presets (6 Themes)",
+    "step2Radius": "2. Border Radius",
+    "step3Mode": "3. Appearance Mode (Light / Dark)",
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode"
+  },
+  "previewTabs": {
+    "preview": "Preview",
+    "code": "Code",
+    "copy": "Copy",
+    "copied": "Copied!"
+  },
+  "pager": {
+    "previous": "Previous",
+    "next": "Next"
+  }
+}

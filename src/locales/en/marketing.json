@@ -1,0 +1,24 @@
+{
+  "hero": {
+    "badge": "Design System & 6 Active Themes",
+    "title": "PUNCH UI",
+    "description": "Neobrutalist shadcn/ui component collection featuring crisp 2px borders, 4px 4px 0px hard shadows, and 6 real-time color presets.",
+    "ctaDocs": "Open Documentation & Live Preview"
+  },
+  "cards": {
+    "kpi": {
+      "label": "Total Revenue (KPI Preview)",
+      "value": "Rp 148.520.000",
+      "description": "Uses JetBrains Mono font for maximum numeric legibility."
+    },
+    "mechanical": {
+      "title": "Mechanical Interaction",
+      "description": "Press the buttons below to feel the mechanical active:translate-x-[4px] press effect:"
+    },
+    "accessibility": {
+      "title": "Keyboard Accessibility",
+      "description": "Press the Tab key to see the high-contrast focus outline replacing default blur rings.",
+      "placeholder": "Click or Tab into this input..."
+    }
+  }
+}
