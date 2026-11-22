@@ -328,6 +328,122 @@
         "Place SidebarTrigger inside your top bar so users can open the slide-over drawer on mobile or collapse the sidebar on desktop.",
         "When wrapping Next.js <Link />, pass asChild on <SidebarMenuButton asChild><Link href=\"...\">...</Link></SidebarMenuButton>."
       ]
+    },
+    "select": {
+      "title": "Select",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Neobrutalist select dropdown powered by @radix-ui/react-select featuring a floating shadowed option menu, grouped items, validation states, and 3 trigger sizes.",
+      "sections": {
+        "basic": "1. Basic Select",
+        "composition": "2. Composition",
+        "size": "3. Size",
+        "align": "4. Align Items",
+        "grouped": "5. Grouped & Scrollable",
+        "searchable": "6. Searchable Select",
+        "clearable": "7. Clearable",
+        "states": "8. Validation & Disabled",
+        "form": "9. No Shadow & Form Card"
+      },
+      "props": {
+        "selectSize": "Controls the height and font size of SelectTrigger: sm, default, or lg.",
+        "state": "Applies validation border and shadow styling: default, error, or success.",
+        "noShadow": "Removes the hard shadow on SelectTrigger, ideal when embedded inside a Card.",
+        "clearable": "Displays an × button to clear the active selection on SearchableSelect or SelectTrigger (paired with onClear).",
+        "onClear": "Callback on SelectTrigger invoked when the clear button is clicked to reset value back to \"\".",
+        "position": "Positioning strategy for SelectContent: popper (floating below/above trigger, default) or item-aligned (aligns the selected item directly over the trigger).",
+        "align": "Horizontal alignment of SelectContent relative to the trigger when position=\"popper\" (start, center, or end).",
+        "defaultValue": "Initial selected value for uncontrolled usage.",
+        "value": "Controlled selected value paired with onValueChange.",
+        "disabled": "Disables the entire Select control or individual SelectItem entries."
+      },
+      "usageNotes": [
+        "Pair <Label htmlFor=\"...\"> with <SelectTrigger id=\"...\"> for proper accessibility labeling.",
+        "Organize long lists with <SelectGroup>, <SelectLabel>, and <SelectSeparator />—the option viewport scrolls cleanly with a standard scrollbar.",
+        "Pass noShadow on SelectTrigger inside a Card form to avoid stacked hard shadows."
+      ]
+    },
+    "checkbox": {
+      "title": "Checkbox",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Neobrutalist checkbox powered by @radix-ui/react-checkbox featuring solid accent fills, indeterminate state support, 3 sizes, and error validation.",
+      "sections": {
+        "basic": "1. Basic Checkbox",
+        "size": "2. Size",
+        "variants": "3. Variants",
+        "indeterminate": "4. Indeterminate (Select All)",
+        "card": "5. With Description & Card",
+        "states": "6. Validation, Disabled & No Shadow"
+      },
+      "props": {
+        "variant": "Fill color when checked: primary (default), secondary, success, info, warning, or danger / destructive.",
+        "checkboxSize": "Checkbox dimensions: sm (16px), default (20px), or lg (24px).",
+        "state": "Validation border and shadow state: default or error.",
+        "noShadow": "Removes the hard shadow on the checkbox box.",
+        "checked": "Controlled checked state: true, false, or \"indeterminate\".",
+        "defaultChecked": "Initial checked state for uncontrolled usage.",
+        "disabled": "Disables checkbox interaction."
+      },
+      "usageNotes": [
+        "Always pair <Checkbox id=\"...\" /> with <Label htmlFor=\"...\" /> so clicking the label toggles the checkbox.",
+        "Pass checked=\"indeterminate\" on a parent Select All checkbox when only a subset of child items are selected.",
+        "Use noShadow when embedding Checkbox inside a Card or Data Table row to avoid stacked shadows."
+      ]
+    },
+    "radio-group": {
+      "title": "Radio Group",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Neobrutalist single-choice radio group powered by @radix-ui/react-radio-group with a solid inner indicator, circle or square shapes, 3 sizes, and semantic color variants.",
+      "sections": {
+        "basic": "1. Basic Radio Group",
+        "shape": "2. Shape & Horizontal",
+        "size": "3. Size",
+        "variants": "4. Variants",
+        "card": "5. Card Selection",
+        "states": "6. Validation, Disabled & No Shadow"
+      },
+      "props": {
+        "orientation": "Layout direction on RadioGroup: vertical (default) or horizontal.",
+        "shape": "Geometry of RadioGroupItem: circle (default) or square.",
+        "radioSize": "Dimensions of the radio button: sm, default, or lg.",
+        "variant": "Inner indicator color when selected: primary (default), secondary, success, info, warning, or danger / destructive.",
+        "state": "Validation border and shadow state: default or error.",
+        "noShadow": "Removes the hard shadow on RadioGroupItem.",
+        "defaultValue": "Initial selected value for uncontrolled usage.",
+        "value": "Controlled selected value paired with onValueChange.",
+        "disabled": "Disables the entire RadioGroup or an individual RadioGroupItem."
+      },
+      "usageNotes": [
+        "Use RadioGroup for mutually exclusive choices and Checkbox when multiple options can be selected.",
+        "Always pair <RadioGroupItem id=\"...\" /> with <Label htmlFor=\"...\" /> for accessible click targets.",
+        "When building selectable plan cards, pass noShadow on RadioGroupItem and style the outer card wrapper for active feedback."
+      ]
+    },
+    "switch": {
+      "title": "Switch",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Mechanical Neobrutalist toggle switch powered by @radix-ui/react-switch featuring a 2px-bordered track, pill or square shapes, 3 sizes, and semantic color variants.",
+      "sections": {
+        "basic": "1. Basic Switch",
+        "shape": "2. Shape (Square vs Pill)",
+        "size": "3. Size",
+        "variants": "4. Variants",
+        "card": "5. Settings Card",
+        "states": "6. Disabled & No Shadow"
+      },
+      "props": {
+        "variant": "Track fill color when checked: primary (default), secondary, success, info, warning, or danger / destructive.",
+        "switchSize": "Switch dimensions: sm, default, or lg.",
+        "shape": "Track and thumb geometry: square (default) or pill.",
+        "noShadow": "Removes the hard shadow on the Switch track.",
+        "checked": "Controlled checked state paired with onCheckedChange.",
+        "defaultChecked": "Initial checked state for uncontrolled usage.",
+        "disabled": "Disables Switch interaction."
+      },
+      "usageNotes": [
+        "Use Switch for instant on/off toggles (like Airplane Mode or Auto-Deploy), and Checkbox for multi-select forms submitted later.",
+        "Pair <Switch id=\"...\" /> with <Label htmlFor=\"...\" /> so clicking the label toggles the switch.",
+        "Pass noShadow when placing Switch inside a settings Card to avoid stacked hard shadows."
+      ]
     }
   }
 }

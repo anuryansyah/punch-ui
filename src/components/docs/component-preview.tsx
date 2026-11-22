@@ -115,6 +115,44 @@ import {
   SidebarRightDemo,
   SidebarSubmenuDemo,
 } from "@/examples/sidebar-demo";
+import {
+  SelectAlignDemo,
+  SelectBasicDemo,
+  SelectClearableDemo,
+  SelectDemo,
+  SelectFormCardDemo,
+  SelectGroupedDemo,
+  SelectSearchableDemo,
+  SelectSizeDemo,
+  SelectStatesDemo,
+} from "@/examples/select-demo";
+import {
+  CheckboxBasicDemo,
+  CheckboxCardDemo,
+  CheckboxDemo,
+  CheckboxIndeterminateDemo,
+  CheckboxSizeDemo,
+  CheckboxStatesDemo,
+  CheckboxVariantDemo,
+} from "@/examples/checkbox-demo";
+import {
+  RadioGroupBasicDemo,
+  RadioGroupCardDemo,
+  RadioGroupDemo,
+  RadioGroupShapeDemo,
+  RadioGroupSizeDemo,
+  RadioGroupStatesDemo,
+  RadioGroupVariantDemo,
+} from "@/examples/radio-group-demo";
+import {
+  SwitchBasicDemo,
+  SwitchDemo,
+  SwitchSettingsCardDemo,
+  SwitchShapeDemo,
+  SwitchSizeDemo,
+  SwitchStatesDemo,
+  SwitchVariantDemo,
+} from "@/examples/switch-demo";
 
 const DEMO_REGISTRY: Record<
   string,
@@ -1863,19 +1901,24 @@ export function PaginationRowsPerPageDemo() {
         <label htmlFor="rows-per-page" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
           Rows per page
         </label>
-        <select
-          id="rows-per-page"
-          value={pageSize}
-          onChange={(e) => {
-            setPageSize(Number(e.target.value));
+        <Select
+          value={String(pageSize)}
+          onValueChange={(value) => {
+            setPageSize(Number(value));
             setPage(1);
           }}
-          className="h-8 rounded-md border-2 border-border bg-card px-2 font-mono text-xs font-bold shadow-brutal-sm"
         >
-          {[10, 25, 50].map((size) => (
-            <option key={size} value={size}>{size}</option>
-          ))}
-        </select>
+          <SelectTrigger id="rows-per-page" selectSize="sm" className="w-16 px-2 font-mono">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent align="start">
+            {[10, 25, 50].map((size) => (
+              <SelectItem key={size} value={String(size)} className="py-1.5 pl-7 pr-2 font-mono text-xs">
+                {size}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       <span className="font-mono text-xs font-bold text-muted-foreground">
@@ -2410,6 +2453,388 @@ export function SidebarDemo() {
   </SidebarInset>
 </SidebarProvider>`,
     Component: SidebarRightDemo,
+  },
+  "select-demo": {
+    title: "Select",
+    filePath: "src/examples/select-demo.tsx",
+    codeSnippet: `import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+export function SelectDemo() {
+  return (
+    <Select defaultValue="tangerine">
+      <SelectTrigger className="w-[240px]">
+        <SelectValue placeholder="Choose a preset..." />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="tangerine">Tangerine</SelectItem>
+        <SelectItem value="soft-blue">Soft Blue</SelectItem>
+        <SelectItem value="cyber-yellow">Cyber Yellow</SelectItem>
+      </SelectContent>
+    </Select>
+  );
+}`,
+    Component: SelectDemo,
+  },
+  "select-basic-demo": {
+    title: "Basic Select",
+    filePath: "src/examples/select-demo.tsx",
+    codeSnippet: `<Select defaultValue="tangerine">
+  <SelectTrigger>
+    <SelectValue placeholder="Choose a preset..." />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="tangerine">Tangerine</SelectItem>
+    <SelectItem value="soft-blue">Soft Blue</SelectItem>
+    <SelectItem value="cyber-yellow">Cyber Yellow</SelectItem>
+  </SelectContent>
+</Select>`,
+    Component: SelectBasicDemo,
+  },
+  "select-size-demo": {
+    title: "Size",
+    filePath: "src/examples/select-demo.tsx",
+    codeSnippet: `<SelectTrigger selectSize="sm">...</SelectTrigger>
+<SelectTrigger selectSize="default">...</SelectTrigger>
+<SelectTrigger selectSize="lg">...</SelectTrigger>`,
+    Component: SelectSizeDemo,
+  },
+  "select-grouped-demo": {
+    title: "Grouped & Scrollable",
+    filePath: "src/examples/select-demo.tsx",
+    codeSnippet: `<SelectContent>
+  <SelectGroup>
+    <SelectLabel>Asia</SelectLabel>
+    <SelectItem value="wib">Western Indonesia Time (WIB)</SelectItem>
+    <SelectItem value="jst">Japan Standard Time (JST)</SelectItem>
+  </SelectGroup>
+  <SelectSeparator />
+  <SelectGroup>
+    <SelectLabel>Europe</SelectLabel>
+    <SelectItem value="gmt">Greenwich Mean Time (GMT)</SelectItem>
+  </SelectGroup>
+</SelectContent>`,
+    Component: SelectGroupedDemo,
+  },
+  "select-states-demo": {
+    title: "Validation & Disabled",
+    filePath: "src/examples/select-demo.tsx",
+    codeSnippet: `<SelectTrigger state="success">...</SelectTrigger>
+<SelectTrigger state="error">...</SelectTrigger>
+<Select defaultValue="owner" disabled>...</Select>`,
+    Component: SelectStatesDemo,
+  },
+  "select-form-demo": {
+    title: "No Shadow & Form Card",
+    filePath: "src/examples/select-demo.tsx",
+    codeSnippet: `<Card>
+  <CardContent>
+    <Label htmlFor="invite-role">Workspace Role</Label>
+    <Select value={role} onValueChange={setRole}>
+      <SelectTrigger id="invite-role" noShadow>
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent>...</SelectContent>
+    </Select>
+  </CardContent>
+</Card>`,
+    Component: SelectFormCardDemo,
+  },
+  "select-align-demo": {
+    title: "Align Items",
+    filePath: "src/examples/select-demo.tsx",
+    codeSnippet: `<Select defaultValue="banana">
+  <SelectTrigger>
+    <SelectValue />
+  </SelectTrigger>
+  <SelectContent position="item-aligned">
+    <SelectItem value="apple">Apple</SelectItem>
+    <SelectItem value="banana">Banana (Aligned)</SelectItem>
+  </SelectContent>
+</Select>
+
+<Select defaultValue="md">
+  <SelectTrigger>
+    <SelectValue />
+  </SelectTrigger>
+  <SelectContent position="popper" align="end" className="w-52 min-w-0">
+    <SelectItem value="sm">Small (320px)</SelectItem>
+    <SelectItem value="md">Medium (640px)</SelectItem>
+  </SelectContent>
+</Select>`,
+    Component: SelectAlignDemo,
+  },
+  "select-searchable-demo": {
+    title: "Searchable Select",
+    filePath: "src/examples/select-demo.tsx",
+    codeSnippet: `<SearchableSelect
+  options={FRAMEWORK_OPTIONS}
+  value={framework}
+  onValueChange={setFramework}
+  placeholder="Select a framework..."
+  searchPlaceholder="Type to filter frameworks..."
+/>`,
+    Component: SelectSearchableDemo,
+  },
+  "select-clearable-demo": {
+    title: "Clearable",
+    filePath: "src/examples/select-demo.tsx",
+    codeSnippet: `<Select value={preset} onValueChange={setPreset}>
+  <SelectTrigger clearable={Boolean(preset)} onClear={() => setPreset("")}>
+    <SelectValue placeholder="Choose a preset..." />
+  </SelectTrigger>
+  <SelectContent>...</SelectContent>
+</Select>
+
+<SearchableSelect
+  options={FRAMEWORK_OPTIONS}
+  value={framework}
+  onValueChange={setFramework}
+  clearable
+/>`,
+    Component: SelectClearableDemo,
+  },
+  "checkbox-demo": {
+    title: "Checkbox",
+    filePath: "src/examples/checkbox-demo.tsx",
+    codeSnippet: `import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+
+export function CheckboxDemo() {
+  return (
+    <div className="flex items-center gap-2.5">
+      <Checkbox id="terms" defaultChecked />
+      <Label htmlFor="terms">Accept terms and conditions</Label>
+    </div>
+  );
+}`,
+    Component: CheckboxDemo,
+  },
+  "checkbox-basic-demo": {
+    title: "Basic Checkbox",
+    filePath: "src/examples/checkbox-demo.tsx",
+    codeSnippet: `<div className="flex items-center gap-2.5">
+  <Checkbox id="terms-basic" defaultChecked />
+  <Label htmlFor="terms-basic">Accept terms and conditions</Label>
+</div>`,
+    Component: CheckboxBasicDemo,
+  },
+  "checkbox-size-demo": {
+    title: "Size",
+    filePath: "src/examples/checkbox-demo.tsx",
+    codeSnippet: `<Checkbox checkboxSize="sm" defaultChecked />
+<Checkbox checkboxSize="default" defaultChecked />
+<Checkbox checkboxSize="lg" defaultChecked />`,
+    Component: CheckboxSizeDemo,
+  },
+  "checkbox-variant-demo": {
+    title: "Variants",
+    filePath: "src/examples/checkbox-demo.tsx",
+    codeSnippet: `<Checkbox variant="primary" defaultChecked />
+<Checkbox variant="secondary" defaultChecked />
+<Checkbox variant="success" defaultChecked />
+<Checkbox variant="info" defaultChecked />
+<Checkbox variant="warning" defaultChecked />
+<Checkbox variant="destructive" defaultChecked />`,
+    Component: CheckboxVariantDemo,
+  },
+  "checkbox-indeterminate-demo": {
+    title: "Indeterminate (Select All)",
+    filePath: "src/examples/checkbox-demo.tsx",
+    codeSnippet: `<Checkbox
+  id="perm-all"
+  checked={allChecked ? true : someChecked ? "indeterminate" : false}
+  onCheckedChange={toggleAll}
+/>`,
+    Component: CheckboxIndeterminateDemo,
+  },
+  "checkbox-card-demo": {
+    title: "With Description & Card",
+    filePath: "src/examples/checkbox-demo.tsx",
+    codeSnippet: `<label className="flex items-start gap-3 rounded-md border-2 border-border bg-card p-3.5 shadow-brutal-sm">
+  <Checkbox id="opt-emails" noShadow defaultChecked />
+  <div>
+    <p className="text-sm font-bold">Product Updates</p>
+    <p className="text-xs text-muted-foreground">Receive release notes.</p>
+  </div>
+</label>`,
+    Component: CheckboxCardDemo,
+  },
+  "checkbox-states-demo": {
+    title: "Validation, Disabled & No Shadow",
+    filePath: "src/examples/checkbox-demo.tsx",
+    codeSnippet: `<Checkbox state="error" />
+<Checkbox disabled defaultChecked />
+<Checkbox noShadow defaultChecked />`,
+    Component: CheckboxStatesDemo,
+  },
+  "radio-group-demo": {
+    title: "Radio Group",
+    filePath: "src/examples/radio-group-demo.tsx",
+    codeSnippet: `import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+
+export function RadioGroupDemo() {
+  return (
+    <RadioGroup defaultValue="comfortable">
+      <div className="flex items-center gap-2.5">
+        <RadioGroupItem value="default" id="r1" />
+        <Label htmlFor="r1">Default Density</Label>
+      </div>
+      <div className="flex items-center gap-2.5">
+        <RadioGroupItem value="comfortable" id="r2" />
+        <Label htmlFor="r2">Comfortable</Label>
+      </div>
+    </RadioGroup>
+  );
+}`,
+    Component: RadioGroupDemo,
+  },
+  "radio-group-basic-demo": {
+    title: "Basic Radio Group",
+    filePath: "src/examples/radio-group-demo.tsx",
+    codeSnippet: `<RadioGroup defaultValue="comfortable">
+  <div className="flex items-center gap-2.5">
+    <RadioGroupItem value="default" id="rg-default" />
+    <Label htmlFor="rg-default">Default Density</Label>
+  </div>
+  <div className="flex items-center gap-2.5">
+    <RadioGroupItem value="comfortable" id="rg-comfortable" />
+    <Label htmlFor="rg-comfortable">Comfortable</Label>
+  </div>
+</RadioGroup>`,
+    Component: RadioGroupBasicDemo,
+  },
+  "radio-group-shape-demo": {
+    title: "Shape & Horizontal",
+    filePath: "src/examples/radio-group-demo.tsx",
+    codeSnippet: `<RadioGroup orientation="horizontal" defaultValue="monthly">
+  <RadioGroupItem value="monthly" shape="circle" />
+  <RadioGroupItem value="yearly" shape="circle" />
+</RadioGroup>
+
+<RadioGroup orientation="horizontal" defaultValue="daily">
+  <RadioGroupItem value="daily" shape="square" />
+  <RadioGroupItem value="weekly" shape="square" />
+</RadioGroup>`,
+    Component: RadioGroupShapeDemo,
+  },
+  "radio-group-size-demo": {
+    title: "Size",
+    filePath: "src/examples/radio-group-demo.tsx",
+    codeSnippet: `<RadioGroup orientation="horizontal" defaultValue="default">
+  <RadioGroupItem value="sm" radioSize="sm" />
+  <RadioGroupItem value="default" radioSize="default" />
+  <RadioGroupItem value="lg" radioSize="lg" />
+</RadioGroup>`,
+    Component: RadioGroupSizeDemo,
+  },
+  "radio-group-variant-demo": {
+    title: "Variants",
+    filePath: "src/examples/radio-group-demo.tsx",
+    codeSnippet: `<RadioGroupItem value="primary" variant="primary" />
+<RadioGroupItem value="secondary" variant="secondary" />
+<RadioGroupItem value="success" variant="success" />
+<RadioGroupItem value="info" variant="info" />
+<RadioGroupItem value="warning" variant="warning" />
+<RadioGroupItem value="destructive" variant="destructive" />`,
+    Component: RadioGroupVariantDemo,
+  },
+  "radio-group-card-demo": {
+    title: "Card Selection",
+    filePath: "src/examples/radio-group-demo.tsx",
+    codeSnippet: `<RadioGroup value={plan} onValueChange={setPlan}>
+  <label className="flex items-start justify-between rounded-md border-2 border-border p-3.5">
+    <RadioGroupItem value="pro" noShadow />
+    <span>Pro Studio — $19/mo</span>
+  </label>
+</RadioGroup>`,
+    Component: RadioGroupCardDemo,
+  },
+  "radio-group-states-demo": {
+    title: "Validation, Disabled & No Shadow",
+    filePath: "src/examples/radio-group-demo.tsx",
+    codeSnippet: `<RadioGroupItem value="required" state="error" />
+<RadioGroupItem value="locked" disabled />
+<RadioGroupItem value="flat" noShadow />`,
+    Component: RadioGroupStatesDemo,
+  },
+  "switch-demo": {
+    title: "Switch",
+    filePath: "src/examples/switch-demo.tsx",
+    codeSnippet: `import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+
+export function SwitchDemo() {
+  return (
+    <div className="flex items-center gap-3">
+      <Switch id="airplane-mode" defaultChecked />
+      <Label htmlFor="airplane-mode">Airplane Mode</Label>
+    </div>
+  );
+}`,
+    Component: SwitchDemo,
+  },
+  "switch-basic-demo": {
+    title: "Basic Switch",
+    filePath: "src/examples/switch-demo.tsx",
+    codeSnippet: `<div className="flex items-center gap-3">
+  <Switch id="airplane-mode" defaultChecked />
+  <Label htmlFor="airplane-mode">Airplane Mode</Label>
+</div>`,
+    Component: SwitchBasicDemo,
+  },
+  "switch-shape-demo": {
+    title: "Shape (Square vs Pill)",
+    filePath: "src/examples/switch-demo.tsx",
+    codeSnippet: `<Switch shape="square" defaultChecked />
+<Switch shape="pill" defaultChecked />`,
+    Component: SwitchShapeDemo,
+  },
+  "switch-size-demo": {
+    title: "Size",
+    filePath: "src/examples/switch-demo.tsx",
+    codeSnippet: `<Switch switchSize="sm" defaultChecked />
+<Switch switchSize="default" defaultChecked />
+<Switch switchSize="lg" defaultChecked />`,
+    Component: SwitchSizeDemo,
+  },
+  "switch-variant-demo": {
+    title: "Variants",
+    filePath: "src/examples/switch-demo.tsx",
+    codeSnippet: `<Switch variant="primary" defaultChecked />
+<Switch variant="secondary" defaultChecked />
+<Switch variant="success" defaultChecked />
+<Switch variant="info" defaultChecked />
+<Switch variant="warning" defaultChecked />
+<Switch variant="destructive" defaultChecked />`,
+    Component: SwitchVariantDemo,
+  },
+  "switch-card-demo": {
+    title: "Settings Card",
+    filePath: "src/examples/switch-demo.tsx",
+    codeSnippet: `<Card>
+  <CardContent className="space-y-4">
+    <div className="flex items-center justify-between">
+      <Label htmlFor="pref-2fa">Two-Factor Authentication</Label>
+      <Switch id="pref-2fa" variant="success" noShadow checked={twoFactor} onCheckedChange={setTwoFactor} />
+    </div>
+  </CardContent>
+</Card>`,
+    Component: SwitchSettingsCardDemo,
+  },
+  "switch-states-demo": {
+    title: "Disabled & No Shadow",
+    filePath: "src/examples/switch-demo.tsx",
+    codeSnippet: `<Switch disabled />
+<Switch disabled defaultChecked />
+<Switch noShadow defaultChecked />`,
+    Component: SwitchStatesDemo,
   },
 };
 

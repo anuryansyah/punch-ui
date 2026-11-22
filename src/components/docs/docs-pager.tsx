@@ -20,8 +20,14 @@ export function DocsPager() {
     { title: nav.avatar, href: "/docs/components/avatar" },
     { title: nav.separator, href: "/docs/components/separator" },
     { title: nav.table, href: "/docs/components/table" },
+    { title: nav.dataTable, href: "/docs/components/data-table" },
     { title: nav.pagination, href: "/docs/components/pagination" },
+    { title: nav.sidebar, href: "/docs/components/sidebar" },
     { title: nav.scrollArea, href: "/docs/components/scroll-area" },
+    { title: nav.select, href: "/docs/components/select" },
+    { title: nav.checkbox, href: "/docs/components/checkbox" },
+    { title: nav.radioGroup, href: "/docs/components/radio-group" },
+    { title: nav.switch, href: "/docs/components/switch" },
   ];
 
   const currentIndex = pages.findIndex((p) => p.href === pathname);

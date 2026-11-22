@@ -328,6 +328,122 @@
         "Gunakan SidebarTrigger di header aplikasi agar pengguna dapat membuka drawer mobile di layar kecil maupun mengecilkan sidebar di desktop.",
         "Untuk item menu yang merender Next.js <Link />, tambahkan prop asChild pada <SidebarMenuButton asChild><Link href=\"...\">...</Link></SidebarMenuButton>."
       ]
+    },
+    "select": {
+      "title": "Select",
+      "tier": "Tier 2 • Form & Kontrol Input",
+      "description": "Dropdown pilihan Neobrutalism berbasis @radix-ui/react-select dengan kotak opsi melayang ber-shadow keras, dukungan grup, status validasi, dan 3 ukuran.",
+      "sections": {
+        "basic": "1. Basic Select",
+        "composition": "2. Composition",
+        "size": "3. Size",
+        "align": "4. Align Items",
+        "grouped": "5. Grouped & Scrollable",
+        "searchable": "6. Searchable Select",
+        "clearable": "7. Clearable",
+        "states": "8. Validation & Disabled",
+        "form": "9. No Shadow & Form Card"
+      },
+      "props": {
+        "selectSize": "Mengatur tinggi dan ukuran teks SelectTrigger: sm, default, atau lg.",
+        "state": "Menentukan gaya batas dan bayangan validasi: default, error, atau success.",
+        "noShadow": "Menghilangkan bayangan keras pada SelectTrigger, cocok saat disematkan di dalam Card.",
+        "clearable": "Menampilkan tombol × untuk menghapus pilihan aktif pada SearchableSelect atau SelectTrigger (bersama onClear).",
+        "onClear": "Callback pada SelectTrigger saat tombol clear diklik untuk mereset state value ke \"\".",
+        "position": "Mode posisi SelectContent: popper (melayang di bawah/atas trigger, default) atau item-aligned (menyejajarkan item terpilih tepat di atas trigger).",
+        "align": "Perataan horizontal SelectContent terhadap trigger saat position=\"popper\" (start, center, atau end).",
+        "defaultValue": "Nilai awal opsi yang dipilih pada mode uncontrolled.",
+        "value": "Nilai aktif pada mode controlled (dipasangkan dengan onValueChange).",
+        "disabled": "Menonaktifkan Select secara keseluruhan atau per SelectItem tertentu."
+      },
+      "usageNotes": [
+        "Gunakan <Label htmlFor=\"...\"> yang terhubung dengan prop id pada <SelectTrigger id=\"...\"> untuk aksesibilitas pembaca layar dan klik fokus.",
+        "Untuk daftar opsi panjang, kelompokkan memakai <SelectGroup>, <SelectLabel>, dan <SelectSeparator />—area opsi otomatis dapat di-scroll dengan scrollbar standar.",
+        "Saat memakai Select di dalam Card form, tambahkan prop noShadow pada SelectTrigger agar bayangan tidak bertumpuk."
+      ]
+    },
+    "checkbox": {
+      "title": "Checkbox",
+      "tier": "Tier 2 • Form & Kontrol Input",
+      "description": "Kotak centang Neobrutalism berbasis @radix-ui/react-checkbox dengan isian warna aksen solid, dukungan status indeterminate, 3 ukuran, dan validasi error.",
+      "sections": {
+        "basic": "1. Basic Checkbox",
+        "size": "2. Size",
+        "variants": "3. Variants",
+        "indeterminate": "4. Indeterminate (Select All)",
+        "card": "5. With Description & Card",
+        "states": "6. Validation, Disabled & No Shadow"
+      },
+      "props": {
+        "variant": "Warna isian saat tercentang: primary (default), secondary, success, info, warning, atau danger / destructive.",
+        "checkboxSize": "Ukuran kotak centang: sm (16px), default (20px), atau lg (24px).",
+        "state": "Status validasi batas dan bayangan: default atau error.",
+        "noShadow": "Menghilangkan bayangan keras pada kotak checkbox.",
+        "checked": "Status tercentang terkontrol: true, false, atau \"indeterminate\".",
+        "defaultChecked": "Status awal tercentang untuk mode uncontrolled.",
+        "disabled": "Menonaktifkan interaksi checkbox."
+      },
+      "usageNotes": [
+        "Selalu pasangkan <Checkbox id=\"...\" /> dengan <Label htmlFor=\"...\" /> agar pengguna bisa mengklik teks label untuk mencentang.",
+        "Gunakan checked=\"indeterminate\" pada checkbox induk (misal Select All) ketika hanya sebagian item anak yang tercentang.",
+        "Saat menyematkan Checkbox di dalam Card atau baris Data Table, tambahkan prop noShadow agar bayangan tidak bertumpuk."
+      ]
+    },
+    "radio-group": {
+      "title": "Radio Group",
+      "tier": "Tier 2 • Form & Kontrol Input",
+      "description": "Pilihan tunggal Neobrutalism berbasis @radix-ui/react-radio-group dengan indikator dalam solid, bentuk bulat atau kotak (shape), 3 ukuran, serta varian warna status.",
+      "sections": {
+        "basic": "1. Basic Radio Group",
+        "shape": "2. Shape & Horizontal",
+        "size": "3. Size",
+        "variants": "4. Variants",
+        "card": "5. Card Selection",
+        "states": "6. Validation, Disabled & No Shadow"
+      },
+      "props": {
+        "orientation": "Arah tata letak item pada RadioGroup: vertical (default) atau horizontal.",
+        "shape": "Bentuk RadioGroupItem: circle (bulat default) atau square (kotak siku).",
+        "radioSize": "Ukuran lingkaran/kotak radio: sm, default, atau lg.",
+        "variant": "Warna indikator dalam saat terpilih: primary (default), secondary, success, info, warning, atau danger / destructive.",
+        "state": "Status validasi batas dan bayangan: default atau error.",
+        "noShadow": "Menghilangkan bayangan keras pada RadioGroupItem.",
+        "defaultValue": "Nilai opsi terpilih awal untuk mode uncontrolled.",
+        "value": "Nilai opsi terpilih untuk mode controlled bersama onValueChange.",
+        "disabled": "Menonaktifkan seluruh RadioGroup atau RadioGroupItem tertentu."
+      },
+      "usageNotes": [
+        "Gunakan RadioGroup ketika pengguna hanya boleh memilih satu opsi, dan Checkbox jika boleh memilih lebih dari satu.",
+        "Pasangkan setiap <RadioGroupItem id=\"...\" /> dengan <Label htmlFor=\"...\" /> agar area klik label ikut memilih opsi.",
+        "Untuk pemilihan paket atau kartu opsi, tambahkan prop noShadow pada RadioGroupItem dan atur highlight pada elemen pembungkusnya."
+      ]
+    },
+    "switch": {
+      "title": "Switch",
+      "tier": "Tier 2 • Form & Kontrol Input",
+      "description": "Toggle geser mekanis Neobrutalism berbasis @radix-ui/react-switch dengan track ber-border 2px, pilihan bentuk pill atau kotak (shape), 3 ukuran, dan varian warna status.",
+      "sections": {
+        "basic": "1. Basic Switch",
+        "shape": "2. Shape (Square vs Pill)",
+        "size": "3. Size",
+        "variants": "4. Variants",
+        "card": "5. Settings Card",
+        "states": "6. Disabled & No Shadow"
+      },
+      "props": {
+        "variant": "Warna latar track saat aktif: primary (default), secondary, success, info, warning, atau danger / destructive.",
+        "switchSize": "Ukuran Switch: sm, default, atau lg.",
+        "shape": "Bentuk track dan thumb: square (kotak siku default) atau pill (kapsul).",
+        "noShadow": "Menghilangkan bayangan keras pada Switch.",
+        "checked": "Status aktif terkontrol (dipasangkan dengan onCheckedChange).",
+        "defaultChecked": "Status awal aktif untuk mode uncontrolled.",
+        "disabled": "Menonaktifkan interaksi Switch."
+      },
+      "usageNotes": [
+        "Gunakan Switch untuk pengaturan on/off yang efeknya langsung terasa (seperti Airplane Mode atau Auto-Deploy), dan gunakan Checkbox untuk form yang butuh tombol Submit.",
+        "Pasangkan <Switch id=\"...\" /> dengan <Label htmlFor=\"...\" /> agar pengguna bisa mengklik teks label untuk mengganti status.",
+        "Saat menyematkan Switch di dalam Card pengaturan, tambahkan prop noShadow agar tampilan tetap datar dan bersih."
+      ]
     }
   }
 }

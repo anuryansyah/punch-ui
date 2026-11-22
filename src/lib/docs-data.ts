@@ -249,6 +249,78 @@ function getSidebarPropDesc(
   };
 }
 
+function getSelectSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.select.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.select.sections[secId],
+    en: dictionaries.en.docs.components.select.sections[secId],
+  };
+}
+
+function getSelectPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.select.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.select.props[propName],
+    en: dictionaries.en.docs.components.select.props[propName],
+  };
+}
+
+function getCheckboxSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.checkbox.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.checkbox.sections[secId],
+    en: dictionaries.en.docs.components.checkbox.sections[secId],
+  };
+}
+
+function getCheckboxPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.checkbox.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.checkbox.props[propName],
+    en: dictionaries.en.docs.components.checkbox.props[propName],
+  };
+}
+
+function getRadioGroupSectionTitle(
+  secId: keyof (typeof dictionaries.id.docs.components)["radio-group"]["sections"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["radio-group"].sections[secId],
+    en: dictionaries.en.docs.components["radio-group"].sections[secId],
+  };
+}
+
+function getRadioGroupPropDesc(
+  propName: keyof (typeof dictionaries.id.docs.components)["radio-group"]["props"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["radio-group"].props[propName],
+    en: dictionaries.en.docs.components["radio-group"].props[propName],
+  };
+}
+
+function getSwitchSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.switch.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.switch.sections[secId],
+    en: dictionaries.en.docs.components.switch.sections[secId],
+  };
+}
+
+function getSwitchPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.switch.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.switch.props[propName],
+    en: dictionaries.en.docs.components.switch.props[propName],
+  };
+}
+
 export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
   button: {
     slug: "button",
@@ -1490,6 +1562,437 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
         type: "string",
         defaultValue: "undefined",
         description: getSidebarPropDesc("tooltip"),
+      },
+    ],
+  },
+  select: {
+    slug: "select",
+    ...getComponentText("select"),
+    demoName: "select-demo",
+    sourceFile: "src/components/ui/select.tsx",
+    registryItem: "select",
+    sections: [
+      {
+        id: "basic",
+        title: getSelectSectionTitle("basic"),
+        demoName: "select-basic-demo",
+        propsUsed: "Select SelectTrigger SelectValue SelectContent SelectItem",
+      },
+      {
+        id: "composition",
+        title: getSelectSectionTitle("composition"),
+        tree: {
+          name: "Select",
+          role: "root",
+          children: [
+            {
+              name: "SelectTrigger",
+              role: "section",
+              children: [{ name: "SelectValue", role: "leaf" }],
+            },
+            {
+              name: "SelectContent",
+              role: "section",
+              children: [
+                {
+                  name: "SelectGroup",
+                  role: "section",
+                  children: [
+                    { name: "SelectLabel", role: "leaf" },
+                    { name: "SelectItem", role: "leaf" },
+                    { name: "SelectSeparator", role: "leaf" },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      },
+      {
+        id: "size",
+        title: getSelectSectionTitle("size"),
+        demoName: "select-size-demo",
+        propsUsed: 'selectSize="sm | default | lg"',
+      },
+      {
+        id: "align",
+        title: getSelectSectionTitle("align"),
+        demoName: "select-align-demo",
+        propsUsed: 'position="item-aligned" align="end"',
+      },
+      {
+        id: "grouped",
+        title: getSelectSectionTitle("grouped"),
+        demoName: "select-grouped-demo",
+        propsUsed: "SelectGroup SelectLabel SelectSeparator",
+      },
+      {
+        id: "searchable",
+        title: getSelectSectionTitle("searchable"),
+        demoName: "select-searchable-demo",
+        propsUsed: "SearchableSelect options searchPlaceholder",
+      },
+      {
+        id: "clearable",
+        title: getSelectSectionTitle("clearable"),
+        demoName: "select-clearable-demo",
+        propsUsed: "clearable onClear",
+      },
+      {
+        id: "states",
+        title: getSelectSectionTitle("states"),
+        demoName: "select-states-demo",
+        propsUsed: 'state="success | error" disabled',
+      },
+      {
+        id: "form",
+        title: getSelectSectionTitle("form"),
+        demoName: "select-form-demo",
+        propsUsed: "noShadow Label Card",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "selectSize",
+        type: '"sm" | "default" | "lg"',
+        defaultValue: '"default"',
+        description: getSelectPropDesc("selectSize"),
+      },
+      {
+        prop: "state",
+        type: '"default" | "error" | "success"',
+        defaultValue: '"default"',
+        description: getSelectPropDesc("state"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getSelectPropDesc("noShadow"),
+      },
+      {
+        prop: "clearable",
+        type: "boolean",
+        defaultValue: "false",
+        description: getSelectPropDesc("clearable"),
+      },
+      {
+        prop: "onClear",
+        type: "() => void",
+        defaultValue: "undefined",
+        description: getSelectPropDesc("onClear"),
+      },
+      {
+        prop: "position",
+        type: '"popper" | "item-aligned"',
+        defaultValue: '"popper"',
+        description: getSelectPropDesc("position"),
+      },
+      {
+        prop: "align",
+        type: '"start" | "center" | "end"',
+        defaultValue: '"center"',
+        description: getSelectPropDesc("align"),
+      },
+      {
+        prop: "defaultValue",
+        type: "string",
+        defaultValue: "undefined",
+        description: getSelectPropDesc("defaultValue"),
+      },
+      {
+        prop: "value",
+        type: "string",
+        defaultValue: "undefined",
+        description: getSelectPropDesc("value"),
+      },
+      {
+        prop: "disabled",
+        type: "boolean",
+        defaultValue: "false",
+        description: getSelectPropDesc("disabled"),
+      },
+    ],
+  },
+  checkbox: {
+    slug: "checkbox",
+    ...getComponentText("checkbox"),
+    demoName: "checkbox-demo",
+    sourceFile: "src/components/ui/checkbox.tsx",
+    registryItem: "checkbox",
+    sections: [
+      {
+        id: "basic",
+        title: getCheckboxSectionTitle("basic"),
+        demoName: "checkbox-basic-demo",
+        propsUsed: "Checkbox Label defaultChecked",
+      },
+      {
+        id: "size",
+        title: getCheckboxSectionTitle("size"),
+        demoName: "checkbox-size-demo",
+        propsUsed: 'checkboxSize="sm | default | lg"',
+      },
+      {
+        id: "variants",
+        title: getCheckboxSectionTitle("variants"),
+        demoName: "checkbox-variant-demo",
+        propsUsed:
+          'variant="primary | secondary | success | info | warning | destructive"',
+      },
+      {
+        id: "indeterminate",
+        title: getCheckboxSectionTitle("indeterminate"),
+        demoName: "checkbox-indeterminate-demo",
+        propsUsed: 'checked="indeterminate" onCheckedChange',
+      },
+      {
+        id: "card",
+        title: getCheckboxSectionTitle("card"),
+        demoName: "checkbox-card-demo",
+        propsUsed: "noShadow variant",
+      },
+      {
+        id: "states",
+        title: getCheckboxSectionTitle("states"),
+        demoName: "checkbox-states-demo",
+        propsUsed: 'state="error" disabled noShadow',
+      },
+    ],
+    propsTable: [
+      {
+        prop: "variant",
+        type: '"primary" | "secondary" | "success" | "info" | "warning" | "danger" | "destructive"',
+        defaultValue: '"primary"',
+        description: getCheckboxPropDesc("variant"),
+      },
+      {
+        prop: "checkboxSize",
+        type: '"sm" | "default" | "lg"',
+        defaultValue: '"default"',
+        description: getCheckboxPropDesc("checkboxSize"),
+      },
+      {
+        prop: "state",
+        type: '"default" | "error"',
+        defaultValue: '"default"',
+        description: getCheckboxPropDesc("state"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getCheckboxPropDesc("noShadow"),
+      },
+      {
+        prop: "checked",
+        type: 'boolean | "indeterminate"',
+        defaultValue: "undefined",
+        description: getCheckboxPropDesc("checked"),
+      },
+      {
+        prop: "defaultChecked",
+        type: 'boolean | "indeterminate"',
+        defaultValue: "false",
+        description: getCheckboxPropDesc("defaultChecked"),
+      },
+      {
+        prop: "disabled",
+        type: "boolean",
+        defaultValue: "false",
+        description: getCheckboxPropDesc("disabled"),
+      },
+    ],
+  },
+  "radio-group": {
+    slug: "radio-group",
+    ...getComponentText("radio-group"),
+    demoName: "radio-group-demo",
+    sourceFile: "src/components/ui/radio-group.tsx",
+    registryItem: "radio-group",
+    sections: [
+      {
+        id: "basic",
+        title: getRadioGroupSectionTitle("basic"),
+        demoName: "radio-group-basic-demo",
+        propsUsed: "RadioGroup RadioGroupItem Label",
+      },
+      {
+        id: "shape",
+        title: getRadioGroupSectionTitle("shape"),
+        demoName: "radio-group-shape-demo",
+        propsUsed: 'shape="circle | square" orientation="horizontal"',
+      },
+      {
+        id: "size",
+        title: getRadioGroupSectionTitle("size"),
+        demoName: "radio-group-size-demo",
+        propsUsed: 'radioSize="sm | default | lg"',
+      },
+      {
+        id: "variants",
+        title: getRadioGroupSectionTitle("variants"),
+        demoName: "radio-group-variant-demo",
+        propsUsed:
+          'variant="primary | secondary | success | info | warning | destructive"',
+      },
+      {
+        id: "card",
+        title: getRadioGroupSectionTitle("card"),
+        demoName: "radio-group-card-demo",
+        propsUsed: "noShadow value onValueChange",
+      },
+      {
+        id: "states",
+        title: getRadioGroupSectionTitle("states"),
+        demoName: "radio-group-states-demo",
+        propsUsed: 'state="error" disabled noShadow',
+      },
+    ],
+    propsTable: [
+      {
+        prop: "orientation",
+        type: '"vertical" | "horizontal"',
+        defaultValue: '"vertical"',
+        description: getRadioGroupPropDesc("orientation"),
+      },
+      {
+        prop: "shape",
+        type: '"circle" | "square"',
+        defaultValue: '"circle"',
+        description: getRadioGroupPropDesc("shape"),
+      },
+      {
+        prop: "radioSize",
+        type: '"sm" | "default" | "lg"',
+        defaultValue: '"default"',
+        description: getRadioGroupPropDesc("radioSize"),
+      },
+      {
+        prop: "variant",
+        type: '"primary" | "secondary" | "success" | "info" | "warning" | "danger" | "destructive"',
+        defaultValue: '"primary"',
+        description: getRadioGroupPropDesc("variant"),
+      },
+      {
+        prop: "state",
+        type: '"default" | "error"',
+        defaultValue: '"default"',
+        description: getRadioGroupPropDesc("state"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getRadioGroupPropDesc("noShadow"),
+      },
+      {
+        prop: "defaultValue",
+        type: "string",
+        defaultValue: "undefined",
+        description: getRadioGroupPropDesc("defaultValue"),
+      },
+      {
+        prop: "value",
+        type: "string",
+        defaultValue: "undefined",
+        description: getRadioGroupPropDesc("value"),
+      },
+      {
+        prop: "disabled",
+        type: "boolean",
+        defaultValue: "false",
+        description: getRadioGroupPropDesc("disabled"),
+      },
+    ],
+  },
+  switch: {
+    slug: "switch",
+    ...getComponentText("switch"),
+    demoName: "switch-demo",
+    sourceFile: "src/components/ui/switch.tsx",
+    registryItem: "switch",
+    sections: [
+      {
+        id: "basic",
+        title: getSwitchSectionTitle("basic"),
+        demoName: "switch-basic-demo",
+        propsUsed: "Switch Label defaultChecked",
+      },
+      {
+        id: "shape",
+        title: getSwitchSectionTitle("shape"),
+        demoName: "switch-shape-demo",
+        propsUsed: 'shape="pill | square"',
+      },
+      {
+        id: "size",
+        title: getSwitchSectionTitle("size"),
+        demoName: "switch-size-demo",
+        propsUsed: 'switchSize="sm | default | lg"',
+      },
+      {
+        id: "variants",
+        title: getSwitchSectionTitle("variants"),
+        demoName: "switch-variant-demo",
+        propsUsed:
+          'variant="primary | secondary | success | info | warning | destructive"',
+      },
+      {
+        id: "card",
+        title: getSwitchSectionTitle("card"),
+        demoName: "switch-card-demo",
+        propsUsed: "Card noShadow checked onCheckedChange",
+      },
+      {
+        id: "states",
+        title: getSwitchSectionTitle("states"),
+        demoName: "switch-states-demo",
+        propsUsed: "disabled noShadow",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "variant",
+        type: '"primary" | "secondary" | "success" | "info" | "warning" | "danger" | "destructive"',
+        defaultValue: '"primary"',
+        description: getSwitchPropDesc("variant"),
+      },
+      {
+        prop: "switchSize",
+        type: '"sm" | "default" | "lg"',
+        defaultValue: '"default"',
+        description: getSwitchPropDesc("switchSize"),
+      },
+      {
+        prop: "shape",
+        type: '"square" | "pill"',
+        defaultValue: '"square"',
+        description: getSwitchPropDesc("shape"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getSwitchPropDesc("noShadow"),
+      },
+      {
+        prop: "checked",
+        type: "boolean",
+        defaultValue: "undefined",
+        description: getSwitchPropDesc("checked"),
+      },
+      {
+        prop: "defaultChecked",
+        type: "boolean",
+        defaultValue: "false",
+        description: getSwitchPropDesc("defaultChecked"),
+      },
+      {
+        prop: "disabled",
+        type: "boolean",
+        defaultValue: "false",
+        description: getSwitchPropDesc("disabled"),
       },
     ],
   },

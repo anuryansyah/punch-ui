@@ -5,7 +5,8 @@
   "sidebar": {
     "groups": {
       "gettingStarted": "Memulai",
-      "tier1": "Tier 1 • Pondasi Komponen"
+      "tier1": "Tier 1 • Pondasi Komponen",
+      "tier2": "Tier 2 • Form & Kontrol Input"
     },
     "items": {
       "introCatalog": "Pengenalan & Katalog",
@@ -20,7 +21,11 @@
       "dataTable": "Data Table",
       "pagination": "Pagination",
       "sidebar": "Sidebar",
-      "scrollArea": "Scroll Area"
+      "scrollArea": "Scroll Area",
+      "select": "Select",
+      "checkbox": "Checkbox",
+      "radioGroup": "Radio Group",
+      "switch": "Switch"
     },
     "liveThemeCard": {
       "title": "Tema Live Aktif",

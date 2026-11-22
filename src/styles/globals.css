@@ -81,6 +81,16 @@
     height: var(--scrollbar-size, 8px);
   }
 
+  /* Tampilkan scrollbar standar pada Radix SelectViewport agar seragam */
+  [data-radix-select-viewport] {
+    scrollbar-width: auto !important;
+    -ms-overflow-style: auto !important;
+  }
+
+  [data-radix-select-viewport]::-webkit-scrollbar {
+    display: block !important;
+  }
+
   ::-webkit-scrollbar-track {
     background: var(--muted);
     border-left: 1.5px solid var(--border);

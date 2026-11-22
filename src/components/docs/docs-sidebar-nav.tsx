@@ -36,6 +36,15 @@ export function DocsSidebarNav() {
         { title: nav.items.scrollArea, href: "/docs/components/scroll-area" },
       ],
     },
+    {
+      group: nav.groups.tier2,
+      items: [
+        { title: nav.items.select, href: "/docs/components/select" },
+        { title: nav.items.checkbox, href: "/docs/components/checkbox" },
+        { title: nav.items.radioGroup, href: "/docs/components/radio-group" },
+        { title: nav.items.switch, href: "/docs/components/switch" },
+      ],
+    },
   ];
 
   return (

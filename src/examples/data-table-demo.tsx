@@ -5,6 +5,7 @@ import { MoreHorizontal } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { DataTable, DataTableColumnHeader } from "@/components/ui/data-table";
 
 export interface PaymentRecord {
@@ -240,21 +241,26 @@ const SELECTION_COLUMNS: ColumnDef<PaymentRecord>[] = [
     id: "select",
     enableHiding: false,
     header: ({ table }) => (
-      <input
-        type="checkbox"
+      <Checkbox
+        checkboxSize="sm"
+        noShadow
         aria-label="Select all rows"
-        checked={table.getIsAllPageRowsSelected()}
-        onChange={(e) => table.toggleAllPageRowsSelected(e.target.checked)}
-        className="h-4 w-4 cursor-pointer accent-primary"
+        checked={
+          table.getIsAllPageRowsSelected() ||
+          (table.getIsSomePageRowsSelected() && "indeterminate")
+        }
+        onCheckedChange={(value) =>
+          table.toggleAllPageRowsSelected(value === true)
+        }
       />
     ),
     cell: ({ row }) => (
-      <input
-        type="checkbox"
+      <Checkbox
+        checkboxSize="sm"
+        noShadow
         aria-label={`Select row ${row.original.id}`}
         checked={row.getIsSelected()}
-        onChange={(e) => row.toggleSelected(e.target.checked)}
-        className="h-4 w-4 cursor-pointer accent-primary"
+        onCheckedChange={(value) => row.toggleSelected(value === true)}
       />
     ),
   },
