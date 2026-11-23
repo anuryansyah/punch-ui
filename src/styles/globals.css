@@ -92,9 +92,8 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--muted);
-    border-left: 1.5px solid var(--border);
-    border-top: 1.5px solid var(--border);
+    background: transparent;
+    border: none;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -108,9 +107,14 @@
   }
 
   ::-webkit-scrollbar-corner {
-    background: var(--muted);
-    border-left: 1.5px solid var(--border);
-    border-top: 1.5px solid var(--border);
+    background: transparent;
+    border: none;
+  }
+
+  .scrollbar-bordered::-webkit-scrollbar-track,
+  .scrollbar-bordered::-webkit-scrollbar-corner {
+    background: transparent;
+    border: 1.5px solid var(--border);
   }
 }
 

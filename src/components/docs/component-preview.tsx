@@ -78,6 +78,7 @@ import {
   ScrollAreaDemo,
   ScrollAreaGhostDemo,
   ScrollAreaHorizontalDemo,
+  ScrollAreaScrollbarVariantDemo,
   ScrollAreaSizeDemo,
   ScrollAreaVerticalDemo,
 } from "@/examples/scroll-area-demo";
@@ -196,6 +197,78 @@ import {
   InputOTPSizeDemo,
   InputOTPStatesDemo,
 } from "@/examples/input-otp-demo";
+import {
+  DialogBasicDemo,
+  DialogFormDemo,
+  DialogHeaderVariantDemo,
+  DialogScrollableDemo,
+  DialogSizeDemo,
+} from "@/examples/dialog-demo";
+import {
+  AlertDialogAsyncDemo,
+  AlertDialogBasicDemo,
+  AlertDialogDestructiveDemo,
+} from "@/examples/alert-dialog-demo";
+import {
+  SheetBasicDemo,
+  SheetFilterDemo,
+  SheetNavigationDemo,
+  SheetScrollableDemo,
+  SheetSidesDemo,
+} from "@/examples/sheet-demo";
+import {
+  DropdownMenuBasicDemo,
+  DropdownMenuCheckboxesDemo,
+  DropdownMenuRadioDemo,
+  DropdownMenuSubmenuDemo,
+} from "@/examples/dropdown-menu-demo";
+import {
+  PopoverBasicDemo,
+  PopoverNoShadowDemo,
+  PopoverPlacementDemo,
+  PopoverProfileDemo,
+} from "@/examples/popover-demo";
+import {
+  TooltipBasicDemo,
+  TooltipPlacementDemo,
+  TooltipToolbarDemo,
+  TooltipVariantsDemo,
+} from "@/examples/tooltip-demo";
+import {
+  TabsBasicDemo,
+  TabsFolderDemo,
+  TabsSizesDemo,
+  TabsStatesDemo,
+  TabsUnderlineDemo,
+  TabsVerticalDemo,
+} from "@/examples/tabs-demo";
+import {
+  ButtonGroupBasicDemo,
+  ButtonGroupInputDemo,
+  ButtonGroupNoShadowDemo,
+  ButtonGroupSizeDemo,
+  ButtonGroupSplitDemo,
+  ButtonGroupVerticalDemo,
+} from "@/examples/button-group-demo";
+import {
+  BreadcrumbBasicDemo,
+  BreadcrumbDropdownDemo,
+  BreadcrumbSeparatorDemo,
+  BreadcrumbVariantsDemo,
+} from "@/examples/breadcrumb-demo";
+import {
+  AlertBasicDemo,
+  AlertDismissibleDemo,
+  AlertNoShadowDemo,
+  AlertVariantsDemo,
+} from "@/examples/alert-demo";
+import {
+  SonnerActionDemo,
+  SonnerBasicDemo,
+  SonnerPositionDemo,
+  SonnerPromiseDemo,
+  SonnerVariantsDemo,
+} from "@/examples/sonner-demo";
 
 const DEMO_REGISTRY: Record<
   string,
@@ -1738,6 +1811,14 @@ export function ScrollAreaGhostDemo() {
   );
 }`,
     Component: ScrollAreaGhostDemo,
+  },
+  "scroll-area-variant-demo": {
+    title: "Scrollbar Variant",
+    filePath: "src/examples/scroll-area-demo.tsx",
+    codeSnippet: `<ScrollArea scrollbarVariant="default" className="h-44">...</ScrollArea>
+<ScrollArea scrollbarVariant="auto" className="h-44">...</ScrollArea>
+<ScrollArea scrollbarVariant="bordered" className="h-44">...</ScrollArea>`,
+    Component: ScrollAreaScrollbarVariantDemo,
   },
   "pagination-demo": {
     title: "Pagination Overview",
@@ -3342,6 +3423,673 @@ export function DatePickerDemo() {
   </CardFooter>
 </Card>`,
     Component: InputOTPCardDemo,
+  },
+  "dialog-demo": {
+    title: "Dialog Overview",
+    filePath: "src/examples/dialog-demo.tsx",
+    Component: DialogBasicDemo,
+  },
+  "dialog-basic-demo": {
+    title: "Basic Dialog",
+    filePath: "src/examples/dialog-demo.tsx",
+    codeSnippet: `<Dialog>
+  <DialogTrigger asChild>
+    <Button>Open Dialog</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Welcome to Punch UI</DialogTitle>
+      <DialogDescription>Bold 2px borders and hard offset shadows.</DialogDescription>
+    </DialogHeader>
+    <DialogFooter>
+      <DialogClose asChild><Button variant="outline">Close</Button></DialogClose>
+      <DialogClose asChild><Button>Got It</Button></DialogClose>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>`,
+    Component: DialogBasicDemo,
+  },
+  "dialog-form-demo": {
+    title: "Form Dialog",
+    filePath: "src/examples/dialog-demo.tsx",
+    codeSnippet: `<Dialog open={open} onOpenChange={setOpen}>
+  <DialogTrigger asChild>
+    <Button variant="secondary">Edit Profile</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <form onSubmit={handleSave} className="space-y-4">
+      <DialogHeader>
+        <DialogTitle>Edit Member Profile</DialogTitle>
+      </DialogHeader>
+      <Input value={name} onChange={(e) => setName(e.target.value)} />
+      <DialogFooter>
+        <DialogClose asChild><Button type="button" variant="outline">Cancel</Button></DialogClose>
+        <Button type="submit">Save Changes</Button>
+      </DialogFooter>
+    </form>
+  </DialogContent>
+</Dialog>`,
+    Component: DialogFormDemo,
+  },
+  "dialog-size-demo": {
+    title: "Size",
+    filePath: "src/examples/dialog-demo.tsx",
+    codeSnippet: `<DialogContent size="sm">...</DialogContent>
+<DialogContent size="default">...</DialogContent>
+<DialogContent size="lg">...</DialogContent>
+<DialogContent size="xl">...</DialogContent>`,
+    Component: DialogSizeDemo,
+  },
+  "dialog-scrollable-demo": {
+    title: "Scrollable Content",
+    filePath: "src/examples/dialog-demo.tsx",
+    codeSnippet: `<DialogContent className="flex max-h-[80vh] flex-col">
+  <DialogHeader>
+    <DialogTitle>Release Changelog</DialogTitle>
+  </DialogHeader>
+  <div className="min-h-0 flex-1 space-y-4 overflow-y-auto pr-2">...</div>
+  <DialogFooter className="border-t-2 border-border pt-4">...</DialogFooter>
+</DialogContent>`,
+    Component: DialogScrollableDemo,
+  },
+  "dialog-header-demo": {
+    title: "Accent Header",
+    filePath: "src/examples/dialog-demo.tsx",
+    codeSnippet: `<DialogHeader variant="primary">
+  <DialogTitle>Deploy to Production</DialogTitle>
+</DialogHeader>
+
+<DialogHeader variant="secondary">
+  <DialogTitle>Pro Workspace Unlocked</DialogTitle>
+</DialogHeader>`,
+    Component: DialogHeaderVariantDemo,
+  },
+  "alert-dialog-demo": {
+    title: "Alert Dialog Overview",
+    filePath: "src/examples/alert-dialog-demo.tsx",
+    Component: AlertDialogBasicDemo,
+  },
+  "alert-dialog-basic-demo": {
+    title: "Basic Confirmation",
+    filePath: "src/examples/alert-dialog-demo.tsx",
+    codeSnippet: `<AlertDialog>
+  <AlertDialogTrigger asChild>
+    <Button variant="outline">Publish Registry</Button>
+  </AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Publish v1.0.0 to Registry?</AlertDialogTitle>
+      <AlertDialogDescription>Downstream projects will receive the update immediately.</AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel>Cancel</AlertDialogCancel>
+      <AlertDialogAction>Continue</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>`,
+    Component: AlertDialogBasicDemo,
+  },
+  "alert-dialog-destructive-demo": {
+    title: "Destructive Action",
+    filePath: "src/examples/alert-dialog-demo.tsx",
+    codeSnippet: `<AlertDialogFooter>
+  <AlertDialogCancel>Keep Workspace</AlertDialogCancel>
+  <AlertDialogAction variant="danger" onClick={handleDelete}>
+    Yes, Delete Everything
+  </AlertDialogAction>
+</AlertDialogFooter>`,
+    Component: AlertDialogDestructiveDemo,
+  },
+  "alert-dialog-async-demo": {
+    title: "Async / Loading Action",
+    filePath: "src/examples/alert-dialog-demo.tsx",
+    codeSnippet: `<AlertDialog open={open} onOpenChange={setOpen}>
+  <AlertDialogContent>
+    <AlertDialogFooter>
+      <AlertDialogCancel disabled={loading}>Cancel</AlertDialogCancel>
+      <AlertDialogAction
+        variant="danger"
+        isLoading={loading}
+        onClick={(e) => {
+          e.preventDefault();
+          handleConfirm();
+        }}
+      >
+        Revoke Sessions
+      </AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>`,
+    Component: AlertDialogAsyncDemo,
+  },
+  "sheet-demo": {
+    title: "Sheet Overview",
+    filePath: "src/examples/sheet-demo.tsx",
+    Component: SheetBasicDemo,
+  },
+  "sheet-basic-demo": {
+    title: "Basic Sheet",
+    filePath: "src/examples/sheet-demo.tsx",
+    codeSnippet: `<Sheet>
+  <SheetTrigger asChild>
+    <Button>Open Sheet</Button>
+  </SheetTrigger>
+  <SheetContent>
+    <SheetHeader>
+      <SheetTitle>Quick Inspector</SheetTitle>
+      <SheetDescription>Slide-over panel for secondary details.</SheetDescription>
+    </SheetHeader>
+    <SheetFooter>
+      <SheetClose asChild><Button variant="outline">Close</Button></SheetClose>
+      <SheetClose asChild><Button>Done</Button></SheetClose>
+    </SheetFooter>
+  </SheetContent>
+</Sheet>`,
+    Component: SheetBasicDemo,
+  },
+  "sheet-sides-demo": {
+    title: "Four Sides",
+    filePath: "src/examples/sheet-demo.tsx",
+    codeSnippet: `<SheetContent side="top">...</SheetContent>
+<SheetContent side="right">...</SheetContent>
+<SheetContent side="bottom">...</SheetContent>
+<SheetContent side="left">...</SheetContent>`,
+    Component: SheetSidesDemo,
+  },
+  "sheet-filter-demo": {
+    title: "Filter & Form Drawer",
+    filePath: "src/examples/sheet-demo.tsx",
+    codeSnippet: `<Sheet open={open} onOpenChange={setOpen}>
+  <SheetTrigger asChild>
+    <Button variant="secondary">Filter Data</Button>
+  </SheetTrigger>
+  <SheetContent>
+    <form onSubmit={handleApply} className="flex h-full flex-col gap-5">
+      <SheetHeader><SheetTitle>Filter Deployments</SheetTitle></SheetHeader>
+      {/* Input, Switch, Checkbox */}
+      <SheetFooter>
+        <SheetClose asChild><Button type="button" variant="outline">Cancel</Button></SheetClose>
+        <Button type="submit">Apply Filters</Button>
+      </SheetFooter>
+    </form>
+  </SheetContent>
+</Sheet>`,
+    Component: SheetFilterDemo,
+  },
+  "sheet-navigation-demo": {
+    title: "Mobile Navigation Drawer",
+    filePath: "src/examples/sheet-demo.tsx",
+    codeSnippet: `<SheetContent side="left" size="sm">
+  <SheetHeader variant="primary">
+    <SheetTitle>Punch UI</SheetTitle>
+    <SheetDescription>Workspace Navigation</SheetDescription>
+  </SheetHeader>
+  {/* Navigation links */}
+</SheetContent>`,
+    Component: SheetNavigationDemo,
+  },
+  "sheet-scrollable-demo": {
+    title: "Scrollable Content",
+    filePath: "src/examples/sheet-demo.tsx",
+    codeSnippet: `<SheetContent>
+  <SheetHeader><SheetTitle>Audit Activity Feed</SheetTitle></SheetHeader>
+  <ScrollArea variant="ghost" scrollbarVariant="auto" className="min-h-0 flex-1">
+    ...
+  </ScrollArea>
+  <SheetFooter className="border-t-2 border-border pt-4">...</SheetFooter>
+</SheetContent>`,
+    Component: SheetScrollableDemo,
+  },
+  "dropdown-menu-demo": {
+    title: "Dropdown Menu Overview",
+    filePath: "src/examples/dropdown-menu-demo.tsx",
+    Component: DropdownMenuBasicDemo,
+  },
+  "dropdown-menu-basic-demo": {
+    title: "Basic Action Menu",
+    filePath: "src/examples/dropdown-menu-demo.tsx",
+    codeSnippet: `<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button variant="outline">My Account</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent className="w-56">
+    <DropdownMenuLabel>Workspace Account</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>
+      <User strokeWidth={2.5} />
+      <span>Profile</span>
+      <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+    </DropdownMenuItem>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem variant="danger">
+      <LogOut strokeWidth={2.5} />
+      <span>Log out</span>
+    </DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>`,
+    Component: DropdownMenuBasicDemo,
+  },
+  "dropdown-menu-checkboxes-demo": {
+    title: "Checkbox Items",
+    filePath: "src/examples/dropdown-menu-demo.tsx",
+    codeSnippet: `<DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}>
+  Status Bar
+</DropdownMenuCheckboxItem>`,
+    Component: DropdownMenuCheckboxesDemo,
+  },
+  "dropdown-menu-radio-demo": {
+    title: "Radio Group Items",
+    filePath: "src/examples/dropdown-menu-demo.tsx",
+    codeSnippet: `<DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+  <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
+  <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
+  <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
+</DropdownMenuRadioGroup>`,
+    Component: DropdownMenuRadioDemo,
+  },
+  "dropdown-menu-submenu-demo": {
+    title: "Nested Submenu",
+    filePath: "src/examples/dropdown-menu-demo.tsx",
+    codeSnippet: `<DropdownMenuSub>
+  <DropdownMenuSubTrigger>Invite Users</DropdownMenuSubTrigger>
+  <DropdownMenuPortal>
+    <DropdownMenuSubContent>
+      <DropdownMenuItem>Invite via Email</DropdownMenuItem>
+      <DropdownMenuItem>Copy Invite Link</DropdownMenuItem>
+    </DropdownMenuSubContent>
+  </DropdownMenuPortal>
+</DropdownMenuSub>`,
+    Component: DropdownMenuSubmenuDemo,
+  },
+  "popover-demo": {
+    title: "Popover Overview",
+    filePath: "src/examples/popover-demo.tsx",
+    Component: PopoverBasicDemo,
+  },
+  "popover-basic-demo": {
+    title: "Basic Popover",
+    filePath: "src/examples/popover-demo.tsx",
+    codeSnippet: `<Popover>
+  <PopoverTrigger asChild>
+    <Button variant="outline">Dimensions</Button>
+  </PopoverTrigger>
+  <PopoverContent className="w-80">
+    {/* Mini form controls */}
+  </PopoverContent>
+</Popover>`,
+    Component: PopoverBasicDemo,
+  },
+  "popover-placement-demo": {
+    title: "Placement",
+    filePath: "src/examples/popover-demo.tsx",
+    codeSnippet: `<PopoverContent side="top">...</PopoverContent>
+<PopoverContent side="right">...</PopoverContent>
+<PopoverContent side="bottom">...</PopoverContent>
+<PopoverContent side="left">...</PopoverContent>`,
+    Component: PopoverPlacementDemo,
+  },
+  "popover-profile-demo": {
+    title: "Rich Profile Card",
+    filePath: "src/examples/popover-demo.tsx",
+    codeSnippet: `<PopoverContent align="start" className="w-72">
+  <Avatar><AvatarFallback>AM</AvatarFallback></Avatar>
+  ...
+</PopoverContent>`,
+    Component: PopoverProfileDemo,
+  },
+  "popover-no-shadow-demo": {
+    title: "No Shadow",
+    filePath: "src/examples/popover-demo.tsx",
+    codeSnippet: `<PopoverContent noShadow className="w-64">...</PopoverContent>`,
+    Component: PopoverNoShadowDemo,
+  },
+  "tooltip-demo": {
+    title: "Tooltip Overview",
+    filePath: "src/examples/tooltip-demo.tsx",
+    Component: TooltipBasicDemo,
+  },
+  "tooltip-basic-demo": {
+    title: "Basic Tooltip",
+    filePath: "src/examples/tooltip-demo.tsx",
+    codeSnippet: `<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger asChild>
+      <Button variant="outline">Hover or Focus Me</Button>
+    </TooltipTrigger>
+    <TooltipContent showArrow>
+      <p>High-contrast Neobrutalist tooltip</p>
+    </TooltipContent>
+  </Tooltip>
+</TooltipProvider>`,
+    Component: TooltipBasicDemo,
+  },
+  "tooltip-placement-demo": {
+    title: "Placement",
+    filePath: "src/examples/tooltip-demo.tsx",
+    codeSnippet: `<TooltipContent side="top" showArrow>side="top"</TooltipContent>
+<TooltipContent side="right" showArrow>side="right"</TooltipContent>
+<TooltipContent side="bottom" showArrow>side="bottom"</TooltipContent>
+<TooltipContent side="left" showArrow>side="left"</TooltipContent>`,
+    Component: TooltipPlacementDemo,
+  },
+  "tooltip-variants-demo": {
+    title: "Variants & No Shadow",
+    filePath: "src/examples/tooltip-demo.tsx",
+    codeSnippet: `<TooltipContent variant="default">Default</TooltipContent>
+<TooltipContent variant="card">Card</TooltipContent>
+<TooltipContent variant="primary">Primary</TooltipContent>
+<TooltipContent variant="secondary">Secondary</TooltipContent>
+<TooltipContent variant="card" noShadow>No Shadow</TooltipContent>`,
+    Component: TooltipVariantsDemo,
+  },
+  "tooltip-toolbar-demo": {
+    title: "Icon Toolbar & Shortcuts",
+    filePath: "src/examples/tooltip-demo.tsx",
+    codeSnippet: `<TooltipProvider delayDuration={0}>
+  <Tooltip>
+    <TooltipTrigger asChild>
+      <Button variant="ghost" size="icon" aria-label="Bold">
+        <Bold className="h-4 w-4" strokeWidth={2.5} />
+      </Button>
+    </TooltipTrigger>
+    <TooltipContent className="flex items-center gap-2">
+      <span>Bold</span>
+      <kbd>⌘B</kbd>
+    </TooltipContent>
+  </Tooltip>
+</TooltipProvider>`,
+    Component: TooltipToolbarDemo,
+  },
+  "tabs-demo": {
+    title: "Tabs Overview",
+    filePath: "src/examples/tabs-demo.tsx",
+    Component: TabsBasicDemo,
+  },
+  "tabs-basic-demo": {
+    title: "Basic Tabs",
+    filePath: "src/examples/tabs-demo.tsx",
+    codeSnippet: `<Tabs defaultValue="account" className="max-w-md">
+  <TabsList className="grid w-full grid-cols-2">
+    <TabsTrigger value="account">Account</TabsTrigger>
+    <TabsTrigger value="password">Password</TabsTrigger>
+  </TabsList>
+  <TabsContent value="account">...</TabsContent>
+  <TabsContent value="password">...</TabsContent>
+</Tabs>`,
+    Component: TabsBasicDemo,
+  },
+  "tabs-folder-demo": {
+    title: "Physical Folder Style",
+    filePath: "src/examples/tabs-demo.tsx",
+    codeSnippet: `<Tabs defaultValue="overview" variant="folder">
+  <TabsList>
+    <TabsTrigger value="overview">Overview</TabsTrigger>
+    <TabsTrigger value="specs">Token Specs</TabsTrigger>
+    <TabsTrigger value="cli">CLI Install</TabsTrigger>
+  </TabsList>
+  <TabsContent value="overview">...</TabsContent>
+</Tabs>`,
+    Component: TabsFolderDemo,
+  },
+  "tabs-underline-demo": {
+    title: "Underline, Icons & Badges",
+    filePath: "src/examples/tabs-demo.tsx",
+    codeSnippet: `<Tabs defaultValue="dashboard" variant="underline">
+  <TabsList>
+    <TabsTrigger value="dashboard"><LayoutDashboard /> Overview</TabsTrigger>
+    <TabsTrigger value="alerts"><Bell /> Alerts <Badge>4</Badge></TabsTrigger>
+  </TabsList>
+  <TabsContent value="dashboard">...</TabsContent>
+</Tabs>`,
+    Component: TabsUnderlineDemo,
+  },
+  "tabs-vertical-demo": {
+    title: "Vertical Orientation",
+    filePath: "src/examples/tabs-demo.tsx",
+    codeSnippet: `<Tabs defaultValue="profile" orientation="vertical">
+  <TabsList className="sm:w-44">
+    <TabsTrigger value="profile">Profile</TabsTrigger>
+    <TabsTrigger value="security">Security</TabsTrigger>
+  </TabsList>
+  <TabsContent value="profile">...</TabsContent>
+</Tabs>`,
+    Component: TabsVerticalDemo,
+  },
+  "tabs-sizes-demo": {
+    title: "Size",
+    filePath: "src/examples/tabs-demo.tsx",
+    codeSnippet: `<Tabs defaultValue="a" size="sm">...</Tabs>
+<Tabs defaultValue="a" size="default">...</Tabs>
+<Tabs defaultValue="a" size="lg">...</Tabs>`,
+    Component: TabsSizesDemo,
+  },
+  "tabs-states-demo": {
+    title: "Disabled & No Shadow",
+    filePath: "src/examples/tabs-demo.tsx",
+    codeSnippet: `<Tabs defaultValue="active">
+  <TabsList>
+    <TabsTrigger value="active">Active</TabsTrigger>
+    <TabsTrigger value="archived" disabled>Archived (Disabled)</TabsTrigger>
+  </TabsList>
+</Tabs>
+
+<Tabs defaultValue="flat-a" noShadow>
+  <TabsList>
+    <TabsTrigger value="flat-a">Flat Tab A</TabsTrigger>
+    <TabsTrigger value="flat-b">Flat Tab B</TabsTrigger>
+  </TabsList>
+</Tabs>`,
+    Component: TabsStatesDemo,
+  },
+  "button-group-demo": {
+    title: "Button Group Overview",
+    filePath: "src/examples/button-group-demo.tsx",
+    Component: ButtonGroupBasicDemo,
+  },
+  "button-group-basic-demo": {
+    title: "Basic Button Group",
+    filePath: "src/examples/button-group-demo.tsx",
+    codeSnippet: `<ButtonGroup>
+  <Button variant="outline">Archive</Button>
+  <Button variant="outline">Report</Button>
+  <Button variant="outline">Snooze</Button>
+</ButtonGroup>`,
+    Component: ButtonGroupBasicDemo,
+  },
+  "button-group-vertical-demo": {
+    title: "Vertical Orientation",
+    filePath: "src/examples/button-group-demo.tsx",
+    codeSnippet: `<ButtonGroup orientation="vertical">
+  <Button variant="outline" size="icon"><Plus /></Button>
+  <Button variant="outline" size="icon"><Minus /></Button>
+  <Button variant="outline" size="icon"><RotateCcw /></Button>
+</ButtonGroup>`,
+    Component: ButtonGroupVerticalDemo,
+  },
+  "button-group-split-demo": {
+    title: "Split Button",
+    filePath: "src/examples/button-group-demo.tsx",
+    codeSnippet: `<ButtonGroup>
+  <Button>Deploy to Production</Button>
+  <DropdownMenu>
+    <DropdownMenuTrigger asChild>
+      <Button size="icon"><ChevronDown /></Button>
+    </DropdownMenuTrigger>
+    <DropdownMenuContent align="end">...</DropdownMenuContent>
+  </DropdownMenu>
+</ButtonGroup>`,
+    Component: ButtonGroupSplitDemo,
+  },
+  "button-group-input-demo": {
+    title: "With Input & Text Addon",
+    filePath: "src/examples/button-group-demo.tsx",
+    codeSnippet: `<ButtonGroup className="w-full">
+  <ButtonGroupText>https://</ButtonGroupText>
+  <Input placeholder="punch-ui.dev" className="flex-1" />
+  <Button variant="secondary">Visit</Button>
+</ButtonGroup>`,
+    Component: ButtonGroupInputDemo,
+  },
+  "button-group-size-demo": {
+    title: "Size",
+    filePath: "src/examples/button-group-demo.tsx",
+    codeSnippet: `<ButtonGroup><Button variant="outline" size="sm">Small</Button>...</ButtonGroup>
+<ButtonGroup><Button variant="outline" size="default">Default</Button>...</ButtonGroup>
+<ButtonGroup><Button variant="outline" size="lg">Large</Button>...</ButtonGroup>`,
+    Component: ButtonGroupSizeDemo,
+  },
+  "button-group-noshadow-demo": {
+    title: "No Shadow & Toggle Toolbar",
+    filePath: "src/examples/button-group-demo.tsx",
+    codeSnippet: `<ButtonGroup noShadow>
+  <Button variant="default" size="icon"><AlignLeft /></Button>
+  <Button variant="outline" size="icon"><AlignCenter /></Button>
+  <Button variant="outline" size="icon"><AlignRight /></Button>
+</ButtonGroup>`,
+    Component: ButtonGroupNoShadowDemo,
+  },
+  "breadcrumb-demo": {
+    title: "Breadcrumb Overview",
+    filePath: "src/examples/breadcrumb-demo.tsx",
+    Component: BreadcrumbBasicDemo,
+  },
+  "breadcrumb-basic-demo": {
+    title: "Basic Breadcrumb",
+    filePath: "src/examples/breadcrumb-demo.tsx",
+    codeSnippet: `<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem><BreadcrumbLink href="#home">Home</BreadcrumbLink></BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem><BreadcrumbLink href="#docs">Docs</BreadcrumbLink></BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem><BreadcrumbPage>Breadcrumb</BreadcrumbPage></BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>`,
+    Component: BreadcrumbBasicDemo,
+  },
+  "breadcrumb-variants-demo": {
+    title: "Variants",
+    filePath: "src/examples/breadcrumb-demo.tsx",
+    codeSnippet: `<Breadcrumb variant="contained">...</Breadcrumb>
+<Breadcrumb variant="pills">...</Breadcrumb>
+<Breadcrumb variant="contained" noShadow>...</Breadcrumb>`,
+    Component: BreadcrumbVariantsDemo,
+  },
+  "breadcrumb-separator-demo": {
+    title: "Custom Separator",
+    filePath: "src/examples/breadcrumb-demo.tsx",
+    codeSnippet: `<BreadcrumbSeparator>
+  <Slash strokeWidth={2.5} />
+</BreadcrumbSeparator>`,
+    Component: BreadcrumbSeparatorDemo,
+  },
+  "breadcrumb-dropdown-demo": {
+    title: "Collapsed with Dropdown",
+    filePath: "src/examples/breadcrumb-demo.tsx",
+    codeSnippet: `<DropdownMenu>
+  <DropdownMenuTrigger>
+    <BreadcrumbEllipsis />
+  </DropdownMenuTrigger>
+  <DropdownMenuContent align="start">
+    <DropdownMenuItem>Documentation</DropdownMenuItem>
+    <DropdownMenuItem>Registry</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>`,
+    Component: BreadcrumbDropdownDemo,
+  },
+  "alert-demo": {
+    title: "Alert Overview",
+    filePath: "src/examples/alert-demo.tsx",
+    Component: AlertBasicDemo,
+  },
+  "alert-basic-demo": {
+    title: "Basic Alert",
+    filePath: "src/examples/alert-demo.tsx",
+    codeSnippet: `<Alert>
+  <Terminal strokeWidth={2.5} />
+  <AlertTitle>Heads up!</AlertTitle>
+  <AlertDescription>You can add Neobrutalist components via the Punch UI CLI.</AlertDescription>
+</Alert>`,
+    Component: AlertBasicDemo,
+  },
+  "alert-variants-demo": {
+    title: "Semantic Status Variants",
+    filePath: "src/examples/alert-demo.tsx",
+    codeSnippet: `<Alert variant="success">...</Alert>
+<Alert variant="info">...</Alert>
+<Alert variant="warning">...</Alert>
+<Alert variant="danger">...</Alert>`,
+    Component: AlertVariantsDemo,
+  },
+  "alert-dismissible-demo": {
+    title: "Dismissible Alert",
+    filePath: "src/examples/alert-demo.tsx",
+    codeSnippet: `<Alert variant="secondary" dismissible onDismiss={() => setVisible(false)}>
+  <Info strokeWidth={2.5} />
+  <AlertTitle>New Registry Release</AlertTitle>
+  <AlertDescription>Tier 3 components are now available.</AlertDescription>
+</Alert>`,
+    Component: AlertDismissibleDemo,
+  },
+  "alert-noshadow-demo": {
+    title: "No Shadow",
+    filePath: "src/examples/alert-demo.tsx",
+    codeSnippet: `<Alert noShadow>...</Alert>
+<Alert variant="primary" noShadow>...</Alert>`,
+    Component: AlertNoShadowDemo,
+  },
+  "sonner-demo": {
+    title: "Sonner Toast Overview",
+    filePath: "src/examples/sonner-demo.tsx",
+    Component: SonnerBasicDemo,
+  },
+  "sonner-basic-demo": {
+    title: "Basic Toast",
+    filePath: "src/examples/sonner-demo.tsx",
+    codeSnippet: `toast("Deployment Triggered", {
+  description: "Build #508 has been queued for ap-southeast-1.",
+});`,
+    Component: SonnerBasicDemo,
+  },
+  "sonner-variants-demo": {
+    title: "Semantic Status Toasts",
+    filePath: "src/examples/sonner-demo.tsx",
+    codeSnippet: `toast.success("Registry Published", { description: "All artifacts are live." });
+toast.info("New Preset Available");
+toast.warning("API Rate Limit Near");
+toast.error("Connection Failed");`,
+    Component: SonnerVariantsDemo,
+  },
+  "sonner-action-demo": {
+    title: "With Action Button",
+    filePath: "src/examples/sonner-demo.tsx",
+    codeSnippet: `toast("Component Archived", {
+  description: "legacy-banner.tsx was moved to archive.",
+  action: {
+    label: "Undo",
+    onClick: () => toast.success("Restored"),
+  },
+});`,
+    Component: SonnerActionDemo,
+  },
+  "sonner-promise-demo": {
+    title: "Async Promise Toast",
+    filePath: "src/examples/sonner-demo.tsx",
+    codeSnippet: `toast.promise(deployPromise, {
+  loading: "Building Punch UI registry...",
+  success: (data) => \`Published \${data.version} successfully!\`,
+  error: "Registry build failed.",
+});`,
+    Component: SonnerPromiseDemo,
+  },
+  "sonner-position-demo": {
+    title: "Position",
+    filePath: "src/examples/sonner-demo.tsx",
+    codeSnippet: `toast("Position: Top Right", {
+  description: "Rendered at top-right.",
+  position: "top-right",
+});`,
+    Component: SonnerPositionDemo,
   },
 };
 

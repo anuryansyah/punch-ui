@@ -198,11 +198,13 @@
         "horizontal": "2. Horizontal Scroll",
         "both": "3. Both Directions",
         "size": "4. Scrollbar Size",
-        "ghost": "5. Ghost & No Shadow"
+        "ghost": "5. Ghost & No Shadow",
+        "scrollbar-variant": "6. Scrollbar Variant"
       },
       "props": {
         "orientation": "Scrollable axis: vertical (default), horizontal, or both.",
         "scrollbarSize": "Scrollbar thickness: 'sm' (8px default), 'md' (10px), 'lg' (14px), or a custom pixel number (e.g., 6).",
+        "scrollbarVariant": "Track style & visibility: 'default' (borderless track, always visible), 'auto' (borderless track, revealed on scroll/hover/drag), or 'bordered' (transparent track with 1.5px border).",
         "variant": "Outer container style: 'default' (2px border + bg-card) or 'ghost' (borderless & shadowless for embedding inside Cards/Sidebars).",
         "noShadow": "Removes the hard shadow on the outer ScrollArea container.",
         "viewportClassName": "Additional CSS classes applied directly to the inner scrollable viewport."
@@ -605,6 +607,259 @@
         "Pass pattern={REGEXP_ONLY_DIGITS} for numeric OTP codes to restrict input and trigger numeric keypads on mobile.",
         "Full multi-digit paste and native SMS autofill (autocomplete=\"one-time-code\") work out of the box.",
         "Enable masked for sensitive 4-to-6 digit PIN fields."
+      ]
+    },
+    "dialog": {
+      "title": "Dialog",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Neobrutalist modal window powered by @radix-ui/react-dialog with large offset shadows (shadow-brutal-lg), 4 width sizes, accent header blocks, and automatic keyboard focus trapping.",
+      "sections": {
+        "basic": "1. Basic Dialog",
+        "composition": "2. Composition",
+        "form": "3. Form Dialog",
+        "size": "4. Size",
+        "scrollable": "5. Scrollable Content",
+        "header": "6. Accent Header"
+      },
+      "props": {
+        "size": "Maximum width preset for DialogContent: sm, default, lg, or xl.",
+        "variant": "Background accent style for DialogHeader: default, primary, secondary, or muted.",
+        "hideCloseButton": "Hides the top-right × close button inside DialogContent.",
+        "noShadow": "Removes the large offset shadow (shadow-brutal-lg) on the modal window.",
+        "open": "Controlled open state paired with onOpenChange."
+      },
+      "usageNotes": [
+        "Always include <DialogTitle> inside <DialogContent> for accessible screen-reader announcements.",
+        "For long content, apply max-h-[80vh] flex flex-col on DialogContent and overflow-y-auto on the scrollable body container.",
+        "Use <AlertDialog /> instead of Dialog for destructive confirmations that must not close on backdrop clicks."
+      ]
+    },
+    "alert-dialog": {
+      "title": "Alert Dialog",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Blocking confirmation modal powered by @radix-ui/react-alert-dialog that prevents accidental outside-click dismissal, with built-in Punch UI Button variants and async loading states.",
+      "sections": {
+        "basic": "1. Basic Confirmation",
+        "composition": "2. Composition",
+        "destructive": "3. Destructive Action",
+        "async": "4. Async / Loading Action"
+      },
+      "props": {
+        "variant": "Punch UI Button variant for AlertDialogAction / AlertDialogCancel (e.g. default, danger, warning, outline).",
+        "isLoading": "Displays a loading spinner and disables AlertDialogAction while an async operation runs.",
+        "noShadow": "Removes hard offset shadows on AlertDialogContent or action buttons.",
+        "open": "Controlled open state, useful when keeping the dialog open until an async confirmation resolves."
+      },
+      "usageNotes": [
+        "AlertDialog ignores clicks on the dark backdrop overlay so users must explicitly choose Cancel or Action.",
+        "For async actions, call event.preventDefault() inside AlertDialogAction onClick and close manually via setOpen(false) once finished.",
+        "Pass variant=\"danger\" on AlertDialogAction to clearly signal irreversible destructive operations."
+      ]
+    },
+    "sheet": {
+      "title": "Sheet",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Neobrutalist slide-over drawer panel powered by @radix-ui/react-dialog supporting all four viewport edges for mobile navigation, data filters, and quick inspection.",
+      "sections": {
+        "basic": "1. Basic Sheet",
+        "composition": "2. Composition",
+        "sides": "3. Four Sides (Top, Right, Bottom, Left)",
+        "filter": "4. Filter & Form Drawer",
+        "navigation": "5. Mobile Navigation Drawer",
+        "scrollable": "6. Scrollable Content"
+      },
+      "props": {
+        "side": "Viewport edge from which the Sheet slides in: right (default), left, top, or bottom.",
+        "size": "Maximum width preset for left/right drawers: sm, default, lg, or full.",
+        "variant": "Background accent style for SheetHeader: default, primary, secondary, or muted.",
+        "hideCloseButton": "Hides the top-right × close button inside SheetContent.",
+        "noShadow": "Removes the hard shadow on SheetContent."
+      },
+      "usageNotes": [
+        "Use side=\"left\" with size=\"sm\" for mobile navigation menus, and side=\"right\" for filter panels or item inspectors.",
+        "Wrap long drawer bodies in <ScrollArea variant=\"ghost\" scrollbarVariant=\"auto\" className=\"min-h-0 flex-1\"> to keep headers and footers pinned.",
+        "Always include <SheetTitle> inside <SheetContent> for accessible screen-reader labeling."
+      ]
+    },
+    "dropdown-menu": {
+      "title": "Dropdown Menu",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Neobrutalist floating action menu powered by @radix-ui/react-dropdown-menu featuring solid hover highlights, checkbox items, radio groups, nested submenus, and keyboard shortcuts.",
+      "sections": {
+        "basic": "1. Basic Action Menu",
+        "composition": "2. Composition",
+        "checkboxes": "3. Checkbox Items",
+        "radio": "4. Radio Group Items",
+        "submenu": "5. Nested Submenu"
+      },
+      "props": {
+        "variant": "Color variant on DropdownMenuItem: default or danger / destructive for irreversible actions.",
+        "inset": "Adds left padding (pl-8) to align labels with items that have leading icons or checkmarks.",
+        "sideOffset": "Distance in pixels between the trigger and DropdownMenuContent (default 6).",
+        "noShadow": "Removes hard offset shadows on DropdownMenuContent or DropdownMenuSubContent."
+      },
+      "usageNotes": [
+        "Use DropdownMenu for action commands (Edit, Share, Delete); use Select or Combobox for picking form values.",
+        "Pass variant=\"danger\" on DropdownMenuItem for destructive actions like delete or sign out.",
+        "Full arrow-key navigation (↑/↓/→/←), Enter, and Escape dismissal work out of the box."
+      ]
+    },
+    "popover": {
+      "title": "Popover",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Neobrutalist floating surface powered by @radix-ui/react-popover with automatic viewport collision flipping for mini forms, profile inspectors, and quick controls.",
+      "sections": {
+        "basic": "1. Basic Popover (Mini Form)",
+        "placement": "2. Placement (Top, Right, Bottom, Left)",
+        "profile": "3. Rich Profile Card",
+        "no-shadow": "4. No Shadow"
+      },
+      "props": {
+        "side": "Preferred side of the trigger to render PopoverContent: top, right, bottom, or left.",
+        "align": "Alignment of PopoverContent relative to the trigger: start, center (default), or end.",
+        "sideOffset": "Distance in pixels between the trigger and PopoverContent (default 6).",
+        "noShadow": "Removes hard offset shadows on PopoverContent."
+      },
+      "usageNotes": [
+        "Popover serves as the overlay foundation for Punch UI DatePicker and Combobox components.",
+        "Use Popover when floating content is interactive (inputs, buttons, links); use Tooltip for brief read-only hints.",
+        "Radix Popover automatically flips side when approaching viewport edges."
+      ]
+    },
+    "tooltip": {
+      "title": "Tooltip",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "High-contrast Neobrutalist hint bubble powered by @radix-ui/react-tooltip appearing on hover or keyboard focus, with 4 color variants, optional arrow, and icon toolbar support.",
+      "sections": {
+        "basic": "1. Basic Tooltip",
+        "placement": "2. Placement (Top, Right, Bottom, Left)",
+        "variants": "3. Variants & No Shadow",
+        "toolbar": "4. Icon Toolbar & Shortcuts"
+      },
+      "props": {
+        "variant": "Tooltip bubble color style: default (high-contrast foreground), card, primary, or secondary.",
+        "side": "Preferred side of the trigger: top (default), right, bottom, or left.",
+        "showArrow": "Renders a crisp directional arrow pointing toward the trigger.",
+        "noShadow": "Removes the hard shadow (shadow-brutal-sm) on the tooltip bubble.",
+        "delayDuration": "Hover delay in milliseconds on TooltipProvider before opening (default 200)."
+      },
+      "usageNotes": [
+        "Wrap tooltip groups in a single <TooltipProvider> (or place it in your root layout) so moving between sibling tooltips feels instant.",
+        "Keep Tooltip content brief and non-interactive; use Popover if you need links, inputs, or buttons inside.",
+        "Always include aria-label on icon-only trigger buttons for screen-reader accessibility."
+      ]
+    },
+    "tabs": {
+      "title": "Tabs",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Neobrutalist tab navigation powered by @radix-ui/react-tabs supporting segmented buttons, physical folder tabs merged with content panels, bold underline tabs, and vertical orientation.",
+      "sections": {
+        "basic": "1. Basic Tabs",
+        "folder": "2. Physical Folder Style",
+        "underline": "3. Underline, Icons & Badges",
+        "vertical": "4. Vertical Orientation",
+        "sizes": "5. Size",
+        "states": "6. Disabled & No Shadow"
+      },
+      "props": {
+        "variant": "Visual tab style: default (segmented buttons), folder (physical folder merged with panel), or underline (bold bottom rule).",
+        "orientation": "Tab layout axis: horizontal (default) or vertical (ideal for Settings pages).",
+        "size": "Padding and font scale of TabsTrigger: sm, default, or lg.",
+        "noShadow": "Removes hard offset shadows on TabsList, active TabsTrigger, and folder panels.",
+        "defaultValue": "Initially active tab value for uncontrolled usage."
+      },
+      "usageNotes": [
+        "Use variant=\"folder\" for a tactile Neobrutalist folder aesthetic where the active tab seamlessly connects to TabsContent.",
+        "Switch to orientation=\"vertical\" for multi-section settings pages with side navigation.",
+        "Keyboard arrow navigation (←/→ for horizontal, ↑/↓ for vertical) and Home/End work out of the box."
+      ]
+    },
+    "button-group": {
+      "title": "Button Group",
+      "tier": "Tier 1 • Core Components",
+      "description": "Neobrutalist container that joins adjacent Buttons, Inputs, and static addons with collapsed 2px borders and a single unified offset shadow.",
+      "sections": {
+        "basic": "1. Basic Button Group",
+        "vertical": "2. Vertical Orientation",
+        "split": "3. Split Button (with Dropdown)",
+        "input": "4. With Input & Text Addon",
+        "size": "5. Size",
+        "no-shadow": "6. No Shadow & Toggle Toolbar"
+      },
+      "props": {
+        "orientation": "Layout direction of grouped children: horizontal (default) or vertical.",
+        "noShadow": "Removes the unified hard offset shadow on the ButtonGroup container.",
+        "asChild": "On ButtonGroupText, forwards addon styles to a single child element (such as Label) via Radix Slot."
+      },
+      "usageNotes": [
+        "ButtonGroup automatically collapses adjacent 2px borders (-ml-[2px] / -mt-[2px]) and strips individual child shadows into one solid block.",
+        "Combine a primary <Button> with a <DropdownMenuTrigger asChild> inside ButtonGroup to build Split Buttons.",
+        "Use <ButtonGroupText> for static prefixes or suffixes like https:// next to an Input."
+      ]
+    },
+    "breadcrumb": {
+      "title": "Breadcrumb",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Neobrutalist hierarchy path indicator supporting 3 visual styles (inline default, contained bar, and tactile physical pills), custom separators, and collapsed ellipsis dropdowns.",
+      "sections": {
+        "basic": "1. Basic Breadcrumb",
+        "variants": "2. Variants (Contained, Pills & No Shadow)",
+        "separator": "3. Custom Separator",
+        "dropdown": "4. Collapsed with Dropdown"
+      },
+      "props": {
+        "variant": "Visual style of Breadcrumb: default (inline), contained (bordered bar), or pills (tactile physical buttons).",
+        "noShadow": "Removes hard offset shadows on contained and pills variants.",
+        "asChild": "On BreadcrumbLink, forwards link styles to a router component like Next.js <Link /> via Radix Slot."
+      },
+      "usageNotes": [
+        "Use <BreadcrumbLink asChild><Link href=\"...\">...</Link></BreadcrumbLink> for client-side Next.js routing.",
+        "For deep paths, collapse intermediate levels with <BreadcrumbEllipsis /> inside a <DropdownMenuTrigger>.",
+        "Always render the current page with <BreadcrumbPage> so aria-current=\"page\" is set automatically."
+      ]
+    },
+    "alert": {
+      "title": "Alert",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Static Neobrutalist callout banner with crisp 2px borders, 7 semantic color variants (default, primary, secondary, success, info, warning, danger/destructive), and optional dismiss button.",
+      "sections": {
+        "basic": "1. Basic Alert",
+        "variants": "2. Semantic Status Variants",
+        "dismissible": "3. Dismissible Alert",
+        "no-shadow": "4. No Shadow"
+      },
+      "props": {
+        "variant": "Semantic color style: default, primary, secondary, success, info, warning, or danger / destructive.",
+        "dismissible": "Renders a top-right × button to dismiss the Alert.",
+        "onDismiss": "Callback fired when the dismiss button is clicked.",
+        "noShadow": "Removes the hard shadow (shadow-brutal-sm) on the Alert container."
+      },
+      "usageNotes": [
+        "Place a Lucide icon directly as the first child of <Alert>—icon alignment and text indentation adjust automatically.",
+        "Use Alert for persistent inline messages; use Toast (Sonner) for transient feedback after user actions.",
+        "Pass noShadow when nesting Alert inside a Card or Dialog."
+      ]
+    },
+    "sonner": {
+      "title": "Toast (Sonner)",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Floating Neobrutalist toast notifications powered by Sonner with 2px borders, hard shadows, semantic status fills, interactive Undo actions, and async promise states.",
+      "sections": {
+        "basic": "1. Basic Toast",
+        "variants": "2. Semantic Status Toasts",
+        "action": "3. With Action Button",
+        "promise": "4. Async Promise Toast",
+        "position": "5. Position"
+      },
+      "props": {
+        "position": "Viewport corner for stacked toasts: top-left, top-center, top-right, bottom-left, bottom-center, or bottom-right (default).",
+        "noShadow": "Removes hard offset shadows on all toast cards rendered by Toaster.",
+        "toast()": "Imperative helper to trigger toasts: toast(), toast.success(), toast.info(), toast.warning(), toast.error(), and toast.promise()."
+      },
+      "usageNotes": [
+        "Mount <Toaster /> once inside your root layout (src/app/layout.tsx) so any component can trigger toasts.",
+        "Use toast.promise() to automatically transition between loading, success, and error states for async tasks.",
+        "Pass action: { label, onClick } to include tactile Undo or Retry buttons inside a toast."
       ]
     }
   }

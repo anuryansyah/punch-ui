@@ -14,6 +14,7 @@ export function DocsPager() {
   const pages = [
     { title: nav.introCatalog, href: "/docs" },
     { title: nav.button, href: "/docs/components/button" },
+    { title: nav.buttonGroup, href: "/docs/components/button-group" },
     { title: nav.card, href: "/docs/components/card" },
     { title: nav.badge, href: "/docs/components/badge" },
     { title: nav.input, href: "/docs/components/input" },
@@ -34,6 +35,16 @@ export function DocsPager() {
     { title: nav.command, href: "/docs/components/command" },
     { title: nav.combobox, href: "/docs/components/combobox" },
     { title: nav.inputOtp, href: "/docs/components/input-otp" },
+    { title: nav.dialog, href: "/docs/components/dialog" },
+    { title: nav.alertDialog, href: "/docs/components/alert-dialog" },
+    { title: nav.sheet, href: "/docs/components/sheet" },
+    { title: nav.dropdownMenu, href: "/docs/components/dropdown-menu" },
+    { title: nav.popover, href: "/docs/components/popover" },
+    { title: nav.tooltip, href: "/docs/components/tooltip" },
+    { title: nav.tabs, href: "/docs/components/tabs" },
+    { title: nav.breadcrumb, href: "/docs/components/breadcrumb" },
+    { title: nav.alert, href: "/docs/components/alert" },
+    { title: nav.sonner, href: "/docs/components/sonner" },
   ];
 
   const currentIndex = pages.findIndex((p) => p.href === pathname);

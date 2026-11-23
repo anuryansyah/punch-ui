@@ -429,6 +429,204 @@ function getInputOtpPropDesc(
   };
 }
 
+function getDialogSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.dialog.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.dialog.sections[secId],
+    en: dictionaries.en.docs.components.dialog.sections[secId],
+  };
+}
+
+function getDialogPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.dialog.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.dialog.props[propName],
+    en: dictionaries.en.docs.components.dialog.props[propName],
+  };
+}
+
+function getAlertDialogSectionTitle(
+  secId: keyof (typeof dictionaries.id.docs.components)["alert-dialog"]["sections"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["alert-dialog"].sections[secId],
+    en: dictionaries.en.docs.components["alert-dialog"].sections[secId],
+  };
+}
+
+function getAlertDialogPropDesc(
+  propName: keyof (typeof dictionaries.id.docs.components)["alert-dialog"]["props"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["alert-dialog"].props[propName],
+    en: dictionaries.en.docs.components["alert-dialog"].props[propName],
+  };
+}
+
+function getSheetSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.sheet.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.sheet.sections[secId],
+    en: dictionaries.en.docs.components.sheet.sections[secId],
+  };
+}
+
+function getSheetPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.sheet.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.sheet.props[propName],
+    en: dictionaries.en.docs.components.sheet.props[propName],
+  };
+}
+
+function getDropdownMenuSectionTitle(
+  secId: keyof (typeof dictionaries.id.docs.components)["dropdown-menu"]["sections"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["dropdown-menu"].sections[secId],
+    en: dictionaries.en.docs.components["dropdown-menu"].sections[secId],
+  };
+}
+
+function getDropdownMenuPropDesc(
+  propName: keyof (typeof dictionaries.id.docs.components)["dropdown-menu"]["props"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["dropdown-menu"].props[propName],
+    en: dictionaries.en.docs.components["dropdown-menu"].props[propName],
+  };
+}
+
+function getPopoverSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.popover.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.popover.sections[secId],
+    en: dictionaries.en.docs.components.popover.sections[secId],
+  };
+}
+
+function getPopoverPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.popover.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.popover.props[propName],
+    en: dictionaries.en.docs.components.popover.props[propName],
+  };
+}
+
+function getTooltipSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.tooltip.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.tooltip.sections[secId],
+    en: dictionaries.en.docs.components.tooltip.sections[secId],
+  };
+}
+
+function getTooltipPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.tooltip.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.tooltip.props[propName],
+    en: dictionaries.en.docs.components.tooltip.props[propName],
+  };
+}
+
+function getTabsSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.tabs.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.tabs.sections[secId],
+    en: dictionaries.en.docs.components.tabs.sections[secId],
+  };
+}
+
+function getTabsPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.tabs.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.tabs.props[propName],
+    en: dictionaries.en.docs.components.tabs.props[propName],
+  };
+}
+
+function getButtonGroupSectionTitle(
+  secId: keyof (typeof dictionaries.id.docs.components)["button-group"]["sections"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["button-group"].sections[secId],
+    en: dictionaries.en.docs.components["button-group"].sections[secId],
+  };
+}
+
+function getButtonGroupPropDesc(
+  propName: keyof (typeof dictionaries.id.docs.components)["button-group"]["props"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["button-group"].props[propName],
+    en: dictionaries.en.docs.components["button-group"].props[propName],
+  };
+}
+
+function getBreadcrumbSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.breadcrumb.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.breadcrumb.sections[secId],
+    en: dictionaries.en.docs.components.breadcrumb.sections[secId],
+  };
+}
+
+function getBreadcrumbPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.breadcrumb.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.breadcrumb.props[propName],
+    en: dictionaries.en.docs.components.breadcrumb.props[propName],
+  };
+}
+
+function getAlertSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.alert.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.alert.sections[secId],
+    en: dictionaries.en.docs.components.alert.sections[secId],
+  };
+}
+
+function getAlertPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.alert.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.alert.props[propName],
+    en: dictionaries.en.docs.components.alert.props[propName],
+  };
+}
+
+function getSonnerSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.sonner.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.sonner.sections[secId],
+    en: dictionaries.en.docs.components.sonner.sections[secId],
+  };
+}
+
+function getSonnerPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.sonner.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.sonner.props[propName],
+    en: dictionaries.en.docs.components.sonner.props[propName],
+  };
+}
+
 export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
   button: {
     slug: "button",
@@ -1067,6 +1265,12 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
         demoName: "scroll-area-ghost-demo",
         propsUsed: 'variant="ghost" | noShadow',
       },
+      {
+        id: "scrollbar-variant",
+        title: getScrollAreaSectionTitle("scrollbar-variant"),
+        demoName: "scroll-area-variant-demo",
+        propsUsed: 'scrollbarVariant="default | auto | bordered"',
+      },
     ],
     propsTable: [
       {
@@ -1080,6 +1284,12 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
         type: '"sm" | "md" | "lg" | number',
         defaultValue: '"sm"',
         description: getScrollAreaPropDesc("scrollbarSize"),
+      },
+      {
+        prop: "scrollbarVariant",
+        type: '"default" | "auto" | "bordered"',
+        defaultValue: '"default"',
+        description: getScrollAreaPropDesc("scrollbarVariant"),
       },
       {
         prop: "variant",
@@ -2690,6 +2900,827 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
         type: "boolean",
         defaultValue: "false",
         description: getInputOtpPropDesc("noShadow"),
+      },
+    ],
+  },
+  dialog: {
+    slug: "dialog",
+    ...getComponentText("dialog"),
+    demoName: "dialog-demo",
+    sourceFile: "src/components/ui/dialog.tsx",
+    registryItem: "dialog",
+    sections: [
+      {
+        id: "basic",
+        title: getDialogSectionTitle("basic"),
+        demoName: "dialog-basic-demo",
+        propsUsed: "Dialog DialogTrigger DialogContent DialogFooter",
+      },
+      {
+        id: "composition",
+        title: getDialogSectionTitle("composition"),
+        tree: {
+          name: "Dialog",
+          role: "root",
+          children: [
+            { name: "DialogTrigger", role: "leaf" },
+            {
+              name: "DialogContent",
+              role: "section",
+              children: [
+                {
+                  name: "DialogHeader",
+                  role: "section",
+                  children: [
+                    { name: "DialogTitle", role: "leaf" },
+                    { name: "DialogDescription", role: "leaf" },
+                  ],
+                },
+                { name: "Body Content", role: "leaf" },
+                {
+                  name: "DialogFooter",
+                  role: "section",
+                  children: [{ name: "DialogClose", role: "leaf" }],
+                },
+              ],
+            },
+          ],
+        },
+      },
+      {
+        id: "form",
+        title: getDialogSectionTitle("form"),
+        demoName: "dialog-form-demo",
+        propsUsed: "open onOpenChange Input Select",
+      },
+      {
+        id: "size",
+        title: getDialogSectionTitle("size"),
+        demoName: "dialog-size-demo",
+        propsUsed: 'size="sm | default | lg | xl"',
+      },
+      {
+        id: "scrollable",
+        title: getDialogSectionTitle("scrollable"),
+        demoName: "dialog-scrollable-demo",
+        propsUsed: "max-h-[80vh] overflow-y-auto",
+      },
+      {
+        id: "header",
+        title: getDialogSectionTitle("header"),
+        demoName: "dialog-header-demo",
+        propsUsed: 'DialogHeader variant="primary | secondary | muted"',
+      },
+    ],
+    propsTable: [
+      {
+        prop: "size",
+        type: '"sm" | "default" | "lg" | "xl"',
+        defaultValue: '"default"',
+        description: getDialogPropDesc("size"),
+      },
+      {
+        prop: "variant",
+        type: '"default" | "primary" | "secondary" | "muted"',
+        defaultValue: '"default"',
+        description: getDialogPropDesc("variant"),
+      },
+      {
+        prop: "hideCloseButton",
+        type: "boolean",
+        defaultValue: "false",
+        description: getDialogPropDesc("hideCloseButton"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getDialogPropDesc("noShadow"),
+      },
+      {
+        prop: "open",
+        type: "boolean",
+        defaultValue: "undefined",
+        description: getDialogPropDesc("open"),
+      },
+    ],
+  },
+  "alert-dialog": {
+    slug: "alert-dialog",
+    ...getComponentText("alert-dialog"),
+    demoName: "alert-dialog-demo",
+    sourceFile: "src/components/ui/alert-dialog.tsx",
+    registryItem: "alert-dialog",
+    sections: [
+      {
+        id: "basic",
+        title: getAlertDialogSectionTitle("basic"),
+        demoName: "alert-dialog-basic-demo",
+        propsUsed: "AlertDialog AlertDialogCancel AlertDialogAction",
+      },
+      {
+        id: "composition",
+        title: getAlertDialogSectionTitle("composition"),
+        tree: {
+          name: "AlertDialog",
+          role: "root",
+          children: [
+            { name: "AlertDialogTrigger", role: "leaf" },
+            {
+              name: "AlertDialogContent",
+              role: "section",
+              children: [
+                {
+                  name: "AlertDialogHeader",
+                  role: "section",
+                  children: [
+                    { name: "AlertDialogTitle", role: "leaf" },
+                    { name: "AlertDialogDescription", role: "leaf" },
+                  ],
+                },
+                {
+                  name: "AlertDialogFooter",
+                  role: "section",
+                  children: [
+                    { name: "AlertDialogCancel", role: "leaf" },
+                    { name: "AlertDialogAction", role: "leaf" },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      },
+      {
+        id: "destructive",
+        title: getAlertDialogSectionTitle("destructive"),
+        demoName: "alert-dialog-destructive-demo",
+        propsUsed: 'AlertDialogAction variant="danger"',
+      },
+      {
+        id: "async",
+        title: getAlertDialogSectionTitle("async"),
+        demoName: "alert-dialog-async-demo",
+        propsUsed: "open onOpenChange isLoading",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "variant",
+        type: 'ButtonProps["variant"]',
+        defaultValue: '"default" / "outline"',
+        description: getAlertDialogPropDesc("variant"),
+      },
+      {
+        prop: "isLoading",
+        type: "boolean",
+        defaultValue: "false",
+        description: getAlertDialogPropDesc("isLoading"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getAlertDialogPropDesc("noShadow"),
+      },
+      {
+        prop: "open",
+        type: "boolean",
+        defaultValue: "undefined",
+        description: getAlertDialogPropDesc("open"),
+      },
+    ],
+  },
+  sheet: {
+    slug: "sheet",
+    ...getComponentText("sheet"),
+    demoName: "sheet-demo",
+    sourceFile: "src/components/ui/sheet.tsx",
+    registryItem: "sheet",
+    sections: [
+      {
+        id: "basic",
+        title: getSheetSectionTitle("basic"),
+        demoName: "sheet-basic-demo",
+        propsUsed: "Sheet SheetTrigger SheetContent SheetFooter",
+      },
+      {
+        id: "composition",
+        title: getSheetSectionTitle("composition"),
+        tree: {
+          name: "Sheet",
+          role: "root",
+          children: [
+            { name: "SheetTrigger", role: "leaf" },
+            {
+              name: "SheetContent",
+              role: "section",
+              children: [
+                {
+                  name: "SheetHeader",
+                  role: "section",
+                  children: [
+                    { name: "SheetTitle", role: "leaf" },
+                    { name: "SheetDescription", role: "leaf" },
+                  ],
+                },
+                { name: "Body / ScrollArea", role: "leaf" },
+                {
+                  name: "SheetFooter",
+                  role: "section",
+                  children: [{ name: "SheetClose", role: "leaf" }],
+                },
+              ],
+            },
+          ],
+        },
+      },
+      {
+        id: "sides",
+        title: getSheetSectionTitle("sides"),
+        demoName: "sheet-sides-demo",
+        propsUsed: 'side="top | right | bottom | left"',
+      },
+      {
+        id: "filter",
+        title: getSheetSectionTitle("filter"),
+        demoName: "sheet-filter-demo",
+        propsUsed: "open onOpenChange Input Switch Checkbox",
+      },
+      {
+        id: "navigation",
+        title: getSheetSectionTitle("navigation"),
+        demoName: "sheet-navigation-demo",
+        propsUsed: 'side="left" size="sm" SheetHeader variant="primary"',
+      },
+      {
+        id: "scrollable",
+        title: getSheetSectionTitle("scrollable"),
+        demoName: "sheet-scrollable-demo",
+        propsUsed: 'ScrollArea variant="ghost" scrollbarVariant="auto"',
+      },
+    ],
+    propsTable: [
+      {
+        prop: "side",
+        type: '"right" | "left" | "top" | "bottom"',
+        defaultValue: '"right"',
+        description: getSheetPropDesc("side"),
+      },
+      {
+        prop: "size",
+        type: '"sm" | "default" | "lg" | "full"',
+        defaultValue: '"default"',
+        description: getSheetPropDesc("size"),
+      },
+      {
+        prop: "variant",
+        type: '"default" | "primary" | "secondary" | "muted"',
+        defaultValue: '"default"',
+        description: getSheetPropDesc("variant"),
+      },
+      {
+        prop: "hideCloseButton",
+        type: "boolean",
+        defaultValue: "false",
+        description: getSheetPropDesc("hideCloseButton"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getSheetPropDesc("noShadow"),
+      },
+    ],
+  },
+  "dropdown-menu": {
+    slug: "dropdown-menu",
+    ...getComponentText("dropdown-menu"),
+    demoName: "dropdown-menu-demo",
+    sourceFile: "src/components/ui/dropdown-menu.tsx",
+    registryItem: "dropdown-menu",
+    sections: [
+      {
+        id: "basic",
+        title: getDropdownMenuSectionTitle("basic"),
+        demoName: "dropdown-menu-basic-demo",
+        propsUsed: "DropdownMenu DropdownMenuItem variant DropdownMenuShortcut",
+      },
+      {
+        id: "composition",
+        title: getDropdownMenuSectionTitle("composition"),
+        tree: {
+          name: "DropdownMenu",
+          role: "root",
+          children: [
+            { name: "DropdownMenuTrigger", role: "leaf" },
+            {
+              name: "DropdownMenuContent",
+              role: "section",
+              children: [
+                { name: "DropdownMenuLabel", role: "leaf" },
+                { name: "DropdownMenuSeparator", role: "leaf" },
+                {
+                  name: "DropdownMenuGroup",
+                  role: "section",
+                  children: [
+                    { name: "DropdownMenuItem", role: "leaf" },
+                    { name: "DropdownMenuCheckboxItem", role: "leaf" },
+                  ],
+                },
+                {
+                  name: "DropdownMenuSub",
+                  role: "section",
+                  children: [
+                    { name: "DropdownMenuSubTrigger", role: "leaf" },
+                    { name: "DropdownMenuSubContent", role: "leaf" },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      },
+      {
+        id: "checkboxes",
+        title: getDropdownMenuSectionTitle("checkboxes"),
+        demoName: "dropdown-menu-checkboxes-demo",
+        propsUsed: "DropdownMenuCheckboxItem checked onCheckedChange",
+      },
+      {
+        id: "radio",
+        title: getDropdownMenuSectionTitle("radio"),
+        demoName: "dropdown-menu-radio-demo",
+        propsUsed: "DropdownMenuRadioGroup DropdownMenuRadioItem",
+      },
+      {
+        id: "submenu",
+        title: getDropdownMenuSectionTitle("submenu"),
+        demoName: "dropdown-menu-submenu-demo",
+        propsUsed: "DropdownMenuSub DropdownMenuSubTrigger disabled",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "variant",
+        type: '"default" | "danger" | "destructive"',
+        defaultValue: '"default"',
+        description: getDropdownMenuPropDesc("variant"),
+      },
+      {
+        prop: "inset",
+        type: "boolean",
+        defaultValue: "false",
+        description: getDropdownMenuPropDesc("inset"),
+      },
+      {
+        prop: "sideOffset",
+        type: "number",
+        defaultValue: "6",
+        description: getDropdownMenuPropDesc("sideOffset"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getDropdownMenuPropDesc("noShadow"),
+      },
+    ],
+  },
+  popover: {
+    slug: "popover",
+    ...getComponentText("popover"),
+    demoName: "popover-demo",
+    sourceFile: "src/components/ui/popover.tsx",
+    registryItem: "popover",
+    sections: [
+      {
+        id: "basic",
+        title: getPopoverSectionTitle("basic"),
+        demoName: "popover-basic-demo",
+        propsUsed: "Popover PopoverTrigger PopoverContent",
+      },
+      {
+        id: "placement",
+        title: getPopoverSectionTitle("placement"),
+        demoName: "popover-placement-demo",
+        propsUsed: 'side="top | right | bottom | left"',
+      },
+      {
+        id: "profile",
+        title: getPopoverSectionTitle("profile"),
+        demoName: "popover-profile-demo",
+        propsUsed: 'align="start" Avatar Badge',
+      },
+      {
+        id: "no-shadow",
+        title: getPopoverSectionTitle("no-shadow"),
+        demoName: "popover-no-shadow-demo",
+        propsUsed: "noShadow",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "side",
+        type: '"top" | "right" | "bottom" | "left"',
+        defaultValue: '"bottom"',
+        description: getPopoverPropDesc("side"),
+      },
+      {
+        prop: "align",
+        type: '"start" | "center" | "end"',
+        defaultValue: '"center"',
+        description: getPopoverPropDesc("align"),
+      },
+      {
+        prop: "sideOffset",
+        type: "number",
+        defaultValue: "6",
+        description: getPopoverPropDesc("sideOffset"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getPopoverPropDesc("noShadow"),
+      },
+    ],
+  },
+  tooltip: {
+    slug: "tooltip",
+    ...getComponentText("tooltip"),
+    demoName: "tooltip-demo",
+    sourceFile: "src/components/ui/tooltip.tsx",
+    registryItem: "tooltip",
+    sections: [
+      {
+        id: "basic",
+        title: getTooltipSectionTitle("basic"),
+        demoName: "tooltip-basic-demo",
+        propsUsed: "TooltipProvider Tooltip TooltipContent showArrow",
+      },
+      {
+        id: "placement",
+        title: getTooltipSectionTitle("placement"),
+        demoName: "tooltip-placement-demo",
+        propsUsed: 'side="top | right | bottom | left"',
+      },
+      {
+        id: "variants",
+        title: getTooltipSectionTitle("variants"),
+        demoName: "tooltip-variants-demo",
+        propsUsed: 'variant="default | card | primary | secondary" noShadow',
+      },
+      {
+        id: "toolbar",
+        title: getTooltipSectionTitle("toolbar"),
+        demoName: "tooltip-toolbar-demo",
+        propsUsed: "delayDuration={0} Button size=icon",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "variant",
+        type: '"default" | "card" | "primary" | "secondary"',
+        defaultValue: '"default"',
+        description: getTooltipPropDesc("variant"),
+      },
+      {
+        prop: "side",
+        type: '"top" | "right" | "bottom" | "left"',
+        defaultValue: '"top"',
+        description: getTooltipPropDesc("side"),
+      },
+      {
+        prop: "showArrow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getTooltipPropDesc("showArrow"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getTooltipPropDesc("noShadow"),
+      },
+      {
+        prop: "delayDuration",
+        type: "number",
+        defaultValue: "200",
+        description: getTooltipPropDesc("delayDuration"),
+      },
+    ],
+  },
+  tabs: {
+    slug: "tabs",
+    ...getComponentText("tabs"),
+    demoName: "tabs-demo",
+    sourceFile: "src/components/ui/tabs.tsx",
+    registryItem: "tabs",
+    sections: [
+      {
+        id: "basic",
+        title: getTabsSectionTitle("basic"),
+        demoName: "tabs-basic-demo",
+        propsUsed: "Tabs TabsList TabsTrigger TabsContent",
+      },
+      {
+        id: "folder",
+        title: getTabsSectionTitle("folder"),
+        demoName: "tabs-folder-demo",
+        propsUsed: 'variant="folder"',
+      },
+      {
+        id: "underline",
+        title: getTabsSectionTitle("underline"),
+        demoName: "tabs-underline-demo",
+        propsUsed: 'variant="underline" Badge',
+      },
+      {
+        id: "vertical",
+        title: getTabsSectionTitle("vertical"),
+        demoName: "tabs-vertical-demo",
+        propsUsed: 'orientation="vertical"',
+      },
+      {
+        id: "sizes",
+        title: getTabsSectionTitle("sizes"),
+        demoName: "tabs-sizes-demo",
+        propsUsed: 'size="sm | default | lg"',
+      },
+      {
+        id: "states",
+        title: getTabsSectionTitle("states"),
+        demoName: "tabs-states-demo",
+        propsUsed: "disabled noShadow",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "variant",
+        type: '"default" | "folder" | "underline"',
+        defaultValue: '"default"',
+        description: getTabsPropDesc("variant"),
+      },
+      {
+        prop: "orientation",
+        type: '"horizontal" | "vertical"',
+        defaultValue: '"horizontal"',
+        description: getTabsPropDesc("orientation"),
+      },
+      {
+        prop: "size",
+        type: '"sm" | "default" | "lg"',
+        defaultValue: '"default"',
+        description: getTabsPropDesc("size"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getTabsPropDesc("noShadow"),
+      },
+      {
+        prop: "defaultValue",
+        type: "string",
+        defaultValue: "undefined",
+        description: getTabsPropDesc("defaultValue"),
+      },
+    ],
+  },
+  "button-group": {
+    slug: "button-group",
+    ...getComponentText("button-group"),
+    demoName: "button-group-demo",
+    sourceFile: "src/components/ui/button-group.tsx",
+    registryItem: "button-group",
+    sections: [
+      {
+        id: "basic",
+        title: getButtonGroupSectionTitle("basic"),
+        demoName: "button-group-basic-demo",
+        propsUsed: "ButtonGroup Button",
+      },
+      {
+        id: "vertical",
+        title: getButtonGroupSectionTitle("vertical"),
+        demoName: "button-group-vertical-demo",
+        propsUsed: 'orientation="vertical"',
+      },
+      {
+        id: "split",
+        title: getButtonGroupSectionTitle("split"),
+        demoName: "button-group-split-demo",
+        propsUsed: "ButtonGroup Button DropdownMenu",
+      },
+      {
+        id: "input",
+        title: getButtonGroupSectionTitle("input"),
+        demoName: "button-group-input-demo",
+        propsUsed: "ButtonGroupText Input Button",
+      },
+      {
+        id: "size",
+        title: getButtonGroupSectionTitle("size"),
+        demoName: "button-group-size-demo",
+        propsUsed: 'Button size="sm | default | lg"',
+      },
+      {
+        id: "no-shadow",
+        title: getButtonGroupSectionTitle("no-shadow"),
+        demoName: "button-group-noshadow-demo",
+        propsUsed: "noShadow",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "orientation",
+        type: '"horizontal" | "vertical"',
+        defaultValue: '"horizontal"',
+        description: getButtonGroupPropDesc("orientation"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getButtonGroupPropDesc("noShadow"),
+      },
+      {
+        prop: "asChild",
+        type: "boolean",
+        defaultValue: "false",
+        description: getButtonGroupPropDesc("asChild"),
+      },
+    ],
+  },
+  breadcrumb: {
+    slug: "breadcrumb",
+    ...getComponentText("breadcrumb"),
+    demoName: "breadcrumb-demo",
+    sourceFile: "src/components/ui/breadcrumb.tsx",
+    registryItem: "breadcrumb",
+    sections: [
+      {
+        id: "basic",
+        title: getBreadcrumbSectionTitle("basic"),
+        demoName: "breadcrumb-basic-demo",
+        propsUsed: "Breadcrumb BreadcrumbLink BreadcrumbPage",
+      },
+      {
+        id: "variants",
+        title: getBreadcrumbSectionTitle("variants"),
+        demoName: "breadcrumb-variants-demo",
+        propsUsed: 'variant="default | contained | pills" noShadow',
+      },
+      {
+        id: "separator",
+        title: getBreadcrumbSectionTitle("separator"),
+        demoName: "breadcrumb-separator-demo",
+        propsUsed: "BreadcrumbSeparator Slash",
+      },
+      {
+        id: "dropdown",
+        title: getBreadcrumbSectionTitle("dropdown"),
+        demoName: "breadcrumb-dropdown-demo",
+        propsUsed: "BreadcrumbEllipsis DropdownMenu",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "variant",
+        type: '"default" | "contained" | "pills"',
+        defaultValue: '"default"',
+        description: getBreadcrumbPropDesc("variant"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getBreadcrumbPropDesc("noShadow"),
+      },
+      {
+        prop: "asChild",
+        type: "boolean",
+        defaultValue: "false",
+        description: getBreadcrumbPropDesc("asChild"),
+      },
+    ],
+  },
+  alert: {
+    slug: "alert",
+    ...getComponentText("alert"),
+    demoName: "alert-demo",
+    sourceFile: "src/components/ui/alert.tsx",
+    registryItem: "alert",
+    sections: [
+      {
+        id: "basic",
+        title: getAlertSectionTitle("basic"),
+        demoName: "alert-basic-demo",
+        propsUsed: "Alert AlertTitle AlertDescription",
+      },
+      {
+        id: "variants",
+        title: getAlertSectionTitle("variants"),
+        demoName: "alert-variants-demo",
+        propsUsed: 'variant="success | info | warning | danger"',
+      },
+      {
+        id: "dismissible",
+        title: getAlertSectionTitle("dismissible"),
+        demoName: "alert-dismissible-demo",
+        propsUsed: "dismissible onDismiss",
+      },
+      {
+        id: "no-shadow",
+        title: getAlertSectionTitle("no-shadow"),
+        demoName: "alert-noshadow-demo",
+        propsUsed: "noShadow",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "variant",
+        type: '"default" | "primary" | "secondary" | "success" | "info" | "warning" | "danger" | "destructive"',
+        defaultValue: '"default"',
+        description: getAlertPropDesc("variant"),
+      },
+      {
+        prop: "dismissible",
+        type: "boolean",
+        defaultValue: "false",
+        description: getAlertPropDesc("dismissible"),
+      },
+      {
+        prop: "onDismiss",
+        type: "() => void",
+        defaultValue: "undefined",
+        description: getAlertPropDesc("onDismiss"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getAlertPropDesc("noShadow"),
+      },
+    ],
+  },
+  sonner: {
+    slug: "sonner",
+    ...getComponentText("sonner"),
+    demoName: "sonner-demo",
+    sourceFile: "src/components/ui/sonner.tsx",
+    registryItem: "sonner",
+    sections: [
+      {
+        id: "basic",
+        title: getSonnerSectionTitle("basic"),
+        demoName: "sonner-basic-demo",
+        propsUsed: "Toaster toast()",
+      },
+      {
+        id: "variants",
+        title: getSonnerSectionTitle("variants"),
+        demoName: "sonner-variants-demo",
+        propsUsed: "toast.success | info | warning | error",
+      },
+      {
+        id: "action",
+        title: getSonnerSectionTitle("action"),
+        demoName: "sonner-action-demo",
+        propsUsed: "toast(title, { action })",
+      },
+      {
+        id: "promise",
+        title: getSonnerSectionTitle("promise"),
+        demoName: "sonner-promise-demo",
+        propsUsed: "toast.promise()",
+      },
+      {
+        id: "position",
+        title: getSonnerSectionTitle("position"),
+        demoName: "sonner-position-demo",
+        propsUsed: 'position="top-left | top-center | top-right | bottom-*"',
+      },
+    ],
+    propsTable: [
+      {
+        prop: "position",
+        type: '"top-left" | "top-center" | "top-right" | "bottom-left" | "bottom-center" | "bottom-right"',
+        defaultValue: '"bottom-right"',
+        description: getSonnerPropDesc("position"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getSonnerPropDesc("noShadow"),
+      },
+      {
+        prop: "toast()",
+        type: "(message, options?) => string | number",
+        defaultValue: "function",
+        description: getSonnerPropDesc("toast()"),
       },
     ],
   },

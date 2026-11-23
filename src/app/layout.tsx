@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { LanguageProvider } from "@/lib/i18n";
 import { siteConfig } from "@/lib/config";
+import { Toaster } from "@/components/ui/sonner";
 import "@/styles/globals.css";
 import "@/styles/themes.css";
 
@@ -58,7 +59,10 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
       </head>
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          {children}
+          <Toaster />
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -198,11 +198,13 @@
         "horizontal": "2. Horizontal Scroll",
         "both": "3. Both Directions",
         "size": "4. Scrollbar Size",
-        "ghost": "5. Ghost & No Shadow"
+        "ghost": "5. Ghost & No Shadow",
+        "scrollbar-variant": "6. Scrollbar Variant"
       },
       "props": {
         "orientation": "Arah area scroll: vertical (default), horizontal, atau both (dua arah sekaligus).",
         "scrollbarSize": "Ketebalan batang scroll: 'sm' (8px default), 'md' (10px), 'lg' (14px), atau angka pixel kustom (misal 6).",
+        "scrollbarVariant": "Gaya track & visibilitas scrollbar: 'default' (tanpa border track, selalu tampil), 'auto' (tanpa border track, muncul hanya saat scroll/hover/drag), atau 'bordered' (track transparan ber-border 1.5px).",
         "variant": "Gaya kontainer luar: 'default' (border 2px + bg-card) atau 'ghost' (tanpa border & bayangan agar menyatu di dalam Card/Sidebar).",
         "noShadow": "Menghilangkan bayangan keras pada kontainer ScrollArea.",
         "viewportClassName": "Class CSS tambahan khusus untuk elemen viewport bagian dalam."
@@ -605,6 +607,259 @@
         "Gunakan pattern={REGEXP_ONLY_DIGITS} untuk kode OTP numerik agar keyboard angka muncul otomatis di perangkat mobile.",
         "InputOTP mendukung tempel (paste) langsung 6 digit sekaligus serta SMS autofill (autocomplete=\"one-time-code\").",
         "Aktifkan prop masked untuk PIN keamanan 4–6 digit agar karakter tidak terbaca di layar."
+      ]
+    },
+    "dialog": {
+      "title": "Dialog",
+      "tier": "Tier 3 • Overlay & Navigasi",
+      "description": "Jendela modal pop-up Neobrutalism berbasis @radix-ui/react-dialog dengan bayangan besar (shadow-brutal-lg), pilihan ukuran (sm–xl), blok header aksen, dan manajemen fokus keyboard otomatis.",
+      "sections": {
+        "basic": "1. Basic Dialog",
+        "composition": "2. Composition",
+        "form": "3. Form Dialog",
+        "size": "4. Size",
+        "scrollable": "5. Scrollable Content",
+        "header": "6. Accent Header"
+      },
+      "props": {
+        "size": "Lebar maksimum DialogContent: sm, default, lg, atau xl.",
+        "variant": "Varian warna blok pada DialogHeader: default, primary, secondary, atau muted.",
+        "hideCloseButton": "Menyembunyikan tombol × di pojok kanan atas DialogContent.",
+        "noShadow": "Menghilangkan bayangan besar (shadow-brutal-lg) pada jendela modal.",
+        "open": "Status buka/tutup modal pada mode controlled (dipasangkan dengan onOpenChange)."
+      },
+      "usageNotes": [
+        "Selalu sertakan <DialogTitle> di dalam <DialogContent> agar pembaca layar dapat mengumumkan judul modal dengan benar.",
+        "Untuk konten panjang, terapkan max-h-[80vh] flex flex-col pada DialogContent dan overflow-y-auto pada bagian isi.",
+        "Gunakan <AlertDialog /> (bukan Dialog) jika konfirmasi bersifat kritis/destruktif dan tidak boleh tertutup saat klik backdrop luar."
+      ]
+    },
+    "alert-dialog": {
+      "title": "Alert Dialog",
+      "tier": "Tier 3 • Overlay & Navigasi",
+      "description": "Dialog konfirmasi kritis berbasis @radix-ui/react-alert-dialog yang memblokir penutupan tidak sengaja saat klik area luar, lengkap dengan dukungan varian tombol Punch UI dan aksi async.",
+      "sections": {
+        "basic": "1. Basic Confirmation",
+        "composition": "2. Composition",
+        "destructive": "3. Destructive Action",
+        "async": "4. Async / Loading Action"
+      },
+      "props": {
+        "variant": "Varian warna Button pada AlertDialogAction / AlertDialogCancel (misal default, danger, warning, outline).",
+        "isLoading": "Menampilkan spinner dan menonaktifkan tombol AlertDialogAction selama proses async berjalan.",
+        "noShadow": "Menghilangkan bayangan besar pada AlertDialogContent atau tombol aksi.",
+        "open": "Status buka/tutup AlertDialog pada mode controlled (berguna untuk aksi async sebelum modal menutup)."
+      },
+      "usageNotes": [
+        "AlertDialog tidak tertutup ketika pengguna mengklik overlay gelap di luar modal—cocok untuk aksi berbahaya seperti hapus akun atau cabut sesi.",
+        "Untuk aksi async, panggil event.preventDefault() pada onClick di AlertDialogAction lalu tutup modal lewat setOpen(false) setelah request selesai.",
+        "Gunakan variant=\"danger\" pada AlertDialogAction agar konsekuensi tindakan terlihat tegas."
+      ]
+    },
+    "sheet": {
+      "title": "Sheet",
+      "tier": "Tier 3 • Overlay & Navigasi",
+      "description": "Panel geser samping/atas/bawah (Drawer) Neobrutalism berbasis @radix-ui/react-dialog untuk menu navigasi mobile, panel filter data, dan detail cepat.",
+      "sections": {
+        "basic": "1. Basic Sheet",
+        "composition": "2. Composition",
+        "sides": "3. Four Sides (Top, Right, Bottom, Left)",
+        "filter": "4. Filter & Form Drawer",
+        "navigation": "5. Mobile Navigation Drawer",
+        "scrollable": "6. Scrollable Content"
+      },
+      "props": {
+        "side": "Sisi layar tempat Sheet meluncur masuk: right (default), left, top, atau bottom.",
+        "size": "Lebar maksimum untuk side left/right: sm, default, lg, atau full.",
+        "variant": "Varian blok warna pada SheetHeader: default, primary, secondary, atau muted.",
+        "hideCloseButton": "Menyembunyikan tombol × di pojok kanan atas SheetContent.",
+        "noShadow": "Menghilangkan bayangan keras pada panel SheetContent."
+      },
+      "usageNotes": [
+        "Gunakan side=\"left\" dengan size=\"sm\" untuk menu navigasi mobile, dan side=\"right\" untuk panel filter atau detail item.",
+        "Bungkus isi panjang dengan <ScrollArea variant=\"ghost\" scrollbarVariant=\"auto\" className=\"min-h-0 flex-1\"> agar header dan footer tetap terkunci.",
+        "Selalu sertakan <SheetTitle> di dalam <SheetContent> demi aksesibilitas pembaca layar."
+      ]
+    },
+    "dropdown-menu": {
+      "title": "Dropdown Menu",
+      "tier": "Tier 3 • Overlay & Navigasi",
+      "description": "Menu aksi melayang Neobrutalism berbasis @radix-ui/react-dropdown-menu dengan highlight hover solid, dukungan checkbox item, radio group, submenu bersarang, dan pintasan keyboard.",
+      "sections": {
+        "basic": "1. Basic Action Menu",
+        "composition": "2. Composition",
+        "checkboxes": "3. Checkbox Items",
+        "radio": "4. Radio Group Items",
+        "submenu": "5. Nested Submenu"
+      },
+      "props": {
+        "variant": "Varian warna pada DropdownMenuItem: default atau danger / destructive untuk aksi berbahaya.",
+        "inset": "Menambahkan padding kiri (pl-8) agar label sejajar dengan item yang memiliki ikon/centang.",
+        "sideOffset": "Jarak (px) antara tombol pemicu dan panel DropdownMenuContent (default 6).",
+        "noShadow": "Menghilangkan bayangan keras pada panel DropdownMenuContent atau DropdownMenuSubContent."
+      },
+      "usageNotes": [
+        "Gunakan DropdownMenu untuk daftar aksi/perintah (misal Edit, Duplicate, Delete); gunakan Select atau Combobox untuk memilih nilai input form.",
+        "Terapkan variant=\"danger\" pada DropdownMenuItem untuk aksi hapus atau keluar akun.",
+        "Navigasi keyboard panah (↑/↓/→/←), Enter, dan Escape aktif otomatis dari Radix."
+      ]
+    },
+    "popover": {
+      "title": "Popover",
+      "tier": "Tier 3 • Overlay & Navigasi",
+      "description": "Kontainer konten melayang Neobrutalism berbasis @radix-ui/react-popover dengan posisi otomatis (auto-flip), cocok untuk mini-form, inspektor profil, dan filter ringkas.",
+      "sections": {
+        "basic": "1. Basic Popover (Mini Form)",
+        "placement": "2. Placement (Top, Right, Bottom, Left)",
+        "profile": "3. Rich Profile Card",
+        "no-shadow": "4. No Shadow"
+      },
+      "props": {
+        "side": "Sisi kemunculan PopoverContent relatif terhadap pemicu: top, right, bottom, atau left.",
+        "align": "Perataan PopoverContent terhadap pemicu: start, center (default), atau end.",
+        "sideOffset": "Jarak (px) antara pemicu dan PopoverContent (default 6).",
+        "noShadow": "Menghilangkan bayangan keras pada kontainer PopoverContent."
+      },
+      "usageNotes": [
+        "Popover digunakan oleh komponen Punch UI lain seperti DatePicker dan Combobox sebagai pondasi overlay.",
+        "Gunakan Popover ketika konten melayang bersifat interaktif (form, input, tombol); gunakan Tooltip jika hanya menampilkan teks singkat.",
+        "Radix Popover otomatis membalik posisi (collision flip) saat mendekati tepi layar."
+      ]
+    },
+    "tooltip": {
+      "title": "Tooltip",
+      "tier": "Tier 3 • Overlay & Navigasi",
+      "description": "Balon teks petunjuk kontras tinggi berbasis @radix-ui/react-tooltip yang muncul saat hover atau fokus keyboard, dengan 4 varian warna, panah opsional, dan dukungan toolbar ikon.",
+      "sections": {
+        "basic": "1. Basic Tooltip",
+        "placement": "2. Placement (Top, Right, Bottom, Left)",
+        "variants": "3. Variants & No Shadow",
+        "toolbar": "4. Icon Toolbar & Shortcuts"
+      },
+      "props": {
+        "variant": "Varian warna balon tooltip: default (hitam pekat kontras tinggi), card, primary, atau secondary.",
+        "side": "Sisi kemunculan TooltipContent: top (default), right, bottom, atau left.",
+        "showArrow": "Menampilkan panah kecil penunjuk arah ke elemen pemicu.",
+        "noShadow": "Menghilangkan bayangan keras (shadow-brutal-sm) pada balon tooltip.",
+        "delayDuration": "Jeda waktu (ms) pada TooltipProvider sebelum tooltip muncul saat hover (default 200)."
+      },
+      "usageNotes": [
+        "Bungkus grup Tooltip dengan <TooltipProvider> (atau pasang sekali di layout root) agar transisi antar-tooltip terasa instan.",
+        "Gunakan Tooltip hanya untuk label singkat atau pintasan keyboard; jangan letakkan tombol/link interaktif di dalamnya (gunakan Popover).",
+        "Selalu berikan aria-label pada tombol ikon agar tetap ramah pembaca layar."
+      ]
+    },
+    "tabs": {
+      "title": "Tabs",
+      "tier": "Tier 3 • Overlay & Navigasi",
+      "description": "Navigasi tab Neobrutalism berbasis @radix-ui/react-tabs yang mendukung gaya tombol berjejer, folder fisik yang menyatu dengan panel konten, underline, serta orientasi vertikal.",
+      "sections": {
+        "basic": "1. Basic Tabs",
+        "folder": "2. Physical Folder Style",
+        "underline": "3. Underline, Icons & Badges",
+        "vertical": "4. Vertical Orientation",
+        "sizes": "5. Size",
+        "states": "6. Disabled & No Shadow"
+      },
+      "props": {
+        "variant": "Gaya tampilan tab: default (tombol berjejer), folder (map fisik menyatu dengan panel), atau underline (garis bawah tebal).",
+        "orientation": "Arah tata letak tab: horizontal (default) atau vertical (cocok untuk halaman Settings).",
+        "size": "Ukuran padding dan teks TabsTrigger: sm, default, atau lg.",
+        "noShadow": "Menghilangkan bayangan keras pada TabsList, TabsTrigger aktif, dan panel folder.",
+        "defaultValue": "Nilai tab aktif awal pada mode uncontrolled."
+      },
+      "usageNotes": [
+        "Gunakan variant=\"folder\" saat ingin menampilkan gaya map fisik khas Neobrutalism di mana tab aktif menyatu mulus ke panel konten.",
+        "Untuk halaman pengaturan dengan banyak kategori, setel orientation=\"vertical\" agar tab tersusun rapi di sisi kiri.",
+        "Navigasi keyboard panah (←/→ untuk horizontal, ↑/↓ untuk vertical) serta Home/End aktif otomatis dari Radix."
+      ]
+    },
+    "button-group": {
+      "title": "Button Group",
+      "tier": "Tier 1 • Pondasi Komponen",
+      "description": "Kontainer pengelompokan tombol, input, dan addon Neobrutalism yang menyatukan garis tepi 2px secara presisi dalam satu bayangan keras terpadu.",
+      "sections": {
+        "basic": "1. Basic Button Group",
+        "vertical": "2. Vertical Orientation",
+        "split": "3. Split Button (with Dropdown)",
+        "input": "4. With Input & Text Addon",
+        "size": "5. Size",
+        "no-shadow": "6. No Shadow & Toggle Toolbar"
+      },
+      "props": {
+        "orientation": "Arah susunan elemen anak di dalam ButtonGroup: horizontal (default) atau vertical.",
+        "noShadow": "Menghilangkan bayangan keras terpadu pada kontainer ButtonGroup.",
+        "asChild": "Pada ButtonGroupText, meneruskan gaya addon ke elemen anak tunggal (misal Label) memakai Radix Slot."
+      },
+      "usageNotes": [
+        "ButtonGroup otomatis menyatukan border 2px antar-tombol (-ml-[2px] / -mt-[2px]) dan menghilangkan shadow per tombol agar terlihat seperti satu blok solid.",
+        "Pasangkan <Button> dengan <DropdownMenuTrigger asChild> di dalam ButtonGroup untuk membuat Split Button.",
+        "Gunakan <ButtonGroupText> untuk prefix/suffix statis seperti https:// atau simbol mata uang di samping Input."
+      ]
+    },
+    "breadcrumb": {
+      "title": "Breadcrumb",
+      "tier": "Tier 3 • Overlay & Navigasi",
+      "description": "Penunjuk lokasi hierarki halaman Neobrutalism dengan 3 gaya tampilan (inline default, contained bar, dan tombol fisik pills), pemisah kustom, serta ellipsis dropdown.",
+      "sections": {
+        "basic": "1. Basic Breadcrumb",
+        "variants": "2. Variants (Contained, Pills & No Shadow)",
+        "separator": "3. Custom Separator",
+        "dropdown": "4. Collapsed with Dropdown"
+      },
+      "props": {
+        "variant": "Gaya tampilan Breadcrumb: default (inline), contained (batang ber-border), atau pills (setiap tautan berbentuk tombol fisik).",
+        "noShadow": "Menghilangkan bayangan keras pada varian contained dan pills.",
+        "asChild": "Pada BreadcrumbLink, meneruskan kelas tautan ke komponen router seperti Next.js <Link /> memakai Radix Slot."
+      },
+      "usageNotes": [
+        "Gunakan <BreadcrumbLink asChild><Link href=\"...\">...</Link></BreadcrumbLink> untuk navigasi klien Next.js tanpa reload halaman.",
+        "Untuk hierarki yang dalam, ringkas bagian tengah dengan <BreadcrumbEllipsis /> yang dibungkus <DropdownMenuTrigger>.",
+        "Halaman aktif selalu ditandai memakai <BreadcrumbPage> yang otomatis menyematkan aria-current=\"page\"."
+      ]
+    },
+    "alert": {
+      "title": "Alert",
+      "tier": "Tier 3 • Overlay & Navigasi",
+      "description": "Banner notifikasi statis Neobrutalism berbingkai border 2px dengan 7 varian warna semantik (default, primary, secondary, success, info, warning, danger/destructive) serta tombol tutup opsional.",
+      "sections": {
+        "basic": "1. Basic Alert",
+        "variants": "2. Semantic Status Variants",
+        "dismissible": "3. Dismissible Alert",
+        "no-shadow": "4. No Shadow"
+      },
+      "props": {
+        "variant": "Varian warna Alert: default, primary, secondary, success, info, warning, atau danger / destructive.",
+        "dismissible": "Menampilkan tombol × di pojok kanan atas untuk menutup Alert.",
+        "onDismiss": "Callback ketika tombol tutup Alert diklik.",
+        "noShadow": "Menghilangkan bayangan keras (shadow-brutal-sm) pada Alert."
+      },
+      "usageNotes": [
+        "Letakkan ikon Lucide langsung sebagai anak pertama <Alert>—posisi ikon dan indentasi teks otomatis disejajarkan.",
+        "Gunakan Alert untuk pesan persisten di dalam halaman; gunakan Toast (Sonner) untuk notifikasi sementara setelah aksi pengguna.",
+        "Tambahkan prop noShadow saat menyematkan Alert di dalam Card atau Dialog."
+      ]
+    },
+    "sonner": {
+      "title": "Toast (Sonner)",
+      "tier": "Tier 3 • Overlay & Navigasi",
+      "description": "Notifikasi melayang (toast) Neobrutalism berbasis Sonner dengan border hitam 2px, bayangan keras, warna status semantik, tombol aksi Undo, serta dukungan promise async.",
+      "sections": {
+        "basic": "1. Basic Toast",
+        "variants": "2. Semantic Status Toasts",
+        "action": "3. With Action Button",
+        "promise": "4. Async Promise Toast",
+        "position": "5. Position"
+      },
+      "props": {
+        "position": "Posisi kemunculan toast di layar: top-left, top-center, top-right, bottom-left, bottom-center, atau bottom-right (default).",
+        "noShadow": "Menghilangkan bayangan keras pada semua kartu toast dari Toaster.",
+        "toast()": "Fungsi imperatif untuk memicu toast: toast(), toast.success(), toast.info(), toast.warning(), toast.error(), dan toast.promise()."
+      },
+      "usageNotes": [
+        "Pasang komponen <Toaster /> satu kali di dalam root layout (src/app/layout.tsx) agar toast bisa dipanggil dari halaman mana pun.",
+        "Gunakan toast.promise() untuk memberi umpan balik loading → success/error secara otomatis pada aksi async.",
+        "Tambahkan properti action: { label, onClick } untuk notifikasi dengan tombol Undo."
       ]
     }
   }

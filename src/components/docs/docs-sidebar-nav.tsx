@@ -33,6 +33,7 @@ export function DocsSidebarNav() {
       group: nav.groups.tier1,
       items: [
         { title: nav.items.button, href: "/docs/components/button" },
+        { title: nav.items.buttonGroup, href: "/docs/components/button-group" },
         { title: nav.items.card, href: "/docs/components/card" },
         { title: nav.items.badge, href: "/docs/components/badge" },
         { title: nav.items.input, href: "/docs/components/input" },
@@ -58,6 +59,21 @@ export function DocsSidebarNav() {
         { title: nav.items.command, href: "/docs/components/command" },
         { title: nav.items.combobox, href: "/docs/components/combobox" },
         { title: nav.items.inputOtp, href: "/docs/components/input-otp" },
+      ],
+    },
+    {
+      group: nav.groups.tier3,
+      items: [
+        { title: nav.items.dialog, href: "/docs/components/dialog" },
+        { title: nav.items.alertDialog, href: "/docs/components/alert-dialog" },
+        { title: nav.items.sheet, href: "/docs/components/sheet" },
+        { title: nav.items.dropdownMenu, href: "/docs/components/dropdown-menu" },
+        { title: nav.items.popover, href: "/docs/components/popover" },
+        { title: nav.items.tooltip, href: "/docs/components/tooltip" },
+        { title: nav.items.tabs, href: "/docs/components/tabs" },
+        { title: nav.items.breadcrumb, href: "/docs/components/breadcrumb" },
+        { title: nav.items.alert, href: "/docs/components/alert" },
+        { title: nav.items.sonner, href: "/docs/components/sonner" },
       ],
     },
   ];
