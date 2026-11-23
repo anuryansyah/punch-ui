@@ -2,9 +2,18 @@
 
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { AlignLeft, ArrowUp } from "lucide-react";
+import { AlignLeft, ArrowUp, Palette, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarProvider,
+} from "@/components/ui/sidebar";
 import { useLanguage } from "@/lib/i18n";
 
 interface TocHeading {
@@ -99,52 +108,98 @@ export function DocsTableOfContents() {
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const handleScrollTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const liveThemeCard = dict.common.sidebar.liveThemeCard;
 
   return (
-    <Card className="p-4">
-      <p className="mb-3 flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">
-        <AlignLeft className="h-3.5 w-3.5" strokeWidth={2.5} />
-        {dict.common.toc.title}
-      </p>
-
-      {headings.length === 0 ? (
-        <p className="text-xs text-muted-foreground">{dict.common.toc.empty}</p>
-      ) : (
-        <ul className="space-y-1.5">
-          {headings.map((item) => {
-            const isActive = activeId === item.id;
-            return (
-              <li key={item.id} className={item.level === 3 ? "pl-3" : ""}>
-                <Button
-                  type="button"
-                  size="sm"
-                  variant={isActive ? "default" : "ghost"}
-                  onClick={() => handleScrollTo(item.id)}
-                  className="h-auto w-full justify-start whitespace-normal px-2.5 py-1.5 text-left text-xs"
-                >
-                  <span className="line-clamp-2">{item.text}</span>
-                </Button>
-              </li>
-            );
-          })}
-        </ul>
-      )}
-
-      <div className="mt-4 border-t-2 border-border pt-3">
-        <Button
-          type="button"
-          variant="secondary"
-          size="sm"
-          onClick={handleScrollTop}
-          className="w-full"
+    <div className="flex max-h-[calc(100vh-8rem)] flex-col gap-5">
+      <SidebarProvider className="min-h-0 flex-1 flex-col bg-transparent">
+        <Sidebar
+          side="right"
+          variant="floating"
+          collapsible="none"
+          className="m-0 flex min-h-0 w-full flex-1"
         >
-          <ArrowUp className="h-3.5 w-3.5" strokeWidth={2.5} />
-          {dict.common.toc.backToTop}
-        </Button>
-      </div>
-    </Card>
+          <SidebarHeader className="px-3.5 py-3">
+            <p className="flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">
+              <AlignLeft className="h-3.5 w-3.5" strokeWidth={2.5} />
+              {dict.common.toc.title}
+            </p>
+          </SidebarHeader>
+
+          <SidebarContent className="p-3">
+            {headings.length === 0 ? (
+              <p className="px-1 text-xs text-muted-foreground">
+                {dict.common.toc.empty}
+              </p>
+            ) : (
+              <SidebarMenu className="gap-1">
+                {headings.map((item) => {
+                  const isActive = activeId === item.id;
+                  return (
+                    <SidebarMenuItem
+                      key={item.id}
+                      className={item.level === 3 ? "pl-3" : ""}
+                    >
+                      <SidebarMenuButton
+                        type="button"
+                        size="sm"
+                        isActive={isActive}
+                        onClick={() => handleScrollTo(item.id)}
+                        className="h-auto whitespace-normal py-1.5 text-left"
+                      >
+                        <span className="line-clamp-2">{item.text}</span>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  );
+                })}
+              </SidebarMenu>
+            )}
+          </SidebarContent>
+        </Sidebar>
+      </SidebarProvider>
+
+      <Card className="shrink-0 bg-secondary p-4 text-secondary-foreground">
+        <p className="flex items-center gap-1.5 text-xs font-bold uppercase">
+          <Palette className="h-4 w-4" strokeWidth={2.5} />
+          {liveThemeCard.title}
+        </p>
+        <p className="mt-1 text-xs">{liveThemeCard.description}</p>
+        <div className="mt-3 flex items-center gap-1.5 rounded-sm border-2 border-border bg-card px-2.5 py-1.5 font-mono text-[11px] font-bold text-card-foreground">
+          <Terminal className="h-3.5 w-3.5 shrink-0" strokeWidth={2.5} />
+          <span className="truncate">npx shadcn build</span>
+        </div>
+      </Card>
+    </div>
+  );
+}
+
+export function DocsBackToTop() {
+  const { dict } = useLanguage();
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setVisible(window.scrollY > 240);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <Button
+      type="button"
+      size="icon"
+      variant="secondary"
+      aria-label={dict.common.toc.backToTop}
+      title={dict.common.toc.backToTop}
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className="fixed bottom-6 right-20 z-40 h-11 w-11 shadow-brutal"
+    >
+      <ArrowUp className="h-5 w-5" strokeWidth={2.5} />
+    </Button>
   );
 }

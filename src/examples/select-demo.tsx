@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import {
-  SearchableSelect,
   Select,
   SelectContent,
   SelectGroup,
@@ -259,79 +258,33 @@ export function SelectAlignDemo() {
   );
 }
 
-const FRAMEWORK_OPTIONS = [
-  { value: "next", label: "Next.js (App Router)" },
-  { value: "remix", label: "Remix" },
-  { value: "astro", label: "Astro" },
-  { value: "vite", label: "Vite + React" },
-  { value: "sveltekit", label: "SvelteKit" },
-  { value: "nuxt", label: "Nuxt 3" },
-  { value: "solid", label: "SolidStart" },
-  { value: "qwik", label: "Qwik City" },
-];
-
 /**
- * 7. Searchable Select
- */
-export function SelectSearchableDemo() {
-  const [framework, setFramework] = React.useState("next");
-
-  return (
-    <div className="w-full max-w-xs space-y-2">
-      <Label htmlFor="framework-search">Target Framework</Label>
-      <SearchableSelect
-        id="framework-search"
-        options={FRAMEWORK_OPTIONS}
-        value={framework}
-        onValueChange={setFramework}
-        placeholder="Select a framework..."
-        searchPlaceholder="Type to filter frameworks..."
-      />
-      <p className="font-mono text-xs font-bold text-muted-foreground">
-        Selected: {framework}
-      </p>
-    </div>
-  );
-}
-
-/**
- * 8. Clearable Select
+ * 6. Clearable Select
  */
 export function SelectClearableDemo() {
   const [preset, setPreset] = React.useState("tangerine");
-  const [framework, setFramework] = React.useState("next");
 
   return (
-    <div className="grid w-full max-w-2xl gap-4 sm:grid-cols-2">
-      <div className="space-y-1.5">
-        <Label>Clearable Radix Select</Label>
-        <Select value={preset} onValueChange={setPreset}>
-          <SelectTrigger
-            aria-label="Clearable preset select"
-            clearable={Boolean(preset)}
-            onClear={() => setPreset("")}
-          >
-            <SelectValue placeholder="Choose a preset..." />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="tangerine">Tangerine</SelectItem>
-            <SelectItem value="soft-blue">Soft Blue</SelectItem>
-            <SelectItem value="cyber-yellow">Cyber Yellow</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-
-      <div className="space-y-1.5">
-        <Label>Clearable SearchableSelect</Label>
-        <SearchableSelect
-          options={FRAMEWORK_OPTIONS}
-          value={framework}
-          onValueChange={setFramework}
-          clearable
-          placeholder="Select a framework..."
-          searchPlaceholder="Filter frameworks..."
-        />
-      </div>
+    <div className="w-full max-w-xs space-y-2">
+      <Label>Theme Preset</Label>
+      <Select value={preset} onValueChange={setPreset}>
+        <SelectTrigger
+          aria-label="Clearable preset select"
+          clearable={Boolean(preset)}
+          onClear={() => setPreset("")}
+        >
+          <SelectValue placeholder="Choose a preset..." />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="tangerine">Tangerine</SelectItem>
+          <SelectItem value="soft-blue">Soft Blue</SelectItem>
+          <SelectItem value="cyber-yellow">Cyber Yellow</SelectItem>
+        </SelectContent>
+      </Select>
+      <p className="font-mono text-xs text-muted-foreground">
+        Value:{" "}
+        <span className="font-bold text-foreground">{preset || "none"}</span>
+      </p>
     </div>
   );
 }

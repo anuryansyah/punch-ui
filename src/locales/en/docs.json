@@ -63,7 +63,8 @@
         "kpi": "6. KPI & Metric Card",
         "form": "7. Card with Form",
         "interactive": "8. Interactive Card",
-        "no-shadow": "9. No Shadow"
+        "no-shadow": "9. No Shadow",
+        "image": "10. Card with Image"
       },
       "props": {
         "variant": "Determines the card surface palette: theme colors (default, primary, secondary, muted) or semantic status colors (success, info, warning, danger).",
@@ -339,16 +340,15 @@
         "size": "3. Size",
         "align": "4. Align Items",
         "grouped": "5. Grouped & Scrollable",
-        "searchable": "6. Searchable Select",
-        "clearable": "7. Clearable",
-        "states": "8. Validation & Disabled",
-        "form": "9. No Shadow & Form Card"
+        "clearable": "6. Clearable",
+        "states": "7. Validation & Disabled",
+        "form": "8. No Shadow & Form Card"
       },
       "props": {
         "selectSize": "Controls the height and font size of SelectTrigger: sm, default, or lg.",
         "state": "Applies validation border and shadow styling: default, error, or success.",
         "noShadow": "Removes the hard shadow on SelectTrigger, ideal when embedded inside a Card.",
-        "clearable": "Displays an × button to clear the active selection on SearchableSelect or SelectTrigger (paired with onClear).",
+        "clearable": "Displays an × button on SelectTrigger (paired with onClear) to clear the active selection.",
         "onClear": "Callback on SelectTrigger invoked when the clear button is clicked to reset value back to \"\".",
         "position": "Positioning strategy for SelectContent: popper (floating below/above trigger, default) or item-aligned (aligns the selected item directly over the trigger).",
         "align": "Horizontal alignment of SelectContent relative to the trigger when position=\"popper\" (start, center, or end).",
@@ -359,7 +359,8 @@
       "usageNotes": [
         "Pair <Label htmlFor=\"...\"> with <SelectTrigger id=\"...\"> for proper accessibility labeling.",
         "Organize long lists with <SelectGroup>, <SelectLabel>, and <SelectSeparator />—the option viewport scrolls cleanly with a standard scrollbar.",
-        "Pass noShadow on SelectTrigger inside a Card form to avoid stacked hard shadows."
+        "Pass noShadow on SelectTrigger inside a Card form to avoid stacked hard shadows.",
+        "Need searchable text filtering, rich icons, or multi-select tags? Use the Combobox component instead."
       ]
     },
     "checkbox": {
@@ -443,6 +444,167 @@
         "Use Switch for instant on/off toggles (like Airplane Mode or Auto-Deploy), and Checkbox for multi-select forms submitted later.",
         "Pair <Switch id=\"...\" /> with <Label htmlFor=\"...\" /> so clicking the label toggles the switch.",
         "Pass noShadow when placing Switch inside a settings Card to avoid stacked hard shadows."
+      ]
+    },
+    "slider": {
+      "title": "Slider",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Neobrutalist range slider powered by @radix-ui/react-slider featuring a thick 2px-bordered track, retro square or circle thumbs, multi-thumb range support, and vertical orientation.",
+      "sections": {
+        "basic": "1. Basic Slider",
+        "range": "2. Range Slider (Dual Thumb)",
+        "size": "3. Size & Shape",
+        "variants": "4. Variants",
+        "stepped": "5. Stepped & Vertical",
+        "states": "6. Disabled & No Shadow"
+      },
+      "props": {
+        "variant": "Active range fill color: primary (default), secondary, success, info, warning, or danger / destructive.",
+        "sliderSize": "Track thickness and thumb dimensions: sm, default, or lg.",
+        "shape": "Track and thumb geometry: square (default) or circle.",
+        "noShadow": "Removes the hard shadow on the track and thumb.",
+        "defaultValue": "Initial value array for uncontrolled usage (e.g., [50] or [25, 75] for a range).",
+        "value": "Controlled value array paired with onValueChange.",
+        "min": "Minimum slider value (default: 0).",
+        "max": "Maximum slider value (default: 100).",
+        "step": "Increment step size (default: 1).",
+        "orientation": "Slider axis: horizontal (default) or vertical."
+      },
+      "usageNotes": [
+        "To render a dual-thumb Range Slider, pass a 2-element array to value or defaultValue (e.g., defaultValue={[25, 75]}).",
+        "When using orientation=\"vertical\", give the parent wrapper an explicit height (such as h-36) so the vertical track renders cleanly.",
+        "Display the live numeric value in font-mono and provide an aria-label for clear accessibility."
+      ]
+    },
+    "form": {
+      "title": "Form",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Neobrutalist form primitives integrating react-hook-form and zod schema validation with automatic ARIA wiring and high-contrast error messages.",
+      "sections": {
+        "basic": "1. Basic Form",
+        "composition": "2. Composition",
+        "controls": "3. All Tier 2 Controls"
+      },
+      "props": {
+        "control": "The control object returned by useForm() passed to FormField.",
+        "name": "Field name matching a key in your zod schema and defaultValues.",
+        "render": "Render callback receiving { field, fieldState, formState } to bind any input control.",
+        "useFormField": "Hook returning validation error and generated ARIA IDs inside a FormItem."
+      },
+      "usageNotes": [
+        "Pass state={fieldState.error ? \"error\" : \"default\"} to Punch UI inputs inside FormControl so red borders and shadows activate on validation failure.",
+        "When integrating Select inside a Form, wrap <SelectTrigger /> (not <Select />) with <FormControl>.",
+        "Define schemas with z.object(...) and connect them via zodResolver(schema) in useForm()."
+      ]
+    },
+    "date-picker": {
+      "title": "Date Picker & Calendar",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Neobrutalist date picker and calendar grid powered by react-day-picker, date-fns, and Popover with range selection, month/year dropdowns, quick presets, and clearable support.",
+      "sections": {
+        "basic": "1. Basic Date Picker",
+        "calendar": "2. Standalone Calendar",
+        "range": "3. Date Range Picker",
+        "dropdown": "4. Month & Year Dropdown",
+        "presets": "5. Clearable, Presets & Disabled",
+        "size": "6. Size",
+        "states": "7. Validation, Disabled & No Shadow"
+      },
+      "props": {
+        "value": "Selected Date or DateRange for controlled usage.",
+        "onSelect": "Callback invoked when a date or range is selected or cleared.",
+        "triggerSize": "Controls DatePicker trigger dimensions: sm, default, or lg.",
+        "state": "Applies validation border and shadow styling: default, error, or success.",
+        "clearable": "Displays an × button to the left of the calendar icon to clear the selected date.",
+        "captionLayout": "Calendar header mode: label (default) or dropdown (quick month/year selectors).",
+        "presets": "Array of quick-select buttons [{ label, date }] rendered above the calendar.",
+        "disabledDays": "react-day-picker Matcher to disable specific dates (e.g., { before: new Date() }).",
+        "noShadow": "Removes hard shadows from the trigger and calendar popover."
+      },
+      "usageNotes": [
+        "Render <Calendar /> directly when you need an inline always-visible calendar without a Popover.",
+        "Enable captionLayout=\"dropdown\" for date-of-birth inputs so users can jump across years quickly.",
+        "Inside Form (react-hook-form + zod), bind value={field.value}, onSelect={field.onChange}, and state={fieldState.error ? \"error\" : \"default\"}."
+      ]
+    },
+    "command": {
+      "title": "Command",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Fast, keyboard-first Neobrutalist command palette and menu powered by cmdk and Radix Dialog with classic window chrome, categorized groups, and Ctrl+K / ⌘K modal support.",
+      "sections": {
+        "basic": "1. Basic Command Menu",
+        "composition": "2. Composition",
+        "dialog": "3. Command Dialog (⌘K)",
+        "states": "4. Badges, Disabled & No Shadow"
+      },
+      "props": {
+        "noShadow": "Removes hard offset shadows on the Command container (useful for flat panels or nested overlays).",
+        "open": "Controlled open state for CommandDialog.",
+        "onOpenChange": "Callback fired when CommandDialog opens or closes (via ESC or backdrop click).",
+        "title": "Header bar title rendered in the classic CommandDialog window chrome.",
+        "heading": "Category heading displayed above a CommandGroup.",
+        "onSelect": "Callback invoked when a CommandItem is selected via pointer click or Enter key.",
+        "disabled": "Disables a CommandItem so it cannot be focused or selected."
+      },
+      "usageNotes": [
+        "Attach a global Ctrl+K / ⌘K keydown listener at the layout or page level to open CommandDialog from anywhere.",
+        "Place <CommandShortcut> inside <CommandItem> to display consistent keyboard shortcut badges.",
+        "Use the keywords prop on CommandItem to match search terms beyond the visible label text."
+      ]
+    },
+    "combobox": {
+      "title": "Combobox",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Searchable autocomplete selector built by composing Popover and Command, supporting single-select, multi-select with removable Badges, grouped categories, icons, and validation states.",
+      "sections": {
+        "basic": "1. Basic Combobox",
+        "multi": "2. Multi-Select Combobox",
+        "grouped": "3. Grouped, Icons & Descriptions",
+        "size": "4. Size",
+        "states": "5. Validation, Disabled & No Shadow"
+      },
+      "props": {
+        "options": "Array of ComboboxOption items supporting label, description, group, icon, badge, keywords, and disabled.",
+        "value": "Selected value (string for Combobox, string[] for MultiCombobox) in controlled mode.",
+        "onValueChange": "Callback fired whenever the selection changes or is cleared.",
+        "maxDisplay": "Maximum number of Badge pills shown in MultiCombobox before collapsing into a +N badge.",
+        "clearable": "Shows an × button next to the chevron to quickly clear the current selection.",
+        "triggerSize": "Controls trigger dimensions: sm, default, or lg.",
+        "state": "Validation border and shadow state: default, error, or success.",
+        "noShadow": "Removes hard shadows from the trigger button and options popover."
+      },
+      "usageNotes": [
+        "Choose <Combobox /> over <Select /> when the option list is long or benefits from instant text filtering.",
+        "Use <MultiCombobox /> for tag or filter selectors where users pick multiple values with removable Badges.",
+        "Add keywords to options so users can match aliases, abbreviations, or internal codes while searching."
+      ]
+    },
+    "input-otp": {
+      "title": "Input OTP",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Neobrutalist one-time passcode and PIN input powered by input-otp featuring separate bordered digit boxes with hard shadows per slot, SMS autofill, character patterns, masked mode, and validation states.",
+      "sections": {
+        "basic": "1. Basic 6-Digit OTP",
+        "composition": "2. Composition",
+        "pattern": "3. Pattern & Masked PIN",
+        "size": "4. Size",
+        "states": "5. Validation, Disabled & No Shadow",
+        "card": "6. Verification Card"
+      },
+      "props": {
+        "maxLength": "Total number of digits or characters accepted by InputOTP.",
+        "value": "Controlled string value of the OTP code.",
+        "onChange": "Callback fired whenever digits are typed, deleted, or pasted.",
+        "pattern": "Regex pattern restricting allowed characters (e.g. REGEXP_ONLY_DIGITS or REGEXP_ONLY_DIGITS_AND_CHARS).",
+        "otpSize": "Dimensions of each digit slot box: sm, default, or lg.",
+        "state": "Validation border and shadow state: default, error, or success.",
+        "masked": "Replaces entered characters with solid dots for private PIN entry.",
+        "noShadow": "Removes hard offset shadows on every digit slot."
+      },
+      "usageNotes": [
+        "Pass pattern={REGEXP_ONLY_DIGITS} for numeric OTP codes to restrict input and trigger numeric keypads on mobile.",
+        "Full multi-digit paste and native SMS autofill (autocomplete=\"one-time-code\") work out of the box.",
+        "Enable masked for sensitive 4-to-6 digit PIN fields."
       ]
     }
   }

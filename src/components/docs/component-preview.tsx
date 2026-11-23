@@ -33,6 +33,7 @@ import {
   CardCompositionDemo,
   CardDemo,
   CardFormDemo,
+  CardImageDemo,
   CardInteractiveDemo,
   CardKpiDemo,
   CardNoShadowDemo,
@@ -122,7 +123,6 @@ import {
   SelectDemo,
   SelectFormCardDemo,
   SelectGroupedDemo,
-  SelectSearchableDemo,
   SelectSizeDemo,
   SelectStatesDemo,
 } from "@/examples/select-demo";
@@ -153,6 +153,49 @@ import {
   SwitchStatesDemo,
   SwitchVariantDemo,
 } from "@/examples/switch-demo";
+import {
+  SliderBasicDemo,
+  SliderDemo,
+  SliderRangeDemo,
+  SliderSizeShapeDemo,
+  SliderStatesDemo,
+  SliderSteppedVerticalDemo,
+  SliderVariantDemo,
+} from "@/examples/slider-demo";
+import {
+  FormBasicDemo,
+  FormControlsDemo,
+  FormDemo,
+} from "@/examples/form-demo";
+import {
+  DatePickerBasicDemo,
+  DatePickerCalendarDemo,
+  DatePickerDemo,
+  DatePickerDropdownDemo,
+  DatePickerPresetsDemo,
+  DatePickerRangeDemo,
+  DatePickerSizeDemo,
+  DatePickerStatesDemo,
+} from "@/examples/date-picker-demo";
+import {
+  CommandBasicDemo,
+  CommandDialogDemo,
+  CommandStatesDemo,
+} from "@/examples/command-demo";
+import {
+  ComboboxBasicDemo,
+  ComboboxGroupedDemo,
+  ComboboxMultiDemo,
+  ComboboxSizesDemo,
+  ComboboxStatesDemo,
+} from "@/examples/combobox-demo";
+import {
+  InputOTPBasicDemo,
+  InputOTPCardDemo,
+  InputOTPPatternDemo,
+  InputOTPSizeDemo,
+  InputOTPStatesDemo,
+} from "@/examples/input-otp-demo";
 
 const DEMO_REGISTRY: Record<
   string,
@@ -913,6 +956,31 @@ export function CardNoShadowDemo() {
   );
 }`,
     Component: CardNoShadowDemo,
+  },
+  "card-image-demo": {
+    title: "Card with Image",
+    filePath: "src/examples/card-demo.tsx",
+    codeSnippet: `<Card className="w-full max-w-sm overflow-hidden">
+  <div className="relative border-b-2 border-border">
+    <Image
+      src="/images/card-cover.jpg"
+      alt="Punch UI Neobrutalist Design Kit cover"
+      width={640}
+      height={320}
+      className="h-56 w-full object-cover"
+    />
+    <Badge size="sm" className="absolute left-3 top-3">Featured</Badge>
+  </div>
+  <CardHeader>
+    <CardTitle>Neobrutalist Design Kit</CardTitle>
+    <CardDescription>Bold 2px borders, hard offset shadows, and accessible Radix primitives.</CardDescription>
+  </CardHeader>
+  <CardFooter className="justify-between">
+    <span className="font-mono text-sm font-extrabold">Free &amp; OSS</span>
+    <Button size="sm">Explore Kit</Button>
+  </CardFooter>
+</Card>`,
+    Component: CardImageDemo,
   },
   "input-demo": {
     title: "Input Overview",
@@ -2569,18 +2637,6 @@ export function SelectDemo() {
 </Select>`,
     Component: SelectAlignDemo,
   },
-  "select-searchable-demo": {
-    title: "Searchable Select",
-    filePath: "src/examples/select-demo.tsx",
-    codeSnippet: `<SearchableSelect
-  options={FRAMEWORK_OPTIONS}
-  value={framework}
-  onValueChange={setFramework}
-  placeholder="Select a framework..."
-  searchPlaceholder="Type to filter frameworks..."
-/>`,
-    Component: SelectSearchableDemo,
-  },
   "select-clearable-demo": {
     title: "Clearable",
     filePath: "src/examples/select-demo.tsx",
@@ -2588,15 +2644,12 @@ export function SelectDemo() {
   <SelectTrigger clearable={Boolean(preset)} onClear={() => setPreset("")}>
     <SelectValue placeholder="Choose a preset..." />
   </SelectTrigger>
-  <SelectContent>...</SelectContent>
-</Select>
-
-<SearchableSelect
-  options={FRAMEWORK_OPTIONS}
-  value={framework}
-  onValueChange={setFramework}
-  clearable
-/>`,
+  <SelectContent>
+    <SelectItem value="tangerine">Tangerine</SelectItem>
+    <SelectItem value="soft-blue">Soft Blue</SelectItem>
+    <SelectItem value="cyber-yellow">Cyber Yellow</SelectItem>
+  </SelectContent>
+</Select>`,
     Component: SelectClearableDemo,
   },
   "checkbox-demo": {
@@ -2835,6 +2888,460 @@ export function SwitchDemo() {
 <Switch disabled defaultChecked />
 <Switch noShadow defaultChecked />`,
     Component: SwitchStatesDemo,
+  },
+  "slider-demo": {
+    title: "Slider",
+    filePath: "src/examples/slider-demo.tsx",
+    codeSnippet: `import { Slider } from "@/components/ui/slider";
+
+export function SliderDemo() {
+  const [volume, setVolume] = React.useState([65]);
+  return (
+    <Slider
+      value={volume}
+      onValueChange={setVolume}
+      max={100}
+      step={1}
+    />
+  );
+}`,
+    Component: SliderDemo,
+  },
+  "slider-basic-demo": {
+    title: "Basic Slider",
+    filePath: "src/examples/slider-demo.tsx",
+    codeSnippet: `<Slider
+  value={volume}
+  onValueChange={setVolume}
+  max={100}
+  step={1}
+/>`,
+    Component: SliderBasicDemo,
+  },
+  "slider-range-demo": {
+    title: "Range Slider (Dual Thumb)",
+    filePath: "src/examples/slider-demo.tsx",
+    codeSnippet: `<Slider
+  value={range}
+  onValueChange={setRange}
+  min={0}
+  max={100}
+  step={5}
+/>`,
+    Component: SliderRangeDemo,
+  },
+  "slider-size-demo": {
+    title: "Size & Shape",
+    filePath: "src/examples/slider-demo.tsx",
+    codeSnippet: `<Slider sliderSize="sm" defaultValue={[40]} />
+<Slider sliderSize="default" defaultValue={[60]} />
+<Slider sliderSize="lg" defaultValue={[80]} />
+<Slider shape="circle" defaultValue={[55]} />`,
+    Component: SliderSizeShapeDemo,
+  },
+  "slider-variant-demo": {
+    title: "Variants",
+    filePath: "src/examples/slider-demo.tsx",
+    codeSnippet: `<Slider variant="primary" defaultValue={[75]} />
+<Slider variant="secondary" defaultValue={[65]} />
+<Slider variant="success" defaultValue={[85]} />
+<Slider variant="info" defaultValue={[55]} />
+<Slider variant="warning" defaultValue={[45]} />
+<Slider variant="destructive" defaultValue={[30]} />`,
+    Component: SliderVariantDemo,
+  },
+  "slider-stepped-demo": {
+    title: "Stepped & Vertical",
+    filePath: "src/examples/slider-demo.tsx",
+    codeSnippet: `<Slider value={stepVal} onValueChange={setStepVal} step={25} />
+<div className="h-36">
+  <Slider orientation="vertical" defaultValue={[70]} />
+</div>`,
+    Component: SliderSteppedVerticalDemo,
+  },
+  "slider-states-demo": {
+    title: "Disabled & No Shadow",
+    filePath: "src/examples/slider-demo.tsx",
+    codeSnippet: `<Slider defaultValue={[40]} disabled />
+<Slider defaultValue={[65]} noShadow />`,
+    Component: SliderStatesDemo,
+  },
+  "form-demo": {
+    title: "Form",
+    filePath: "src/examples/form-demo.tsx",
+    codeSnippet: `const schema = z.object({
+  username: z.string().min(3, "Username must be at least 3 characters."),
+  email: z.string().email("Please enter a valid email address."),
+});
+
+export function FormDemo() {
+  const form = useForm({
+    resolver: zodResolver(schema),
+    defaultValues: { username: "", email: "" },
+  });
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(console.log)} className="space-y-4">
+        <FormField
+          control={form.control}
+          name="username"
+          render={({ field, fieldState }) => (
+            <FormItem>
+              <FormLabel>Username</FormLabel>
+              <FormControl>
+                <Input state={fieldState.error ? "error" : "default"} {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Save Profile</Button>
+      </form>
+    </Form>
+  );
+}`,
+    Component: FormDemo,
+  },
+  "form-basic-demo": {
+    title: "Basic Form",
+    filePath: "src/examples/form-demo.tsx",
+    codeSnippet: `<Form {...form}>
+  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+    <FormField
+      control={form.control}
+      name="username"
+      render={({ field, fieldState }) => (
+        <FormItem>
+          <FormLabel>Username</FormLabel>
+          <FormControl>
+            <Input state={fieldState.error ? "error" : "default"} {...field} />
+          </FormControl>
+          <FormDescription>Your public handle across the workspace.</FormDescription>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+    <Button type="submit" size="sm">Save Profile</Button>
+  </form>
+</Form>`,
+    Component: FormBasicDemo,
+  },
+  "form-controls-demo": {
+    title: "All Tier 2 Controls",
+    filePath: "src/examples/form-demo.tsx",
+    codeSnippet: `<Form {...form}>
+  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+    <FormField control={form.control} name="projectName" render={...} />
+    <FormField control={form.control} name="framework" render={...} />
+    <FormField control={form.control} name="launchDate" render={...} />
+    <FormField control={form.control} name="visibility" render={...} />
+    <FormField control={form.control} name="bio" render={...} />
+    <FormField control={form.control} name="concurrency" render={...} />
+    <FormField control={form.control} name="autoDeploy" render={...} />
+    <FormField control={form.control} name="acceptTerms" render={...} />
+    <Button type="submit" className="w-full">Create Project</Button>
+  </form>
+</Form>`,
+    Component: FormControlsDemo,
+  },
+  "date-picker-demo": {
+    title: "Date Picker & Calendar",
+    filePath: "src/examples/date-picker-demo.tsx",
+    codeSnippet: `import { DatePicker } from "@/components/ui/date-picker";
+
+export function DatePickerDemo() {
+  const [date, setDate] = React.useState<Date | undefined>(new Date());
+  return <DatePicker value={date} onSelect={setDate} />;
+}`,
+    Component: DatePickerDemo,
+  },
+  "date-picker-basic-demo": {
+    title: "Basic Date Picker",
+    filePath: "src/examples/date-picker-demo.tsx",
+    codeSnippet: `<DatePicker
+  value={date}
+  onSelect={setDate}
+  placeholder="Select launch date"
+/>`,
+    Component: DatePickerBasicDemo,
+  },
+  "date-picker-calendar-demo": {
+    title: "Standalone Calendar",
+    filePath: "src/examples/date-picker-demo.tsx",
+    codeSnippet: `<Calendar mode="single" selected={date} onSelect={setDate} />`,
+    Component: DatePickerCalendarDemo,
+  },
+  "date-picker-range-demo": {
+    title: "Date Range Picker",
+    filePath: "src/examples/date-picker-demo.tsx",
+    codeSnippet: `<DateRangePicker value={range} onSelect={setRange} clearable />`,
+    Component: DatePickerRangeDemo,
+  },
+  "date-picker-dropdown-demo": {
+    title: "Month & Year Dropdown",
+    filePath: "src/examples/date-picker-demo.tsx",
+    codeSnippet: `<DatePicker
+  value={dob}
+  onSelect={setDob}
+  captionLayout="dropdown"
+  clearable
+/>`,
+    Component: DatePickerDropdownDemo,
+  },
+  "date-picker-presets-demo": {
+    title: "Clearable, Presets & Disabled",
+    filePath: "src/examples/date-picker-demo.tsx",
+    codeSnippet: `<DatePicker
+  value={date}
+  onSelect={setDate}
+  clearable
+  disabledDays={{ before: today }}
+  presets={[
+    { label: "Today", date: today },
+    { label: "Tomorrow", date: addDays(today, 1) },
+  ]}
+/>`,
+    Component: DatePickerPresetsDemo,
+  },
+  "date-picker-size-demo": {
+    title: "Size",
+    filePath: "src/examples/date-picker-demo.tsx",
+    codeSnippet: `<DatePicker triggerSize="sm" placeholder="Small (sm)" />
+<DatePicker triggerSize="default" placeholder="Default size" />
+<DatePicker triggerSize="lg" placeholder="Large (lg)" />`,
+    Component: DatePickerSizeDemo,
+  },
+  "date-picker-states-demo": {
+    title: "Validation, Disabled & No Shadow",
+    filePath: "src/examples/date-picker-demo.tsx",
+    codeSnippet: `<DatePicker state="success" defaultValue={new Date()} />
+<DatePicker state="error" placeholder="Date is required..." />
+<DatePicker disabled placeholder="Disabled date picker" />
+<DatePicker noShadow defaultValue={new Date()} />`,
+    Component: DatePickerStatesDemo,
+  },
+  "command-demo": {
+    title: "Command Overview",
+    filePath: "src/examples/command-demo.tsx",
+    Component: CommandBasicDemo,
+  },
+  "command-basic-demo": {
+    title: "Basic Command Menu",
+    filePath: "src/examples/command-demo.tsx",
+    codeSnippet: `<Command>
+  <CommandInput placeholder="Type a command or search..." />
+  <CommandList>
+    <CommandEmpty>No results found.</CommandEmpty>
+    <CommandGroup heading="Suggestions">
+      <CommandItem onSelect={() => run("Calendar")}>
+        <Calendar strokeWidth={2.5} />
+        <span>Calendar</span>
+      </CommandItem>
+    </CommandGroup>
+    <CommandSeparator />
+    <CommandGroup heading="Settings">
+      <CommandItem onSelect={() => run("Profile")}>
+        <User strokeWidth={2.5} />
+        <span>Profile</span>
+        <CommandShortcut>⌘P</CommandShortcut>
+      </CommandItem>
+    </CommandGroup>
+  </CommandList>
+</Command>`,
+    Component: CommandBasicDemo,
+  },
+  "command-dialog-demo": {
+    title: "Command Dialog (⌘K)",
+    filePath: "src/examples/command-demo.tsx",
+    codeSnippet: `<CommandDialog open={open} onOpenChange={setOpen} title="Punch Command">
+  <CommandInput placeholder="Jump to page or run an action..." />
+  <CommandList>
+    <CommandEmpty>No matching commands.</CommandEmpty>
+    <CommandGroup heading="Quick Actions">
+      <CommandItem onSelect={() => runCommand("Deploy to Production")}>
+        <Rocket strokeWidth={2.5} />
+        <span>Deploy to Production</span>
+        <CommandShortcut>⌘D</CommandShortcut>
+      </CommandItem>
+    </CommandGroup>
+  </CommandList>
+</CommandDialog>`,
+    Component: CommandDialogDemo,
+  },
+  "command-states-demo": {
+    title: "Badges, Disabled & No Shadow",
+    filePath: "src/examples/command-demo.tsx",
+    codeSnippet: `<Command noShadow>
+  <CommandInput placeholder="Filter workspace tools..." />
+  <CommandList>
+    <CommandGroup heading="Workspace Tools">
+      <CommandItem>
+        <LayoutDashboard strokeWidth={2.5} />
+        <span className="flex-1">Analytics Engine</span>
+        <Badge variant="success" noShadow>LIVE</Badge>
+      </CommandItem>
+      <CommandItem disabled>
+        <CreditCard strokeWidth={2.5} />
+        <span className="flex-1">Audit Log Export</span>
+        <Badge variant="outline" noShadow>LOCKED</Badge>
+      </CommandItem>
+    </CommandGroup>
+  </CommandList>
+</Command>`,
+    Component: CommandStatesDemo,
+  },
+  "combobox-demo": {
+    title: "Combobox Overview",
+    filePath: "src/examples/combobox-demo.tsx",
+    Component: ComboboxBasicDemo,
+  },
+  "combobox-basic-demo": {
+    title: "Basic Combobox",
+    filePath: "src/examples/combobox-demo.tsx",
+    codeSnippet: `<Combobox
+  options={frameworkOptions}
+  value={framework}
+  onValueChange={setFramework}
+  placeholder="Select a framework..."
+  searchPlaceholder="Search framework..."
+  clearable
+/>`,
+    Component: ComboboxBasicDemo,
+  },
+  "combobox-multi-demo": {
+    title: "Multi-Select Combobox",
+    filePath: "src/examples/combobox-demo.tsx",
+    codeSnippet: `<MultiCombobox
+  options={stackOptions}
+  value={skills}
+  onValueChange={setSkills}
+  placeholder="Select technologies..."
+  maxDisplay={3}
+  clearable
+/>`,
+    Component: ComboboxMultiDemo,
+  },
+  "combobox-grouped-demo": {
+    title: "Grouped, Icons & Descriptions",
+    filePath: "src/examples/combobox-demo.tsx",
+    codeSnippet: `<Combobox
+  options={[
+    {
+      value: "api-gateway",
+      label: "API Gateway",
+      description: "Rate-limited REST & RPC routes",
+      group: "Backend",
+      badge: "CORE",
+      icon: <Server className="h-4 w-4" strokeWidth={2.5} />,
+    },
+  ]}
+  value={service}
+  onValueChange={setService}
+  clearable
+/>`,
+    Component: ComboboxGroupedDemo,
+  },
+  "combobox-size-demo": {
+    title: "Size",
+    filePath: "src/examples/combobox-demo.tsx",
+    codeSnippet: `<Combobox options={options} triggerSize="sm" placeholder="Small combobox..." />
+<Combobox options={options} triggerSize="default" placeholder="Default combobox..." />
+<Combobox options={options} triggerSize="lg" placeholder="Large combobox..." />`,
+    Component: ComboboxSizesDemo,
+  },
+  "combobox-states-demo": {
+    title: "Validation, Disabled & No Shadow",
+    filePath: "src/examples/combobox-demo.tsx",
+    codeSnippet: `<Combobox options={options} defaultValue="nextjs" state="success" />
+<Combobox options={options} state="error" placeholder="Selection is required..." />
+<Combobox options={options} defaultValue="astro" disabled />
+<Combobox options={options} defaultValue="vite" noShadow />`,
+    Component: ComboboxStatesDemo,
+  },
+  "input-otp-demo": {
+    title: "Input OTP Overview",
+    filePath: "src/examples/input-otp-demo.tsx",
+    Component: InputOTPBasicDemo,
+  },
+  "input-otp-basic-demo": {
+    title: "Basic 6-Digit OTP",
+    filePath: "src/examples/input-otp-demo.tsx",
+    codeSnippet: `<InputOTP maxLength={6} value={value} onChange={setValue} pattern={REGEXP_ONLY_DIGITS}>
+  <InputOTPGroup>
+    <InputOTPSlot index={0} />
+    <InputOTPSlot index={1} />
+    <InputOTPSlot index={2} />
+  </InputOTPGroup>
+  <InputOTPSeparator />
+  <InputOTPGroup>
+    <InputOTPSlot index={3} />
+    <InputOTPSlot index={4} />
+    <InputOTPSlot index={5} />
+  </InputOTPGroup>
+</InputOTP>`,
+    Component: InputOTPBasicDemo,
+  },
+  "input-otp-pattern-demo": {
+    title: "Pattern & Masked PIN",
+    filePath: "src/examples/input-otp-demo.tsx",
+    codeSnippet: `<InputOTP maxLength={6} pattern={REGEXP_ONLY_DIGITS_AND_CHARS}>
+  <InputOTPGroup>
+    <InputOTPSlot index={0} />
+    <InputOTPSlot index={1} />
+    <InputOTPSlot index={2} />
+    <InputOTPSlot index={3} />
+    <InputOTPSlot index={4} />
+    <InputOTPSlot index={5} />
+  </InputOTPGroup>
+</InputOTP>
+
+<InputOTP maxLength={4} pattern={REGEXP_ONLY_DIGITS} masked>
+  <InputOTPGroup>
+    <InputOTPSlot index={0} />
+    <InputOTPSlot index={1} />
+    <InputOTPSlot index={2} />
+    <InputOTPSlot index={3} />
+  </InputOTPGroup>
+</InputOTP>`,
+    Component: InputOTPPatternDemo,
+  },
+  "input-otp-size-demo": {
+    title: "Size",
+    filePath: "src/examples/input-otp-demo.tsx",
+    codeSnippet: `<InputOTP maxLength={4} otpSize="sm">...</InputOTP>
+<InputOTP maxLength={4} otpSize="default">...</InputOTP>
+<InputOTP maxLength={4} otpSize="lg">...</InputOTP>`,
+    Component: InputOTPSizeDemo,
+  },
+  "input-otp-states-demo": {
+    title: "Validation, Disabled & No Shadow",
+    filePath: "src/examples/input-otp-demo.tsx",
+    codeSnippet: `<InputOTP maxLength={4} defaultValue="2026" state="success">...</InputOTP>
+<InputOTP maxLength={4} defaultValue="00" state="error">...</InputOTP>
+<InputOTP maxLength={4} defaultValue="8842" disabled>...</InputOTP>
+<InputOTP maxLength={4} defaultValue="4096" noShadow>...</InputOTP>`,
+    Component: InputOTPStatesDemo,
+  },
+  "input-otp-card-demo": {
+    title: "Verification Card",
+    filePath: "src/examples/input-otp-demo.tsx",
+    codeSnippet: `<Card className="w-full max-w-md">
+  <CardHeader>
+    <CardTitle>Verify Login Code</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <InputOTP maxLength={6} value={code} onChange={setCode} state={state}>
+      <InputOTPGroup>...</InputOTPGroup>
+      <InputOTPSeparator />
+      <InputOTPGroup>...</InputOTPGroup>
+    </InputOTP>
+  </CardContent>
+  <CardFooter>
+    <Button type="submit">Verify Code</Button>
+  </CardFooter>
+</Card>`,
+    Component: InputOTPCardDemo,
   },
 };
 

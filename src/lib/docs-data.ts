@@ -321,6 +321,114 @@ function getSwitchPropDesc(
   };
 }
 
+function getSliderSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.slider.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.slider.sections[secId],
+    en: dictionaries.en.docs.components.slider.sections[secId],
+  };
+}
+
+function getSliderPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.slider.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.slider.props[propName],
+    en: dictionaries.en.docs.components.slider.props[propName],
+  };
+}
+
+function getFormSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.form.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.form.sections[secId],
+    en: dictionaries.en.docs.components.form.sections[secId],
+  };
+}
+
+function getFormPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.form.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.form.props[propName],
+    en: dictionaries.en.docs.components.form.props[propName],
+  };
+}
+
+function getDatePickerSectionTitle(
+  secId: keyof (typeof dictionaries.id.docs.components)["date-picker"]["sections"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["date-picker"].sections[secId],
+    en: dictionaries.en.docs.components["date-picker"].sections[secId],
+  };
+}
+
+function getDatePickerPropDesc(
+  propName: keyof (typeof dictionaries.id.docs.components)["date-picker"]["props"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["date-picker"].props[propName],
+    en: dictionaries.en.docs.components["date-picker"].props[propName],
+  };
+}
+
+function getCommandSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.command.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.command.sections[secId],
+    en: dictionaries.en.docs.components.command.sections[secId],
+  };
+}
+
+function getCommandPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.command.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.command.props[propName],
+    en: dictionaries.en.docs.components.command.props[propName],
+  };
+}
+
+function getComboboxSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.combobox.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.combobox.sections[secId],
+    en: dictionaries.en.docs.components.combobox.sections[secId],
+  };
+}
+
+function getComboboxPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.combobox.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.combobox.props[propName],
+    en: dictionaries.en.docs.components.combobox.props[propName],
+  };
+}
+
+function getInputOtpSectionTitle(
+  secId: keyof (typeof dictionaries.id.docs.components)["input-otp"]["sections"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["input-otp"].sections[secId],
+    en: dictionaries.en.docs.components["input-otp"].sections[secId],
+  };
+}
+
+function getInputOtpPropDesc(
+  propName: keyof (typeof dictionaries.id.docs.components)["input-otp"]["props"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["input-otp"].props[propName],
+    en: dictionaries.en.docs.components["input-otp"].props[propName],
+  };
+}
+
 export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
   button: {
     slug: "button",
@@ -519,6 +627,12 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
         title: getCardSectionTitle("no-shadow"),
         demoName: "card-noshadow-demo",
         propsUsed: 'noShadow | variant="muted" noShadow',
+      },
+      {
+        id: "image",
+        title: getCardSectionTitle("image"),
+        demoName: "card-image-demo",
+        propsUsed: "Card + Image + Badge + Button",
       },
     ],
     propsTable: [
@@ -1627,12 +1741,6 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
         propsUsed: "SelectGroup SelectLabel SelectSeparator",
       },
       {
-        id: "searchable",
-        title: getSelectSectionTitle("searchable"),
-        demoName: "select-searchable-demo",
-        propsUsed: "SearchableSelect options searchPlaceholder",
-      },
-      {
         id: "clearable",
         title: getSelectSectionTitle("clearable"),
         demoName: "select-clearable-demo",
@@ -1993,6 +2101,595 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
         type: "boolean",
         defaultValue: "false",
         description: getSwitchPropDesc("disabled"),
+      },
+    ],
+  },
+  slider: {
+    slug: "slider",
+    ...getComponentText("slider"),
+    demoName: "slider-demo",
+    sourceFile: "src/components/ui/slider.tsx",
+    registryItem: "slider",
+    sections: [
+      {
+        id: "basic",
+        title: getSliderSectionTitle("basic"),
+        demoName: "slider-basic-demo",
+        propsUsed: "Slider value onValueChange max step",
+      },
+      {
+        id: "range",
+        title: getSliderSectionTitle("range"),
+        demoName: "slider-range-demo",
+        propsUsed: "value={[25, 75]} step={5}",
+      },
+      {
+        id: "size",
+        title: getSliderSectionTitle("size"),
+        demoName: "slider-size-demo",
+        propsUsed: 'sliderSize="sm | default | lg" shape="square | circle"',
+      },
+      {
+        id: "variants",
+        title: getSliderSectionTitle("variants"),
+        demoName: "slider-variant-demo",
+        propsUsed:
+          'variant="primary | secondary | success | info | warning | destructive"',
+      },
+      {
+        id: "stepped",
+        title: getSliderSectionTitle("stepped"),
+        demoName: "slider-stepped-demo",
+        propsUsed: 'step={25} orientation="vertical"',
+      },
+      {
+        id: "states",
+        title: getSliderSectionTitle("states"),
+        demoName: "slider-states-demo",
+        propsUsed: "disabled noShadow",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "variant",
+        type: '"primary" | "secondary" | "success" | "info" | "warning" | "danger" | "destructive"',
+        defaultValue: '"primary"',
+        description: getSliderPropDesc("variant"),
+      },
+      {
+        prop: "sliderSize",
+        type: '"sm" | "default" | "lg"',
+        defaultValue: '"default"',
+        description: getSliderPropDesc("sliderSize"),
+      },
+      {
+        prop: "shape",
+        type: '"square" | "circle"',
+        defaultValue: '"square"',
+        description: getSliderPropDesc("shape"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getSliderPropDesc("noShadow"),
+      },
+      {
+        prop: "defaultValue",
+        type: "number[]",
+        defaultValue: "undefined",
+        description: getSliderPropDesc("defaultValue"),
+      },
+      {
+        prop: "value",
+        type: "number[]",
+        defaultValue: "undefined",
+        description: getSliderPropDesc("value"),
+      },
+      {
+        prop: "min",
+        type: "number",
+        defaultValue: "0",
+        description: getSliderPropDesc("min"),
+      },
+      {
+        prop: "max",
+        type: "number",
+        defaultValue: "100",
+        description: getSliderPropDesc("max"),
+      },
+      {
+        prop: "step",
+        type: "number",
+        defaultValue: "1",
+        description: getSliderPropDesc("step"),
+      },
+      {
+        prop: "orientation",
+        type: '"horizontal" | "vertical"',
+        defaultValue: '"horizontal"',
+        description: getSliderPropDesc("orientation"),
+      },
+    ],
+  },
+  form: {
+    slug: "form",
+    ...getComponentText("form"),
+    demoName: "form-demo",
+    sourceFile: "src/components/ui/form.tsx",
+    registryItem: "form",
+    sections: [
+      {
+        id: "basic",
+        title: getFormSectionTitle("basic"),
+        demoName: "form-basic-demo",
+        propsUsed: "Form FormField FormItem FormLabel FormControl FormMessage",
+      },
+      {
+        id: "composition",
+        title: getFormSectionTitle("composition"),
+        tree: {
+          name: "Form (FormProvider)",
+          role: "root",
+          children: [
+            {
+              name: "FormField (Controller)",
+              role: "section",
+              children: [
+                {
+                  name: "FormItem",
+                  role: "section",
+                  children: [
+                    { name: "FormLabel", role: "leaf" },
+                    { name: "FormControl (Slot)", role: "leaf" },
+                    { name: "FormDescription", role: "leaf" },
+                    { name: "FormMessage", role: "leaf" },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      },
+      {
+        id: "controls",
+        title: getFormSectionTitle("controls"),
+        demoName: "form-controls-demo",
+        propsUsed:
+          "Input + Select + DatePicker + RadioGroup + Textarea + Slider + Switch + Checkbox",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "control",
+        type: "Control<TFieldValues>",
+        defaultValue: "required",
+        description: getFormPropDesc("control"),
+      },
+      {
+        prop: "name",
+        type: "FieldPath<TFieldValues>",
+        defaultValue: "required",
+        description: getFormPropDesc("name"),
+      },
+      {
+        prop: "render",
+        type: "({ field, fieldState, formState }) => ReactElement",
+        defaultValue: "required",
+        description: getFormPropDesc("render"),
+      },
+      {
+        prop: "useFormField()",
+        type: "() => { error, formItemId, formDescriptionId, formMessageId }",
+        defaultValue: "hook",
+        description: getFormPropDesc("useFormField"),
+      },
+    ],
+  },
+  "date-picker": {
+    slug: "date-picker",
+    ...getComponentText("date-picker"),
+    demoName: "date-picker-demo",
+    sourceFile: "src/components/ui/date-picker.tsx",
+    registryItem: "date-picker",
+    sections: [
+      {
+        id: "basic",
+        title: getDatePickerSectionTitle("basic"),
+        demoName: "date-picker-basic-demo",
+        propsUsed: "DatePicker value onSelect",
+      },
+      {
+        id: "calendar",
+        title: getDatePickerSectionTitle("calendar"),
+        demoName: "date-picker-calendar-demo",
+        propsUsed: 'Calendar mode="single"',
+      },
+      {
+        id: "range",
+        title: getDatePickerSectionTitle("range"),
+        demoName: "date-picker-range-demo",
+        propsUsed: "DateRangePicker clearable",
+      },
+      {
+        id: "dropdown",
+        title: getDatePickerSectionTitle("dropdown"),
+        demoName: "date-picker-dropdown-demo",
+        propsUsed: 'captionLayout="dropdown"',
+      },
+      {
+        id: "presets",
+        title: getDatePickerSectionTitle("presets"),
+        demoName: "date-picker-presets-demo",
+        propsUsed: "presets disabledDays clearable",
+      },
+      {
+        id: "size",
+        title: getDatePickerSectionTitle("size"),
+        demoName: "date-picker-size-demo",
+        propsUsed: 'triggerSize="sm | default | lg"',
+      },
+      {
+        id: "states",
+        title: getDatePickerSectionTitle("states"),
+        demoName: "date-picker-states-demo",
+        propsUsed: 'state="success | error" disabled noShadow',
+      },
+    ],
+    propsTable: [
+      {
+        prop: "value",
+        type: "Date | DateRange | undefined",
+        defaultValue: "undefined",
+        description: getDatePickerPropDesc("value"),
+      },
+      {
+        prop: "onSelect",
+        type: "(value) => void",
+        defaultValue: "undefined",
+        description: getDatePickerPropDesc("onSelect"),
+      },
+      {
+        prop: "triggerSize",
+        type: '"sm" | "default" | "lg"',
+        defaultValue: '"default"',
+        description: getDatePickerPropDesc("triggerSize"),
+      },
+      {
+        prop: "state",
+        type: '"default" | "error" | "success"',
+        defaultValue: '"default"',
+        description: getDatePickerPropDesc("state"),
+      },
+      {
+        prop: "clearable",
+        type: "boolean",
+        defaultValue: "false",
+        description: getDatePickerPropDesc("clearable"),
+      },
+      {
+        prop: "captionLayout",
+        type: '"label" | "dropdown"',
+        defaultValue: '"label"',
+        description: getDatePickerPropDesc("captionLayout"),
+      },
+      {
+        prop: "presets",
+        type: "DatePickerPreset[]",
+        defaultValue: "undefined",
+        description: getDatePickerPropDesc("presets"),
+      },
+      {
+        prop: "disabledDays",
+        type: "Matcher | Matcher[]",
+        defaultValue: "undefined",
+        description: getDatePickerPropDesc("disabledDays"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getDatePickerPropDesc("noShadow"),
+      },
+    ],
+  },
+  command: {
+    slug: "command",
+    ...getComponentText("command"),
+    demoName: "command-demo",
+    sourceFile: "src/components/ui/command.tsx",
+    registryItem: "command",
+    sections: [
+      {
+        id: "basic",
+        title: getCommandSectionTitle("basic"),
+        demoName: "command-basic-demo",
+        propsUsed: "Command CommandInput CommandGroup CommandShortcut",
+      },
+      {
+        id: "composition",
+        title: getCommandSectionTitle("composition"),
+        tree: {
+          name: "Command / CommandDialog",
+          role: "root",
+          children: [
+            { name: "CommandInput", role: "leaf" },
+            {
+              name: "CommandList",
+              role: "section",
+              children: [
+                { name: "CommandEmpty", role: "leaf" },
+                {
+                  name: "CommandGroup",
+                  role: "section",
+                  children: [
+                    {
+                      name: "CommandItem",
+                      role: "section",
+                      children: [{ name: "CommandShortcut", role: "leaf" }],
+                    },
+                  ],
+                },
+                { name: "CommandSeparator", role: "leaf" },
+              ],
+            },
+          ],
+        },
+      },
+      {
+        id: "dialog",
+        title: getCommandSectionTitle("dialog"),
+        demoName: "command-dialog-demo",
+        propsUsed: "CommandDialog open onOpenChange ⌘K",
+      },
+      {
+        id: "states",
+        title: getCommandSectionTitle("states"),
+        demoName: "command-states-demo",
+        propsUsed: "noShadow disabled Badge",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getCommandPropDesc("noShadow"),
+      },
+      {
+        prop: "open",
+        type: "boolean",
+        defaultValue: "false",
+        description: getCommandPropDesc("open"),
+      },
+      {
+        prop: "onOpenChange",
+        type: "(open: boolean) => void",
+        defaultValue: "undefined",
+        description: getCommandPropDesc("onOpenChange"),
+      },
+      {
+        prop: "title",
+        type: "string",
+        defaultValue: '"Command Palette"',
+        description: getCommandPropDesc("title"),
+      },
+      {
+        prop: "heading",
+        type: "React.ReactNode",
+        defaultValue: "undefined",
+        description: getCommandPropDesc("heading"),
+      },
+      {
+        prop: "onSelect",
+        type: "(value: string) => void",
+        defaultValue: "undefined",
+        description: getCommandPropDesc("onSelect"),
+      },
+      {
+        prop: "disabled",
+        type: "boolean",
+        defaultValue: "false",
+        description: getCommandPropDesc("disabled"),
+      },
+    ],
+  },
+  combobox: {
+    slug: "combobox",
+    ...getComponentText("combobox"),
+    demoName: "combobox-demo",
+    sourceFile: "src/components/ui/combobox.tsx",
+    registryItem: "combobox",
+    sections: [
+      {
+        id: "basic",
+        title: getComboboxSectionTitle("basic"),
+        demoName: "combobox-basic-demo",
+        propsUsed: "Combobox options value onValueChange clearable",
+      },
+      {
+        id: "multi",
+        title: getComboboxSectionTitle("multi"),
+        demoName: "combobox-multi-demo",
+        propsUsed: "MultiCombobox maxDisplay clearable",
+      },
+      {
+        id: "grouped",
+        title: getComboboxSectionTitle("grouped"),
+        demoName: "combobox-grouped-demo",
+        propsUsed: "group icon description badge disabled",
+      },
+      {
+        id: "size",
+        title: getComboboxSectionTitle("size"),
+        demoName: "combobox-size-demo",
+        propsUsed: 'triggerSize="sm | default | lg"',
+      },
+      {
+        id: "states",
+        title: getComboboxSectionTitle("states"),
+        demoName: "combobox-states-demo",
+        propsUsed: 'state="success | error" disabled noShadow',
+      },
+    ],
+    propsTable: [
+      {
+        prop: "options",
+        type: "ComboboxOption[]",
+        defaultValue: "required",
+        description: getComboboxPropDesc("options"),
+      },
+      {
+        prop: "value",
+        type: "string | string[]",
+        defaultValue: "undefined",
+        description: getComboboxPropDesc("value"),
+      },
+      {
+        prop: "onValueChange",
+        type: "(value) => void",
+        defaultValue: "undefined",
+        description: getComboboxPropDesc("onValueChange"),
+      },
+      {
+        prop: "maxDisplay",
+        type: "number",
+        defaultValue: "3",
+        description: getComboboxPropDesc("maxDisplay"),
+      },
+      {
+        prop: "clearable",
+        type: "boolean",
+        defaultValue: "false",
+        description: getComboboxPropDesc("clearable"),
+      },
+      {
+        prop: "triggerSize",
+        type: '"sm" | "default" | "lg"',
+        defaultValue: '"default"',
+        description: getComboboxPropDesc("triggerSize"),
+      },
+      {
+        prop: "state",
+        type: '"default" | "error" | "success"',
+        defaultValue: '"default"',
+        description: getComboboxPropDesc("state"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getComboboxPropDesc("noShadow"),
+      },
+    ],
+  },
+  "input-otp": {
+    slug: "input-otp",
+    ...getComponentText("input-otp"),
+    demoName: "input-otp-demo",
+    sourceFile: "src/components/ui/input-otp.tsx",
+    registryItem: "input-otp",
+    sections: [
+      {
+        id: "basic",
+        title: getInputOtpSectionTitle("basic"),
+        demoName: "input-otp-basic-demo",
+        propsUsed: "InputOTP InputOTPGroup InputOTPSlot InputOTPSeparator",
+      },
+      {
+        id: "composition",
+        title: getInputOtpSectionTitle("composition"),
+        tree: {
+          name: "InputOTP",
+          role: "root",
+          children: [
+            {
+              name: "InputOTPGroup",
+              role: "section",
+              children: [{ name: "InputOTPSlot (index 0..2)", role: "leaf" }],
+            },
+            { name: "InputOTPSeparator", role: "leaf" },
+            {
+              name: "InputOTPGroup",
+              role: "section",
+              children: [{ name: "InputOTPSlot (index 3..5)", role: "leaf" }],
+            },
+          ],
+        },
+      },
+      {
+        id: "pattern",
+        title: getInputOtpSectionTitle("pattern"),
+        demoName: "input-otp-pattern-demo",
+        propsUsed: "pattern masked REGEXP_ONLY_DIGITS_AND_CHARS",
+      },
+      {
+        id: "size",
+        title: getInputOtpSectionTitle("size"),
+        demoName: "input-otp-size-demo",
+        propsUsed: 'otpSize="sm | default | lg"',
+      },
+      {
+        id: "states",
+        title: getInputOtpSectionTitle("states"),
+        demoName: "input-otp-states-demo",
+        propsUsed: 'state="success | error" disabled noShadow',
+      },
+      {
+        id: "card",
+        title: getInputOtpSectionTitle("card"),
+        demoName: "input-otp-card-demo",
+        propsUsed: "Card InputOTP Button Badge",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "maxLength",
+        type: "number",
+        defaultValue: "required",
+        description: getInputOtpPropDesc("maxLength"),
+      },
+      {
+        prop: "value",
+        type: "string",
+        defaultValue: "undefined",
+        description: getInputOtpPropDesc("value"),
+      },
+      {
+        prop: "onChange",
+        type: "(value: string) => void",
+        defaultValue: "undefined",
+        description: getInputOtpPropDesc("onChange"),
+      },
+      {
+        prop: "pattern",
+        type: "string",
+        defaultValue: "undefined",
+        description: getInputOtpPropDesc("pattern"),
+      },
+      {
+        prop: "otpSize",
+        type: '"sm" | "default" | "lg"',
+        defaultValue: '"default"',
+        description: getInputOtpPropDesc("otpSize"),
+      },
+      {
+        prop: "state",
+        type: '"default" | "error" | "success"',
+        defaultValue: '"default"',
+        description: getInputOtpPropDesc("state"),
+      },
+      {
+        prop: "masked",
+        type: "boolean",
+        defaultValue: "false",
+        description: getInputOtpPropDesc("masked"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getInputOtpPropDesc("noShadow"),
       },
     ],
   },

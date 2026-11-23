@@ -1,14 +1,16 @@
 import Link from "next/link";
-import { Home, Layers } from "lucide-react";
+import { Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { DocsSidebarNav } from "@/components/docs/docs-sidebar-nav";
-import { DocsTableOfContents } from "@/components/docs/docs-toc";
+import {
+  DocsBackToTop,
+  DocsTableOfContents,
+} from "@/components/docs/docs-toc";
 import { DocsPager } from "@/components/docs/docs-pager";
 import { ThemeCustomizer } from "@/components/docs/theme-customizer";
-import { LanguageSwitcher, T } from "@/lib/i18n";
+import { LanguageSwitcher } from "@/lib/i18n";
 import { siteConfig } from "@/lib/config";
-import { dictionaries } from "@/locales";
 
 export default function DocsLayout({
   children,
@@ -34,19 +36,6 @@ export default function DocsLayout({
 
           <div className="flex items-center gap-2.5">
             <LanguageSwitcher />
-            <Button asChild variant="outline" size="sm">
-              <Link href="/">
-                <Home className="h-3.5 w-3.5" strokeWidth={2.5} />
-                <span className="hidden sm:inline">
-                  <T
-                    text={{
-                      id: dictionaries.id.common.topbar.homeAndCustomizer,
-                      en: dictionaries.en.common.topbar.homeAndCustomizer,
-                    }}
-                  />
-                </span>
-              </Link>
-            </Button>
           </div>
         </div>
       </header>
@@ -67,7 +56,8 @@ export default function DocsLayout({
         </aside>
       </div>
 
-      {/* Floating Button + Drawer Theme Customizer khusus di halaman Docs */}
+      {/* Floating Back to Top + Drawer Theme Customizer khusus di halaman Docs */}
+      <DocsBackToTop />
       <ThemeCustomizer variant="drawer" />
     </div>
   );

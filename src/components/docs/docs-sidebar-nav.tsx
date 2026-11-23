@@ -2,9 +2,18 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, Palette, Terminal } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { BookOpen } from "lucide-react";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarProvider,
+} from "@/components/ui/sidebar";
 import { useLanguage } from "@/lib/i18n";
 
 export function DocsSidebarNav() {
@@ -43,57 +52,58 @@ export function DocsSidebarNav() {
         { title: nav.items.checkbox, href: "/docs/components/checkbox" },
         { title: nav.items.radioGroup, href: "/docs/components/radio-group" },
         { title: nav.items.switch, href: "/docs/components/switch" },
+        { title: nav.items.slider, href: "/docs/components/slider" },
+        { title: nav.items.form, href: "/docs/components/form" },
+        { title: nav.items.datePicker, href: "/docs/components/date-picker" },
+        { title: nav.items.command, href: "/docs/components/command" },
+        { title: nav.items.combobox, href: "/docs/components/combobox" },
+        { title: nav.items.inputOtp, href: "/docs/components/input-otp" },
       ],
     },
   ];
 
   return (
-    <div className="space-y-6">
-      <Card className="p-4">
-        {sections.map((section) => (
-          <div key={section.group} className="mb-5 last:mb-0">
-            <p className="mb-2.5 flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">
-              <BookOpen className="h-3.5 w-3.5" strokeWidth={2.5} />
-              {section.group}
-            </p>
-            <ul className="space-y-2">
-              {section.items.map((item) => {
-                const isActive = pathname === item.href;
+    <SidebarProvider className="min-h-0 flex-col bg-transparent">
+      <Sidebar
+        variant="floating"
+        collapsible="none"
+        className="m-0 flex max-h-[calc(100vh-8rem)] w-full"
+      >
+        <SidebarContent className="p-3">
+          {sections.map((section) => (
+            <SidebarGroup key={section.group} className="mb-3 last:mb-0">
+              <SidebarGroupLabel className="mb-1.5 flex items-center gap-1.5 px-1">
+                <BookOpen className="h-3.5 w-3.5" strokeWidth={2.5} />
+                {section.group}
+              </SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu className="gap-1.5">
+                  {section.items.map((item) => {
+                    const isActive = pathname === item.href;
 
-                return (
-                  <li key={item.href}>
-                    <Button
-                      asChild
-                      size="sm"
-                      variant={isActive ? "default" : "ghost"}
-                      className="w-full justify-start px-3 py-2 text-xs"
-                    >
-                      <Link
-                        href={item.href}
-                        aria-current={isActive ? "page" : undefined}
-                      >
-                        {item.title}
-                      </Link>
-                    </Button>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        ))}
-      </Card>
-
-      <Card className="bg-secondary p-4 text-secondary-foreground">
-        <p className="flex items-center gap-1.5 text-xs font-bold uppercase">
-          <Palette className="h-4 w-4" strokeWidth={2.5} />
-          {nav.liveThemeCard.title}
-        </p>
-        <p className="mt-1 text-xs">{nav.liveThemeCard.description}</p>
-        <div className="mt-3 flex items-center gap-1.5 rounded-sm border-2 border-border bg-card px-2.5 py-1.5 font-mono text-[11px] font-bold text-card-foreground">
-          <Terminal className="h-3.5 w-3.5 shrink-0" strokeWidth={2.5} />
-          <span className="truncate">npx shadcn build</span>
-        </div>
-      </Card>
-    </div>
+                    return (
+                      <SidebarMenuItem key={item.href}>
+                        <SidebarMenuButton
+                          asChild
+                          size="sm"
+                          isActive={isActive}
+                        >
+                          <Link
+                            href={item.href}
+                            aria-current={isActive ? "page" : undefined}
+                          >
+                            <span>{item.title}</span>
+                          </Link>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    );
+                  })}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          ))}
+        </SidebarContent>
+      </Sidebar>
+    </SidebarProvider>
   );
 }

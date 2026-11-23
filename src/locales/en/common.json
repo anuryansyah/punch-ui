@@ -25,7 +25,13 @@
       "select": "Select",
       "checkbox": "Checkbox",
       "radioGroup": "Radio Group",
-      "switch": "Switch"
+      "switch": "Switch",
+      "slider": "Slider",
+      "form": "Form",
+      "datePicker": "Date Picker & Calendar",
+      "command": "Command",
+      "combobox": "Combobox",
+      "inputOtp": "Input OTP"
     },
     "liveThemeCard": {
       "title": "Live Theme Active",

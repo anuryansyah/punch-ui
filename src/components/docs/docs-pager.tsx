@@ -28,6 +28,12 @@ export function DocsPager() {
     { title: nav.checkbox, href: "/docs/components/checkbox" },
     { title: nav.radioGroup, href: "/docs/components/radio-group" },
     { title: nav.switch, href: "/docs/components/switch" },
+    { title: nav.slider, href: "/docs/components/slider" },
+    { title: nav.form, href: "/docs/components/form" },
+    { title: nav.datePicker, href: "/docs/components/date-picker" },
+    { title: nav.command, href: "/docs/components/command" },
+    { title: nav.combobox, href: "/docs/components/combobox" },
+    { title: nav.inputOtp, href: "/docs/components/input-otp" },
   ];
 
   const currentIndex = pages.findIndex((p) => p.href === pathname);
