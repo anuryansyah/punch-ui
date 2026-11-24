@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Check, Code2, Copy, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useLanguage } from "@/lib/i18n";
 
 interface PreviewTabsProps {
@@ -44,30 +45,28 @@ export function PreviewTabs({
         </div>
 
         <div className="flex items-center gap-2">
-          <div className="inline-flex h-8 items-center rounded-md border-2 border-border bg-card p-0.5">
-            <Button
-              type="button"
-              size="sm"
-              noShadow
-              variant={tab === "preview" ? "default" : "ghost"}
-              onClick={() => setTab("preview")}
-              className="h-full rounded-sm border-0 px-2.5 py-0 text-xs"
-            >
+          <ToggleGroup
+            type="single"
+            variant="outline"
+            size="sm"
+            noShadow
+            value={tab}
+            onValueChange={(value) => {
+              if (value === "preview" || value === "code") {
+                setTab(value);
+              }
+            }}
+            aria-label={title}
+          >
+            <ToggleGroupItem value="preview">
               <Eye className="h-3.5 w-3.5" strokeWidth={2.5} />
               {pt.preview}
-            </Button>
-            <Button
-              type="button"
-              size="sm"
-              noShadow
-              variant={tab === "code" ? "default" : "ghost"}
-              onClick={() => setTab("code")}
-              className="h-full rounded-sm border-0 px-2.5 py-0 text-xs"
-            >
+            </ToggleGroupItem>
+            <ToggleGroupItem value="code">
               <Code2 className="h-3.5 w-3.5" strokeWidth={2.5} />
               {pt.code}
-            </Button>
-          </div>
+            </ToggleGroupItem>
+          </ToggleGroup>
 
           <Button
             type="button"

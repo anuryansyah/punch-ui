@@ -116,6 +116,128 @@
     background: transparent;
     border: 1.5px solid var(--border);
   }
+
+  /* Rich Text Editor (Tiptap) Neobrutalist Prose Styles */
+  .punch-editor-content h1 {
+    font-size: 1.5rem;
+    line-height: 1.25;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .punch-editor-content h2 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    margin-top: 0.75rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .punch-editor-content h3 {
+    font-size: 1.05rem;
+    line-height: 1.35;
+    font-weight: 800;
+    margin-top: 0.6rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .punch-editor-content h4 {
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .punch-editor-content p {
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+
+  .punch-editor-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .punch-editor-content ul {
+    list-style-type: disc;
+    padding-left: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .punch-editor-content ol {
+    list-style-type: decimal;
+    padding-left: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .punch-editor-content li {
+    margin-bottom: 0.2rem;
+  }
+
+  .punch-editor-content blockquote {
+    border-left: 4px solid var(--border);
+    background-color: color-mix(in srgb, var(--muted) 75%, transparent);
+    padding: 0.5rem 0.875rem;
+    margin: 0.65rem 0;
+    font-style: italic;
+  }
+
+  .punch-editor-content code {
+    font-family:
+      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.85em;
+    font-weight: 700;
+    background-color: var(--secondary);
+    color: var(--secondary-foreground);
+    border: 1.5px solid var(--border);
+    border-radius: max(0px, calc(var(--radius) - 4px));
+    padding: 0.05rem 0.35rem;
+  }
+
+  .punch-editor-content pre {
+    background-color: #141923;
+    color: #f8fafc;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    margin: 0.65rem 0;
+    overflow-x: auto;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .punch-editor-content pre code {
+    background: transparent;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font-weight: 500;
+    font-size: 0.8125rem;
+  }
+
+  .punch-editor-content hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 0.85rem 0;
+  }
+
+  .punch-editor-content a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+    cursor: pointer;
+  }
+
+  .punch-editor-content p.is-editor-empty:first-child::before {
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+    color: var(--muted-foreground);
+  }
 }
 
 @layer utilities {
@@ -176,5 +298,57 @@
       transparent 1.25px
     );
     background-size: 18px 18px;
+  }
+  .animate-progress-indeterminate {
+    animation: progress-indeterminate 1.4s ease-in-out infinite;
+  }
+  .animate-skeleton-pulse {
+    animation: skeleton-pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  .animate-accordion-down {
+    animation: accordion-down 0.2s ease-out;
+  }
+  .animate-accordion-up {
+    animation: accordion-up 0.2s ease-out;
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes progress-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(260%);
+  }
+}
+
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    background-color: var(--muted);
+  }
+  50% {
+    background-color: color-mix(in srgb, var(--foreground) 20%, var(--muted));
   }
 }

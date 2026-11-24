@@ -5,9 +5,11 @@
   "sidebar": {
     "groups": {
       "gettingStarted": "Getting Started",
+      "components": "Components",
       "tier1": "Tier 1 • Core Components",
       "tier2": "Tier 2 • Forms & Input Controls",
-      "tier3": "Tier 3 • Overlays & Navigation"
+      "tier3": "Tier 3 • Overlays & Navigation",
+      "tier4": "Tier 4 • Data Viz & Utilities"
     },
     "items": {
       "introCatalog": "Introduction & Catalog",
@@ -34,6 +36,7 @@
       "command": "Command",
       "combobox": "Combobox",
       "inputOtp": "Input OTP",
+      "fileUpload": "File Upload",
       "dialog": "Dialog",
       "alertDialog": "Alert Dialog",
       "sheet": "Sheet",
@@ -43,7 +46,15 @@
       "tabs": "Tabs",
       "breadcrumb": "Breadcrumb",
       "alert": "Alert",
-      "sonner": "Toast (Sonner)"
+      "sonner": "Toast (Sonner)",
+      "chart": "Charts (Recharts)",
+      "progress": "Progress",
+      "skeleton": "Skeleton",
+      "accordion": "Accordion",
+      "toggleGroup": "Toggle Group",
+      "richTextEditor": "Rich Text Editor",
+      "emptyState": "Empty State",
+      "kbd": "Kbd"
     },
     "liveThemeCard": {
       "title": "Live Theme Active",

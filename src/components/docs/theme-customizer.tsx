@@ -5,6 +5,7 @@ import { Check, Copy, Moon, Palette, RotateCcw, Sun, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useLanguage } from "@/lib/i18n";
 
 export interface ThemePreset {
@@ -248,29 +249,29 @@ export function ThemeCustomizer({ variant = "inline" }: ThemeCustomizerProps) {
         {/* 1. Preset Warna */}
         <div className="space-y-2.5">
           <Label className="block">{tc.step1Presets}</Label>
-          <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-6">
-            {THEME_PRESETS.map((preset) => {
-              const isSelected = activeTheme === preset.id;
-              return (
-                <Button
-                  key={preset.id}
-                  type="button"
-                  variant={isSelected ? "default" : "outline"}
-                  noShadow={isSelected}
-                  onClick={() => applyTheme(preset.id)}
-                  className={`justify-start gap-2.5 px-2.5 py-2.5 text-xs ${
-                    isSelected ? "translate-x-[2px] translate-y-[2px]" : ""
-                  }`}
-                >
-                  <span
-                    className="h-5 w-5 shrink-0 rounded-sm border-2 border-border"
-                    style={{ backgroundColor: preset.primary }}
-                  />
-                  <span className="truncate">{preset.label}</span>
-                </Button>
-              );
-            })}
-          </div>
+          <ToggleGroup
+            type="single"
+            value={activeTheme}
+            onValueChange={(value) => {
+              if (value) applyTheme(value);
+            }}
+            aria-label={tc.step1Presets}
+            className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-6"
+          >
+            {THEME_PRESETS.map((preset) => (
+              <ToggleGroupItem
+                key={preset.id}
+                value={preset.id}
+                className="justify-start gap-2.5 px-2.5 text-xs"
+              >
+                <span
+                  className="h-5 w-5 shrink-0 rounded-sm border-2 border-border"
+                  style={{ backgroundColor: preset.primary }}
+                />
+                <span className="truncate">{preset.label}</span>
+              </ToggleGroupItem>
+            ))}
+          </ToggleGroup>
         </div>
 
         {/* 2. Border Radius & Mode */}
@@ -279,54 +280,50 @@ export function ThemeCustomizer({ variant = "inline" }: ThemeCustomizerProps) {
             <Label className="block">
               {tc.step2Radius} (<code className="font-mono">{radius}</code>)
             </Label>
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-              {RADIUS_OPTIONS.map((opt) => {
-                const isSelected = radius === opt.value;
-                return (
-                  <Button
-                    key={opt.value}
-                    type="button"
-                    size="sm"
-                    variant={isSelected ? "default" : "outline"}
-                    noShadow={isSelected}
-                    onClick={() => applyRadius(opt.value)}
-                    className={`font-mono text-xs ${
-                      isSelected ? "translate-x-[2px] translate-y-[2px]" : ""
-                    }`}
-                  >
-                    {opt.label}
-                  </Button>
-                );
-              })}
-            </div>
+            <ToggleGroup
+              type="single"
+              size="sm"
+              value={radius}
+              onValueChange={(value) => {
+                if (value) applyRadius(value);
+              }}
+              aria-label={tc.step2Radius}
+              className="grid grid-cols-2 gap-2 sm:grid-cols-4"
+            >
+              {RADIUS_OPTIONS.map((opt) => (
+                <ToggleGroupItem
+                  key={opt.value}
+                  value={opt.value}
+                  className="font-mono text-xs"
+                >
+                  {opt.label}
+                </ToggleGroupItem>
+              ))}
+            </ToggleGroup>
           </div>
 
           <div className="space-y-2.5">
             <Label className="block">{tc.step3Mode}</Label>
-            <div className="grid grid-cols-2 gap-2.5">
-              <Button
-                type="button"
-                size="sm"
-                variant={!isDark ? "default" : "outline"}
-                noShadow={!isDark}
-                onClick={() => applyDark(false)}
-                className={!isDark ? "translate-x-[2px] translate-y-[2px]" : ""}
-              >
+            <ToggleGroup
+              type="single"
+              size="sm"
+              value={isDark ? "dark" : "light"}
+              onValueChange={(value) => {
+                if (value === "light") applyDark(false);
+                if (value === "dark") applyDark(true);
+              }}
+              aria-label={tc.step3Mode}
+              className="grid grid-cols-2 gap-2.5"
+            >
+              <ToggleGroupItem value="light">
                 <Sun className="h-4 w-4" strokeWidth={2.5} />
                 {tc.lightMode}
-              </Button>
-              <Button
-                type="button"
-                size="sm"
-                variant={isDark ? "default" : "outline"}
-                noShadow={isDark}
-                onClick={() => applyDark(true)}
-                className={isDark ? "translate-x-[2px] translate-y-[2px]" : ""}
-              >
+              </ToggleGroupItem>
+              <ToggleGroupItem value="dark">
                 <Moon className="h-4 w-4" strokeWidth={2.5} />
                 {tc.darkMode}
-              </Button>
-            </div>
+              </ToggleGroupItem>
+            </ToggleGroup>
           </div>
         </div>
       </Card>
@@ -390,31 +387,29 @@ export function ThemeCustomizer({ variant = "inline" }: ThemeCustomizerProps) {
               {/* 1. Preset Warna */}
               <div className="space-y-2.5">
                 <Label className="block">{tc.step1Presets}</Label>
-                <div className="grid grid-cols-2 gap-2.5">
-                  {THEME_PRESETS.map((preset) => {
-                    const isSelected = activeTheme === preset.id;
-                    return (
-                      <Button
-                        key={preset.id}
-                        type="button"
-                        variant={isSelected ? "default" : "outline"}
-                        noShadow={isSelected}
-                        onClick={() => applyTheme(preset.id)}
-                        className={`justify-start gap-2.5 px-2.5 py-2.5 text-xs ${
-                          isSelected
-                            ? "translate-x-[2px] translate-y-[2px]"
-                            : ""
-                        }`}
-                      >
-                        <span
-                          className="h-5 w-5 shrink-0 rounded-sm border-2 border-border"
-                          style={{ backgroundColor: preset.primary }}
-                        />
-                        <span className="truncate">{preset.label}</span>
-                      </Button>
-                    );
-                  })}
-                </div>
+                <ToggleGroup
+                  type="single"
+                  value={activeTheme}
+                  onValueChange={(value) => {
+                    if (value) applyTheme(value);
+                  }}
+                  aria-label={tc.step1Presets}
+                  className="grid grid-cols-2 gap-2.5"
+                >
+                  {THEME_PRESETS.map((preset) => (
+                    <ToggleGroupItem
+                      key={preset.id}
+                      value={preset.id}
+                      className="justify-start gap-2.5 px-2.5 text-xs"
+                    >
+                      <span
+                        className="h-5 w-5 shrink-0 rounded-sm border-2 border-border"
+                        style={{ backgroundColor: preset.primary }}
+                      />
+                      <span className="truncate">{preset.label}</span>
+                    </ToggleGroupItem>
+                  ))}
+                </ToggleGroup>
               </div>
 
               {/* 2. Border Radius */}
@@ -422,58 +417,49 @@ export function ThemeCustomizer({ variant = "inline" }: ThemeCustomizerProps) {
                 <Label className="block">
                   {tc.step2Radius} (<code className="font-mono">{radius}</code>)
                 </Label>
-                <div className="grid grid-cols-2 gap-2.5">
-                  {RADIUS_OPTIONS.map((opt) => {
-                    const isSelected = radius === opt.value;
-                    return (
-                      <Button
-                        key={opt.value}
-                        type="button"
-                        variant={isSelected ? "default" : "outline"}
-                        noShadow={isSelected}
-                        onClick={() => applyRadius(opt.value)}
-                        className={`font-mono text-xs ${
-                          isSelected
-                            ? "translate-x-[2px] translate-y-[2px]"
-                            : ""
-                        }`}
-                      >
-                        {opt.label}
-                      </Button>
-                    );
-                  })}
-                </div>
+                <ToggleGroup
+                  type="single"
+                  value={radius}
+                  onValueChange={(value) => {
+                    if (value) applyRadius(value);
+                  }}
+                  aria-label={tc.step2Radius}
+                  className="grid grid-cols-2 gap-2.5"
+                >
+                  {RADIUS_OPTIONS.map((opt) => (
+                    <ToggleGroupItem
+                      key={opt.value}
+                      value={opt.value}
+                      className="font-mono text-xs"
+                    >
+                      {opt.label}
+                    </ToggleGroupItem>
+                  ))}
+                </ToggleGroup>
               </div>
 
               {/* 3. Mode Tampilan (Light / Dark) */}
               <div className="space-y-2.5">
                 <Label className="block">{tc.step3Mode}</Label>
-                <div className="grid grid-cols-2 gap-2.5">
-                  <Button
-                    type="button"
-                    variant={!isDark ? "default" : "outline"}
-                    noShadow={!isDark}
-                    onClick={() => applyDark(false)}
-                    className={
-                      !isDark ? "translate-x-[2px] translate-y-[2px]" : ""
-                    }
-                  >
+                <ToggleGroup
+                  type="single"
+                  value={isDark ? "dark" : "light"}
+                  onValueChange={(value) => {
+                    if (value === "light") applyDark(false);
+                    if (value === "dark") applyDark(true);
+                  }}
+                  aria-label={tc.step3Mode}
+                  className="grid grid-cols-2 gap-2.5"
+                >
+                  <ToggleGroupItem value="light">
                     <Sun className="h-4 w-4" strokeWidth={2.5} />
                     {tc.lightMode}
-                  </Button>
-                  <Button
-                    type="button"
-                    variant={isDark ? "default" : "outline"}
-                    noShadow={isDark}
-                    onClick={() => applyDark(true)}
-                    className={
-                      isDark ? "translate-x-[2px] translate-y-[2px]" : ""
-                    }
-                  >
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="dark">
                     <Moon className="h-4 w-4" strokeWidth={2.5} />
                     {tc.darkMode}
-                  </Button>
-                </div>
+                  </ToggleGroupItem>
+                </ToggleGroup>
               </div>
             </div>
 

@@ -861,6 +861,236 @@
         "Gunakan toast.promise() untuk memberi umpan balik loading → success/error secara otomatis pada aksi async.",
         "Tambahkan properti action: { label, onClick } untuk notifikasi dengan tombol Undo."
       ]
+    },
+    "chart": {
+      "title": "Charts (Recharts)",
+      "tier": "Tier 4 • Visualisasi & Pelengkap",
+      "description": "Visualisasi data Neobrutalism berbasis Recharts (Bar, Stacked Bar, Line, Area, Donut/Pie, dan Treemap) tanpa gradasi kabur, ber-stroke 2px, angka monospace, tooltip kotak ber-shadow, dan otomatis mengikuti 6 preset tema live.",
+      "sections": {
+        "bar": "1. Bar Chart (Grouped)",
+        "composition": "2. Composition",
+        "stacked": "3. Stacked Bar Chart",
+        "line": "4. Line Chart (Multi-Series)",
+        "area": "5. Area Chart (Solid)",
+        "donut": "6. Donut / Pie Chart",
+        "treemap": "7. Treemap",
+        "interactive": "8. Interactive Dashboard Chart"
+      },
+      "props": {
+        "config": "Objek ChartConfig yang memetakan key series ke label dan warna CSS variable (--color-<key>).",
+        "indicator": "Bentuk penanda warna pada ChartTooltipContent: dot (kotak default), line, atau dashed.",
+        "hideLabel": "Menyembunyikan judul header di bagian atas ChartTooltipContent.",
+        "valueFormatter": "Fungsi pemformatan nilai angka pada ChartTooltipContent (misal mata uang $ atau persen)."
+      },
+      "usageNotes": [
+        "Gunakan token CSS seperti var(--primary), var(--secondary), var(--info), dan var(--success) di dalam ChartConfig agar warna chart berubah real-time saat ganti tema atau Light/Dark mode.",
+        "Terapkan stroke=\"var(--border)\" strokeWidth={2} pada Bar, Area, Pie, dan Treemap untuk menjaga estetika Neobrutalism yang tegas.",
+        "Bungkus setiap chart Recharts di dalam <ChartContainer config={...}> dengan tinggi eksplisit (misal className=\"h-[280px]\")."
+      ]
+    },
+    "progress": {
+      "title": "Progress",
+      "tier": "Tier 4 • Visualisasi & Pelengkap",
+      "description": "Indikator progres blok geometris Neobrutalism dengan 6 varian warna semantik, 3 ukuran, pola garis diagonal (striped), mode loading indeterminate, dan label persentase monospace.",
+      "sections": {
+        "basic": "1. Basic & Interactive Progress",
+        "variants": "2. Semantic Variants",
+        "size": "3. Size",
+        "striped": "4. Striped & Indeterminate",
+        "no-shadow": "5. No Shadow",
+        "animated": "6. Animated (0% – 100%)",
+        "card": "7. Workspace Quota Card"
+      },
+      "props": {
+        "value": "Nilai progres saat ini (0 hingga max).",
+        "max": "Nilai maksimum progres (default 100).",
+        "variant": "Warna bar isian: default (primary), secondary, success, info, warning, atau danger / destructive.",
+        "size": "Ketebalan batang progres: sm, default, atau lg.",
+        "striped": "Menampilkan pola garis diagonal retro di atas bar isian.",
+        "showValue": "Menampilkan angka persentase monospace (di dalam bar untuk size=\"lg\", atau di sisi kanan untuk sm/default).",
+        "indeterminate": "Mengaktifkan animasi bar berjalan untuk proses yang durasinya belum diketahui.",
+        "noShadow": "Menghilangkan bayangan keras pada track Progress."
+      },
+      "usageNotes": [
+        "Selalu sertakan aria-label (atau pasangkan dengan teks label terlihat) agar pembaca layar dapat mengumumkan progres.",
+        "Gunakan indeterminate untuk proses async tanpa persentase pasti, lalu ganti ke value saat progres tersedia.",
+        "Tambahkan noShadow saat menyematkan Progress di dalam Card atau baris tabel."
+      ]
+    },
+    "skeleton": {
+      "title": "Skeleton",
+      "tier": "Tier 4 • Visualisasi & Pelengkap",
+      "description": "Placeholder loading blok geometris Neobrutalism ber-border 2px untuk menjaga stabilitas layout saat data asinkron sedang dimuat.",
+      "sections": {
+        "basic": "1. Basic Shapes",
+        "card": "2. Card Skeleton",
+        "table": "3. Table Rows Skeleton",
+        "interactive": "4. Loading to Loaded Toggle"
+      },
+      "props": {
+        "variant": "Gaya elevasi Skeleton: default (dengan shadow-brutal-sm) atau flat (tanpa bayangan, cocok di dalam Card/Table).",
+        "shape": "Geometri blok placeholder: rectangle (default) atau circle (untuk Avatar).",
+        "noShadow": "Menghilangkan bayangan keras pada varian default."
+      },
+      "usageNotes": [
+        "Gunakan variant=\"flat\" ketika meletakkan Skeleton di dalam Card atau Table agar tidak muncul bayangan bertumpuk.",
+        "Cocokkan dimensi tinggi dan lebar Skeleton dengan konten aslinya untuk mencegah pergeseran layout (CLS).",
+        "Skeleton secara bawaan menyertakan aria-hidden=\"true\"; tambahkan aria-busy=\"true\" pada kontainer induk saat sedang memuat."
+      ]
+    },
+    "accordion": {
+      "title": "Accordion",
+      "tier": "Tier 4 • Visualisasi & Pelengkap",
+      "description": "Daftar panel lipat Neobrutalism berbasis @radix-ui/react-accordion dengan animasi tinggi halus, 3 gaya (boxed default, separated cards, dan flush), serta dukungan single atau multiple open.",
+      "sections": {
+        "basic": "1. Basic Accordion (Single Collapsible)",
+        "composition": "2. Composition",
+        "multiple": "3. Multiple Open",
+        "variants": "4. Variants (Separated & Flush)",
+        "rich": "5. Icons, Badges, Disabled & No Shadow"
+      },
+      "props": {
+        "type": "Mode pembukaan panel: single (maksimal 1 terbuka) atau multiple (banyak terbuka sekaligus).",
+        "collapsible": "Khusus type=\"single\": mengizinkan item aktif ditutup kembali saat diklik.",
+        "variant": "Gaya visual kontainer: default (satu kotak ber-shadow), separated (kartu terpisah), atau flush (garis pemisah minimalis).",
+        "noShadow": "Menghilangkan bayangan keras pada varian default dan separated.",
+        "disabled": "Menonaktifkan AccordionItem tertentu agar tidak dapat dibuka."
+      },
+      "usageNotes": [
+        "Pasangkan type=\"single\" dengan collapsible agar pengguna dapat menutup semua panel FAQ kembali.",
+        "Gunakan variant=\"flush\" ketika menyematkan Accordion di dalam Card, Dialog, atau Sheet.",
+        "Navigasi keyboard (↑/↓, Home, End, Enter, Space) aktif otomatis dari Radix Accordion."
+      ]
+    },
+    "toggle-group": {
+      "title": "Toggle Group",
+      "tier": "Tier 4 • Visualisasi & Pelengkap",
+      "description": "Grup tombol sakelar mekanis Neobrutalism berbasis @radix-ui/react-toggle-group untuk toolbar editor, perataan teks, dan pemilih mode tampilan (single atau multiple).",
+      "sections": {
+        "basic": "1. Multiple Formatting",
+        "single": "2. Single Selection (Alignment)",
+        "variants": "3. Variants (Outline Connected & Secondary)",
+        "size": "4. Size",
+        "states": "5. Disabled & No Shadow"
+      },
+      "props": {
+        "type": "Mode pilihan: single (1 tombol aktif) atau multiple (beberapa tombol aktif sekaligus).",
+        "variant": "Gaya visual: default (tombol terpisah ber-shadow), outline (menyatu rapat seperti ButtonGroup), atau secondary (highlight kuning).",
+        "size": "Ukuran tinggi & padding setiap ToggleGroupItem: sm, default, atau lg.",
+        "noShadow": "Menghilangkan bayangan keras pada ToggleGroup dan ToggleGroupItem.",
+        "disabled": "Menonaktifkan seluruh ToggleGroup atau ToggleGroupItem tertentu."
+      },
+      "usageNotes": [
+        "Selalu sertakan aria-label pada ToggleGroupItem khusus ikon agar pembaca layar mengumumkan fungsinya.",
+        "Gunakan variant=\"outline\" untuk toolbar yang padat seperti pemilih tampilan (Day / Week / Month) atau toolbar WYSIWYG.",
+        "Untuk mode single yang wajib selalu punya nilai aktif, abaikan nilai kosong (if (next) setValue(next)) di dalam onValueChange."
+      ]
+    },
+    "rich-text-editor": {
+      "title": "Rich Text Editor (WYSIWYG)",
+      "tier": "Tier 4 • Visualisasi & Pelengkap",
+      "description": "Editor teks kaya (WYSIWYG) Neobrutalism berbasis Tiptap v3 dengan toolbar pemformatan lengkap atau minimalis, Popover link, perataan teks, counter karakter/kata, dan mode read-only.",
+      "sections": {
+        "basic": "1. Basic (Full Toolbar)",
+        "minimal": "2. Minimal Toolbar (Comment Box)",
+        "size": "3. Size",
+        "states": "4. Read-Only, Disabled, No Shadow & Error",
+        "form": "5. Form Integration (Announcement Composer)"
+      },
+      "props": {
+        "value": "Konten HTML terkontrol (controlled) yang ditampilkan di dalam editor.",
+        "defaultValue": "Konten HTML awal untuk mode tidak terkontrol (uncontrolled).",
+        "onChange": "Callback yang dipanggil setiap kali konten HTML di dalam editor berubah.",
+        "placeholder": "Teks petunjuk yang muncul saat editor masih kosong.",
+        "variant": "Preset toolbar: default (toolbar lengkap: history, heading, format, list, blockquote, code, align, link) atau minimal (ringkas untuk komentar).",
+        "size": "Mengatur tinggi minimum kanvas editor dan kepadatan tombol toolbar: sm, default, atau lg.",
+        "readOnly": "Menyembunyikan toolbar dan menampilkan konten terformat dalam mode baca saja.",
+        "disabled": "Menonaktifkan interaksi editor dan meredupkan tampilannya.",
+        "noShadow": "Menghilangkan bayangan keras Neobrutalism pada kontainer editor.",
+        "error": "Menampilkan border dan bayangan merah (destructive) untuk validasi form.",
+        "showCharacterCount": "Menampilkan status bar di bagian bawah berisi jumlah kata dan karakter.",
+        "maxLength": "Batas maksimum karakter yang otomatis ditegakkan oleh Tiptap CharacterCount."
+      },
+      "usageNotes": [
+        "Gunakan perintah CLI npx shadcn@latest add agar seluruh 6 paket Tiptap dan komponen Punch UI pendukung terpasang otomatis.",
+        "Tambahkan class .punch-editor-content dari globals.css agar tipografi Heading, List, Blockquote, Code Block, dan Link tampil kontras bergaya Neobrutalism.",
+        "Properti immediatelyRender: false sudah diaktifkan secara bawaan sehingga aman digunakan di Next.js App Router (SSR) tanpa hydration mismatch.",
+        "Gunakan variant=\"minimal\" bersama maxLength untuk kolom komentar atau catatan singkat, dan readOnly untuk menampilkan konten HTML hasil editor."
+      ]
+    },
+    "file-upload": {
+      "title": "File Upload (Dropzone)",
+      "tier": "Tier 2 • Form & Input",
+      "description": "Area unggah berkas drag-and-drop Neobrutalism berbasis react-dropzone dengan indikator accept/reject real-time, preview thumbnail gambar otomatis, validasi ukuran/jumlah berkas, dan varian compact.",
+      "sections": {
+        "basic": "1. Basic Dropzone (Multiple Files)",
+        "image": "2. Image Upload with Preview",
+        "validation": "3. Validation (Type, Max Size & Max Files)",
+        "compact": "4. Compact Variant",
+        "states": "5. Disabled, No Shadow & Error"
+      },
+      "props": {
+        "value": "Daftar File[] terkontrol yang sedang dipilih.",
+        "defaultValue": "Daftar File[] awal untuk mode tidak terkontrol.",
+        "onChange": "Callback yang dipanggil setiap kali daftar berkas berubah (ditambah/dihapus).",
+        "onReject": "Callback opsional saat berkas ditolak oleh aturan accept, maxSize, atau maxFiles.",
+        "accept": "Peta tipe MIME & ekstensi yang diizinkan (format Accept milik react-dropzone, misal { \"image/*\": [\".png\", \".jpg\"] }).",
+        "multiple": "Mengizinkan pemilihan lebih dari satu berkas sekaligus.",
+        "maxFiles": "Batas maksimum jumlah berkas yang dapat dipilih.",
+        "maxSize": "Batas maksimum ukuran per berkas dalam byte (misal 5 * 1024 * 1024 untuk 5 MB).",
+        "variant": "Gaya tata letak dropzone: default (kotak besar) atau compact (baris ringkas untuk form padat).",
+        "showPreview": "Menampilkan thumbnail gambar otomatis (URL.createObjectURL) untuk berkas bertipe image/*.",
+        "disabled": "Menonaktifkan drag-and-drop serta dialog pemilihan berkas.",
+        "noShadow": "Menghilangkan bayangan keras pada dropzone dan kartu daftar berkas.",
+        "error": "Menampilkan border dan bayangan merah (destructive) untuk status error validasi."
+      },
+      "usageNotes": [
+        "Saat berkas diseret ke atas dropzone, latar otomatis berubah menjadi hijau (success) jika valid atau merah (destructive) jika tipe/ukuran berkas ditolak.",
+        "URL preview gambar (URL.createObjectURL) dibersihkan otomatis saat daftar berkas berubah atau komponen unmount untuk mencegah memory leak.",
+        "Gunakan variant=\"compact\" bersama multiple={false} untuk input lampiran tunggal seperti import CSV atau upload dokumen di dalam Dialog/Card."
+      ]
+    },
+    "empty-state": {
+      "title": "Empty State",
+      "tier": "Tier 4 • Visualisasi & Pelengkap",
+      "description": "Komponen zero-state Neobrutalism yang komposabel untuk menampilkan kondisi tabel kosong, hasil pencarian nihil, atau kegagalan muat data beserta tombol CTA.",
+      "sections": {
+        "basic": "1. Basic Empty State",
+        "composition": "2. Composition",
+        "variants": "3. Variants (Default, Dashed, Muted & Ghost)",
+        "size": "4. Size",
+        "contextual": "5. No Shadow & Contextual (No Results / Error)"
+      },
+      "props": {
+        "variant": "Gaya kontainer EmptyState: default (solid ber-shadow), dashed (garis putus-putus), muted (latar redup), atau ghost (tanpa border untuk di dalam tabel/modal).",
+        "size": "Skala padding dan jarak vertikal: sm, default, atau lg.",
+        "noShadow": "Menghilangkan bayangan keras pada EmptyState maupun EmptyStateIcon.",
+        "iconVariant": "Prop variant pada EmptyStateIcon: default (secondary), primary, muted, atau destructive/danger."
+      },
+      "usageNotes": [
+        "Gunakan variant=\"ghost\" atau noShadow saat menyematkan EmptyState di dalam Data Table, Card, atau Dialog agar border & bayangan tidak bertumpuk.",
+        "Sertakan maksimal 1–2 tombol aksi di dalam EmptyStateActions agar pengguna langsung tahu langkah selanjutnya (misal 'New Project' atau 'Reset Filters')."
+      ]
+    },
+    "kbd": {
+      "title": "Kbd (Keyboard Key)",
+      "tier": "Tier 4 • Visualisasi & Pelengkap",
+      "description": "Representasi tombol fisik keyboard (<kbd>) bergaya Neobrutalism dengan efek kedalaman keycap untuk menampilkan shortcut di Topbar, Command Palette, dan Tooltip.",
+      "sections": {
+        "basic": "1. Basic & Key Combinations",
+        "variants": "2. Variants",
+        "size": "3. Size",
+        "context": "4. Inside UI & Shortcut Cheat Sheet"
+      },
+      "props": {
+        "variant": "Warna latar keycap: default (card), secondary (kuning), primary (aksen tema), atau muted.",
+        "size": "Ukuran tinggi & font keycap: sm, default, atau lg.",
+        "noShadow": "Menghilangkan bayangan bawah keycap agar tampak datar (cocok di dalam Button atau Badge)."
+      },
+      "usageNotes": [
+        "Gunakan <KbdGroup> untuk merangkai kombinasi beberapa tombol seperti ⌘ + K atau Ctrl + Shift + P dengan jarak yang konsisten.",
+        "Gunakan size=\"sm\" dan noShadow saat menyematkan Kbd di dalam tombol pencarian (Search Trigger) atau item DropdownMenu."
+      ]
     }
   }
 }

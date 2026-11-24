@@ -861,6 +861,236 @@
         "Use toast.promise() to automatically transition between loading, success, and error states for async tasks.",
         "Pass action: { label, onClick } to include tactile Undo or Retry buttons inside a toast."
       ]
+    },
+    "chart": {
+      "title": "Charts (Recharts)",
+      "tier": "Tier 4 • Data Viz & Utilities",
+      "description": "Neobrutalist data visualizations powered by Recharts (Bar, Stacked Bar, Line, Area, Donut/Pie, and Treemap) with flat solid fills, 2px borders, monospace ticks, shadowed tooltips, and live theme syncing.",
+      "sections": {
+        "bar": "1. Bar Chart (Grouped)",
+        "composition": "2. Composition",
+        "stacked": "3. Stacked Bar Chart",
+        "line": "4. Line Chart (Multi-Series)",
+        "area": "5. Area Chart (Solid)",
+        "donut": "6. Donut / Pie Chart",
+        "treemap": "7. Treemap",
+        "interactive": "8. Interactive Dashboard Chart"
+      },
+      "props": {
+        "config": "ChartConfig map defining labels and CSS variable colors (--color-<key>) for each data series.",
+        "indicator": "Color swatch style inside ChartTooltipContent: dot (square default), line, or dashed.",
+        "hideLabel": "Hides the header label row at the top of ChartTooltipContent.",
+        "valueFormatter": "Optional formatter callback for values displayed inside ChartTooltipContent (e.g. currency or %)."
+      },
+      "usageNotes": [
+        "Pass CSS variables like var(--primary), var(--secondary), var(--info), and var(--success) in ChartConfig so charts react live to theme presets and Dark Mode.",
+        "Apply stroke=\"var(--border)\" strokeWidth={2} on Bar, Area, Pie, and Treemap elements for crisp Neobrutalist framing.",
+        "Always give <ChartContainer> an explicit height class (e.g. className=\"h-[280px]\") so ResponsiveContainer measures cleanly."
+      ]
+    },
+    "progress": {
+      "title": "Progress",
+      "tier": "Tier 4 • Data Viz & Utilities",
+      "description": "Geometric Neobrutalist progress indicator featuring 6 semantic color variants, 3 heights, diagonal striped fills, indeterminate loading animation, and monospace percentage readouts.",
+      "sections": {
+        "basic": "1. Basic & Interactive Progress",
+        "variants": "2. Semantic Variants",
+        "size": "3. Size",
+        "striped": "4. Striped & Indeterminate",
+        "no-shadow": "5. No Shadow",
+        "animated": "6. Animated (0% – 100%)",
+        "card": "7. Workspace Quota Card"
+      },
+      "props": {
+        "value": "Current progress value between 0 and max.",
+        "max": "Maximum progress value (defaults to 100).",
+        "variant": "Fill color style: default (primary), secondary, success, info, warning, or danger / destructive.",
+        "size": "Track thickness: sm, default, or lg.",
+        "striped": "Overlays a retro diagonal stripe pattern on the filled indicator.",
+        "showValue": "Displays a monospace percentage label (inline for size=\"lg\", or trailing for sm/default).",
+        "indeterminate": "Enables a sliding animation when the total duration is unknown.",
+        "noShadow": "Removes the hard offset shadow on the Progress track."
+      },
+      "usageNotes": [
+        "Always pass aria-label (or pair with a visible label) for accessible progressbar announcements.",
+        "Use indeterminate for unknown-duration tasks, then switch to numeric value once measurable.",
+        "Pass noShadow when embedding Progress bars inside Cards or table rows."
+      ]
+    },
+    "skeleton": {
+      "title": "Skeleton",
+      "tier": "Tier 4 • Data Viz & Utilities",
+      "description": "Geometric Neobrutalist 2px-bordered loading placeholder blocks that preserve layout stability while asynchronous data loads.",
+      "sections": {
+        "basic": "1. Basic Shapes",
+        "card": "2. Card Skeleton",
+        "table": "3. Table Rows Skeleton",
+        "interactive": "4. Loading to Loaded Toggle"
+      },
+      "props": {
+        "variant": "Elevation style: default (with shadow-brutal-sm) or flat (no shadow, ideal inside Cards/Tables).",
+        "shape": "Placeholder geometry: rectangle (default) or circle (for Avatars).",
+        "noShadow": "Removes hard offset shadows on the default variant."
+      },
+      "usageNotes": [
+        "Use variant=\"flat\" when placing Skeleton blocks inside a Card or Table to avoid stacked hard shadows.",
+        "Match Skeleton heights and widths closely to the final content to eliminate Cumulative Layout Shift (CLS).",
+        "Skeleton sets aria-hidden=\"true\" by default; pair with aria-busy=\"true\" on the parent container while loading."
+      ]
+    },
+    "accordion": {
+      "title": "Accordion",
+      "tier": "Tier 4 • Data Viz & Utilities",
+      "description": "Neobrutalist collapsible disclosure list powered by @radix-ui/react-accordion with smooth height animation, 3 layout variants (boxed default, separated cards, and flush), and single/multiple modes.",
+      "sections": {
+        "basic": "1. Basic Accordion (Single Collapsible)",
+        "composition": "2. Composition",
+        "multiple": "3. Multiple Open",
+        "variants": "4. Variants (Separated & Flush)",
+        "rich": "5. Icons, Badges, Disabled & No Shadow"
+      },
+      "props": {
+        "type": "Expansion mode: single (one item open at a time) or multiple (several open simultaneously).",
+        "collapsible": "When type=\"single\", allows closing the currently open item by clicking its trigger again.",
+        "variant": "Container visual style: default (single shadowed box), separated (individual cards), or flush (minimal dividers).",
+        "noShadow": "Removes hard offset shadows on default and separated variants.",
+        "disabled": "Disables an individual AccordionItem from being toggled."
+      },
+      "usageNotes": [
+        "Combine type=\"single\" with collapsible so users can collapse all FAQ items.",
+        "Use variant=\"flush\" when nesting Accordion inside Cards, Dialogs, or Sheets.",
+        "Arrow keys (↑/↓), Home, End, Enter, and Space navigation work out of the box."
+      ]
+    },
+    "toggle-group": {
+      "title": "Toggle Group",
+      "tier": "Tier 4 • Data Viz & Utilities",
+      "description": "Tactile Neobrutalist toggle button group powered by @radix-ui/react-toggle-group for editor toolbars, text alignment, and view mode switchers in single or multiple modes.",
+      "sections": {
+        "basic": "1. Multiple Formatting",
+        "single": "2. Single Selection (Alignment)",
+        "variants": "3. Variants (Outline Connected & Secondary)",
+        "size": "4. Size",
+        "states": "5. Disabled & No Shadow"
+      },
+      "props": {
+        "type": "Selection mode: single (one active button) or multiple (several pressed simultaneously).",
+        "variant": "Visual style: default (spaced shadowed buttons), outline (connected like ButtonGroup), or secondary (yellow active fill).",
+        "size": "Height and padding scale of ToggleGroupItem: sm, default, or lg.",
+        "noShadow": "Removes hard offset shadows on ToggleGroup and ToggleGroupItem.",
+        "disabled": "Disables the entire ToggleGroup or an individual ToggleGroupItem."
+      },
+      "usageNotes": [
+        "Always add aria-label on icon-only ToggleGroupItem buttons for screen-reader accessibility.",
+        "Use variant=\"outline\" for compact segmented toolbars such as Day/Week/Month switchers or WYSIWYG bars.",
+        "For single mode where one value must stay active, guard onValueChange with if (next) setValue(next)."
+      ]
+    },
+    "rich-text-editor": {
+      "title": "Rich Text Editor (WYSIWYG)",
+      "tier": "Tier 4 • Data Viz & Utilities",
+      "description": "Neobrutalist WYSIWYG rich text editor powered by Tiptap v3 featuring full and minimal toolbars, link popover, text alignment, character/word counter, and read-only mode.",
+      "sections": {
+        "basic": "1. Basic (Full Toolbar)",
+        "minimal": "2. Minimal Toolbar (Comment Box)",
+        "size": "3. Size",
+        "states": "4. Read-Only, Disabled, No Shadow & Error",
+        "form": "5. Form Integration (Announcement Composer)"
+      },
+      "props": {
+        "value": "Controlled HTML content rendered inside the editor.",
+        "defaultValue": "Initial HTML content for uncontrolled usage.",
+        "onChange": "Callback fired with the updated HTML string whenever the document changes.",
+        "placeholder": "Placeholder text displayed when the editor is empty.",
+        "variant": "Toolbar preset: default (full history, headings, marks, lists, blockquote, code, align, link) or minimal (compact comment toolbar).",
+        "size": "Controls minimum editor canvas height and toolbar button density: sm, default, or lg.",
+        "readOnly": "Hides the toolbar and renders formatted content in read-only mode.",
+        "disabled": "Disables editor interaction and dims the container.",
+        "noShadow": "Removes the hard Neobrutalist drop shadow from the editor frame.",
+        "error": "Applies destructive border and shadow styling for form validation feedback.",
+        "showCharacterCount": "Displays a bottom status bar with live word and character counts.",
+        "maxLength": "Optional character limit enforced automatically by Tiptap CharacterCount."
+      },
+      "usageNotes": [
+        "Run the npx shadcn@latest add CLI command to automatically install all 6 Tiptap packages and required Punch UI sub-components.",
+        "Include the .punch-editor-content styles from globals.css so headings, lists, blockquotes, code blocks, and links render with crisp Neobrutalist typography.",
+        "Configured with immediatelyRender: false out of the box for zero hydration mismatches in Next.js App Router (SSR).",
+        "Use variant=\"minimal\" with maxLength for comment boxes, and readOnly to render saved HTML output cleanly."
+      ]
+    },
+    "file-upload": {
+      "title": "File Upload (Dropzone)",
+      "tier": "Tier 2 • Form & Input",
+      "description": "Neobrutalist drag-and-drop file upload dropzone powered by react-dropzone featuring real-time accept/reject visual states, automatic image thumbnail previews, size/count validation, and a compact variant.",
+      "sections": {
+        "basic": "1. Basic Dropzone (Multiple Files)",
+        "image": "2. Image Upload with Preview",
+        "validation": "3. Validation (Type, Max Size & Max Files)",
+        "compact": "4. Compact Variant",
+        "states": "5. Disabled, No Shadow & Error"
+      },
+      "props": {
+        "value": "Controlled array of selected File objects.",
+        "defaultValue": "Initial File[] array for uncontrolled usage.",
+        "onChange": "Callback fired whenever files are added or removed.",
+        "onReject": "Optional callback invoked when dropped files fail accept, maxSize, or maxFiles checks.",
+        "accept": "Allowed MIME types & extensions map (react-dropzone Accept format, e.g. { \"image/*\": [\".png\", \".jpg\"] }).",
+        "multiple": "Allows selecting multiple files at once.",
+        "maxFiles": "Maximum number of files allowed in the list.",
+        "maxSize": "Maximum file size in bytes (e.g. 5 * 1024 * 1024 for 5 MB).",
+        "variant": "Dropzone layout density: default (tall box) or compact (inline bar for dense forms).",
+        "showPreview": "Renders automatic image thumbnails (URL.createObjectURL) for image/* files.",
+        "disabled": "Disables drag-and-drop interactions and the file picker dialog.",
+        "noShadow": "Removes hard offset shadows from the dropzone and file cards.",
+        "error": "Applies destructive border and shadow styling for form validation feedback."
+      },
+      "usageNotes": [
+        "Dragging files over the dropzone gives instant visual feedback: emerald green when accepted and ruby red when rejected.",
+        "Object URLs for image previews are automatically revoked on list updates and unmount to prevent memory leaks.",
+        "Pair variant=\"compact\" with multiple={false} for single-file inputs like CSV imports or attachments inside Cards and Dialogs."
+      ]
+    },
+    "empty-state": {
+      "title": "Empty State",
+      "tier": "Tier 4 • Data Viz & Utilities",
+      "description": "Composable Neobrutalist zero-state component for empty tables, zero search results, and error fallbacks with clear call-to-action buttons.",
+      "sections": {
+        "basic": "1. Basic Empty State",
+        "composition": "2. Composition",
+        "variants": "3. Variants (Default, Dashed, Muted & Ghost)",
+        "size": "4. Size",
+        "contextual": "5. No Shadow & Contextual (No Results / Error)"
+      },
+      "props": {
+        "variant": "Container visual style: default (solid bordered card), dashed (dashed outline), muted (tinted panel), or ghost (borderless for nesting inside tables/modals).",
+        "size": "Vertical padding and spacing scale: sm, default, or lg.",
+        "noShadow": "Removes hard offset shadows on EmptyState or EmptyStateIcon.",
+        "iconVariant": "Variant prop on EmptyStateIcon: default (secondary), primary, muted, or destructive/danger."
+      },
+      "usageNotes": [
+        "Use variant=\"ghost\" or noShadow when nesting EmptyState inside Data Tables, Cards, or Dialogs to avoid double borders and shadows.",
+        "Keep EmptyStateActions focused to 1–2 clear next actions (such as 'New Project' or 'Reset Filters')."
+      ]
+    },
+    "kbd": {
+      "title": "Kbd (Keyboard Key)",
+      "tier": "Tier 4 • Data Viz & Utilities",
+      "description": "Tactile Neobrutalist keyboard shortcut keycap (<kbd>) with bottom keycap depth for topbar search triggers, command palettes, and tooltips.",
+      "sections": {
+        "basic": "1. Basic & Key Combinations",
+        "variants": "2. Variants",
+        "size": "3. Size",
+        "context": "4. Inside UI & Shortcut Cheat Sheet"
+      },
+      "props": {
+        "variant": "Keycap fill style: default (card), secondary (yellow), primary (theme accent), or muted.",
+        "size": "Keycap height and font scale: sm, default, or lg.",
+        "noShadow": "Removes the bottom keycap shadow for a flat appearance inside buttons or badges."
+      },
+      "usageNotes": [
+        "Wrap multi-key shortcuts like ⌘ + K or Ctrl + Shift + P in <KbdGroup> for consistent horizontal spacing.",
+        "Use size=\"sm\" with noShadow when embedding Kbd inside search trigger buttons or menu items."
+      ]
     }
   }
 }

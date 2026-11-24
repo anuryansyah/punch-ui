@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kbd",
+  "type": "registry:ui",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/kbd.tsx",
+      "content": "import * as React from \"react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { cn } from \"@/lib/utils\";\n\nconst kbdVariants = cva(\n  \"inline-flex select-none items-center justify-center gap-1 whitespace-nowrap rounded-sm border-2 border-border font-mono font-bold leading-none\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-card text-card-foreground\",\n        secondary: \"bg-secondary text-secondary-foreground\",\n        primary: \"bg-primary text-primary-foreground\",\n        muted: \"bg-muted text-muted-foreground\",\n      },\n      size: {\n        sm: \"h-5 min-w-5 px-1.5 text-[10px]\",\n        default: \"h-6 min-w-6 px-2 text-xs\",\n        lg: \"h-8 min-w-8 px-2.5 text-sm\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"default\",\n    },\n  }\n);\n\nexport interface KbdProps\n  extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof kbdVariants> {\n  noShadow?: boolean;\n}\n\n/**\n * Tactile Neobrutalist keyboard shortcut keycap (<kbd>).\n */\nexport const Kbd = React.forwardRef<HTMLElement, KbdProps>(\n  ({ className, variant, size, noShadow = false, ...props }, ref) => (\n    <kbd\n      ref={ref}\n      className={cn(\n        kbdVariants({ variant, size }),\n        !noShadow && \"shadow-[0_2px_0_0_var(--border)]\",\n        className\n      )}\n      {...props}\n    />\n  )\n);\nKbd.displayName = \"Kbd\";\n\nexport const KbdGroup = React.forwardRef<\n  HTMLSpanElement,\n  React.HTMLAttributes<HTMLSpanElement>\n>(({ className, ...props }, ref) => (\n  <span\n    ref={ref}\n    className={cn(\"inline-flex items-center gap-1\", className)}\n    {...props}\n  />\n));\nKbdGroup.displayName = \"KbdGroup\";\n",
+      "type": "registry:ui"
+    }
+  ]
+}

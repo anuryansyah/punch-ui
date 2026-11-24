@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skeleton",
+  "type": "registry:ui",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/skeleton.tsx",
+      "content": "import * as React from \"react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { cn } from \"@/lib/utils\";\n\nconst skeletonVariants = cva(\n  \"animate-skeleton-pulse border-2 border-border bg-muted\",\n  {\n    variants: {\n      variant: {\n        default: \"shadow-brutal-sm\",\n        flat: \"shadow-none\",\n      },\n      shape: {\n        rectangle: \"rounded-md\",\n        circle: \"rounded-full\",\n      },\n      noShadow: {\n        true: \"!shadow-none\",\n        false: \"\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      shape: \"rectangle\",\n      noShadow: false,\n    },\n  }\n);\n\nexport interface SkeletonProps\n  extends\n    React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof skeletonVariants> {\n  noShadow?: boolean;\n}\n\n/**\n * Neobrutalist geometric Skeleton loading placeholder block.\n */\nexport function Skeleton({\n  className,\n  variant = \"default\",\n  shape = \"rectangle\",\n  noShadow = false,\n  ...props\n}: SkeletonProps) {\n  return (\n    <div\n      aria-hidden=\"true\"\n      className={cn(skeletonVariants({ variant, shape, noShadow }), className)}\n      {...props}\n    />\n  );\n}\nSkeleton.displayName = \"Skeleton\";\n",
+      "type": "registry:ui"
+    }
+  ]
+}

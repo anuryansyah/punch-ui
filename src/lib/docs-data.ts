@@ -24,6 +24,18 @@ export interface DemoSectionData {
   tree?: CompositionTreeNode;
 }
 
+export interface InstallRequirementItem {
+  name: string;
+  purpose: Bilingual;
+}
+
+export interface InstallGuideData {
+  npmCommand: string;
+  packages: InstallRequirementItem[];
+  registryDependencies?: string[];
+  note?: Bilingual;
+}
+
 export interface ComponentDocData {
   slug: ComponentSlug;
   title: Bilingual;
@@ -32,6 +44,7 @@ export interface ComponentDocData {
   demoName: string;
   sourceFile: string;
   registryItem: string;
+  installGuide?: InstallGuideData;
   sections?: DemoSectionData[];
   propsTable?: PropRowData[];
   usageNotes: {
@@ -624,6 +637,168 @@ function getSonnerPropDesc(
   return {
     id: dictionaries.id.docs.components.sonner.props[propName],
     en: dictionaries.en.docs.components.sonner.props[propName],
+  };
+}
+
+function getChartSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.chart.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.chart.sections[secId],
+    en: dictionaries.en.docs.components.chart.sections[secId],
+  };
+}
+
+function getChartPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.chart.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.chart.props[propName],
+    en: dictionaries.en.docs.components.chart.props[propName],
+  };
+}
+
+function getProgressSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.progress.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.progress.sections[secId],
+    en: dictionaries.en.docs.components.progress.sections[secId],
+  };
+}
+
+function getProgressPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.progress.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.progress.props[propName],
+    en: dictionaries.en.docs.components.progress.props[propName],
+  };
+}
+
+function getSkeletonSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.skeleton.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.skeleton.sections[secId],
+    en: dictionaries.en.docs.components.skeleton.sections[secId],
+  };
+}
+
+function getSkeletonPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.skeleton.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.skeleton.props[propName],
+    en: dictionaries.en.docs.components.skeleton.props[propName],
+  };
+}
+
+function getAccordionSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.accordion.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.accordion.sections[secId],
+    en: dictionaries.en.docs.components.accordion.sections[secId],
+  };
+}
+
+function getAccordionPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.accordion.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.accordion.props[propName],
+    en: dictionaries.en.docs.components.accordion.props[propName],
+  };
+}
+
+function getToggleGroupSectionTitle(
+  secId: keyof (typeof dictionaries.id.docs.components)["toggle-group"]["sections"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["toggle-group"].sections[secId],
+    en: dictionaries.en.docs.components["toggle-group"].sections[secId],
+  };
+}
+
+function getToggleGroupPropDesc(
+  propName: keyof (typeof dictionaries.id.docs.components)["toggle-group"]["props"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["toggle-group"].props[propName],
+    en: dictionaries.en.docs.components["toggle-group"].props[propName],
+  };
+}
+
+function getRichTextEditorSectionTitle(
+  secId: keyof (typeof dictionaries.id.docs.components)["rich-text-editor"]["sections"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["rich-text-editor"].sections[secId],
+    en: dictionaries.en.docs.components["rich-text-editor"].sections[secId],
+  };
+}
+
+function getRichTextEditorPropDesc(
+  propName: keyof (typeof dictionaries.id.docs.components)["rich-text-editor"]["props"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["rich-text-editor"].props[propName],
+    en: dictionaries.en.docs.components["rich-text-editor"].props[propName],
+  };
+}
+
+function getFileUploadSectionTitle(
+  secId: keyof (typeof dictionaries.id.docs.components)["file-upload"]["sections"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["file-upload"].sections[secId],
+    en: dictionaries.en.docs.components["file-upload"].sections[secId],
+  };
+}
+
+function getFileUploadPropDesc(
+  propName: keyof (typeof dictionaries.id.docs.components)["file-upload"]["props"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["file-upload"].props[propName],
+    en: dictionaries.en.docs.components["file-upload"].props[propName],
+  };
+}
+
+function getEmptyStateSectionTitle(
+  secId: keyof (typeof dictionaries.id.docs.components)["empty-state"]["sections"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["empty-state"].sections[secId],
+    en: dictionaries.en.docs.components["empty-state"].sections[secId],
+  };
+}
+
+function getEmptyStatePropDesc(
+  propName: keyof (typeof dictionaries.id.docs.components)["empty-state"]["props"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["empty-state"].props[propName],
+    en: dictionaries.en.docs.components["empty-state"].props[propName],
+  };
+}
+
+function getKbdSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.kbd.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.kbd.sections[secId],
+    en: dictionaries.en.docs.components.kbd.sections[secId],
+  };
+}
+
+function getKbdPropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.kbd.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.kbd.props[propName],
+    en: dictionaries.en.docs.components.kbd.props[propName],
   };
 }
 
@@ -1570,6 +1745,37 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
     demoName: "data-table-demo",
     sourceFile: "src/components/ui/data-table.tsx",
     registryItem: "data-table",
+    installGuide: {
+      npmCommand: "npm install @tanstack/react-table lucide-react",
+      note: {
+        id: "Perintah CLI shadcn di atas otomatis memasang semua paket dan komponen Punch UI berikut. Jika copy-paste manual, pastikan semua dependensi ini tersedia:",
+        en: "The shadcn CLI command above installs all packages and Punch UI components below automatically. If copying manually, ensure these dependencies are installed:",
+      },
+      packages: [
+        {
+          name: "@tanstack/react-table",
+          purpose: {
+            id: "Engine headless untuk sorting, filtering, row selection, column visibility, dan pagination.",
+            en: "Headless table engine for sorting, filtering, row selection, column visibility, and pagination.",
+          },
+        },
+        {
+          name: "lucide-react",
+          purpose: {
+            id: "Ikon sort, search, dan kontrol kolom.",
+            en: "Icons for sorting, search, and column controls.",
+          },
+        },
+      ],
+      registryDependencies: [
+        "button",
+        "checkbox",
+        "input",
+        "table",
+        "pagination",
+        "select",
+      ],
+    },
     sections: [
       {
         id: "basic",
@@ -2428,6 +2634,52 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
     demoName: "form-demo",
     sourceFile: "src/components/ui/form.tsx",
     registryItem: "form",
+    installGuide: {
+      npmCommand:
+        "npm install react-hook-form zod @hookform/resolvers @radix-ui/react-slot lucide-react",
+      note: {
+        id: "Perintah CLI shadcn di atas otomatis memasang semua paket dan komponen Punch UI berikut. Jika copy-paste manual, pastikan semua paket ini sudah terpasang:",
+        en: "The shadcn CLI command above installs all packages and Punch UI components below automatically. If copying manually, install these packages:",
+      },
+      packages: [
+        {
+          name: "react-hook-form",
+          purpose: {
+            id: "Manajemen state form performa tinggi dengan Controller & FormProvider.",
+            en: "High-performance form state management via Controller & FormProvider.",
+          },
+        },
+        {
+          name: "zod",
+          purpose: {
+            id: "Validasi skema TypeScript-first untuk pesan error yang aman secara tipe.",
+            en: "TypeScript-first schema validation for type-safe form error messages.",
+          },
+        },
+        {
+          name: "@hookform/resolvers",
+          purpose: {
+            id: "Penghubung zodResolver ke useForm pada react-hook-form.",
+            en: "Bridges zodResolver into react-hook-form's useForm.",
+          },
+        },
+        {
+          name: "@radix-ui/react-slot",
+          purpose: {
+            id: "Meneruskan atribut aksesibilitas (aria-invalid, id) ke kontrol input anak.",
+            en: "Forwards accessibility attributes (aria-invalid, id) to child form controls.",
+          },
+        },
+        {
+          name: "lucide-react",
+          purpose: {
+            id: "Ikon peringatan pada pesan error validasi.",
+            en: "Alert icon displayed alongside validation error messages.",
+          },
+        },
+      ],
+      registryDependencies: ["label"],
+    },
     sections: [
       {
         id: "basic",
@@ -2502,6 +2754,45 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
     demoName: "date-picker-demo",
     sourceFile: "src/components/ui/date-picker.tsx",
     registryItem: "date-picker",
+    installGuide: {
+      npmCommand:
+        "npm install date-fns react-day-picker class-variance-authority lucide-react",
+      note: {
+        id: "Perintah CLI shadcn di atas otomatis memasang semua paket dan komponen Punch UI berikut. Jika copy-paste manual, pastikan paket dan komponen berikut tersedia:",
+        en: "The shadcn CLI command above installs all packages and Punch UI components below automatically. If copying manually, install these dependencies:",
+      },
+      packages: [
+        {
+          name: "react-day-picker",
+          purpose: {
+            id: "Engine kalender interaktif untuk pemilihan tanggal tunggal maupun rentang (range).",
+            en: "Interactive calendar engine for single and date-range selection.",
+          },
+        },
+        {
+          name: "date-fns",
+          purpose: {
+            id: "Utilitas pemformatan tanggal (format) yang ringan dan modular.",
+            en: "Lightweight, modular date formatting utilities.",
+          },
+        },
+        {
+          name: "class-variance-authority",
+          purpose: {
+            id: "Pengaturan variasi ukuran dan status trigger DatePicker.",
+            en: "Size and state variant styling for the DatePicker trigger.",
+          },
+        },
+        {
+          name: "lucide-react",
+          purpose: {
+            id: "Ikon kalender dan navigasi bulan.",
+            en: "Calendar and month navigation icons.",
+          },
+        },
+      ],
+      registryDependencies: ["button", "calendar", "popover"],
+    },
     sections: [
       {
         id: "basic",
@@ -2609,6 +2900,36 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
     demoName: "command-demo",
     sourceFile: "src/components/ui/command.tsx",
     registryItem: "command",
+    installGuide: {
+      npmCommand: "npm install cmdk @radix-ui/react-dialog lucide-react",
+      note: {
+        id: "Perintah CLI shadcn di atas otomatis memasang semua paket berikut. Jika copy-paste manual, install paket-paket ini:",
+        en: "The shadcn CLI command above installs all packages below automatically. If copying manually, install these packages:",
+      },
+      packages: [
+        {
+          name: "cmdk",
+          purpose: {
+            id: "Engine command palette dengan pencarian cepat dan navigasi keyboard penuh.",
+            en: "Fast, composable command palette engine with full keyboard navigation.",
+          },
+        },
+        {
+          name: "@radix-ui/react-dialog",
+          purpose: {
+            id: "Overlay modal aksesibel untuk CommandDialog (Cmd+K / Ctrl+K).",
+            en: "Accessible modal dialog overlay for CommandDialog (Cmd+K / Ctrl+K).",
+          },
+        },
+        {
+          name: "lucide-react",
+          purpose: {
+            id: "Ikon pencarian dan tombol tutup dialog.",
+            en: "Search icon and dialog close button.",
+          },
+        },
+      ],
+    },
     sections: [
       {
         id: "basic",
@@ -2710,6 +3031,45 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
     demoName: "combobox-demo",
     sourceFile: "src/components/ui/combobox.tsx",
     registryItem: "combobox",
+    installGuide: {
+      npmCommand:
+        "npm install cmdk @radix-ui/react-popover @radix-ui/react-dialog class-variance-authority lucide-react",
+      note: {
+        id: "Combobox dibangun di atas komponen Command, Popover, dan Badge milik Punch UI. Perintah CLI shadcn di atas otomatis memasang semuanya.",
+        en: "Combobox is composed from Punch UI's Command, Popover, and Badge components. The shadcn CLI command above installs everything automatically.",
+      },
+      packages: [
+        {
+          name: "cmdk",
+          purpose: {
+            id: "Mesin pencarian opsi secara real-time di dalam daftar dropdown.",
+            en: "Real-time option filtering inside the dropdown list.",
+          },
+        },
+        {
+          name: "@radix-ui/react-popover",
+          purpose: {
+            id: "Kontainer mengambang yang diposisikan otomatis terhadap trigger Combobox.",
+            en: "Auto-positioned floating panel anchored to the Combobox trigger.",
+          },
+        },
+        {
+          name: "class-variance-authority",
+          purpose: {
+            id: "Variasi ukuran dan status validasi pada trigger.",
+            en: "Size and validation variant styling on the trigger.",
+          },
+        },
+        {
+          name: "lucide-react",
+          purpose: {
+            id: "Ikon chevron, centang, dan tombol clear.",
+            en: "Chevron, check, and clear button icons.",
+          },
+        },
+      ],
+      registryDependencies: ["badge", "command", "popover"],
+    },
     sections: [
       {
         id: "basic",
@@ -2799,6 +3159,36 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
     demoName: "input-otp-demo",
     sourceFile: "src/components/ui/input-otp.tsx",
     registryItem: "input-otp",
+    installGuide: {
+      npmCommand: "npm install input-otp class-variance-authority lucide-react",
+      note: {
+        id: "Perintah CLI shadcn di atas otomatis memasang semua paket berikut. Jika copy-paste manual, install paket-paket ini:",
+        en: "The shadcn CLI command above installs all packages below automatically. If copying manually, install these packages:",
+      },
+      packages: [
+        {
+          name: "input-otp",
+          purpose: {
+            id: "Primitif input OTP aksesibel dengan dukungan paste otomatis, caret aktif, dan autofill SMS.",
+            en: "Accessible OTP input primitive with auto-paste, active caret, and SMS autofill.",
+          },
+        },
+        {
+          name: "class-variance-authority",
+          purpose: {
+            id: "Variasi ukuran slot (sm, default, lg) dan status validasi.",
+            en: "Slot size (sm, default, lg) and validation state variants.",
+          },
+        },
+        {
+          name: "lucide-react",
+          purpose: {
+            id: "Ikon pemisah bawaan untuk InputOTPSeparator.",
+            en: "Default separator icon for InputOTPSeparator.",
+          },
+        },
+      ],
+    },
     sections: [
       {
         id: "basic",
@@ -3671,6 +4061,29 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
     demoName: "sonner-demo",
     sourceFile: "src/components/ui/sonner.tsx",
     registryItem: "sonner",
+    installGuide: {
+      npmCommand: "npm install sonner lucide-react",
+      note: {
+        id: "Setelah instalasi, jangan lupa pasang <Toaster /> sekali di root layout (misal src/app/layout.tsx) agar pemanggilan toast() tampil di seluruh halaman.",
+        en: "After installing, mount <Toaster /> once in your root layout (e.g. src/app/layout.tsx) so toast() notifications render across all pages.",
+      },
+      packages: [
+        {
+          name: "sonner",
+          purpose: {
+            id: "Library notifikasi toast yang ringan dengan dukungan stacking, promise, dan swipe-to-dismiss.",
+            en: "Lightweight toast notification library with stacking, promises, and swipe-to-dismiss.",
+          },
+        },
+        {
+          name: "lucide-react",
+          purpose: {
+            id: "Ikon status (success, info, warning, error) dan spinner loading ber-stroke tegas.",
+            en: "Bold status icons (success, info, warning, error) and loading spinner.",
+          },
+        },
+      ],
+    },
     sections: [
       {
         id: "basic",
@@ -3724,6 +4137,889 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
       },
     ],
   },
+  chart: {
+    slug: "chart",
+    ...getComponentText("chart"),
+    demoName: "chart-demo",
+    sourceFile: "src/components/ui/chart.tsx",
+    registryItem: "chart",
+    installGuide: {
+      npmCommand: "npm install recharts",
+      note: {
+        id: "Perintah CLI shadcn di atas otomatis memasang recharts. Komponen chart Punch UI membungkus primitif Recharts (BarChart, LineChart, AreaChart, PieChart, Treemap) agar tampil dengan stroke 2px, warna preset, dan tooltip Neobrutalism.",
+        en: "The shadcn CLI command above installs recharts automatically. Punch UI chart wrappers style Recharts primitives (BarChart, LineChart, AreaChart, PieChart, Treemap) with 2px strokes, theme tokens, and Neobrutalist tooltips.",
+      },
+      packages: [
+        {
+          name: "recharts",
+          purpose: {
+            id: "Library grafik React berbasis SVG (BarChart, LineChart, AreaChart, PieChart, Treemap, ResponsiveContainer).",
+            en: "Composable SVG charting library for React (BarChart, LineChart, AreaChart, PieChart, Treemap, ResponsiveContainer).",
+          },
+        },
+      ],
+    },
+    sections: [
+      {
+        id: "bar",
+        title: getChartSectionTitle("bar"),
+        demoName: "chart-bar-demo",
+        propsUsed: "ChartContainer BarChart ChartTooltip ChartLegend",
+      },
+      {
+        id: "composition",
+        title: getChartSectionTitle("composition"),
+        tree: {
+          name: "ChartContainer (config)",
+          role: "root",
+          children: [
+            {
+              name: "BarChart / LineChart / AreaChart / PieChart / Treemap",
+              role: "section",
+              children: [
+                { name: "CartesianGrid / XAxis / YAxis", role: "leaf" },
+                {
+                  name: "ChartTooltip",
+                  role: "section",
+                  children: [{ name: "ChartTooltipContent", role: "leaf" }],
+                },
+                {
+                  name: "ChartLegend",
+                  role: "section",
+                  children: [{ name: "ChartLegendContent", role: "leaf" }],
+                },
+                { name: "Bar / Line / Area / Pie", role: "leaf" },
+              ],
+            },
+          ],
+        },
+      },
+      {
+        id: "stacked",
+        title: getChartSectionTitle("stacked"),
+        demoName: "chart-stacked-demo",
+        propsUsed: 'Bar stackId="rev" valueFormatter',
+      },
+      {
+        id: "line",
+        title: getChartSectionTitle("line"),
+        demoName: "chart-line-demo",
+        propsUsed: 'LineChart indicator="line" activeDot',
+      },
+      {
+        id: "area",
+        title: getChartSectionTitle("area"),
+        demoName: "chart-area-demo",
+        propsUsed: "AreaChart fillOpacity strokeWidth",
+      },
+      {
+        id: "donut",
+        title: getChartSectionTitle("donut"),
+        demoName: "chart-donut-demo",
+        propsUsed: "PieChart innerRadius outerRadius",
+      },
+      {
+        id: "treemap",
+        title: getChartSectionTitle("treemap"),
+        demoName: "chart-treemap-demo",
+        propsUsed: "Treemap custom content ChartTooltip",
+      },
+      {
+        id: "interactive",
+        title: getChartSectionTitle("interactive"),
+        demoName: "chart-interactive-demo",
+        propsUsed: "Card Button ChartContainer",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "config",
+        type: "ChartConfig",
+        defaultValue: "required",
+        description: getChartPropDesc("config"),
+      },
+      {
+        prop: "indicator",
+        type: '"dot" | "line" | "dashed"',
+        defaultValue: '"dot"',
+        description: getChartPropDesc("indicator"),
+      },
+      {
+        prop: "hideLabel",
+        type: "boolean",
+        defaultValue: "false",
+        description: getChartPropDesc("hideLabel"),
+      },
+      {
+        prop: "valueFormatter",
+        type: "(value) => React.ReactNode",
+        defaultValue: "undefined",
+        description: getChartPropDesc("valueFormatter"),
+      },
+    ],
+  },
+  progress: {
+    slug: "progress",
+    ...getComponentText("progress"),
+    demoName: "progress-demo",
+    sourceFile: "src/components/ui/progress.tsx",
+    registryItem: "progress",
+    sections: [
+      {
+        id: "basic",
+        title: getProgressSectionTitle("basic"),
+        demoName: "progress-basic-demo",
+        propsUsed: "Progress value showValue",
+      },
+      {
+        id: "variants",
+        title: getProgressSectionTitle("variants"),
+        demoName: "progress-variants-demo",
+        propsUsed:
+          'variant="default | secondary | success | info | warning | danger"',
+      },
+      {
+        id: "size",
+        title: getProgressSectionTitle("size"),
+        demoName: "progress-size-demo",
+        propsUsed: 'size="sm | default | lg" showValue',
+      },
+      {
+        id: "striped",
+        title: getProgressSectionTitle("striped"),
+        demoName: "progress-striped-demo",
+        propsUsed: "striped indeterminate",
+      },
+      {
+        id: "no-shadow",
+        title: getProgressSectionTitle("no-shadow"),
+        demoName: "progress-noshadow-demo",
+        propsUsed: "noShadow",
+      },
+      {
+        id: "animated",
+        title: getProgressSectionTitle("animated"),
+        demoName: "progress-animated-demo",
+        propsUsed: "value (0–100) striped variant showValue",
+      },
+      {
+        id: "card",
+        title: getProgressSectionTitle("card"),
+        demoName: "progress-card-demo",
+        propsUsed: "Card Badge Progress noShadow",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "value",
+        type: "number",
+        defaultValue: "0",
+        description: getProgressPropDesc("value"),
+      },
+      {
+        prop: "max",
+        type: "number",
+        defaultValue: "100",
+        description: getProgressPropDesc("max"),
+      },
+      {
+        prop: "variant",
+        type: '"default" | "secondary" | "success" | "info" | "warning" | "danger" | "destructive"',
+        defaultValue: '"default"',
+        description: getProgressPropDesc("variant"),
+      },
+      {
+        prop: "size",
+        type: '"sm" | "default" | "lg"',
+        defaultValue: '"default"',
+        description: getProgressPropDesc("size"),
+      },
+      {
+        prop: "striped",
+        type: "boolean",
+        defaultValue: "false",
+        description: getProgressPropDesc("striped"),
+      },
+      {
+        prop: "showValue",
+        type: "boolean",
+        defaultValue: "false",
+        description: getProgressPropDesc("showValue"),
+      },
+      {
+        prop: "indeterminate",
+        type: "boolean",
+        defaultValue: "false",
+        description: getProgressPropDesc("indeterminate"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getProgressPropDesc("noShadow"),
+      },
+    ],
+  },
+  skeleton: {
+    slug: "skeleton",
+    ...getComponentText("skeleton"),
+    demoName: "skeleton-demo",
+    sourceFile: "src/components/ui/skeleton.tsx",
+    registryItem: "skeleton",
+    sections: [
+      {
+        id: "basic",
+        title: getSkeletonSectionTitle("basic"),
+        demoName: "skeleton-basic-demo",
+        propsUsed: 'Skeleton shape="circle | rectangle"',
+      },
+      {
+        id: "card",
+        title: getSkeletonSectionTitle("card"),
+        demoName: "skeleton-card-demo",
+        propsUsed: 'Card Skeleton variant="flat"',
+      },
+      {
+        id: "table",
+        title: getSkeletonSectionTitle("table"),
+        demoName: "skeleton-table-demo",
+        propsUsed: 'Skeleton variant="flat"',
+      },
+      {
+        id: "interactive",
+        title: getSkeletonSectionTitle("interactive"),
+        demoName: "skeleton-interactive-demo",
+        propsUsed: "Loading ↔ Loaded toggle",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "variant",
+        type: '"default" | "flat"',
+        defaultValue: '"default"',
+        description: getSkeletonPropDesc("variant"),
+      },
+      {
+        prop: "shape",
+        type: '"rectangle" | "circle"',
+        defaultValue: '"rectangle"',
+        description: getSkeletonPropDesc("shape"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getSkeletonPropDesc("noShadow"),
+      },
+    ],
+  },
+  accordion: {
+    slug: "accordion",
+    ...getComponentText("accordion"),
+    demoName: "accordion-demo",
+    sourceFile: "src/components/ui/accordion.tsx",
+    registryItem: "accordion",
+    sections: [
+      {
+        id: "basic",
+        title: getAccordionSectionTitle("basic"),
+        demoName: "accordion-basic-demo",
+        propsUsed: 'Accordion type="single" collapsible',
+      },
+      {
+        id: "composition",
+        title: getAccordionSectionTitle("composition"),
+        tree: {
+          name: "Accordion",
+          role: "root",
+          children: [
+            {
+              name: "AccordionItem",
+              role: "section",
+              children: [
+                { name: "AccordionTrigger", role: "leaf" },
+                { name: "AccordionContent", role: "leaf" },
+              ],
+            },
+          ],
+        },
+      },
+      {
+        id: "multiple",
+        title: getAccordionSectionTitle("multiple"),
+        demoName: "accordion-multiple-demo",
+        propsUsed: 'type="multiple" defaultValue',
+      },
+      {
+        id: "variants",
+        title: getAccordionSectionTitle("variants"),
+        demoName: "accordion-variants-demo",
+        propsUsed: 'variant="default | separated | flush"',
+      },
+      {
+        id: "rich",
+        title: getAccordionSectionTitle("rich"),
+        demoName: "accordion-rich-demo",
+        propsUsed: "Badge disabled noShadow",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "type",
+        type: '"single" | "multiple"',
+        defaultValue: "required",
+        description: getAccordionPropDesc("type"),
+      },
+      {
+        prop: "collapsible",
+        type: "boolean",
+        defaultValue: "false",
+        description: getAccordionPropDesc("collapsible"),
+      },
+      {
+        prop: "variant",
+        type: '"default" | "separated" | "flush"',
+        defaultValue: '"default"',
+        description: getAccordionPropDesc("variant"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getAccordionPropDesc("noShadow"),
+      },
+      {
+        prop: "disabled",
+        type: "boolean",
+        defaultValue: "false",
+        description: getAccordionPropDesc("disabled"),
+      },
+    ],
+  },
+  "toggle-group": {
+    slug: "toggle-group",
+    ...getComponentText("toggle-group"),
+    demoName: "toggle-group-demo",
+    sourceFile: "src/components/ui/toggle-group.tsx",
+    registryItem: "toggle-group",
+    sections: [
+      {
+        id: "basic",
+        title: getToggleGroupSectionTitle("basic"),
+        demoName: "toggle-group-basic-demo",
+        propsUsed: 'ToggleGroup type="multiple"',
+      },
+      {
+        id: "single",
+        title: getToggleGroupSectionTitle("single"),
+        demoName: "toggle-group-single-demo",
+        propsUsed: 'ToggleGroup type="single"',
+      },
+      {
+        id: "variants",
+        title: getToggleGroupSectionTitle("variants"),
+        demoName: "toggle-group-variants-demo",
+        propsUsed: 'variant="default | outline | secondary"',
+      },
+      {
+        id: "size",
+        title: getToggleGroupSectionTitle("size"),
+        demoName: "toggle-group-size-demo",
+        propsUsed: 'size="sm | default | lg"',
+      },
+      {
+        id: "states",
+        title: getToggleGroupSectionTitle("states"),
+        demoName: "toggle-group-states-demo",
+        propsUsed: "disabled noShadow",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "type",
+        type: '"single" | "multiple"',
+        defaultValue: "required",
+        description: getToggleGroupPropDesc("type"),
+      },
+      {
+        prop: "variant",
+        type: '"default" | "outline" | "secondary"',
+        defaultValue: '"default"',
+        description: getToggleGroupPropDesc("variant"),
+      },
+      {
+        prop: "size",
+        type: '"sm" | "default" | "lg"',
+        defaultValue: '"default"',
+        description: getToggleGroupPropDesc("size"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getToggleGroupPropDesc("noShadow"),
+      },
+      {
+        prop: "disabled",
+        type: "boolean",
+        defaultValue: "false",
+        description: getToggleGroupPropDesc("disabled"),
+      },
+    ],
+  },
+  "rich-text-editor": {
+    slug: "rich-text-editor",
+    ...getComponentText("rich-text-editor"),
+    demoName: "rich-text-editor-demo",
+    sourceFile: "src/components/ui/rich-text-editor.tsx",
+    registryItem: "rich-text-editor",
+    installGuide: {
+      npmCommand:
+        "npm install @tiptap/react @tiptap/pm @tiptap/starter-kit @tiptap/extension-placeholder @tiptap/extension-text-align @tiptap/extension-character-count lucide-react",
+      note: {
+        id: "Jika memakai perintah CLI shadcn di atas, semua paket NPM dan komponen Punch UI di bawah ini akan otomatis terpasang. Jika copy-paste manual, pastikan semua paket berikut sudah di-install serta salin gaya .punch-editor-content dari globals.css:",
+        en: "Running the shadcn CLI command above installs all NPM packages and Punch UI components below automatically. If copying manually, install these packages and include the .punch-editor-content styles from globals.css:",
+      },
+      packages: [
+        {
+          name: "@tiptap/react",
+          purpose: {
+            id: "Binding React utama (useEditor & EditorContent).",
+            en: "Core React bindings (useEditor & EditorContent).",
+          },
+        },
+        {
+          name: "@tiptap/pm",
+          purpose: {
+            id: "Peer dependency inti ProseMirror yang dibutuhkan Tiptap.",
+            en: "Core ProseMirror peer dependency required by Tiptap.",
+          },
+        },
+        {
+          name: "@tiptap/starter-kit",
+          purpose: {
+            id: "Paket inti Tiptap v3: Paragraph & Heading (H1–H4), Bold, Italic, Underline, Strike, Link, List, Blockquote, Code, HR, Undo/Redo.",
+            en: "Tiptap v3 core bundle: Paragraph & Headings (H1–H4), Bold, Italic, Underline, Strike, Link, Lists, Blockquote, Code, HR, Undo/Redo.",
+          },
+        },
+        {
+          name: "@tiptap/extension-placeholder",
+          purpose: {
+            id: "Menampilkan teks placeholder saat kanvas editor masih kosong.",
+            en: "Displays placeholder text when the editor canvas is empty.",
+          },
+        },
+        {
+          name: "@tiptap/extension-text-align",
+          purpose: {
+            id: "Dukungan perataan teks (Align Left, Center, Right) pada paragraf & heading.",
+            en: "Text alignment support (Left, Center, Right) for paragraphs & headings.",
+          },
+        },
+        {
+          name: "@tiptap/extension-character-count",
+          purpose: {
+            id: "Menghitung jumlah kata/karakter secara live dan menegakkan batas maxLength.",
+            en: "Live word/character counting and maxLength enforcement.",
+          },
+        },
+        {
+          name: "lucide-react",
+          purpose: {
+            id: "Ikon toolbar ber-stroke tegas (strokeWidth 2.5).",
+            en: "Bold stroke (2.5) toolbar icons.",
+          },
+        },
+      ],
+      registryDependencies: [
+        "button",
+        "dropdown-menu",
+        "input",
+        "popover",
+        "separator",
+        "toggle-group",
+        "tooltip",
+      ],
+    },
+    sections: [
+      {
+        id: "basic",
+        title: getRichTextEditorSectionTitle("basic"),
+        demoName: "rich-text-editor-basic-demo",
+        propsUsed: "value onChange showCharacterCount",
+      },
+      {
+        id: "minimal",
+        title: getRichTextEditorSectionTitle("minimal"),
+        demoName: "rich-text-editor-minimal-demo",
+        propsUsed: 'variant="minimal" size="sm" maxLength',
+      },
+      {
+        id: "size",
+        title: getRichTextEditorSectionTitle("size"),
+        demoName: "rich-text-editor-size-demo",
+        propsUsed: 'size="sm | default | lg"',
+      },
+      {
+        id: "states",
+        title: getRichTextEditorSectionTitle("states"),
+        demoName: "rich-text-editor-states-demo",
+        propsUsed: "readOnly disabled noShadow error",
+      },
+      {
+        id: "form",
+        title: getRichTextEditorSectionTitle("form"),
+        demoName: "rich-text-editor-form-demo",
+        propsUsed: "Card Input RichTextEditor error",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "value",
+        type: "string",
+        defaultValue: "undefined",
+        description: getRichTextEditorPropDesc("value"),
+      },
+      {
+        prop: "defaultValue",
+        type: "string",
+        defaultValue: '""',
+        description: getRichTextEditorPropDesc("defaultValue"),
+      },
+      {
+        prop: "onChange",
+        type: "(html: string) => void",
+        defaultValue: "undefined",
+        description: getRichTextEditorPropDesc("onChange"),
+      },
+      {
+        prop: "placeholder",
+        type: "string",
+        defaultValue: '"Write something bold..."',
+        description: getRichTextEditorPropDesc("placeholder"),
+      },
+      {
+        prop: "variant",
+        type: '"default" | "minimal"',
+        defaultValue: '"default"',
+        description: getRichTextEditorPropDesc("variant"),
+      },
+      {
+        prop: "size",
+        type: '"sm" | "default" | "lg"',
+        defaultValue: '"default"',
+        description: getRichTextEditorPropDesc("size"),
+      },
+      {
+        prop: "readOnly",
+        type: "boolean",
+        defaultValue: "false",
+        description: getRichTextEditorPropDesc("readOnly"),
+      },
+      {
+        prop: "disabled",
+        type: "boolean",
+        defaultValue: "false",
+        description: getRichTextEditorPropDesc("disabled"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getRichTextEditorPropDesc("noShadow"),
+      },
+      {
+        prop: "error",
+        type: "boolean",
+        defaultValue: "false",
+        description: getRichTextEditorPropDesc("error"),
+      },
+      {
+        prop: "showCharacterCount",
+        type: "boolean",
+        defaultValue: "false",
+        description: getRichTextEditorPropDesc("showCharacterCount"),
+      },
+      {
+        prop: "maxLength",
+        type: "number",
+        defaultValue: "undefined",
+        description: getRichTextEditorPropDesc("maxLength"),
+      },
+    ],
+  },
+  "file-upload": {
+    slug: "file-upload",
+    ...getComponentText("file-upload"),
+    demoName: "file-upload-demo",
+    sourceFile: "src/components/ui/file-upload.tsx",
+    registryItem: "file-upload",
+    installGuide: {
+      npmCommand: "npm install react-dropzone lucide-react",
+      note: {
+        id: "Perintah CLI shadcn di atas otomatis memasang react-dropzone beserta komponen Badge & Button Punch UI. Jika copy-paste manual, install paket-paket berikut:",
+        en: "The shadcn CLI command above installs react-dropzone along with Punch UI's Badge & Button components automatically. If copying manually, install these packages:",
+      },
+      packages: [
+        {
+          name: "react-dropzone",
+          purpose: {
+            id: "Hook useDropzone untuk drag-and-drop lintas browser, validasi accept/maxSize/maxFiles, dan status isDragAccept/isDragReject real-time.",
+            en: "useDropzone hook for cross-browser drag-and-drop, accept/maxSize/maxFiles validation, and real-time isDragAccept/isDragReject states.",
+          },
+        },
+        {
+          name: "lucide-react",
+          purpose: {
+            id: "Ikon upload, tipe berkas (gambar/CSV/PDF), peringatan error, dan tombol hapus.",
+            en: "Icons for upload, file types (image/CSV/PDF), error alert, and remove actions.",
+          },
+        },
+      ],
+      registryDependencies: ["badge", "button"],
+    },
+    sections: [
+      {
+        id: "basic",
+        title: getFileUploadSectionTitle("basic"),
+        demoName: "file-upload-basic-demo",
+        propsUsed: "FileUpload value onChange",
+      },
+      {
+        id: "image",
+        title: getFileUploadSectionTitle("image"),
+        demoName: "file-upload-image-demo",
+        propsUsed: "accept maxSize maxFiles showPreview",
+      },
+      {
+        id: "validation",
+        title: getFileUploadSectionTitle("validation"),
+        demoName: "file-upload-validation-demo",
+        propsUsed: "accept maxSize maxFiles",
+      },
+      {
+        id: "compact",
+        title: getFileUploadSectionTitle("compact"),
+        demoName: "file-upload-compact-demo",
+        propsUsed: 'variant="compact" multiple={false}',
+      },
+      {
+        id: "states",
+        title: getFileUploadSectionTitle("states"),
+        demoName: "file-upload-states-demo",
+        propsUsed: "disabled noShadow error",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "value",
+        type: "File[]",
+        defaultValue: "undefined",
+        description: getFileUploadPropDesc("value"),
+      },
+      {
+        prop: "defaultValue",
+        type: "File[]",
+        defaultValue: "[]",
+        description: getFileUploadPropDesc("defaultValue"),
+      },
+      {
+        prop: "onChange",
+        type: "(files: File[]) => void",
+        defaultValue: "undefined",
+        description: getFileUploadPropDesc("onChange"),
+      },
+      {
+        prop: "onReject",
+        type: "(rejections: FileRejection[]) => void",
+        defaultValue: "undefined",
+        description: getFileUploadPropDesc("onReject"),
+      },
+      {
+        prop: "accept",
+        type: "Accept (Record<string, string[]>)",
+        defaultValue: "undefined",
+        description: getFileUploadPropDesc("accept"),
+      },
+      {
+        prop: "multiple",
+        type: "boolean",
+        defaultValue: "true",
+        description: getFileUploadPropDesc("multiple"),
+      },
+      {
+        prop: "maxFiles",
+        type: "number",
+        defaultValue: "undefined",
+        description: getFileUploadPropDesc("maxFiles"),
+      },
+      {
+        prop: "maxSize",
+        type: "number",
+        defaultValue: "undefined",
+        description: getFileUploadPropDesc("maxSize"),
+      },
+      {
+        prop: "variant",
+        type: '"default" | "compact"',
+        defaultValue: '"default"',
+        description: getFileUploadPropDesc("variant"),
+      },
+      {
+        prop: "showPreview",
+        type: "boolean",
+        defaultValue: "true",
+        description: getFileUploadPropDesc("showPreview"),
+      },
+      {
+        prop: "disabled",
+        type: "boolean",
+        defaultValue: "false",
+        description: getFileUploadPropDesc("disabled"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getFileUploadPropDesc("noShadow"),
+      },
+      {
+        prop: "error",
+        type: "boolean",
+        defaultValue: "false",
+        description: getFileUploadPropDesc("error"),
+      },
+    ],
+  },
+  "empty-state": {
+    slug: "empty-state",
+    ...getComponentText("empty-state"),
+    demoName: "empty-state-demo",
+    sourceFile: "src/components/ui/empty-state.tsx",
+    registryItem: "empty-state",
+    sections: [
+      {
+        id: "basic",
+        title: getEmptyStateSectionTitle("basic"),
+        demoName: "empty-state-basic-demo",
+        propsUsed: "EmptyState EmptyStateIcon EmptyStateActions",
+      },
+      {
+        id: "composition",
+        title: getEmptyStateSectionTitle("composition"),
+        propsUsed: "EmptyState anatomy",
+        tree: {
+          name: "EmptyState",
+          role: "root",
+          children: [
+            { name: "EmptyStateIcon", role: "leaf" },
+            { name: "EmptyStateTitle", role: "leaf" },
+            { name: "EmptyStateDescription", role: "leaf" },
+            { name: "EmptyStateActions", role: "section" },
+          ],
+        },
+      },
+      {
+        id: "variants",
+        title: getEmptyStateSectionTitle("variants"),
+        demoName: "empty-state-variants-demo",
+        propsUsed: 'variant="default | dashed | muted | ghost"',
+      },
+      {
+        id: "size",
+        title: getEmptyStateSectionTitle("size"),
+        demoName: "empty-state-size-demo",
+        propsUsed: 'size="sm | default | lg"',
+      },
+      {
+        id: "contextual",
+        title: getEmptyStateSectionTitle("contextual"),
+        demoName: "empty-state-contextual-demo",
+        propsUsed: 'noShadow EmptyStateIcon variant="destructive"',
+      },
+    ],
+    propsTable: [
+      {
+        prop: "variant",
+        type: '"default" | "dashed" | "muted" | "ghost"',
+        defaultValue: '"default"',
+        description: getEmptyStatePropDesc("variant"),
+      },
+      {
+        prop: "size",
+        type: '"sm" | "default" | "lg"',
+        defaultValue: '"default"',
+        description: getEmptyStatePropDesc("size"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getEmptyStatePropDesc("noShadow"),
+      },
+      {
+        prop: "EmptyStateIcon.variant",
+        type: '"default" | "primary" | "muted" | "destructive" | "danger"',
+        defaultValue: '"default"',
+        description: getEmptyStatePropDesc("iconVariant"),
+      },
+    ],
+  },
+  kbd: {
+    slug: "kbd",
+    ...getComponentText("kbd"),
+    demoName: "kbd-demo",
+    sourceFile: "src/components/ui/kbd.tsx",
+    registryItem: "kbd",
+    sections: [
+      {
+        id: "basic",
+        title: getKbdSectionTitle("basic"),
+        demoName: "kbd-basic-demo",
+        propsUsed: "Kbd KbdGroup",
+      },
+      {
+        id: "variants",
+        title: getKbdSectionTitle("variants"),
+        demoName: "kbd-variants-demo",
+        propsUsed: 'variant="default | secondary | primary | muted"',
+      },
+      {
+        id: "size",
+        title: getKbdSectionTitle("size"),
+        demoName: "kbd-size-demo",
+        propsUsed: 'size="sm | default | lg"',
+      },
+      {
+        id: "context",
+        title: getKbdSectionTitle("context"),
+        demoName: "kbd-context-demo",
+        propsUsed: "Button Card KbdGroup noShadow",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "variant",
+        type: '"default" | "secondary" | "primary" | "muted"',
+        defaultValue: '"default"',
+        description: getKbdPropDesc("variant"),
+      },
+      {
+        prop: "size",
+        type: '"sm" | "default" | "lg"',
+        defaultValue: '"default"',
+        description: getKbdPropDesc("size"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getKbdPropDesc("noShadow"),
+      },
+    ],
+  },
 };
 
-export const CATALOG_LIST = Object.values(COMPONENT_DOCS);
+export const CATALOG_LIST = Object.values(COMPONENT_DOCS).sort((a, b) =>
+  a.title.en.localeCompare(b.title.en)
+);

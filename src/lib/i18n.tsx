@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { Globe } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { siteConfig } from "@/lib/config";
 import { dictionaries, type Dictionary } from "@/locales";
 
@@ -76,34 +76,31 @@ export function LanguageSwitcher() {
   const { lang, setLang } = useLanguage();
 
   return (
-    <div
-      role="group"
-      aria-label="Language Switcher"
-      className="inline-flex h-8 items-center gap-1 rounded-md border-2 border-border bg-card p-0.5 shadow-brutal-sm"
-    >
-      <span className="flex items-center px-1.5 text-muted-foreground">
-        <Globe className="h-3.5 w-3.5" strokeWidth={2.5} />
-      </span>
-      <Button
-        type="button"
+    <div className="inline-flex items-center gap-1.5">
+      <Globe
+        className="h-4 w-4 text-muted-foreground"
+        strokeWidth={2.5}
+        aria-hidden="true"
+      />
+      <ToggleGroup
+        type="single"
+        variant="outline"
         size="sm"
-        noShadow
-        variant={lang === "id" ? "default" : "ghost"}
-        onClick={() => setLang("id")}
-        className="h-full rounded-sm border-0 px-2.5 py-0 font-mono text-xs"
+        value={lang}
+        onValueChange={(value) => {
+          if (value === "id" || value === "en") {
+            setLang(value);
+          }
+        }}
+        aria-label="Language Switcher"
       >
-        ID
-      </Button>
-      <Button
-        type="button"
-        size="sm"
-        noShadow
-        variant={lang === "en" ? "default" : "ghost"}
-        onClick={() => setLang("en")}
-        className="h-full rounded-sm border-0 px-2.5 py-0 font-mono text-xs"
-      >
-        EN
-      </Button>
+        <ToggleGroupItem value="id" className="font-mono">
+          ID
+        </ToggleGroupItem>
+        <ToggleGroupItem value="en" className="font-mono">
+          EN
+        </ToggleGroupItem>
+      </ToggleGroup>
     </div>
   );
 }
