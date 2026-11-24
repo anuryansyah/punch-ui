@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   Card,
   CardAction,
@@ -419,5 +420,38 @@ export function CardNoShadowDemo() {
         </p>
       </Card>
     </div>
+  );
+}
+
+/**
+ * 10. Card with Image
+ */
+export function CardImageDemo() {
+  return (
+    <Card className="w-full max-w-sm overflow-hidden">
+      <div className="relative border-b-2 border-border">
+        <Image
+          src="/images/card-cover.jpg"
+          alt="Punch UI Neobrutalist Design Kit cover"
+          width={640}
+          height={320}
+          className="h-56 w-full object-cover"
+        />
+        <Badge size="sm" variant="success" className="absolute right-3 top-3">
+          Featured
+        </Badge>
+      </div>
+      <CardHeader>
+        <CardTitle>Neobrutalist Design Kit</CardTitle>
+        <CardDescription>
+          Bold 2px borders, hard offset shadows, and accessible Radix
+          primitives.
+        </CardDescription>
+      </CardHeader>
+      <CardFooter className="justify-between">
+        <span className="font-mono text-sm font-extrabold">Free &amp; OSS</span>
+        <Button size="sm">Explore Kit</Button>
+      </CardFooter>
+    </Card>
   );
 }

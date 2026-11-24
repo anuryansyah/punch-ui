@@ -242,17 +242,31 @@ export function SidebarSubmenuDemo() {
   const [activeMenu, setActiveMenu] = React.useState("components");
   const [activeSub, setActiveSub] = React.useState("buttons");
   const [componentsOpen, setComponentsOpen] = React.useState(true);
+  const [projectsOpen, setProjectsOpen] = React.useState(false);
 
-  const subItems = [
+  function selectMainMenu(menuId: string) {
+    setActiveMenu(menuId);
+    setComponentsOpen(false);
+    setProjectsOpen(false);
+  }
+
+  const componentSubItems = [
     { id: "buttons", label: "Button & Badge" },
     { id: "tables", label: "Data Table" },
+    { id: "forms", label: "Select & Form" },
     { id: "sidebar", label: "Sidebar" },
+  ];
+
+  const projectSubItems = [
+    { id: "design-system", label: "Design System" },
+    { id: "marketing-site", label: "Marketing Site" },
+    { id: "mobile-app", label: "Mobile App" },
   ];
 
   return (
     <div className="h-[440px] w-full max-w-3xl overflow-hidden rounded-md border-2 border-border shadow-brutal">
-      <SidebarProvider>
-        <Sidebar collapsible="icon">
+      <SidebarProvider className="h-full">
+        <Sidebar collapsible="icon" className="h-full">
           <SidebarHeader>
             <div className="flex items-center gap-2.5 px-1 group-data-[collapsible=icon]/sidebar:justify-center group-data-[collapsible=icon]/sidebar:px-0">
               <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-sm border-2 border-border bg-primary font-mono text-xs font-extrabold text-primary-foreground shadow-brutal-sm">
@@ -279,9 +293,20 @@ export function SidebarSubmenuDemo() {
                 <SidebarMenu>
                   <SidebarMenuItem>
                     <SidebarMenuButton
+                      tooltip="Overview"
+                      isActive={activeMenu === "overview"}
+                      onClick={() => selectMainMenu("overview")}
+                    >
+                      <Home strokeWidth={2.5} />
+                      <span>Overview</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+
+                  <SidebarMenuItem>
+                    <SidebarMenuButton
                       tooltip="Inbox"
                       isActive={activeMenu === "inbox"}
-                      onClick={() => setActiveMenu("inbox")}
+                      onClick={() => selectMainMenu("inbox")}
                     >
                       <Inbox strokeWidth={2.5} />
                       <span>Inbox</span>
@@ -296,6 +321,7 @@ export function SidebarSubmenuDemo() {
                       onClick={() => {
                         setActiveMenu("components");
                         setComponentsOpen((prev) => !prev);
+                        setProjectsOpen(false);
                       }}
                     >
                       <Layers strokeWidth={2.5} />
@@ -310,7 +336,7 @@ export function SidebarSubmenuDemo() {
                     </SidebarMenuButton>
                     {componentsOpen && (
                       <SidebarMenuSub>
-                        {subItems.map((sub) => (
+                        {componentSubItems.map((sub) => (
                           <SidebarMenuSubItem key={sub.id}>
                             <SidebarMenuSubButton
                               href={`#${sub.id}`}
@@ -331,6 +357,60 @@ export function SidebarSubmenuDemo() {
                       </SidebarMenuSub>
                     )}
                   </SidebarMenuItem>
+
+                  <SidebarMenuItem>
+                    <SidebarMenuButton
+                      tooltip="Projects"
+                      isActive={activeMenu === "projects"}
+                      onClick={() => {
+                        setActiveMenu("projects");
+                        setProjectsOpen((prev) => !prev);
+                        setComponentsOpen(false);
+                      }}
+                    >
+                      <FolderKanban strokeWidth={2.5} />
+                      <span>Projects</span>
+                      <ChevronDown
+                        strokeWidth={2.5}
+                        className={`ml-auto h-3.5 w-3.5 shrink-0 transition-transform duration-150 group-data-[collapsible=icon]/sidebar:hidden ${
+                          projectsOpen ? "rotate-0" : "-rotate-90"
+                        }`}
+                      />
+                    </SidebarMenuButton>
+                    {projectsOpen && (
+                      <SidebarMenuSub>
+                        {projectSubItems.map((sub) => (
+                          <SidebarMenuSubItem key={sub.id}>
+                            <SidebarMenuSubButton
+                              href={`#${sub.id}`}
+                              isActive={
+                                activeMenu === "projects" &&
+                                activeSub === sub.id
+                              }
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setActiveMenu("projects");
+                                setActiveSub(sub.id);
+                              }}
+                            >
+                              {sub.label}
+                            </SidebarMenuSubButton>
+                          </SidebarMenuSubItem>
+                        ))}
+                      </SidebarMenuSub>
+                    )}
+                  </SidebarMenuItem>
+
+                  <SidebarMenuItem>
+                    <SidebarMenuButton
+                      tooltip="Analytics"
+                      isActive={activeMenu === "analytics"}
+                      onClick={() => selectMainMenu("analytics")}
+                    >
+                      <BarChart3 strokeWidth={2.5} />
+                      <span>Analytics</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
                 </SidebarMenu>
               </SidebarGroupContent>
             </SidebarGroup>
@@ -343,9 +423,40 @@ export function SidebarSubmenuDemo() {
                 <SidebarMenu>
                   <SidebarMenuItem>
                     <SidebarMenuButton
+                      tooltip="Team Members"
+                      isActive={activeMenu === "team"}
+                      onClick={() => selectMainMenu("team")}
+                    >
+                      <Users strokeWidth={2.5} />
+                      <span>Team Members</span>
+                      <SidebarMenuBadge>4</SidebarMenuBadge>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton
+                      tooltip="Billing"
+                      isActive={activeMenu === "billing"}
+                      onClick={() => selectMainMenu("billing")}
+                    >
+                      <CreditCard strokeWidth={2.5} />
+                      <span>Billing</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton
+                      tooltip="Security"
+                      isActive={activeMenu === "security"}
+                      onClick={() => selectMainMenu("security")}
+                    >
+                      <ShieldCheck strokeWidth={2.5} />
+                      <span>Security</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton
                       tooltip="Preferences"
                       isActive={activeMenu === "preferences"}
-                      onClick={() => setActiveMenu("preferences")}
+                      onClick={() => selectMainMenu("preferences")}
                     >
                       <Settings strokeWidth={2.5} />
                       <span>Preferences</span>
@@ -378,7 +489,7 @@ export function SidebarSubmenuDemo() {
             <div className="flex items-center gap-3">
               <SidebarTrigger />
               <span className="font-mono text-xs font-bold uppercase tracking-wider">
-                {activeMenu === "components"
+                {activeMenu === "components" || activeMenu === "projects"
                   ? `${activeMenu} / ${activeSub}`
                   : activeMenu}
               </span>

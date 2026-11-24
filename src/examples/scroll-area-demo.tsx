@@ -243,3 +243,60 @@ export function ScrollAreaGhostDemo() {
     </div>
   );
 }
+
+/**
+ * 6. Scrollbar Variant (default, auto, bordered)
+ */
+export function ScrollAreaScrollbarVariantDemo() {
+  const modes = [
+    {
+      value: "default" as const,
+      title: 'scrollbarVariant="default"',
+      hint: "No track border, always visible",
+    },
+    {
+      value: "auto" as const,
+      title: 'scrollbarVariant="auto"',
+      hint: "Scroll to reveal thumb",
+    },
+    {
+      value: "bordered" as const,
+      title: 'scrollbarVariant="bordered"',
+      hint: "Full 1.5px bordered track",
+    },
+  ];
+
+  return (
+    <div className="grid w-full max-w-3xl grid-cols-1 gap-4 md:grid-cols-3">
+      {modes.map((mode) => (
+        <div key={mode.value} className="space-y-2">
+          <div>
+            <p className="font-mono text-xs font-black">{mode.title}</p>
+            <p className="text-[11px] text-muted-foreground">{mode.hint}</p>
+          </div>
+          <ScrollArea
+            scrollbarVariant={mode.value}
+            className="h-44 w-full"
+            viewportClassName="p-3.5"
+          >
+            <div className="space-y-2">
+              {DEPLOY_LOGS.map((item, idx) => (
+                <div key={item.id} className="space-y-2">
+                  <div className="flex items-center justify-between gap-2 text-xs">
+                    <span className="font-mono font-bold">{item.id}</span>
+                    <span className="truncate text-muted-foreground">
+                      {item.service}
+                    </span>
+                  </div>
+                  {idx < DEPLOY_LOGS.length - 1 && (
+                    <Separator variant="muted" thickness="thin" />
+                  )}
+                </div>
+              ))}
+            </div>
+          </ScrollArea>
+        </div>
+      ))}
+    </div>
+  );
+}

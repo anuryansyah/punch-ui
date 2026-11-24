@@ -63,7 +63,8 @@
         "kpi": "6. KPI & Metric Card",
         "form": "7. Card with Form",
         "interactive": "8. Interactive Card",
-        "no-shadow": "9. No Shadow"
+        "no-shadow": "9. No Shadow",
+        "image": "10. Card with Image"
       },
       "props": {
         "variant": "Determines the card surface palette: theme colors (default, primary, secondary, muted) or semantic status colors (success, info, warning, danger).",
@@ -197,11 +198,13 @@
         "horizontal": "2. Horizontal Scroll",
         "both": "3. Both Directions",
         "size": "4. Scrollbar Size",
-        "ghost": "5. Ghost & No Shadow"
+        "ghost": "5. Ghost & No Shadow",
+        "scrollbar-variant": "6. Scrollbar Variant"
       },
       "props": {
         "orientation": "Scrollable axis: vertical (default), horizontal, or both.",
         "scrollbarSize": "Scrollbar thickness: 'sm' (8px default), 'md' (10px), 'lg' (14px), or a custom pixel number (e.g., 6).",
+        "scrollbarVariant": "Track style & visibility: 'default' (borderless track, always visible), 'auto' (borderless track, revealed on scroll/hover/drag), or 'bordered' (transparent track with 1.5px border).",
         "variant": "Outer container style: 'default' (2px border + bg-card) or 'ghost' (borderless & shadowless for embedding inside Cards/Sidebars).",
         "noShadow": "Removes the hard shadow on the outer ScrollArea container.",
         "viewportClassName": "Additional CSS classes applied directly to the inner scrollable viewport."
@@ -327,6 +330,536 @@
         "Keyboard Shortcut: SidebarProvider automatically binds Ctrl+B (Windows/Linux) and Cmd+B (macOS) to toggle the sidebar.",
         "Place SidebarTrigger inside your top bar so users can open the slide-over drawer on mobile or collapse the sidebar on desktop.",
         "When wrapping Next.js <Link />, pass asChild on <SidebarMenuButton asChild><Link href=\"...\">...</Link></SidebarMenuButton>."
+      ]
+    },
+    "select": {
+      "title": "Select",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Neobrutalist select dropdown powered by @radix-ui/react-select featuring a floating shadowed option menu, grouped items, validation states, and 3 trigger sizes.",
+      "sections": {
+        "basic": "1. Basic Select",
+        "composition": "2. Composition",
+        "size": "3. Size",
+        "align": "4. Align Items",
+        "grouped": "5. Grouped & Scrollable",
+        "clearable": "6. Clearable",
+        "states": "7. Validation & Disabled",
+        "form": "8. No Shadow & Form Card"
+      },
+      "props": {
+        "selectSize": "Controls the height and font size of SelectTrigger: sm, default, or lg.",
+        "state": "Applies validation border and shadow styling: default, error, or success.",
+        "noShadow": "Removes the hard shadow on SelectTrigger, ideal when embedded inside a Card.",
+        "clearable": "Displays an × button on SelectTrigger (paired with onClear) to clear the active selection.",
+        "onClear": "Callback on SelectTrigger invoked when the clear button is clicked to reset value back to \"\".",
+        "position": "Positioning strategy for SelectContent: popper (floating below/above trigger, default) or item-aligned (aligns the selected item directly over the trigger).",
+        "align": "Horizontal alignment of SelectContent relative to the trigger when position=\"popper\" (start, center, or end).",
+        "defaultValue": "Initial selected value for uncontrolled usage.",
+        "value": "Controlled selected value paired with onValueChange.",
+        "disabled": "Disables the entire Select control or individual SelectItem entries."
+      },
+      "usageNotes": [
+        "Pair <Label htmlFor=\"...\"> with <SelectTrigger id=\"...\"> for proper accessibility labeling.",
+        "Organize long lists with <SelectGroup>, <SelectLabel>, and <SelectSeparator />—the option viewport scrolls cleanly with a standard scrollbar.",
+        "Pass noShadow on SelectTrigger inside a Card form to avoid stacked hard shadows.",
+        "Need searchable text filtering, rich icons, or multi-select tags? Use the Combobox component instead."
+      ]
+    },
+    "checkbox": {
+      "title": "Checkbox",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Neobrutalist checkbox powered by @radix-ui/react-checkbox featuring solid accent fills, indeterminate state support, 3 sizes, and error validation.",
+      "sections": {
+        "basic": "1. Basic Checkbox",
+        "size": "2. Size",
+        "variants": "3. Variants",
+        "indeterminate": "4. Indeterminate (Select All)",
+        "card": "5. With Description & Card",
+        "states": "6. Validation, Disabled & No Shadow"
+      },
+      "props": {
+        "variant": "Fill color when checked: primary (default), secondary, success, info, warning, or danger / destructive.",
+        "checkboxSize": "Checkbox dimensions: sm (16px), default (20px), or lg (24px).",
+        "state": "Validation border and shadow state: default or error.",
+        "noShadow": "Removes the hard shadow on the checkbox box.",
+        "checked": "Controlled checked state: true, false, or \"indeterminate\".",
+        "defaultChecked": "Initial checked state for uncontrolled usage.",
+        "disabled": "Disables checkbox interaction."
+      },
+      "usageNotes": [
+        "Always pair <Checkbox id=\"...\" /> with <Label htmlFor=\"...\" /> so clicking the label toggles the checkbox.",
+        "Pass checked=\"indeterminate\" on a parent Select All checkbox when only a subset of child items are selected.",
+        "Use noShadow when embedding Checkbox inside a Card or Data Table row to avoid stacked shadows."
+      ]
+    },
+    "radio-group": {
+      "title": "Radio Group",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Neobrutalist single-choice radio group powered by @radix-ui/react-radio-group with a solid inner indicator, circle or square shapes, 3 sizes, and semantic color variants.",
+      "sections": {
+        "basic": "1. Basic Radio Group",
+        "shape": "2. Shape & Horizontal",
+        "size": "3. Size",
+        "variants": "4. Variants",
+        "card": "5. Card Selection",
+        "states": "6. Validation, Disabled & No Shadow"
+      },
+      "props": {
+        "orientation": "Layout direction on RadioGroup: vertical (default) or horizontal.",
+        "shape": "Geometry of RadioGroupItem: circle (default) or square.",
+        "radioSize": "Dimensions of the radio button: sm, default, or lg.",
+        "variant": "Inner indicator color when selected: primary (default), secondary, success, info, warning, or danger / destructive.",
+        "state": "Validation border and shadow state: default or error.",
+        "noShadow": "Removes the hard shadow on RadioGroupItem.",
+        "defaultValue": "Initial selected value for uncontrolled usage.",
+        "value": "Controlled selected value paired with onValueChange.",
+        "disabled": "Disables the entire RadioGroup or an individual RadioGroupItem."
+      },
+      "usageNotes": [
+        "Use RadioGroup for mutually exclusive choices and Checkbox when multiple options can be selected.",
+        "Always pair <RadioGroupItem id=\"...\" /> with <Label htmlFor=\"...\" /> for accessible click targets.",
+        "When building selectable plan cards, pass noShadow on RadioGroupItem and style the outer card wrapper for active feedback."
+      ]
+    },
+    "switch": {
+      "title": "Switch",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Mechanical Neobrutalist toggle switch powered by @radix-ui/react-switch featuring a 2px-bordered track, pill or square shapes, 3 sizes, and semantic color variants.",
+      "sections": {
+        "basic": "1. Basic Switch",
+        "shape": "2. Shape (Square vs Pill)",
+        "size": "3. Size",
+        "variants": "4. Variants",
+        "card": "5. Settings Card",
+        "states": "6. Disabled & No Shadow"
+      },
+      "props": {
+        "variant": "Track fill color when checked: primary (default), secondary, success, info, warning, or danger / destructive.",
+        "switchSize": "Switch dimensions: sm, default, or lg.",
+        "shape": "Track and thumb geometry: square (default) or pill.",
+        "noShadow": "Removes the hard shadow on the Switch track.",
+        "checked": "Controlled checked state paired with onCheckedChange.",
+        "defaultChecked": "Initial checked state for uncontrolled usage.",
+        "disabled": "Disables Switch interaction."
+      },
+      "usageNotes": [
+        "Use Switch for instant on/off toggles (like Airplane Mode or Auto-Deploy), and Checkbox for multi-select forms submitted later.",
+        "Pair <Switch id=\"...\" /> with <Label htmlFor=\"...\" /> so clicking the label toggles the switch.",
+        "Pass noShadow when placing Switch inside a settings Card to avoid stacked hard shadows."
+      ]
+    },
+    "slider": {
+      "title": "Slider",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Neobrutalist range slider powered by @radix-ui/react-slider featuring a thick 2px-bordered track, retro square or circle thumbs, multi-thumb range support, and vertical orientation.",
+      "sections": {
+        "basic": "1. Basic Slider",
+        "range": "2. Range Slider (Dual Thumb)",
+        "size": "3. Size & Shape",
+        "variants": "4. Variants",
+        "stepped": "5. Stepped & Vertical",
+        "states": "6. Disabled & No Shadow"
+      },
+      "props": {
+        "variant": "Active range fill color: primary (default), secondary, success, info, warning, or danger / destructive.",
+        "sliderSize": "Track thickness and thumb dimensions: sm, default, or lg.",
+        "shape": "Track and thumb geometry: square (default) or circle.",
+        "noShadow": "Removes the hard shadow on the track and thumb.",
+        "defaultValue": "Initial value array for uncontrolled usage (e.g., [50] or [25, 75] for a range).",
+        "value": "Controlled value array paired with onValueChange.",
+        "min": "Minimum slider value (default: 0).",
+        "max": "Maximum slider value (default: 100).",
+        "step": "Increment step size (default: 1).",
+        "orientation": "Slider axis: horizontal (default) or vertical."
+      },
+      "usageNotes": [
+        "To render a dual-thumb Range Slider, pass a 2-element array to value or defaultValue (e.g., defaultValue={[25, 75]}).",
+        "When using orientation=\"vertical\", give the parent wrapper an explicit height (such as h-36) so the vertical track renders cleanly.",
+        "Display the live numeric value in font-mono and provide an aria-label for clear accessibility."
+      ]
+    },
+    "form": {
+      "title": "Form",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Neobrutalist form primitives integrating react-hook-form and zod schema validation with automatic ARIA wiring and high-contrast error messages.",
+      "sections": {
+        "basic": "1. Basic Form",
+        "composition": "2. Composition",
+        "controls": "3. All Tier 2 Controls"
+      },
+      "props": {
+        "control": "The control object returned by useForm() passed to FormField.",
+        "name": "Field name matching a key in your zod schema and defaultValues.",
+        "render": "Render callback receiving { field, fieldState, formState } to bind any input control.",
+        "useFormField": "Hook returning validation error and generated ARIA IDs inside a FormItem."
+      },
+      "usageNotes": [
+        "Pass state={fieldState.error ? \"error\" : \"default\"} to Punch UI inputs inside FormControl so red borders and shadows activate on validation failure.",
+        "When integrating Select inside a Form, wrap <SelectTrigger /> (not <Select />) with <FormControl>.",
+        "Define schemas with z.object(...) and connect them via zodResolver(schema) in useForm()."
+      ]
+    },
+    "date-picker": {
+      "title": "Date Picker & Calendar",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Neobrutalist date picker and calendar grid powered by react-day-picker, date-fns, and Popover with range selection, month/year dropdowns, quick presets, and clearable support.",
+      "sections": {
+        "basic": "1. Basic Date Picker",
+        "calendar": "2. Standalone Calendar",
+        "range": "3. Date Range Picker",
+        "dropdown": "4. Month & Year Dropdown",
+        "presets": "5. Clearable, Presets & Disabled",
+        "size": "6. Size",
+        "states": "7. Validation, Disabled & No Shadow"
+      },
+      "props": {
+        "value": "Selected Date or DateRange for controlled usage.",
+        "onSelect": "Callback invoked when a date or range is selected or cleared.",
+        "triggerSize": "Controls DatePicker trigger dimensions: sm, default, or lg.",
+        "state": "Applies validation border and shadow styling: default, error, or success.",
+        "clearable": "Displays an × button to the left of the calendar icon to clear the selected date.",
+        "captionLayout": "Calendar header mode: label (default) or dropdown (quick month/year selectors).",
+        "presets": "Array of quick-select buttons [{ label, date }] rendered above the calendar.",
+        "disabledDays": "react-day-picker Matcher to disable specific dates (e.g., { before: new Date() }).",
+        "noShadow": "Removes hard shadows from the trigger and calendar popover."
+      },
+      "usageNotes": [
+        "Render <Calendar /> directly when you need an inline always-visible calendar without a Popover.",
+        "Enable captionLayout=\"dropdown\" for date-of-birth inputs so users can jump across years quickly.",
+        "Inside Form (react-hook-form + zod), bind value={field.value}, onSelect={field.onChange}, and state={fieldState.error ? \"error\" : \"default\"}."
+      ]
+    },
+    "command": {
+      "title": "Command",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Fast, keyboard-first Neobrutalist command palette and menu powered by cmdk and Radix Dialog with classic window chrome, categorized groups, and Ctrl+K / ⌘K modal support.",
+      "sections": {
+        "basic": "1. Basic Command Menu",
+        "composition": "2. Composition",
+        "dialog": "3. Command Dialog (⌘K)",
+        "states": "4. Badges, Disabled & No Shadow"
+      },
+      "props": {
+        "noShadow": "Removes hard offset shadows on the Command container (useful for flat panels or nested overlays).",
+        "open": "Controlled open state for CommandDialog.",
+        "onOpenChange": "Callback fired when CommandDialog opens or closes (via ESC or backdrop click).",
+        "title": "Header bar title rendered in the classic CommandDialog window chrome.",
+        "heading": "Category heading displayed above a CommandGroup.",
+        "onSelect": "Callback invoked when a CommandItem is selected via pointer click or Enter key.",
+        "disabled": "Disables a CommandItem so it cannot be focused or selected."
+      },
+      "usageNotes": [
+        "Attach a global Ctrl+K / ⌘K keydown listener at the layout or page level to open CommandDialog from anywhere.",
+        "Place <CommandShortcut> inside <CommandItem> to display consistent keyboard shortcut badges.",
+        "Use the keywords prop on CommandItem to match search terms beyond the visible label text."
+      ]
+    },
+    "combobox": {
+      "title": "Combobox",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Searchable autocomplete selector built by composing Popover and Command, supporting single-select, multi-select with removable Badges, grouped categories, icons, and validation states.",
+      "sections": {
+        "basic": "1. Basic Combobox",
+        "multi": "2. Multi-Select Combobox",
+        "grouped": "3. Grouped, Icons & Descriptions",
+        "size": "4. Size",
+        "states": "5. Validation, Disabled & No Shadow"
+      },
+      "props": {
+        "options": "Array of ComboboxOption items supporting label, description, group, icon, badge, keywords, and disabled.",
+        "value": "Selected value (string for Combobox, string[] for MultiCombobox) in controlled mode.",
+        "onValueChange": "Callback fired whenever the selection changes or is cleared.",
+        "maxDisplay": "Maximum number of Badge pills shown in MultiCombobox before collapsing into a +N badge.",
+        "clearable": "Shows an × button next to the chevron to quickly clear the current selection.",
+        "triggerSize": "Controls trigger dimensions: sm, default, or lg.",
+        "state": "Validation border and shadow state: default, error, or success.",
+        "noShadow": "Removes hard shadows from the trigger button and options popover."
+      },
+      "usageNotes": [
+        "Choose <Combobox /> over <Select /> when the option list is long or benefits from instant text filtering.",
+        "Use <MultiCombobox /> for tag or filter selectors where users pick multiple values with removable Badges.",
+        "Add keywords to options so users can match aliases, abbreviations, or internal codes while searching."
+      ]
+    },
+    "input-otp": {
+      "title": "Input OTP",
+      "tier": "Tier 2 • Form & Input Controls",
+      "description": "Neobrutalist one-time passcode and PIN input powered by input-otp featuring separate bordered digit boxes with hard shadows per slot, SMS autofill, character patterns, masked mode, and validation states.",
+      "sections": {
+        "basic": "1. Basic 6-Digit OTP",
+        "composition": "2. Composition",
+        "pattern": "3. Pattern & Masked PIN",
+        "size": "4. Size",
+        "states": "5. Validation, Disabled & No Shadow",
+        "card": "6. Verification Card"
+      },
+      "props": {
+        "maxLength": "Total number of digits or characters accepted by InputOTP.",
+        "value": "Controlled string value of the OTP code.",
+        "onChange": "Callback fired whenever digits are typed, deleted, or pasted.",
+        "pattern": "Regex pattern restricting allowed characters (e.g. REGEXP_ONLY_DIGITS or REGEXP_ONLY_DIGITS_AND_CHARS).",
+        "otpSize": "Dimensions of each digit slot box: sm, default, or lg.",
+        "state": "Validation border and shadow state: default, error, or success.",
+        "masked": "Replaces entered characters with solid dots for private PIN entry.",
+        "noShadow": "Removes hard offset shadows on every digit slot."
+      },
+      "usageNotes": [
+        "Pass pattern={REGEXP_ONLY_DIGITS} for numeric OTP codes to restrict input and trigger numeric keypads on mobile.",
+        "Full multi-digit paste and native SMS autofill (autocomplete=\"one-time-code\") work out of the box.",
+        "Enable masked for sensitive 4-to-6 digit PIN fields."
+      ]
+    },
+    "dialog": {
+      "title": "Dialog",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Neobrutalist modal window powered by @radix-ui/react-dialog with large offset shadows (shadow-brutal-lg), 4 width sizes, accent header blocks, and automatic keyboard focus trapping.",
+      "sections": {
+        "basic": "1. Basic Dialog",
+        "composition": "2. Composition",
+        "form": "3. Form Dialog",
+        "size": "4. Size",
+        "scrollable": "5. Scrollable Content",
+        "header": "6. Accent Header"
+      },
+      "props": {
+        "size": "Maximum width preset for DialogContent: sm, default, lg, or xl.",
+        "variant": "Background accent style for DialogHeader: default, primary, secondary, or muted.",
+        "hideCloseButton": "Hides the top-right × close button inside DialogContent.",
+        "noShadow": "Removes the large offset shadow (shadow-brutal-lg) on the modal window.",
+        "open": "Controlled open state paired with onOpenChange."
+      },
+      "usageNotes": [
+        "Always include <DialogTitle> inside <DialogContent> for accessible screen-reader announcements.",
+        "For long content, apply max-h-[80vh] flex flex-col on DialogContent and overflow-y-auto on the scrollable body container.",
+        "Use <AlertDialog /> instead of Dialog for destructive confirmations that must not close on backdrop clicks."
+      ]
+    },
+    "alert-dialog": {
+      "title": "Alert Dialog",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Blocking confirmation modal powered by @radix-ui/react-alert-dialog that prevents accidental outside-click dismissal, with built-in Punch UI Button variants and async loading states.",
+      "sections": {
+        "basic": "1. Basic Confirmation",
+        "composition": "2. Composition",
+        "destructive": "3. Destructive Action",
+        "async": "4. Async / Loading Action"
+      },
+      "props": {
+        "variant": "Punch UI Button variant for AlertDialogAction / AlertDialogCancel (e.g. default, danger, warning, outline).",
+        "isLoading": "Displays a loading spinner and disables AlertDialogAction while an async operation runs.",
+        "noShadow": "Removes hard offset shadows on AlertDialogContent or action buttons.",
+        "open": "Controlled open state, useful when keeping the dialog open until an async confirmation resolves."
+      },
+      "usageNotes": [
+        "AlertDialog ignores clicks on the dark backdrop overlay so users must explicitly choose Cancel or Action.",
+        "For async actions, call event.preventDefault() inside AlertDialogAction onClick and close manually via setOpen(false) once finished.",
+        "Pass variant=\"danger\" on AlertDialogAction to clearly signal irreversible destructive operations."
+      ]
+    },
+    "sheet": {
+      "title": "Sheet",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Neobrutalist slide-over drawer panel powered by @radix-ui/react-dialog supporting all four viewport edges for mobile navigation, data filters, and quick inspection.",
+      "sections": {
+        "basic": "1. Basic Sheet",
+        "composition": "2. Composition",
+        "sides": "3. Four Sides (Top, Right, Bottom, Left)",
+        "filter": "4. Filter & Form Drawer",
+        "navigation": "5. Mobile Navigation Drawer",
+        "scrollable": "6. Scrollable Content"
+      },
+      "props": {
+        "side": "Viewport edge from which the Sheet slides in: right (default), left, top, or bottom.",
+        "size": "Maximum width preset for left/right drawers: sm, default, lg, or full.",
+        "variant": "Background accent style for SheetHeader: default, primary, secondary, or muted.",
+        "hideCloseButton": "Hides the top-right × close button inside SheetContent.",
+        "noShadow": "Removes the hard shadow on SheetContent."
+      },
+      "usageNotes": [
+        "Use side=\"left\" with size=\"sm\" for mobile navigation menus, and side=\"right\" for filter panels or item inspectors.",
+        "Wrap long drawer bodies in <ScrollArea variant=\"ghost\" scrollbarVariant=\"auto\" className=\"min-h-0 flex-1\"> to keep headers and footers pinned.",
+        "Always include <SheetTitle> inside <SheetContent> for accessible screen-reader labeling."
+      ]
+    },
+    "dropdown-menu": {
+      "title": "Dropdown Menu",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Neobrutalist floating action menu powered by @radix-ui/react-dropdown-menu featuring solid hover highlights, checkbox items, radio groups, nested submenus, and keyboard shortcuts.",
+      "sections": {
+        "basic": "1. Basic Action Menu",
+        "composition": "2. Composition",
+        "checkboxes": "3. Checkbox Items",
+        "radio": "4. Radio Group Items",
+        "submenu": "5. Nested Submenu"
+      },
+      "props": {
+        "variant": "Color variant on DropdownMenuItem: default or danger / destructive for irreversible actions.",
+        "inset": "Adds left padding (pl-8) to align labels with items that have leading icons or checkmarks.",
+        "sideOffset": "Distance in pixels between the trigger and DropdownMenuContent (default 6).",
+        "noShadow": "Removes hard offset shadows on DropdownMenuContent or DropdownMenuSubContent."
+      },
+      "usageNotes": [
+        "Use DropdownMenu for action commands (Edit, Share, Delete); use Select or Combobox for picking form values.",
+        "Pass variant=\"danger\" on DropdownMenuItem for destructive actions like delete or sign out.",
+        "Full arrow-key navigation (↑/↓/→/←), Enter, and Escape dismissal work out of the box."
+      ]
+    },
+    "popover": {
+      "title": "Popover",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Neobrutalist floating surface powered by @radix-ui/react-popover with automatic viewport collision flipping for mini forms, profile inspectors, and quick controls.",
+      "sections": {
+        "basic": "1. Basic Popover (Mini Form)",
+        "placement": "2. Placement (Top, Right, Bottom, Left)",
+        "profile": "3. Rich Profile Card",
+        "no-shadow": "4. No Shadow"
+      },
+      "props": {
+        "side": "Preferred side of the trigger to render PopoverContent: top, right, bottom, or left.",
+        "align": "Alignment of PopoverContent relative to the trigger: start, center (default), or end.",
+        "sideOffset": "Distance in pixels between the trigger and PopoverContent (default 6).",
+        "noShadow": "Removes hard offset shadows on PopoverContent."
+      },
+      "usageNotes": [
+        "Popover serves as the overlay foundation for Punch UI DatePicker and Combobox components.",
+        "Use Popover when floating content is interactive (inputs, buttons, links); use Tooltip for brief read-only hints.",
+        "Radix Popover automatically flips side when approaching viewport edges."
+      ]
+    },
+    "tooltip": {
+      "title": "Tooltip",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "High-contrast Neobrutalist hint bubble powered by @radix-ui/react-tooltip appearing on hover or keyboard focus, with 4 color variants, optional arrow, and icon toolbar support.",
+      "sections": {
+        "basic": "1. Basic Tooltip",
+        "placement": "2. Placement (Top, Right, Bottom, Left)",
+        "variants": "3. Variants & No Shadow",
+        "toolbar": "4. Icon Toolbar & Shortcuts"
+      },
+      "props": {
+        "variant": "Tooltip bubble color style: default (high-contrast foreground), card, primary, or secondary.",
+        "side": "Preferred side of the trigger: top (default), right, bottom, or left.",
+        "showArrow": "Renders a crisp directional arrow pointing toward the trigger.",
+        "noShadow": "Removes the hard shadow (shadow-brutal-sm) on the tooltip bubble.",
+        "delayDuration": "Hover delay in milliseconds on TooltipProvider before opening (default 200)."
+      },
+      "usageNotes": [
+        "Wrap tooltip groups in a single <TooltipProvider> (or place it in your root layout) so moving between sibling tooltips feels instant.",
+        "Keep Tooltip content brief and non-interactive; use Popover if you need links, inputs, or buttons inside.",
+        "Always include aria-label on icon-only trigger buttons for screen-reader accessibility."
+      ]
+    },
+    "tabs": {
+      "title": "Tabs",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Neobrutalist tab navigation powered by @radix-ui/react-tabs supporting segmented buttons, physical folder tabs merged with content panels, bold underline tabs, and vertical orientation.",
+      "sections": {
+        "basic": "1. Basic Tabs",
+        "folder": "2. Physical Folder Style",
+        "underline": "3. Underline, Icons & Badges",
+        "vertical": "4. Vertical Orientation",
+        "sizes": "5. Size",
+        "states": "6. Disabled & No Shadow"
+      },
+      "props": {
+        "variant": "Visual tab style: default (segmented buttons), folder (physical folder merged with panel), or underline (bold bottom rule).",
+        "orientation": "Tab layout axis: horizontal (default) or vertical (ideal for Settings pages).",
+        "size": "Padding and font scale of TabsTrigger: sm, default, or lg.",
+        "noShadow": "Removes hard offset shadows on TabsList, active TabsTrigger, and folder panels.",
+        "defaultValue": "Initially active tab value for uncontrolled usage."
+      },
+      "usageNotes": [
+        "Use variant=\"folder\" for a tactile Neobrutalist folder aesthetic where the active tab seamlessly connects to TabsContent.",
+        "Switch to orientation=\"vertical\" for multi-section settings pages with side navigation.",
+        "Keyboard arrow navigation (←/→ for horizontal, ↑/↓ for vertical) and Home/End work out of the box."
+      ]
+    },
+    "button-group": {
+      "title": "Button Group",
+      "tier": "Tier 1 • Core Components",
+      "description": "Neobrutalist container that joins adjacent Buttons, Inputs, and static addons with collapsed 2px borders and a single unified offset shadow.",
+      "sections": {
+        "basic": "1. Basic Button Group",
+        "vertical": "2. Vertical Orientation",
+        "split": "3. Split Button (with Dropdown)",
+        "input": "4. With Input & Text Addon",
+        "size": "5. Size",
+        "no-shadow": "6. No Shadow & Toggle Toolbar"
+      },
+      "props": {
+        "orientation": "Layout direction of grouped children: horizontal (default) or vertical.",
+        "noShadow": "Removes the unified hard offset shadow on the ButtonGroup container.",
+        "asChild": "On ButtonGroupText, forwards addon styles to a single child element (such as Label) via Radix Slot."
+      },
+      "usageNotes": [
+        "ButtonGroup automatically collapses adjacent 2px borders (-ml-[2px] / -mt-[2px]) and strips individual child shadows into one solid block.",
+        "Combine a primary <Button> with a <DropdownMenuTrigger asChild> inside ButtonGroup to build Split Buttons.",
+        "Use <ButtonGroupText> for static prefixes or suffixes like https:// next to an Input."
+      ]
+    },
+    "breadcrumb": {
+      "title": "Breadcrumb",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Neobrutalist hierarchy path indicator supporting 3 visual styles (inline default, contained bar, and tactile physical pills), custom separators, and collapsed ellipsis dropdowns.",
+      "sections": {
+        "basic": "1. Basic Breadcrumb",
+        "variants": "2. Variants (Contained, Pills & No Shadow)",
+        "separator": "3. Custom Separator",
+        "dropdown": "4. Collapsed with Dropdown"
+      },
+      "props": {
+        "variant": "Visual style of Breadcrumb: default (inline), contained (bordered bar), or pills (tactile physical buttons).",
+        "noShadow": "Removes hard offset shadows on contained and pills variants.",
+        "asChild": "On BreadcrumbLink, forwards link styles to a router component like Next.js <Link /> via Radix Slot."
+      },
+      "usageNotes": [
+        "Use <BreadcrumbLink asChild><Link href=\"...\">...</Link></BreadcrumbLink> for client-side Next.js routing.",
+        "For deep paths, collapse intermediate levels with <BreadcrumbEllipsis /> inside a <DropdownMenuTrigger>.",
+        "Always render the current page with <BreadcrumbPage> so aria-current=\"page\" is set automatically."
+      ]
+    },
+    "alert": {
+      "title": "Alert",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Static Neobrutalist callout banner with crisp 2px borders, 7 semantic color variants (default, primary, secondary, success, info, warning, danger/destructive), and optional dismiss button.",
+      "sections": {
+        "basic": "1. Basic Alert",
+        "variants": "2. Semantic Status Variants",
+        "dismissible": "3. Dismissible Alert",
+        "no-shadow": "4. No Shadow"
+      },
+      "props": {
+        "variant": "Semantic color style: default, primary, secondary, success, info, warning, or danger / destructive.",
+        "dismissible": "Renders a top-right × button to dismiss the Alert.",
+        "onDismiss": "Callback fired when the dismiss button is clicked.",
+        "noShadow": "Removes the hard shadow (shadow-brutal-sm) on the Alert container."
+      },
+      "usageNotes": [
+        "Place a Lucide icon directly as the first child of <Alert>—icon alignment and text indentation adjust automatically.",
+        "Use Alert for persistent inline messages; use Toast (Sonner) for transient feedback after user actions.",
+        "Pass noShadow when nesting Alert inside a Card or Dialog."
+      ]
+    },
+    "sonner": {
+      "title": "Toast (Sonner)",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Floating Neobrutalist toast notifications powered by Sonner with 2px borders, hard shadows, semantic status fills, interactive Undo actions, and async promise states.",
+      "sections": {
+        "basic": "1. Basic Toast",
+        "variants": "2. Semantic Status Toasts",
+        "action": "3. With Action Button",
+        "promise": "4. Async Promise Toast",
+        "position": "5. Position"
+      },
+      "props": {
+        "position": "Viewport corner for stacked toasts: top-left, top-center, top-right, bottom-left, bottom-center, or bottom-right (default).",
+        "noShadow": "Removes hard offset shadows on all toast cards rendered by Toaster.",
+        "toast()": "Imperative helper to trigger toasts: toast(), toast.success(), toast.info(), toast.warning(), toast.error(), and toast.promise()."
+      },
+      "usageNotes": [
+        "Mount <Toaster /> once inside your root layout (src/app/layout.tsx) so any component can trigger toasts.",
+        "Use toast.promise() to automatically transition between loading, success, and error states for async tasks.",
+        "Pass action: { label, onClick } to include tactile Undo or Retry buttons inside a toast."
       ]
     }
   }

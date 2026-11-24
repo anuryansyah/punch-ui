@@ -26,6 +26,7 @@ import {
   X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import {
   Pagination,
@@ -38,6 +39,13 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Table,
   TableBody,
@@ -158,32 +166,39 @@ export function DataTablePagination<TData>({
 
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-      <div className="flex flex-wrap items-center gap-3 font-mono text-xs font-bold text-muted-foreground">
-        <span>
-          {showSelectedCount && selectedRows > 0
-            ? `${selectedRows} of ${totalRows} selected`
-            : `Showing ${startRow}-${endRow} of ${totalRows}`}
-        </span>
-
-        <label className="inline-flex items-center gap-2">
-          <span>Rows</span>
-          <select
+      <div className="inline-flex items-center gap-2 font-mono text-xs font-bold text-muted-foreground">
+        <span>Rows</span>
+        <Select
+          value={String(pageSize)}
+          onValueChange={(value) => table.setPageSize(Number(value))}
+        >
+          <SelectTrigger
             aria-label="Rows per page"
-            value={pageSize}
-            onChange={(e) => table.setPageSize(Number(e.target.value))}
-            className={cn(
-              "h-8 rounded-md border-2 border-border bg-card px-2 font-mono text-xs font-bold text-card-foreground focus-visible:outline-none",
-              !noShadow && "shadow-brutal-sm"
-            )}
+            selectSize="sm"
+            noShadow={noShadow}
+            className="w-16 px-2 font-mono"
           >
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent align="start">
             {pageSizeOptions.map((option) => (
-              <option key={option} value={option}>
+              <SelectItem
+                key={option}
+                value={String(option)}
+                className="py-1.5 pl-7 pr-2 font-mono text-xs"
+              >
                 {option}
-              </option>
+              </SelectItem>
             ))}
-          </select>
-        </label>
+          </SelectContent>
+        </Select>
       </div>
+
+      <span className="font-mono text-xs font-bold text-muted-foreground sm:text-center">
+        {showSelectedCount && selectedRows > 0
+          ? `${selectedRows} of ${totalRows} selected`
+          : `Showing ${startRow}-${endRow} of ${totalRows}`}
+      </span>
 
       <Pagination className="mx-0 w-auto justify-start sm:justify-end">
         <PaginationContent className="gap-1.5">
@@ -456,13 +471,13 @@ export function DataTable<TData, TValue>({
                             key={column.id}
                             className="flex cursor-pointer items-center gap-2 rounded-sm px-1.5 py-1 text-xs font-medium capitalize hover:bg-muted"
                           >
-                            <input
-                              type="checkbox"
+                            <Checkbox
+                              checkboxSize="sm"
+                              noShadow
                               checked={column.getIsVisible()}
-                              onChange={(e) =>
-                                column.toggleVisibility(e.target.checked)
+                              onCheckedChange={(checked) =>
+                                column.toggleVisibility(checked === true)
                               }
-                              className="h-3.5 w-3.5 accent-primary"
                             />
                             <span className="truncate">{column.id}</span>
                           </label>

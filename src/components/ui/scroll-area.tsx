@@ -4,6 +4,7 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 export type ScrollbarSize = "sm" | "md" | "lg" | number;
+export type ScrollbarVariant = "default" | "auto" | "bordered";
 
 export interface ScrollAreaProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -29,6 +30,13 @@ export interface ScrollAreaProps extends React.HTMLAttributes<HTMLDivElement> {
    */
   scrollbarSize?: ScrollbarSize;
   /**
+   * Gaya tampilan track & visibilitas scrollbar:
+   * - "default": Track transparan tanpa border, thumb selalu terlihat
+   * - "auto": Track transparan tanpa border, thumb hanya muncul saat di-scroll / hover / drag
+   * - "bordered": Track transparan dengan border 1.5px penuh, thumb selalu terlihat
+   */
+  scrollbarVariant?: ScrollbarVariant;
+  /**
    * Class tambahan untuk viewport bagian dalam
    */
   viewportClassName?: string;
@@ -42,7 +50,7 @@ const SIZE_MAP: Record<"sm" | "md" | "lg", number> = {
 
 /**
  * Komponen ScrollArea Neobrutalism dengan custom track & thumb yang ramping
- * serta ukuran ketebalan yang dapat dikustomisasi (scrollbarSize).
+ * serta ukuran ketebalan dan mode tampilan scrollbar yang dapat dikustomisasi.
  */
 export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
   (
@@ -53,6 +61,7 @@ export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
       variant = "default",
       noShadow = false,
       scrollbarSize = "sm",
+      scrollbarVariant = "default",
       viewportClassName,
       ...rest
     },
@@ -62,13 +71,25 @@ export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
     const viewportRef = React.useRef<HTMLDivElement | null>(null);
     const vTrackRef = React.useRef<HTMLDivElement | null>(null);
     const hTrackRef = React.useRef<HTMLDivElement | null>(null);
+    const scrollTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(
+      null
+    );
+
     const [vThumb, setVThumb] = React.useState({ size: 0, offset: 0 });
     const [hThumb, setHThumb] = React.useState({ size: 0, offset: 0 });
+    const [isScrolling, setIsScrolling] = React.useState(false);
+    const [isDragging, setIsDragging] = React.useState(false);
+    const [isHoveringTrack, setIsHoveringTrack] = React.useState(false);
 
     const barPx =
       typeof scrollbarSize === "number"
         ? Math.max(4, scrollbarSize)
         : SIZE_MAP[scrollbarSize];
+
+    const isBordered = scrollbarVariant === "bordered";
+    const isAuto = scrollbarVariant === "auto";
+    const isTrackVisible =
+      !isAuto || isScrolling || isDragging || isHoveringTrack;
 
     const updateMetrics = React.useCallback(() => {
       const el = viewportRef.current;
@@ -126,10 +147,25 @@ export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
       window.addEventListener("resize", updateMetrics);
       return () => {
         cancelAnimationFrame(raf);
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current);
+        }
         resizeObserver.disconnect();
         window.removeEventListener("resize", updateMetrics);
       };
     }, [updateMetrics, children]);
+
+    const handleScroll = () => {
+      updateMetrics();
+      if (!isAuto) return;
+      setIsScrolling(true);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+      scrollTimeoutRef.current = setTimeout(() => {
+        setIsScrolling(false);
+      }, 800);
+    };
 
     const handleVerticalDrag = (e: React.MouseEvent<HTMLDivElement>) => {
       e.preventDefault();
@@ -137,6 +173,7 @@ export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
       const el = viewportRef.current;
       if (!el) return;
 
+      setIsDragging(true);
       const startY = e.clientY;
       const startScrollTop = el.scrollTop;
       const { scrollHeight, clientHeight } = el;
@@ -151,6 +188,7 @@ export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
       };
 
       const onMouseUp = () => {
+        setIsDragging(false);
         document.removeEventListener("mousemove", onMouseMove);
         document.removeEventListener("mouseup", onMouseUp);
       };
@@ -165,6 +203,7 @@ export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
       const el = viewportRef.current;
       if (!el) return;
 
+      setIsDragging(true);
       const startX = e.clientX;
       const startScrollLeft = el.scrollLeft;
       const { scrollWidth, clientWidth } = el;
@@ -179,6 +218,7 @@ export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
       };
 
       const onMouseUp = () => {
+        setIsDragging(false);
         document.removeEventListener("mousemove", onMouseMove);
         document.removeEventListener("mouseup", onMouseUp);
       };
@@ -214,10 +254,10 @@ export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
       >
         <div
           ref={viewportRef}
-          onScroll={updateMetrics}
+          onScroll={handleScroll}
           style={{
-            marginRight: showVertical ? `${barPx}px` : undefined,
-            marginBottom: showHorizontal ? `${barPx}px` : undefined,
+            marginRight: showVertical && !isAuto ? `${barPx}px` : undefined,
+            marginBottom: showHorizontal && !isAuto ? `${barPx}px` : undefined,
           }}
           className={cn(
             "min-h-0 min-w-0 flex-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
@@ -239,6 +279,8 @@ export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
               width: `${barPx}px`,
               bottom: showHorizontal ? `${barPx}px` : "0px",
             }}
+            onMouseEnter={() => setIsHoveringTrack(true)}
+            onMouseLeave={() => setIsHoveringTrack(false)}
             onClick={(e) => {
               const el = viewportRef.current;
               if (!el || e.target !== e.currentTarget) return;
@@ -249,7 +291,11 @@ export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
                 behavior: "smooth",
               });
             }}
-            className="absolute right-0 top-0 border-l-[1.5px] border-border bg-muted"
+            className={cn(
+              "absolute right-0 top-0 bg-transparent transition-opacity duration-200",
+              isBordered && "border-x-[1.5px] border-border",
+              isTrackVisible ? "opacity-100" : "pointer-events-none opacity-0"
+            )}
           >
             <div
               onMouseDown={handleVerticalDrag}
@@ -257,7 +303,10 @@ export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
                 height: `${vThumb.size}px`,
                 transform: `translateY(${vThumb.offset}px)`,
               }}
-              className="w-full cursor-grab border-y-[1.5px] border-border bg-primary transition-colors hover:bg-secondary active:cursor-grabbing"
+              className={cn(
+                "w-full cursor-grab border-border bg-primary transition-colors hover:bg-secondary active:cursor-grabbing",
+                isBordered ? "border-y-[1.5px]" : "border-[1.5px]"
+              )}
             />
           </div>
         )}
@@ -271,6 +320,8 @@ export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
               height: `${barPx}px`,
               right: showVertical ? `${barPx}px` : "0px",
             }}
+            onMouseEnter={() => setIsHoveringTrack(true)}
+            onMouseLeave={() => setIsHoveringTrack(false)}
             onClick={(e) => {
               const el = viewportRef.current;
               if (!el || e.target !== e.currentTarget) return;
@@ -281,7 +332,11 @@ export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
                 behavior: "smooth",
               });
             }}
-            className="absolute bottom-0 left-0 border-t-[1.5px] border-border bg-muted"
+            className={cn(
+              "absolute bottom-0 left-0 bg-transparent transition-opacity duration-200",
+              isBordered && "border-y-[1.5px] border-border",
+              isTrackVisible ? "opacity-100" : "pointer-events-none opacity-0"
+            )}
           >
             <div
               onMouseDown={handleHorizontalDrag}
@@ -289,7 +344,10 @@ export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
                 width: `${hThumb.size}px`,
                 transform: `translateX(${hThumb.offset}px)`,
               }}
-              className="h-full cursor-grab border-x-[1.5px] border-border bg-primary transition-colors hover:bg-secondary active:cursor-grabbing"
+              className={cn(
+                "h-full cursor-grab border-border bg-primary transition-colors hover:bg-secondary active:cursor-grabbing",
+                isBordered ? "border-x-[1.5px]" : "border-[1.5px]"
+              )}
             />
           </div>
         )}

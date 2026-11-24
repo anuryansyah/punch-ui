@@ -33,6 +33,7 @@ import {
   CardCompositionDemo,
   CardDemo,
   CardFormDemo,
+  CardImageDemo,
   CardInteractiveDemo,
   CardKpiDemo,
   CardNoShadowDemo,
@@ -77,6 +78,7 @@ import {
   ScrollAreaDemo,
   ScrollAreaGhostDemo,
   ScrollAreaHorizontalDemo,
+  ScrollAreaScrollbarVariantDemo,
   ScrollAreaSizeDemo,
   ScrollAreaVerticalDemo,
 } from "@/examples/scroll-area-demo";
@@ -115,6 +117,158 @@ import {
   SidebarRightDemo,
   SidebarSubmenuDemo,
 } from "@/examples/sidebar-demo";
+import {
+  SelectAlignDemo,
+  SelectBasicDemo,
+  SelectClearableDemo,
+  SelectDemo,
+  SelectFormCardDemo,
+  SelectGroupedDemo,
+  SelectSizeDemo,
+  SelectStatesDemo,
+} from "@/examples/select-demo";
+import {
+  CheckboxBasicDemo,
+  CheckboxCardDemo,
+  CheckboxDemo,
+  CheckboxIndeterminateDemo,
+  CheckboxSizeDemo,
+  CheckboxStatesDemo,
+  CheckboxVariantDemo,
+} from "@/examples/checkbox-demo";
+import {
+  RadioGroupBasicDemo,
+  RadioGroupCardDemo,
+  RadioGroupDemo,
+  RadioGroupShapeDemo,
+  RadioGroupSizeDemo,
+  RadioGroupStatesDemo,
+  RadioGroupVariantDemo,
+} from "@/examples/radio-group-demo";
+import {
+  SwitchBasicDemo,
+  SwitchDemo,
+  SwitchSettingsCardDemo,
+  SwitchShapeDemo,
+  SwitchSizeDemo,
+  SwitchStatesDemo,
+  SwitchVariantDemo,
+} from "@/examples/switch-demo";
+import {
+  SliderBasicDemo,
+  SliderDemo,
+  SliderRangeDemo,
+  SliderSizeShapeDemo,
+  SliderStatesDemo,
+  SliderSteppedVerticalDemo,
+  SliderVariantDemo,
+} from "@/examples/slider-demo";
+import {
+  FormBasicDemo,
+  FormControlsDemo,
+  FormDemo,
+} from "@/examples/form-demo";
+import {
+  DatePickerBasicDemo,
+  DatePickerCalendarDemo,
+  DatePickerDemo,
+  DatePickerDropdownDemo,
+  DatePickerPresetsDemo,
+  DatePickerRangeDemo,
+  DatePickerSizeDemo,
+  DatePickerStatesDemo,
+} from "@/examples/date-picker-demo";
+import {
+  CommandBasicDemo,
+  CommandDialogDemo,
+  CommandStatesDemo,
+} from "@/examples/command-demo";
+import {
+  ComboboxBasicDemo,
+  ComboboxGroupedDemo,
+  ComboboxMultiDemo,
+  ComboboxSizesDemo,
+  ComboboxStatesDemo,
+} from "@/examples/combobox-demo";
+import {
+  InputOTPBasicDemo,
+  InputOTPCardDemo,
+  InputOTPPatternDemo,
+  InputOTPSizeDemo,
+  InputOTPStatesDemo,
+} from "@/examples/input-otp-demo";
+import {
+  DialogBasicDemo,
+  DialogFormDemo,
+  DialogHeaderVariantDemo,
+  DialogScrollableDemo,
+  DialogSizeDemo,
+} from "@/examples/dialog-demo";
+import {
+  AlertDialogAsyncDemo,
+  AlertDialogBasicDemo,
+  AlertDialogDestructiveDemo,
+} from "@/examples/alert-dialog-demo";
+import {
+  SheetBasicDemo,
+  SheetFilterDemo,
+  SheetNavigationDemo,
+  SheetScrollableDemo,
+  SheetSidesDemo,
+} from "@/examples/sheet-demo";
+import {
+  DropdownMenuBasicDemo,
+  DropdownMenuCheckboxesDemo,
+  DropdownMenuRadioDemo,
+  DropdownMenuSubmenuDemo,
+} from "@/examples/dropdown-menu-demo";
+import {
+  PopoverBasicDemo,
+  PopoverNoShadowDemo,
+  PopoverPlacementDemo,
+  PopoverProfileDemo,
+} from "@/examples/popover-demo";
+import {
+  TooltipBasicDemo,
+  TooltipPlacementDemo,
+  TooltipToolbarDemo,
+  TooltipVariantsDemo,
+} from "@/examples/tooltip-demo";
+import {
+  TabsBasicDemo,
+  TabsFolderDemo,
+  TabsSizesDemo,
+  TabsStatesDemo,
+  TabsUnderlineDemo,
+  TabsVerticalDemo,
+} from "@/examples/tabs-demo";
+import {
+  ButtonGroupBasicDemo,
+  ButtonGroupInputDemo,
+  ButtonGroupNoShadowDemo,
+  ButtonGroupSizeDemo,
+  ButtonGroupSplitDemo,
+  ButtonGroupVerticalDemo,
+} from "@/examples/button-group-demo";
+import {
+  BreadcrumbBasicDemo,
+  BreadcrumbDropdownDemo,
+  BreadcrumbSeparatorDemo,
+  BreadcrumbVariantsDemo,
+} from "@/examples/breadcrumb-demo";
+import {
+  AlertBasicDemo,
+  AlertDismissibleDemo,
+  AlertNoShadowDemo,
+  AlertVariantsDemo,
+} from "@/examples/alert-demo";
+import {
+  SonnerActionDemo,
+  SonnerBasicDemo,
+  SonnerPositionDemo,
+  SonnerPromiseDemo,
+  SonnerVariantsDemo,
+} from "@/examples/sonner-demo";
 
 const DEMO_REGISTRY: Record<
   string,
@@ -876,6 +1030,31 @@ export function CardNoShadowDemo() {
 }`,
     Component: CardNoShadowDemo,
   },
+  "card-image-demo": {
+    title: "Card with Image",
+    filePath: "src/examples/card-demo.tsx",
+    codeSnippet: `<Card className="w-full max-w-sm overflow-hidden">
+  <div className="relative border-b-2 border-border">
+    <Image
+      src="/images/card-cover.jpg"
+      alt="Punch UI Neobrutalist Design Kit cover"
+      width={640}
+      height={320}
+      className="h-56 w-full object-cover"
+    />
+    <Badge size="sm" className="absolute left-3 top-3">Featured</Badge>
+  </div>
+  <CardHeader>
+    <CardTitle>Neobrutalist Design Kit</CardTitle>
+    <CardDescription>Bold 2px borders, hard offset shadows, and accessible Radix primitives.</CardDescription>
+  </CardHeader>
+  <CardFooter className="justify-between">
+    <span className="font-mono text-sm font-extrabold">Free &amp; OSS</span>
+    <Button size="sm">Explore Kit</Button>
+  </CardFooter>
+</Card>`,
+    Component: CardImageDemo,
+  },
   "input-demo": {
     title: "Input Overview",
     filePath: "src/examples/input-demo.tsx",
@@ -1633,6 +1812,14 @@ export function ScrollAreaGhostDemo() {
 }`,
     Component: ScrollAreaGhostDemo,
   },
+  "scroll-area-variant-demo": {
+    title: "Scrollbar Variant",
+    filePath: "src/examples/scroll-area-demo.tsx",
+    codeSnippet: `<ScrollArea scrollbarVariant="default" className="h-44">...</ScrollArea>
+<ScrollArea scrollbarVariant="auto" className="h-44">...</ScrollArea>
+<ScrollArea scrollbarVariant="bordered" className="h-44">...</ScrollArea>`,
+    Component: ScrollAreaScrollbarVariantDemo,
+  },
   "pagination-demo": {
     title: "Pagination Overview",
     filePath: "src/examples/pagination-demo.tsx",
@@ -1863,19 +2050,24 @@ export function PaginationRowsPerPageDemo() {
         <label htmlFor="rows-per-page" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
           Rows per page
         </label>
-        <select
-          id="rows-per-page"
-          value={pageSize}
-          onChange={(e) => {
-            setPageSize(Number(e.target.value));
+        <Select
+          value={String(pageSize)}
+          onValueChange={(value) => {
+            setPageSize(Number(value));
             setPage(1);
           }}
-          className="h-8 rounded-md border-2 border-border bg-card px-2 font-mono text-xs font-bold shadow-brutal-sm"
         >
-          {[10, 25, 50].map((size) => (
-            <option key={size} value={size}>{size}</option>
-          ))}
-        </select>
+          <SelectTrigger id="rows-per-page" selectSize="sm" className="w-16 px-2 font-mono">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent align="start">
+            {[10, 25, 50].map((size) => (
+              <SelectItem key={size} value={String(size)} className="py-1.5 pl-7 pr-2 font-mono text-xs">
+                {size}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       <span className="font-mono text-xs font-bold text-muted-foreground">
@@ -2410,6 +2602,1494 @@ export function SidebarDemo() {
   </SidebarInset>
 </SidebarProvider>`,
     Component: SidebarRightDemo,
+  },
+  "select-demo": {
+    title: "Select",
+    filePath: "src/examples/select-demo.tsx",
+    codeSnippet: `import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+export function SelectDemo() {
+  return (
+    <Select defaultValue="tangerine">
+      <SelectTrigger className="w-[240px]">
+        <SelectValue placeholder="Choose a preset..." />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="tangerine">Tangerine</SelectItem>
+        <SelectItem value="soft-blue">Soft Blue</SelectItem>
+        <SelectItem value="cyber-yellow">Cyber Yellow</SelectItem>
+      </SelectContent>
+    </Select>
+  );
+}`,
+    Component: SelectDemo,
+  },
+  "select-basic-demo": {
+    title: "Basic Select",
+    filePath: "src/examples/select-demo.tsx",
+    codeSnippet: `<Select defaultValue="tangerine">
+  <SelectTrigger>
+    <SelectValue placeholder="Choose a preset..." />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="tangerine">Tangerine</SelectItem>
+    <SelectItem value="soft-blue">Soft Blue</SelectItem>
+    <SelectItem value="cyber-yellow">Cyber Yellow</SelectItem>
+  </SelectContent>
+</Select>`,
+    Component: SelectBasicDemo,
+  },
+  "select-size-demo": {
+    title: "Size",
+    filePath: "src/examples/select-demo.tsx",
+    codeSnippet: `<SelectTrigger selectSize="sm">...</SelectTrigger>
+<SelectTrigger selectSize="default">...</SelectTrigger>
+<SelectTrigger selectSize="lg">...</SelectTrigger>`,
+    Component: SelectSizeDemo,
+  },
+  "select-grouped-demo": {
+    title: "Grouped & Scrollable",
+    filePath: "src/examples/select-demo.tsx",
+    codeSnippet: `<SelectContent>
+  <SelectGroup>
+    <SelectLabel>Asia</SelectLabel>
+    <SelectItem value="wib">Western Indonesia Time (WIB)</SelectItem>
+    <SelectItem value="jst">Japan Standard Time (JST)</SelectItem>
+  </SelectGroup>
+  <SelectSeparator />
+  <SelectGroup>
+    <SelectLabel>Europe</SelectLabel>
+    <SelectItem value="gmt">Greenwich Mean Time (GMT)</SelectItem>
+  </SelectGroup>
+</SelectContent>`,
+    Component: SelectGroupedDemo,
+  },
+  "select-states-demo": {
+    title: "Validation & Disabled",
+    filePath: "src/examples/select-demo.tsx",
+    codeSnippet: `<SelectTrigger state="success">...</SelectTrigger>
+<SelectTrigger state="error">...</SelectTrigger>
+<Select defaultValue="owner" disabled>...</Select>`,
+    Component: SelectStatesDemo,
+  },
+  "select-form-demo": {
+    title: "No Shadow & Form Card",
+    filePath: "src/examples/select-demo.tsx",
+    codeSnippet: `<Card>
+  <CardContent>
+    <Label htmlFor="invite-role">Workspace Role</Label>
+    <Select value={role} onValueChange={setRole}>
+      <SelectTrigger id="invite-role" noShadow>
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent>...</SelectContent>
+    </Select>
+  </CardContent>
+</Card>`,
+    Component: SelectFormCardDemo,
+  },
+  "select-align-demo": {
+    title: "Align Items",
+    filePath: "src/examples/select-demo.tsx",
+    codeSnippet: `<Select defaultValue="banana">
+  <SelectTrigger>
+    <SelectValue />
+  </SelectTrigger>
+  <SelectContent position="item-aligned">
+    <SelectItem value="apple">Apple</SelectItem>
+    <SelectItem value="banana">Banana (Aligned)</SelectItem>
+  </SelectContent>
+</Select>
+
+<Select defaultValue="md">
+  <SelectTrigger>
+    <SelectValue />
+  </SelectTrigger>
+  <SelectContent position="popper" align="end" className="w-52 min-w-0">
+    <SelectItem value="sm">Small (320px)</SelectItem>
+    <SelectItem value="md">Medium (640px)</SelectItem>
+  </SelectContent>
+</Select>`,
+    Component: SelectAlignDemo,
+  },
+  "select-clearable-demo": {
+    title: "Clearable",
+    filePath: "src/examples/select-demo.tsx",
+    codeSnippet: `<Select value={preset} onValueChange={setPreset}>
+  <SelectTrigger clearable={Boolean(preset)} onClear={() => setPreset("")}>
+    <SelectValue placeholder="Choose a preset..." />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="tangerine">Tangerine</SelectItem>
+    <SelectItem value="soft-blue">Soft Blue</SelectItem>
+    <SelectItem value="cyber-yellow">Cyber Yellow</SelectItem>
+  </SelectContent>
+</Select>`,
+    Component: SelectClearableDemo,
+  },
+  "checkbox-demo": {
+    title: "Checkbox",
+    filePath: "src/examples/checkbox-demo.tsx",
+    codeSnippet: `import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+
+export function CheckboxDemo() {
+  return (
+    <div className="flex items-center gap-2.5">
+      <Checkbox id="terms" defaultChecked />
+      <Label htmlFor="terms">Accept terms and conditions</Label>
+    </div>
+  );
+}`,
+    Component: CheckboxDemo,
+  },
+  "checkbox-basic-demo": {
+    title: "Basic Checkbox",
+    filePath: "src/examples/checkbox-demo.tsx",
+    codeSnippet: `<div className="flex items-center gap-2.5">
+  <Checkbox id="terms-basic" defaultChecked />
+  <Label htmlFor="terms-basic">Accept terms and conditions</Label>
+</div>`,
+    Component: CheckboxBasicDemo,
+  },
+  "checkbox-size-demo": {
+    title: "Size",
+    filePath: "src/examples/checkbox-demo.tsx",
+    codeSnippet: `<Checkbox checkboxSize="sm" defaultChecked />
+<Checkbox checkboxSize="default" defaultChecked />
+<Checkbox checkboxSize="lg" defaultChecked />`,
+    Component: CheckboxSizeDemo,
+  },
+  "checkbox-variant-demo": {
+    title: "Variants",
+    filePath: "src/examples/checkbox-demo.tsx",
+    codeSnippet: `<Checkbox variant="primary" defaultChecked />
+<Checkbox variant="secondary" defaultChecked />
+<Checkbox variant="success" defaultChecked />
+<Checkbox variant="info" defaultChecked />
+<Checkbox variant="warning" defaultChecked />
+<Checkbox variant="destructive" defaultChecked />`,
+    Component: CheckboxVariantDemo,
+  },
+  "checkbox-indeterminate-demo": {
+    title: "Indeterminate (Select All)",
+    filePath: "src/examples/checkbox-demo.tsx",
+    codeSnippet: `<Checkbox
+  id="perm-all"
+  checked={allChecked ? true : someChecked ? "indeterminate" : false}
+  onCheckedChange={toggleAll}
+/>`,
+    Component: CheckboxIndeterminateDemo,
+  },
+  "checkbox-card-demo": {
+    title: "With Description & Card",
+    filePath: "src/examples/checkbox-demo.tsx",
+    codeSnippet: `<label className="flex items-start gap-3 rounded-md border-2 border-border bg-card p-3.5 shadow-brutal-sm">
+  <Checkbox id="opt-emails" noShadow defaultChecked />
+  <div>
+    <p className="text-sm font-bold">Product Updates</p>
+    <p className="text-xs text-muted-foreground">Receive release notes.</p>
+  </div>
+</label>`,
+    Component: CheckboxCardDemo,
+  },
+  "checkbox-states-demo": {
+    title: "Validation, Disabled & No Shadow",
+    filePath: "src/examples/checkbox-demo.tsx",
+    codeSnippet: `<Checkbox state="error" />
+<Checkbox disabled defaultChecked />
+<Checkbox noShadow defaultChecked />`,
+    Component: CheckboxStatesDemo,
+  },
+  "radio-group-demo": {
+    title: "Radio Group",
+    filePath: "src/examples/radio-group-demo.tsx",
+    codeSnippet: `import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+
+export function RadioGroupDemo() {
+  return (
+    <RadioGroup defaultValue="comfortable">
+      <div className="flex items-center gap-2.5">
+        <RadioGroupItem value="default" id="r1" />
+        <Label htmlFor="r1">Default Density</Label>
+      </div>
+      <div className="flex items-center gap-2.5">
+        <RadioGroupItem value="comfortable" id="r2" />
+        <Label htmlFor="r2">Comfortable</Label>
+      </div>
+    </RadioGroup>
+  );
+}`,
+    Component: RadioGroupDemo,
+  },
+  "radio-group-basic-demo": {
+    title: "Basic Radio Group",
+    filePath: "src/examples/radio-group-demo.tsx",
+    codeSnippet: `<RadioGroup defaultValue="comfortable">
+  <div className="flex items-center gap-2.5">
+    <RadioGroupItem value="default" id="rg-default" />
+    <Label htmlFor="rg-default">Default Density</Label>
+  </div>
+  <div className="flex items-center gap-2.5">
+    <RadioGroupItem value="comfortable" id="rg-comfortable" />
+    <Label htmlFor="rg-comfortable">Comfortable</Label>
+  </div>
+</RadioGroup>`,
+    Component: RadioGroupBasicDemo,
+  },
+  "radio-group-shape-demo": {
+    title: "Shape & Horizontal",
+    filePath: "src/examples/radio-group-demo.tsx",
+    codeSnippet: `<RadioGroup orientation="horizontal" defaultValue="monthly">
+  <RadioGroupItem value="monthly" shape="circle" />
+  <RadioGroupItem value="yearly" shape="circle" />
+</RadioGroup>
+
+<RadioGroup orientation="horizontal" defaultValue="daily">
+  <RadioGroupItem value="daily" shape="square" />
+  <RadioGroupItem value="weekly" shape="square" />
+</RadioGroup>`,
+    Component: RadioGroupShapeDemo,
+  },
+  "radio-group-size-demo": {
+    title: "Size",
+    filePath: "src/examples/radio-group-demo.tsx",
+    codeSnippet: `<RadioGroup orientation="horizontal" defaultValue="default">
+  <RadioGroupItem value="sm" radioSize="sm" />
+  <RadioGroupItem value="default" radioSize="default" />
+  <RadioGroupItem value="lg" radioSize="lg" />
+</RadioGroup>`,
+    Component: RadioGroupSizeDemo,
+  },
+  "radio-group-variant-demo": {
+    title: "Variants",
+    filePath: "src/examples/radio-group-demo.tsx",
+    codeSnippet: `<RadioGroupItem value="primary" variant="primary" />
+<RadioGroupItem value="secondary" variant="secondary" />
+<RadioGroupItem value="success" variant="success" />
+<RadioGroupItem value="info" variant="info" />
+<RadioGroupItem value="warning" variant="warning" />
+<RadioGroupItem value="destructive" variant="destructive" />`,
+    Component: RadioGroupVariantDemo,
+  },
+  "radio-group-card-demo": {
+    title: "Card Selection",
+    filePath: "src/examples/radio-group-demo.tsx",
+    codeSnippet: `<RadioGroup value={plan} onValueChange={setPlan}>
+  <label className="flex items-start justify-between rounded-md border-2 border-border p-3.5">
+    <RadioGroupItem value="pro" noShadow />
+    <span>Pro Studio — $19/mo</span>
+  </label>
+</RadioGroup>`,
+    Component: RadioGroupCardDemo,
+  },
+  "radio-group-states-demo": {
+    title: "Validation, Disabled & No Shadow",
+    filePath: "src/examples/radio-group-demo.tsx",
+    codeSnippet: `<RadioGroupItem value="required" state="error" />
+<RadioGroupItem value="locked" disabled />
+<RadioGroupItem value="flat" noShadow />`,
+    Component: RadioGroupStatesDemo,
+  },
+  "switch-demo": {
+    title: "Switch",
+    filePath: "src/examples/switch-demo.tsx",
+    codeSnippet: `import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+
+export function SwitchDemo() {
+  return (
+    <div className="flex items-center gap-3">
+      <Switch id="airplane-mode" defaultChecked />
+      <Label htmlFor="airplane-mode">Airplane Mode</Label>
+    </div>
+  );
+}`,
+    Component: SwitchDemo,
+  },
+  "switch-basic-demo": {
+    title: "Basic Switch",
+    filePath: "src/examples/switch-demo.tsx",
+    codeSnippet: `<div className="flex items-center gap-3">
+  <Switch id="airplane-mode" defaultChecked />
+  <Label htmlFor="airplane-mode">Airplane Mode</Label>
+</div>`,
+    Component: SwitchBasicDemo,
+  },
+  "switch-shape-demo": {
+    title: "Shape (Square vs Pill)",
+    filePath: "src/examples/switch-demo.tsx",
+    codeSnippet: `<Switch shape="square" defaultChecked />
+<Switch shape="pill" defaultChecked />`,
+    Component: SwitchShapeDemo,
+  },
+  "switch-size-demo": {
+    title: "Size",
+    filePath: "src/examples/switch-demo.tsx",
+    codeSnippet: `<Switch switchSize="sm" defaultChecked />
+<Switch switchSize="default" defaultChecked />
+<Switch switchSize="lg" defaultChecked />`,
+    Component: SwitchSizeDemo,
+  },
+  "switch-variant-demo": {
+    title: "Variants",
+    filePath: "src/examples/switch-demo.tsx",
+    codeSnippet: `<Switch variant="primary" defaultChecked />
+<Switch variant="secondary" defaultChecked />
+<Switch variant="success" defaultChecked />
+<Switch variant="info" defaultChecked />
+<Switch variant="warning" defaultChecked />
+<Switch variant="destructive" defaultChecked />`,
+    Component: SwitchVariantDemo,
+  },
+  "switch-card-demo": {
+    title: "Settings Card",
+    filePath: "src/examples/switch-demo.tsx",
+    codeSnippet: `<Card>
+  <CardContent className="space-y-4">
+    <div className="flex items-center justify-between">
+      <Label htmlFor="pref-2fa">Two-Factor Authentication</Label>
+      <Switch id="pref-2fa" variant="success" noShadow checked={twoFactor} onCheckedChange={setTwoFactor} />
+    </div>
+  </CardContent>
+</Card>`,
+    Component: SwitchSettingsCardDemo,
+  },
+  "switch-states-demo": {
+    title: "Disabled & No Shadow",
+    filePath: "src/examples/switch-demo.tsx",
+    codeSnippet: `<Switch disabled />
+<Switch disabled defaultChecked />
+<Switch noShadow defaultChecked />`,
+    Component: SwitchStatesDemo,
+  },
+  "slider-demo": {
+    title: "Slider",
+    filePath: "src/examples/slider-demo.tsx",
+    codeSnippet: `import { Slider } from "@/components/ui/slider";
+
+export function SliderDemo() {
+  const [volume, setVolume] = React.useState([65]);
+  return (
+    <Slider
+      value={volume}
+      onValueChange={setVolume}
+      max={100}
+      step={1}
+    />
+  );
+}`,
+    Component: SliderDemo,
+  },
+  "slider-basic-demo": {
+    title: "Basic Slider",
+    filePath: "src/examples/slider-demo.tsx",
+    codeSnippet: `<Slider
+  value={volume}
+  onValueChange={setVolume}
+  max={100}
+  step={1}
+/>`,
+    Component: SliderBasicDemo,
+  },
+  "slider-range-demo": {
+    title: "Range Slider (Dual Thumb)",
+    filePath: "src/examples/slider-demo.tsx",
+    codeSnippet: `<Slider
+  value={range}
+  onValueChange={setRange}
+  min={0}
+  max={100}
+  step={5}
+/>`,
+    Component: SliderRangeDemo,
+  },
+  "slider-size-demo": {
+    title: "Size & Shape",
+    filePath: "src/examples/slider-demo.tsx",
+    codeSnippet: `<Slider sliderSize="sm" defaultValue={[40]} />
+<Slider sliderSize="default" defaultValue={[60]} />
+<Slider sliderSize="lg" defaultValue={[80]} />
+<Slider shape="circle" defaultValue={[55]} />`,
+    Component: SliderSizeShapeDemo,
+  },
+  "slider-variant-demo": {
+    title: "Variants",
+    filePath: "src/examples/slider-demo.tsx",
+    codeSnippet: `<Slider variant="primary" defaultValue={[75]} />
+<Slider variant="secondary" defaultValue={[65]} />
+<Slider variant="success" defaultValue={[85]} />
+<Slider variant="info" defaultValue={[55]} />
+<Slider variant="warning" defaultValue={[45]} />
+<Slider variant="destructive" defaultValue={[30]} />`,
+    Component: SliderVariantDemo,
+  },
+  "slider-stepped-demo": {
+    title: "Stepped & Vertical",
+    filePath: "src/examples/slider-demo.tsx",
+    codeSnippet: `<Slider value={stepVal} onValueChange={setStepVal} step={25} />
+<div className="h-36">
+  <Slider orientation="vertical" defaultValue={[70]} />
+</div>`,
+    Component: SliderSteppedVerticalDemo,
+  },
+  "slider-states-demo": {
+    title: "Disabled & No Shadow",
+    filePath: "src/examples/slider-demo.tsx",
+    codeSnippet: `<Slider defaultValue={[40]} disabled />
+<Slider defaultValue={[65]} noShadow />`,
+    Component: SliderStatesDemo,
+  },
+  "form-demo": {
+    title: "Form",
+    filePath: "src/examples/form-demo.tsx",
+    codeSnippet: `const schema = z.object({
+  username: z.string().min(3, "Username must be at least 3 characters."),
+  email: z.string().email("Please enter a valid email address."),
+});
+
+export function FormDemo() {
+  const form = useForm({
+    resolver: zodResolver(schema),
+    defaultValues: { username: "", email: "" },
+  });
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(console.log)} className="space-y-4">
+        <FormField
+          control={form.control}
+          name="username"
+          render={({ field, fieldState }) => (
+            <FormItem>
+              <FormLabel>Username</FormLabel>
+              <FormControl>
+                <Input state={fieldState.error ? "error" : "default"} {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Save Profile</Button>
+      </form>
+    </Form>
+  );
+}`,
+    Component: FormDemo,
+  },
+  "form-basic-demo": {
+    title: "Basic Form",
+    filePath: "src/examples/form-demo.tsx",
+    codeSnippet: `<Form {...form}>
+  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+    <FormField
+      control={form.control}
+      name="username"
+      render={({ field, fieldState }) => (
+        <FormItem>
+          <FormLabel>Username</FormLabel>
+          <FormControl>
+            <Input state={fieldState.error ? "error" : "default"} {...field} />
+          </FormControl>
+          <FormDescription>Your public handle across the workspace.</FormDescription>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+    <Button type="submit" size="sm">Save Profile</Button>
+  </form>
+</Form>`,
+    Component: FormBasicDemo,
+  },
+  "form-controls-demo": {
+    title: "All Tier 2 Controls",
+    filePath: "src/examples/form-demo.tsx",
+    codeSnippet: `<Form {...form}>
+  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+    <FormField control={form.control} name="projectName" render={...} />
+    <FormField control={form.control} name="framework" render={...} />
+    <FormField control={form.control} name="launchDate" render={...} />
+    <FormField control={form.control} name="visibility" render={...} />
+    <FormField control={form.control} name="bio" render={...} />
+    <FormField control={form.control} name="concurrency" render={...} />
+    <FormField control={form.control} name="autoDeploy" render={...} />
+    <FormField control={form.control} name="acceptTerms" render={...} />
+    <Button type="submit" className="w-full">Create Project</Button>
+  </form>
+</Form>`,
+    Component: FormControlsDemo,
+  },
+  "date-picker-demo": {
+    title: "Date Picker & Calendar",
+    filePath: "src/examples/date-picker-demo.tsx",
+    codeSnippet: `import { DatePicker } from "@/components/ui/date-picker";
+
+export function DatePickerDemo() {
+  const [date, setDate] = React.useState<Date | undefined>(new Date());
+  return <DatePicker value={date} onSelect={setDate} />;
+}`,
+    Component: DatePickerDemo,
+  },
+  "date-picker-basic-demo": {
+    title: "Basic Date Picker",
+    filePath: "src/examples/date-picker-demo.tsx",
+    codeSnippet: `<DatePicker
+  value={date}
+  onSelect={setDate}
+  placeholder="Select launch date"
+/>`,
+    Component: DatePickerBasicDemo,
+  },
+  "date-picker-calendar-demo": {
+    title: "Standalone Calendar",
+    filePath: "src/examples/date-picker-demo.tsx",
+    codeSnippet: `<Calendar mode="single" selected={date} onSelect={setDate} />`,
+    Component: DatePickerCalendarDemo,
+  },
+  "date-picker-range-demo": {
+    title: "Date Range Picker",
+    filePath: "src/examples/date-picker-demo.tsx",
+    codeSnippet: `<DateRangePicker value={range} onSelect={setRange} clearable />`,
+    Component: DatePickerRangeDemo,
+  },
+  "date-picker-dropdown-demo": {
+    title: "Month & Year Dropdown",
+    filePath: "src/examples/date-picker-demo.tsx",
+    codeSnippet: `<DatePicker
+  value={dob}
+  onSelect={setDob}
+  captionLayout="dropdown"
+  clearable
+/>`,
+    Component: DatePickerDropdownDemo,
+  },
+  "date-picker-presets-demo": {
+    title: "Clearable, Presets & Disabled",
+    filePath: "src/examples/date-picker-demo.tsx",
+    codeSnippet: `<DatePicker
+  value={date}
+  onSelect={setDate}
+  clearable
+  disabledDays={{ before: today }}
+  presets={[
+    { label: "Today", date: today },
+    { label: "Tomorrow", date: addDays(today, 1) },
+  ]}
+/>`,
+    Component: DatePickerPresetsDemo,
+  },
+  "date-picker-size-demo": {
+    title: "Size",
+    filePath: "src/examples/date-picker-demo.tsx",
+    codeSnippet: `<DatePicker triggerSize="sm" placeholder="Small (sm)" />
+<DatePicker triggerSize="default" placeholder="Default size" />
+<DatePicker triggerSize="lg" placeholder="Large (lg)" />`,
+    Component: DatePickerSizeDemo,
+  },
+  "date-picker-states-demo": {
+    title: "Validation, Disabled & No Shadow",
+    filePath: "src/examples/date-picker-demo.tsx",
+    codeSnippet: `<DatePicker state="success" defaultValue={new Date()} />
+<DatePicker state="error" placeholder="Date is required..." />
+<DatePicker disabled placeholder="Disabled date picker" />
+<DatePicker noShadow defaultValue={new Date()} />`,
+    Component: DatePickerStatesDemo,
+  },
+  "command-demo": {
+    title: "Command Overview",
+    filePath: "src/examples/command-demo.tsx",
+    Component: CommandBasicDemo,
+  },
+  "command-basic-demo": {
+    title: "Basic Command Menu",
+    filePath: "src/examples/command-demo.tsx",
+    codeSnippet: `<Command>
+  <CommandInput placeholder="Type a command or search..." />
+  <CommandList>
+    <CommandEmpty>No results found.</CommandEmpty>
+    <CommandGroup heading="Suggestions">
+      <CommandItem onSelect={() => run("Calendar")}>
+        <Calendar strokeWidth={2.5} />
+        <span>Calendar</span>
+      </CommandItem>
+    </CommandGroup>
+    <CommandSeparator />
+    <CommandGroup heading="Settings">
+      <CommandItem onSelect={() => run("Profile")}>
+        <User strokeWidth={2.5} />
+        <span>Profile</span>
+        <CommandShortcut>⌘P</CommandShortcut>
+      </CommandItem>
+    </CommandGroup>
+  </CommandList>
+</Command>`,
+    Component: CommandBasicDemo,
+  },
+  "command-dialog-demo": {
+    title: "Command Dialog (⌘K)",
+    filePath: "src/examples/command-demo.tsx",
+    codeSnippet: `<CommandDialog open={open} onOpenChange={setOpen} title="Punch Command">
+  <CommandInput placeholder="Jump to page or run an action..." />
+  <CommandList>
+    <CommandEmpty>No matching commands.</CommandEmpty>
+    <CommandGroup heading="Quick Actions">
+      <CommandItem onSelect={() => runCommand("Deploy to Production")}>
+        <Rocket strokeWidth={2.5} />
+        <span>Deploy to Production</span>
+        <CommandShortcut>⌘D</CommandShortcut>
+      </CommandItem>
+    </CommandGroup>
+  </CommandList>
+</CommandDialog>`,
+    Component: CommandDialogDemo,
+  },
+  "command-states-demo": {
+    title: "Badges, Disabled & No Shadow",
+    filePath: "src/examples/command-demo.tsx",
+    codeSnippet: `<Command noShadow>
+  <CommandInput placeholder="Filter workspace tools..." />
+  <CommandList>
+    <CommandGroup heading="Workspace Tools">
+      <CommandItem>
+        <LayoutDashboard strokeWidth={2.5} />
+        <span className="flex-1">Analytics Engine</span>
+        <Badge variant="success" noShadow>LIVE</Badge>
+      </CommandItem>
+      <CommandItem disabled>
+        <CreditCard strokeWidth={2.5} />
+        <span className="flex-1">Audit Log Export</span>
+        <Badge variant="outline" noShadow>LOCKED</Badge>
+      </CommandItem>
+    </CommandGroup>
+  </CommandList>
+</Command>`,
+    Component: CommandStatesDemo,
+  },
+  "combobox-demo": {
+    title: "Combobox Overview",
+    filePath: "src/examples/combobox-demo.tsx",
+    Component: ComboboxBasicDemo,
+  },
+  "combobox-basic-demo": {
+    title: "Basic Combobox",
+    filePath: "src/examples/combobox-demo.tsx",
+    codeSnippet: `<Combobox
+  options={frameworkOptions}
+  value={framework}
+  onValueChange={setFramework}
+  placeholder="Select a framework..."
+  searchPlaceholder="Search framework..."
+  clearable
+/>`,
+    Component: ComboboxBasicDemo,
+  },
+  "combobox-multi-demo": {
+    title: "Multi-Select Combobox",
+    filePath: "src/examples/combobox-demo.tsx",
+    codeSnippet: `<MultiCombobox
+  options={stackOptions}
+  value={skills}
+  onValueChange={setSkills}
+  placeholder="Select technologies..."
+  maxDisplay={3}
+  clearable
+/>`,
+    Component: ComboboxMultiDemo,
+  },
+  "combobox-grouped-demo": {
+    title: "Grouped, Icons & Descriptions",
+    filePath: "src/examples/combobox-demo.tsx",
+    codeSnippet: `<Combobox
+  options={[
+    {
+      value: "api-gateway",
+      label: "API Gateway",
+      description: "Rate-limited REST & RPC routes",
+      group: "Backend",
+      badge: "CORE",
+      icon: <Server className="h-4 w-4" strokeWidth={2.5} />,
+    },
+  ]}
+  value={service}
+  onValueChange={setService}
+  clearable
+/>`,
+    Component: ComboboxGroupedDemo,
+  },
+  "combobox-size-demo": {
+    title: "Size",
+    filePath: "src/examples/combobox-demo.tsx",
+    codeSnippet: `<Combobox options={options} triggerSize="sm" placeholder="Small combobox..." />
+<Combobox options={options} triggerSize="default" placeholder="Default combobox..." />
+<Combobox options={options} triggerSize="lg" placeholder="Large combobox..." />`,
+    Component: ComboboxSizesDemo,
+  },
+  "combobox-states-demo": {
+    title: "Validation, Disabled & No Shadow",
+    filePath: "src/examples/combobox-demo.tsx",
+    codeSnippet: `<Combobox options={options} defaultValue="nextjs" state="success" />
+<Combobox options={options} state="error" placeholder="Selection is required..." />
+<Combobox options={options} defaultValue="astro" disabled />
+<Combobox options={options} defaultValue="vite" noShadow />`,
+    Component: ComboboxStatesDemo,
+  },
+  "input-otp-demo": {
+    title: "Input OTP Overview",
+    filePath: "src/examples/input-otp-demo.tsx",
+    Component: InputOTPBasicDemo,
+  },
+  "input-otp-basic-demo": {
+    title: "Basic 6-Digit OTP",
+    filePath: "src/examples/input-otp-demo.tsx",
+    codeSnippet: `<InputOTP maxLength={6} value={value} onChange={setValue} pattern={REGEXP_ONLY_DIGITS}>
+  <InputOTPGroup>
+    <InputOTPSlot index={0} />
+    <InputOTPSlot index={1} />
+    <InputOTPSlot index={2} />
+  </InputOTPGroup>
+  <InputOTPSeparator />
+  <InputOTPGroup>
+    <InputOTPSlot index={3} />
+    <InputOTPSlot index={4} />
+    <InputOTPSlot index={5} />
+  </InputOTPGroup>
+</InputOTP>`,
+    Component: InputOTPBasicDemo,
+  },
+  "input-otp-pattern-demo": {
+    title: "Pattern & Masked PIN",
+    filePath: "src/examples/input-otp-demo.tsx",
+    codeSnippet: `<InputOTP maxLength={6} pattern={REGEXP_ONLY_DIGITS_AND_CHARS}>
+  <InputOTPGroup>
+    <InputOTPSlot index={0} />
+    <InputOTPSlot index={1} />
+    <InputOTPSlot index={2} />
+    <InputOTPSlot index={3} />
+    <InputOTPSlot index={4} />
+    <InputOTPSlot index={5} />
+  </InputOTPGroup>
+</InputOTP>
+
+<InputOTP maxLength={4} pattern={REGEXP_ONLY_DIGITS} masked>
+  <InputOTPGroup>
+    <InputOTPSlot index={0} />
+    <InputOTPSlot index={1} />
+    <InputOTPSlot index={2} />
+    <InputOTPSlot index={3} />
+  </InputOTPGroup>
+</InputOTP>`,
+    Component: InputOTPPatternDemo,
+  },
+  "input-otp-size-demo": {
+    title: "Size",
+    filePath: "src/examples/input-otp-demo.tsx",
+    codeSnippet: `<InputOTP maxLength={4} otpSize="sm">...</InputOTP>
+<InputOTP maxLength={4} otpSize="default">...</InputOTP>
+<InputOTP maxLength={4} otpSize="lg">...</InputOTP>`,
+    Component: InputOTPSizeDemo,
+  },
+  "input-otp-states-demo": {
+    title: "Validation, Disabled & No Shadow",
+    filePath: "src/examples/input-otp-demo.tsx",
+    codeSnippet: `<InputOTP maxLength={4} defaultValue="2026" state="success">...</InputOTP>
+<InputOTP maxLength={4} defaultValue="00" state="error">...</InputOTP>
+<InputOTP maxLength={4} defaultValue="8842" disabled>...</InputOTP>
+<InputOTP maxLength={4} defaultValue="4096" noShadow>...</InputOTP>`,
+    Component: InputOTPStatesDemo,
+  },
+  "input-otp-card-demo": {
+    title: "Verification Card",
+    filePath: "src/examples/input-otp-demo.tsx",
+    codeSnippet: `<Card className="w-full max-w-md">
+  <CardHeader>
+    <CardTitle>Verify Login Code</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <InputOTP maxLength={6} value={code} onChange={setCode} state={state}>
+      <InputOTPGroup>...</InputOTPGroup>
+      <InputOTPSeparator />
+      <InputOTPGroup>...</InputOTPGroup>
+    </InputOTP>
+  </CardContent>
+  <CardFooter>
+    <Button type="submit">Verify Code</Button>
+  </CardFooter>
+</Card>`,
+    Component: InputOTPCardDemo,
+  },
+  "dialog-demo": {
+    title: "Dialog Overview",
+    filePath: "src/examples/dialog-demo.tsx",
+    Component: DialogBasicDemo,
+  },
+  "dialog-basic-demo": {
+    title: "Basic Dialog",
+    filePath: "src/examples/dialog-demo.tsx",
+    codeSnippet: `<Dialog>
+  <DialogTrigger asChild>
+    <Button>Open Dialog</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Welcome to Punch UI</DialogTitle>
+      <DialogDescription>Bold 2px borders and hard offset shadows.</DialogDescription>
+    </DialogHeader>
+    <DialogFooter>
+      <DialogClose asChild><Button variant="outline">Close</Button></DialogClose>
+      <DialogClose asChild><Button>Got It</Button></DialogClose>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>`,
+    Component: DialogBasicDemo,
+  },
+  "dialog-form-demo": {
+    title: "Form Dialog",
+    filePath: "src/examples/dialog-demo.tsx",
+    codeSnippet: `<Dialog open={open} onOpenChange={setOpen}>
+  <DialogTrigger asChild>
+    <Button variant="secondary">Edit Profile</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <form onSubmit={handleSave} className="space-y-4">
+      <DialogHeader>
+        <DialogTitle>Edit Member Profile</DialogTitle>
+      </DialogHeader>
+      <Input value={name} onChange={(e) => setName(e.target.value)} />
+      <DialogFooter>
+        <DialogClose asChild><Button type="button" variant="outline">Cancel</Button></DialogClose>
+        <Button type="submit">Save Changes</Button>
+      </DialogFooter>
+    </form>
+  </DialogContent>
+</Dialog>`,
+    Component: DialogFormDemo,
+  },
+  "dialog-size-demo": {
+    title: "Size",
+    filePath: "src/examples/dialog-demo.tsx",
+    codeSnippet: `<DialogContent size="sm">...</DialogContent>
+<DialogContent size="default">...</DialogContent>
+<DialogContent size="lg">...</DialogContent>
+<DialogContent size="xl">...</DialogContent>`,
+    Component: DialogSizeDemo,
+  },
+  "dialog-scrollable-demo": {
+    title: "Scrollable Content",
+    filePath: "src/examples/dialog-demo.tsx",
+    codeSnippet: `<DialogContent className="flex max-h-[80vh] flex-col">
+  <DialogHeader>
+    <DialogTitle>Release Changelog</DialogTitle>
+  </DialogHeader>
+  <div className="min-h-0 flex-1 space-y-4 overflow-y-auto pr-2">...</div>
+  <DialogFooter className="border-t-2 border-border pt-4">...</DialogFooter>
+</DialogContent>`,
+    Component: DialogScrollableDemo,
+  },
+  "dialog-header-demo": {
+    title: "Accent Header",
+    filePath: "src/examples/dialog-demo.tsx",
+    codeSnippet: `<DialogHeader variant="primary">
+  <DialogTitle>Deploy to Production</DialogTitle>
+</DialogHeader>
+
+<DialogHeader variant="secondary">
+  <DialogTitle>Pro Workspace Unlocked</DialogTitle>
+</DialogHeader>`,
+    Component: DialogHeaderVariantDemo,
+  },
+  "alert-dialog-demo": {
+    title: "Alert Dialog Overview",
+    filePath: "src/examples/alert-dialog-demo.tsx",
+    Component: AlertDialogBasicDemo,
+  },
+  "alert-dialog-basic-demo": {
+    title: "Basic Confirmation",
+    filePath: "src/examples/alert-dialog-demo.tsx",
+    codeSnippet: `<AlertDialog>
+  <AlertDialogTrigger asChild>
+    <Button variant="outline">Publish Registry</Button>
+  </AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Publish v1.0.0 to Registry?</AlertDialogTitle>
+      <AlertDialogDescription>Downstream projects will receive the update immediately.</AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel>Cancel</AlertDialogCancel>
+      <AlertDialogAction>Continue</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>`,
+    Component: AlertDialogBasicDemo,
+  },
+  "alert-dialog-destructive-demo": {
+    title: "Destructive Action",
+    filePath: "src/examples/alert-dialog-demo.tsx",
+    codeSnippet: `<AlertDialogFooter>
+  <AlertDialogCancel>Keep Workspace</AlertDialogCancel>
+  <AlertDialogAction variant="danger" onClick={handleDelete}>
+    Yes, Delete Everything
+  </AlertDialogAction>
+</AlertDialogFooter>`,
+    Component: AlertDialogDestructiveDemo,
+  },
+  "alert-dialog-async-demo": {
+    title: "Async / Loading Action",
+    filePath: "src/examples/alert-dialog-demo.tsx",
+    codeSnippet: `<AlertDialog open={open} onOpenChange={setOpen}>
+  <AlertDialogContent>
+    <AlertDialogFooter>
+      <AlertDialogCancel disabled={loading}>Cancel</AlertDialogCancel>
+      <AlertDialogAction
+        variant="danger"
+        isLoading={loading}
+        onClick={(e) => {
+          e.preventDefault();
+          handleConfirm();
+        }}
+      >
+        Revoke Sessions
+      </AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>`,
+    Component: AlertDialogAsyncDemo,
+  },
+  "sheet-demo": {
+    title: "Sheet Overview",
+    filePath: "src/examples/sheet-demo.tsx",
+    Component: SheetBasicDemo,
+  },
+  "sheet-basic-demo": {
+    title: "Basic Sheet",
+    filePath: "src/examples/sheet-demo.tsx",
+    codeSnippet: `<Sheet>
+  <SheetTrigger asChild>
+    <Button>Open Sheet</Button>
+  </SheetTrigger>
+  <SheetContent>
+    <SheetHeader>
+      <SheetTitle>Quick Inspector</SheetTitle>
+      <SheetDescription>Slide-over panel for secondary details.</SheetDescription>
+    </SheetHeader>
+    <SheetFooter>
+      <SheetClose asChild><Button variant="outline">Close</Button></SheetClose>
+      <SheetClose asChild><Button>Done</Button></SheetClose>
+    </SheetFooter>
+  </SheetContent>
+</Sheet>`,
+    Component: SheetBasicDemo,
+  },
+  "sheet-sides-demo": {
+    title: "Four Sides",
+    filePath: "src/examples/sheet-demo.tsx",
+    codeSnippet: `<SheetContent side="top">...</SheetContent>
+<SheetContent side="right">...</SheetContent>
+<SheetContent side="bottom">...</SheetContent>
+<SheetContent side="left">...</SheetContent>`,
+    Component: SheetSidesDemo,
+  },
+  "sheet-filter-demo": {
+    title: "Filter & Form Drawer",
+    filePath: "src/examples/sheet-demo.tsx",
+    codeSnippet: `<Sheet open={open} onOpenChange={setOpen}>
+  <SheetTrigger asChild>
+    <Button variant="secondary">Filter Data</Button>
+  </SheetTrigger>
+  <SheetContent>
+    <form onSubmit={handleApply} className="flex h-full flex-col gap-5">
+      <SheetHeader><SheetTitle>Filter Deployments</SheetTitle></SheetHeader>
+      {/* Input, Switch, Checkbox */}
+      <SheetFooter>
+        <SheetClose asChild><Button type="button" variant="outline">Cancel</Button></SheetClose>
+        <Button type="submit">Apply Filters</Button>
+      </SheetFooter>
+    </form>
+  </SheetContent>
+</Sheet>`,
+    Component: SheetFilterDemo,
+  },
+  "sheet-navigation-demo": {
+    title: "Mobile Navigation Drawer",
+    filePath: "src/examples/sheet-demo.tsx",
+    codeSnippet: `<SheetContent side="left" size="sm">
+  <SheetHeader variant="primary">
+    <SheetTitle>Punch UI</SheetTitle>
+    <SheetDescription>Workspace Navigation</SheetDescription>
+  </SheetHeader>
+  {/* Navigation links */}
+</SheetContent>`,
+    Component: SheetNavigationDemo,
+  },
+  "sheet-scrollable-demo": {
+    title: "Scrollable Content",
+    filePath: "src/examples/sheet-demo.tsx",
+    codeSnippet: `<SheetContent>
+  <SheetHeader><SheetTitle>Audit Activity Feed</SheetTitle></SheetHeader>
+  <ScrollArea variant="ghost" scrollbarVariant="auto" className="min-h-0 flex-1">
+    ...
+  </ScrollArea>
+  <SheetFooter className="border-t-2 border-border pt-4">...</SheetFooter>
+</SheetContent>`,
+    Component: SheetScrollableDemo,
+  },
+  "dropdown-menu-demo": {
+    title: "Dropdown Menu Overview",
+    filePath: "src/examples/dropdown-menu-demo.tsx",
+    Component: DropdownMenuBasicDemo,
+  },
+  "dropdown-menu-basic-demo": {
+    title: "Basic Action Menu",
+    filePath: "src/examples/dropdown-menu-demo.tsx",
+    codeSnippet: `<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button variant="outline">My Account</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent className="w-56">
+    <DropdownMenuLabel>Workspace Account</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>
+      <User strokeWidth={2.5} />
+      <span>Profile</span>
+      <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+    </DropdownMenuItem>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem variant="danger">
+      <LogOut strokeWidth={2.5} />
+      <span>Log out</span>
+    </DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>`,
+    Component: DropdownMenuBasicDemo,
+  },
+  "dropdown-menu-checkboxes-demo": {
+    title: "Checkbox Items",
+    filePath: "src/examples/dropdown-menu-demo.tsx",
+    codeSnippet: `<DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}>
+  Status Bar
+</DropdownMenuCheckboxItem>`,
+    Component: DropdownMenuCheckboxesDemo,
+  },
+  "dropdown-menu-radio-demo": {
+    title: "Radio Group Items",
+    filePath: "src/examples/dropdown-menu-demo.tsx",
+    codeSnippet: `<DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+  <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
+  <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
+  <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
+</DropdownMenuRadioGroup>`,
+    Component: DropdownMenuRadioDemo,
+  },
+  "dropdown-menu-submenu-demo": {
+    title: "Nested Submenu",
+    filePath: "src/examples/dropdown-menu-demo.tsx",
+    codeSnippet: `<DropdownMenuSub>
+  <DropdownMenuSubTrigger>Invite Users</DropdownMenuSubTrigger>
+  <DropdownMenuPortal>
+    <DropdownMenuSubContent>
+      <DropdownMenuItem>Invite via Email</DropdownMenuItem>
+      <DropdownMenuItem>Copy Invite Link</DropdownMenuItem>
+    </DropdownMenuSubContent>
+  </DropdownMenuPortal>
+</DropdownMenuSub>`,
+    Component: DropdownMenuSubmenuDemo,
+  },
+  "popover-demo": {
+    title: "Popover Overview",
+    filePath: "src/examples/popover-demo.tsx",
+    Component: PopoverBasicDemo,
+  },
+  "popover-basic-demo": {
+    title: "Basic Popover",
+    filePath: "src/examples/popover-demo.tsx",
+    codeSnippet: `<Popover>
+  <PopoverTrigger asChild>
+    <Button variant="outline">Dimensions</Button>
+  </PopoverTrigger>
+  <PopoverContent className="w-80">
+    {/* Mini form controls */}
+  </PopoverContent>
+</Popover>`,
+    Component: PopoverBasicDemo,
+  },
+  "popover-placement-demo": {
+    title: "Placement",
+    filePath: "src/examples/popover-demo.tsx",
+    codeSnippet: `<PopoverContent side="top">...</PopoverContent>
+<PopoverContent side="right">...</PopoverContent>
+<PopoverContent side="bottom">...</PopoverContent>
+<PopoverContent side="left">...</PopoverContent>`,
+    Component: PopoverPlacementDemo,
+  },
+  "popover-profile-demo": {
+    title: "Rich Profile Card",
+    filePath: "src/examples/popover-demo.tsx",
+    codeSnippet: `<PopoverContent align="start" className="w-72">
+  <Avatar><AvatarFallback>AM</AvatarFallback></Avatar>
+  ...
+</PopoverContent>`,
+    Component: PopoverProfileDemo,
+  },
+  "popover-no-shadow-demo": {
+    title: "No Shadow",
+    filePath: "src/examples/popover-demo.tsx",
+    codeSnippet: `<PopoverContent noShadow className="w-64">...</PopoverContent>`,
+    Component: PopoverNoShadowDemo,
+  },
+  "tooltip-demo": {
+    title: "Tooltip Overview",
+    filePath: "src/examples/tooltip-demo.tsx",
+    Component: TooltipBasicDemo,
+  },
+  "tooltip-basic-demo": {
+    title: "Basic Tooltip",
+    filePath: "src/examples/tooltip-demo.tsx",
+    codeSnippet: `<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger asChild>
+      <Button variant="outline">Hover or Focus Me</Button>
+    </TooltipTrigger>
+    <TooltipContent showArrow>
+      <p>High-contrast Neobrutalist tooltip</p>
+    </TooltipContent>
+  </Tooltip>
+</TooltipProvider>`,
+    Component: TooltipBasicDemo,
+  },
+  "tooltip-placement-demo": {
+    title: "Placement",
+    filePath: "src/examples/tooltip-demo.tsx",
+    codeSnippet: `<TooltipContent side="top" showArrow>side="top"</TooltipContent>
+<TooltipContent side="right" showArrow>side="right"</TooltipContent>
+<TooltipContent side="bottom" showArrow>side="bottom"</TooltipContent>
+<TooltipContent side="left" showArrow>side="left"</TooltipContent>`,
+    Component: TooltipPlacementDemo,
+  },
+  "tooltip-variants-demo": {
+    title: "Variants & No Shadow",
+    filePath: "src/examples/tooltip-demo.tsx",
+    codeSnippet: `<TooltipContent variant="default">Default</TooltipContent>
+<TooltipContent variant="card">Card</TooltipContent>
+<TooltipContent variant="primary">Primary</TooltipContent>
+<TooltipContent variant="secondary">Secondary</TooltipContent>
+<TooltipContent variant="card" noShadow>No Shadow</TooltipContent>`,
+    Component: TooltipVariantsDemo,
+  },
+  "tooltip-toolbar-demo": {
+    title: "Icon Toolbar & Shortcuts",
+    filePath: "src/examples/tooltip-demo.tsx",
+    codeSnippet: `<TooltipProvider delayDuration={0}>
+  <Tooltip>
+    <TooltipTrigger asChild>
+      <Button variant="ghost" size="icon" aria-label="Bold">
+        <Bold className="h-4 w-4" strokeWidth={2.5} />
+      </Button>
+    </TooltipTrigger>
+    <TooltipContent className="flex items-center gap-2">
+      <span>Bold</span>
+      <kbd>⌘B</kbd>
+    </TooltipContent>
+  </Tooltip>
+</TooltipProvider>`,
+    Component: TooltipToolbarDemo,
+  },
+  "tabs-demo": {
+    title: "Tabs Overview",
+    filePath: "src/examples/tabs-demo.tsx",
+    Component: TabsBasicDemo,
+  },
+  "tabs-basic-demo": {
+    title: "Basic Tabs",
+    filePath: "src/examples/tabs-demo.tsx",
+    codeSnippet: `<Tabs defaultValue="account" className="max-w-md">
+  <TabsList className="grid w-full grid-cols-2">
+    <TabsTrigger value="account">Account</TabsTrigger>
+    <TabsTrigger value="password">Password</TabsTrigger>
+  </TabsList>
+  <TabsContent value="account">...</TabsContent>
+  <TabsContent value="password">...</TabsContent>
+</Tabs>`,
+    Component: TabsBasicDemo,
+  },
+  "tabs-folder-demo": {
+    title: "Physical Folder Style",
+    filePath: "src/examples/tabs-demo.tsx",
+    codeSnippet: `<Tabs defaultValue="overview" variant="folder">
+  <TabsList>
+    <TabsTrigger value="overview">Overview</TabsTrigger>
+    <TabsTrigger value="specs">Token Specs</TabsTrigger>
+    <TabsTrigger value="cli">CLI Install</TabsTrigger>
+  </TabsList>
+  <TabsContent value="overview">...</TabsContent>
+</Tabs>`,
+    Component: TabsFolderDemo,
+  },
+  "tabs-underline-demo": {
+    title: "Underline, Icons & Badges",
+    filePath: "src/examples/tabs-demo.tsx",
+    codeSnippet: `<Tabs defaultValue="dashboard" variant="underline">
+  <TabsList>
+    <TabsTrigger value="dashboard"><LayoutDashboard /> Overview</TabsTrigger>
+    <TabsTrigger value="alerts"><Bell /> Alerts <Badge>4</Badge></TabsTrigger>
+  </TabsList>
+  <TabsContent value="dashboard">...</TabsContent>
+</Tabs>`,
+    Component: TabsUnderlineDemo,
+  },
+  "tabs-vertical-demo": {
+    title: "Vertical Orientation",
+    filePath: "src/examples/tabs-demo.tsx",
+    codeSnippet: `<Tabs defaultValue="profile" orientation="vertical">
+  <TabsList className="sm:w-44">
+    <TabsTrigger value="profile">Profile</TabsTrigger>
+    <TabsTrigger value="security">Security</TabsTrigger>
+  </TabsList>
+  <TabsContent value="profile">...</TabsContent>
+</Tabs>`,
+    Component: TabsVerticalDemo,
+  },
+  "tabs-sizes-demo": {
+    title: "Size",
+    filePath: "src/examples/tabs-demo.tsx",
+    codeSnippet: `<Tabs defaultValue="a" size="sm">...</Tabs>
+<Tabs defaultValue="a" size="default">...</Tabs>
+<Tabs defaultValue="a" size="lg">...</Tabs>`,
+    Component: TabsSizesDemo,
+  },
+  "tabs-states-demo": {
+    title: "Disabled & No Shadow",
+    filePath: "src/examples/tabs-demo.tsx",
+    codeSnippet: `<Tabs defaultValue="active">
+  <TabsList>
+    <TabsTrigger value="active">Active</TabsTrigger>
+    <TabsTrigger value="archived" disabled>Archived (Disabled)</TabsTrigger>
+  </TabsList>
+</Tabs>
+
+<Tabs defaultValue="flat-a" noShadow>
+  <TabsList>
+    <TabsTrigger value="flat-a">Flat Tab A</TabsTrigger>
+    <TabsTrigger value="flat-b">Flat Tab B</TabsTrigger>
+  </TabsList>
+</Tabs>`,
+    Component: TabsStatesDemo,
+  },
+  "button-group-demo": {
+    title: "Button Group Overview",
+    filePath: "src/examples/button-group-demo.tsx",
+    Component: ButtonGroupBasicDemo,
+  },
+  "button-group-basic-demo": {
+    title: "Basic Button Group",
+    filePath: "src/examples/button-group-demo.tsx",
+    codeSnippet: `<ButtonGroup>
+  <Button variant="outline">Archive</Button>
+  <Button variant="outline">Report</Button>
+  <Button variant="outline">Snooze</Button>
+</ButtonGroup>`,
+    Component: ButtonGroupBasicDemo,
+  },
+  "button-group-vertical-demo": {
+    title: "Vertical Orientation",
+    filePath: "src/examples/button-group-demo.tsx",
+    codeSnippet: `<ButtonGroup orientation="vertical">
+  <Button variant="outline" size="icon"><Plus /></Button>
+  <Button variant="outline" size="icon"><Minus /></Button>
+  <Button variant="outline" size="icon"><RotateCcw /></Button>
+</ButtonGroup>`,
+    Component: ButtonGroupVerticalDemo,
+  },
+  "button-group-split-demo": {
+    title: "Split Button",
+    filePath: "src/examples/button-group-demo.tsx",
+    codeSnippet: `<ButtonGroup>
+  <Button>Deploy to Production</Button>
+  <DropdownMenu>
+    <DropdownMenuTrigger asChild>
+      <Button size="icon"><ChevronDown /></Button>
+    </DropdownMenuTrigger>
+    <DropdownMenuContent align="end">...</DropdownMenuContent>
+  </DropdownMenu>
+</ButtonGroup>`,
+    Component: ButtonGroupSplitDemo,
+  },
+  "button-group-input-demo": {
+    title: "With Input & Text Addon",
+    filePath: "src/examples/button-group-demo.tsx",
+    codeSnippet: `<ButtonGroup className="w-full">
+  <ButtonGroupText>https://</ButtonGroupText>
+  <Input placeholder="punch-ui.dev" className="flex-1" />
+  <Button variant="secondary">Visit</Button>
+</ButtonGroup>`,
+    Component: ButtonGroupInputDemo,
+  },
+  "button-group-size-demo": {
+    title: "Size",
+    filePath: "src/examples/button-group-demo.tsx",
+    codeSnippet: `<ButtonGroup><Button variant="outline" size="sm">Small</Button>...</ButtonGroup>
+<ButtonGroup><Button variant="outline" size="default">Default</Button>...</ButtonGroup>
+<ButtonGroup><Button variant="outline" size="lg">Large</Button>...</ButtonGroup>`,
+    Component: ButtonGroupSizeDemo,
+  },
+  "button-group-noshadow-demo": {
+    title: "No Shadow & Toggle Toolbar",
+    filePath: "src/examples/button-group-demo.tsx",
+    codeSnippet: `<ButtonGroup noShadow>
+  <Button variant="default" size="icon"><AlignLeft /></Button>
+  <Button variant="outline" size="icon"><AlignCenter /></Button>
+  <Button variant="outline" size="icon"><AlignRight /></Button>
+</ButtonGroup>`,
+    Component: ButtonGroupNoShadowDemo,
+  },
+  "breadcrumb-demo": {
+    title: "Breadcrumb Overview",
+    filePath: "src/examples/breadcrumb-demo.tsx",
+    Component: BreadcrumbBasicDemo,
+  },
+  "breadcrumb-basic-demo": {
+    title: "Basic Breadcrumb",
+    filePath: "src/examples/breadcrumb-demo.tsx",
+    codeSnippet: `<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem><BreadcrumbLink href="#home">Home</BreadcrumbLink></BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem><BreadcrumbLink href="#docs">Docs</BreadcrumbLink></BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem><BreadcrumbPage>Breadcrumb</BreadcrumbPage></BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>`,
+    Component: BreadcrumbBasicDemo,
+  },
+  "breadcrumb-variants-demo": {
+    title: "Variants",
+    filePath: "src/examples/breadcrumb-demo.tsx",
+    codeSnippet: `<Breadcrumb variant="contained">...</Breadcrumb>
+<Breadcrumb variant="pills">...</Breadcrumb>
+<Breadcrumb variant="contained" noShadow>...</Breadcrumb>`,
+    Component: BreadcrumbVariantsDemo,
+  },
+  "breadcrumb-separator-demo": {
+    title: "Custom Separator",
+    filePath: "src/examples/breadcrumb-demo.tsx",
+    codeSnippet: `<BreadcrumbSeparator>
+  <Slash strokeWidth={2.5} />
+</BreadcrumbSeparator>`,
+    Component: BreadcrumbSeparatorDemo,
+  },
+  "breadcrumb-dropdown-demo": {
+    title: "Collapsed with Dropdown",
+    filePath: "src/examples/breadcrumb-demo.tsx",
+    codeSnippet: `<DropdownMenu>
+  <DropdownMenuTrigger>
+    <BreadcrumbEllipsis />
+  </DropdownMenuTrigger>
+  <DropdownMenuContent align="start">
+    <DropdownMenuItem>Documentation</DropdownMenuItem>
+    <DropdownMenuItem>Registry</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>`,
+    Component: BreadcrumbDropdownDemo,
+  },
+  "alert-demo": {
+    title: "Alert Overview",
+    filePath: "src/examples/alert-demo.tsx",
+    Component: AlertBasicDemo,
+  },
+  "alert-basic-demo": {
+    title: "Basic Alert",
+    filePath: "src/examples/alert-demo.tsx",
+    codeSnippet: `<Alert>
+  <Terminal strokeWidth={2.5} />
+  <AlertTitle>Heads up!</AlertTitle>
+  <AlertDescription>You can add Neobrutalist components via the Punch UI CLI.</AlertDescription>
+</Alert>`,
+    Component: AlertBasicDemo,
+  },
+  "alert-variants-demo": {
+    title: "Semantic Status Variants",
+    filePath: "src/examples/alert-demo.tsx",
+    codeSnippet: `<Alert variant="success">...</Alert>
+<Alert variant="info">...</Alert>
+<Alert variant="warning">...</Alert>
+<Alert variant="danger">...</Alert>`,
+    Component: AlertVariantsDemo,
+  },
+  "alert-dismissible-demo": {
+    title: "Dismissible Alert",
+    filePath: "src/examples/alert-demo.tsx",
+    codeSnippet: `<Alert variant="secondary" dismissible onDismiss={() => setVisible(false)}>
+  <Info strokeWidth={2.5} />
+  <AlertTitle>New Registry Release</AlertTitle>
+  <AlertDescription>Tier 3 components are now available.</AlertDescription>
+</Alert>`,
+    Component: AlertDismissibleDemo,
+  },
+  "alert-noshadow-demo": {
+    title: "No Shadow",
+    filePath: "src/examples/alert-demo.tsx",
+    codeSnippet: `<Alert noShadow>...</Alert>
+<Alert variant="primary" noShadow>...</Alert>`,
+    Component: AlertNoShadowDemo,
+  },
+  "sonner-demo": {
+    title: "Sonner Toast Overview",
+    filePath: "src/examples/sonner-demo.tsx",
+    Component: SonnerBasicDemo,
+  },
+  "sonner-basic-demo": {
+    title: "Basic Toast",
+    filePath: "src/examples/sonner-demo.tsx",
+    codeSnippet: `toast("Deployment Triggered", {
+  description: "Build #508 has been queued for ap-southeast-1.",
+});`,
+    Component: SonnerBasicDemo,
+  },
+  "sonner-variants-demo": {
+    title: "Semantic Status Toasts",
+    filePath: "src/examples/sonner-demo.tsx",
+    codeSnippet: `toast.success("Registry Published", { description: "All artifacts are live." });
+toast.info("New Preset Available");
+toast.warning("API Rate Limit Near");
+toast.error("Connection Failed");`,
+    Component: SonnerVariantsDemo,
+  },
+  "sonner-action-demo": {
+    title: "With Action Button",
+    filePath: "src/examples/sonner-demo.tsx",
+    codeSnippet: `toast("Component Archived", {
+  description: "legacy-banner.tsx was moved to archive.",
+  action: {
+    label: "Undo",
+    onClick: () => toast.success("Restored"),
+  },
+});`,
+    Component: SonnerActionDemo,
+  },
+  "sonner-promise-demo": {
+    title: "Async Promise Toast",
+    filePath: "src/examples/sonner-demo.tsx",
+    codeSnippet: `toast.promise(deployPromise, {
+  loading: "Building Punch UI registry...",
+  success: (data) => \`Published \${data.version} successfully!\`,
+  error: "Registry build failed.",
+});`,
+    Component: SonnerPromiseDemo,
+  },
+  "sonner-position-demo": {
+    title: "Position",
+    filePath: "src/examples/sonner-demo.tsx",
+    codeSnippet: `toast("Position: Top Right", {
+  description: "Rendered at top-right.",
+  position: "top-right",
+});`,
+    Component: SonnerPositionDemo,
   },
 };
 

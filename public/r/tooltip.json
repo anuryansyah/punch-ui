@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip",
+  "type": "registry:ui",
+  "dependencies": [
+    "@radix-ui/react-tooltip",
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/tooltip.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\nimport * as TooltipPrimitive from \"@radix-ui/react-tooltip\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { cn } from \"@/lib/utils\";\n\nexport function TooltipProvider({\n  delayDuration = 200,\n  ...props\n}: React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Provider>) {\n  return <TooltipPrimitive.Provider delayDuration={delayDuration} {...props} />;\n}\n\nexport const Tooltip = TooltipPrimitive.Root;\nexport const TooltipTrigger = TooltipPrimitive.Trigger;\n\nconst tooltipContentVariants = cva(\n  \"z-50 overflow-hidden rounded-md border-2 border-border px-3 py-1.5 text-xs font-bold animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-foreground text-background\",\n        card: \"bg-card text-card-foreground\",\n        primary: \"bg-primary text-primary-foreground\",\n        secondary: \"bg-secondary text-secondary-foreground\",\n      },\n      noShadow: {\n        true: \"shadow-none\",\n        false: \"shadow-brutal-sm\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      noShadow: false,\n    },\n  }\n);\n\nexport interface TooltipContentProps\n  extends\n    React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>,\n    VariantProps<typeof tooltipContentVariants> {\n  noShadow?: boolean;\n  showArrow?: boolean;\n}\n\n/**\n * Neobrutalist Tooltip content bubble powered by @radix-ui/react-tooltip.\n */\nexport const TooltipContent = React.forwardRef<\n  React.ElementRef<typeof TooltipPrimitive.Content>,\n  TooltipContentProps\n>(\n  (\n    {\n      className,\n      sideOffset = 6,\n      variant = \"default\",\n      noShadow = false,\n      showArrow = false,\n      children,\n      ...props\n    },\n    ref\n  ) => (\n    <TooltipPrimitive.Portal>\n      <TooltipPrimitive.Content\n        ref={ref}\n        sideOffset={sideOffset}\n        className={cn(tooltipContentVariants({ variant, noShadow }), className)}\n        {...props}\n      >\n        {children}\n        {showArrow && (\n          <TooltipPrimitive.Arrow\n            className=\"fill-border\"\n            width={10}\n            height={5}\n          />\n        )}\n      </TooltipPrimitive.Content>\n    </TooltipPrimitive.Portal>\n  )\n);\nTooltipContent.displayName = TooltipPrimitive.Content.displayName;\n",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -12,6 +12,13 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 /**
  * Overview demo
@@ -316,21 +323,32 @@ export function PaginationRowsPerPageDemo() {
         >
           Rows per page
         </label>
-        <select
-          id="rows-per-page"
-          value={pageSize}
-          onChange={(e) => {
-            setPageSize(Number(e.target.value));
+        <Select
+          value={String(pageSize)}
+          onValueChange={(value) => {
+            setPageSize(Number(value));
             setPage(1);
           }}
-          className="h-8 rounded-md border-2 border-border bg-card px-2 font-mono text-xs font-bold text-card-foreground shadow-brutal-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
         >
-          {[10, 25, 50].map((size) => (
-            <option key={size} value={size}>
-              {size}
-            </option>
-          ))}
-        </select>
+          <SelectTrigger
+            id="rows-per-page"
+            selectSize="sm"
+            className="w-16 px-2 font-mono"
+          >
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent align="start">
+            {[10, 25, 50].map((size) => (
+              <SelectItem
+                key={size}
+                value={String(size)}
+                className="py-1.5 pl-7 pr-2 font-mono text-xs"
+              >
+                {size}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       <span className="font-mono text-xs font-bold text-muted-foreground">

@@ -5,12 +5,15 @@
   "sidebar": {
     "groups": {
       "gettingStarted": "Getting Started",
-      "tier1": "Tier 1 • Core Components"
+      "tier1": "Tier 1 • Core Components",
+      "tier2": "Tier 2 • Forms & Input Controls",
+      "tier3": "Tier 3 • Overlays & Navigation"
     },
     "items": {
       "introCatalog": "Introduction & Catalog",
       "homeThemes": "Home (Theme Studio)",
       "button": "Button",
+      "buttonGroup": "Button Group",
       "card": "Card",
       "badge": "Badge",
       "input": "Input, Textarea & Label",
@@ -20,7 +23,27 @@
       "dataTable": "Data Table",
       "pagination": "Pagination",
       "sidebar": "Sidebar",
-      "scrollArea": "Scroll Area"
+      "scrollArea": "Scroll Area",
+      "select": "Select",
+      "checkbox": "Checkbox",
+      "radioGroup": "Radio Group",
+      "switch": "Switch",
+      "slider": "Slider",
+      "form": "Form",
+      "datePicker": "Date Picker & Calendar",
+      "command": "Command",
+      "combobox": "Combobox",
+      "inputOtp": "Input OTP",
+      "dialog": "Dialog",
+      "alertDialog": "Alert Dialog",
+      "sheet": "Sheet",
+      "dropdownMenu": "Dropdown Menu",
+      "popover": "Popover",
+      "tooltip": "Tooltip",
+      "tabs": "Tabs",
+      "breadcrumb": "Breadcrumb",
+      "alert": "Alert",
+      "sonner": "Toast (Sonner)"
     },
     "liveThemeCard": {
       "title": "Live Theme Active",
