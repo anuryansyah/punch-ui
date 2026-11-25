@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   DocsMobileNav,
   DocsSidebarNav,
 } from "@/components/docs/docs-sidebar-nav";
+import { PunchLogo } from "@/components/docs/punch-logo";
 import {
   DocsBackToTop,
   DocsTableOfContents,
@@ -28,9 +28,9 @@ export default function DocsLayout({
         <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between px-4 sm:px-6 lg:px-10">
           <div className="flex items-center gap-2.5">
             <DocsMobileNav />
-            <Button asChild size="sm">
+            <Button asChild size="sm" variant="outline">
               <Link href="/">
-                <Layers className="h-4 w-4" strokeWidth={2.5} />
+                <PunchLogo className="h-4 w-4" />
                 {siteConfig.name.toUpperCase()}
               </Link>
             </Button>

@@ -2,7 +2,7 @@
   "hero": {
     "badge": "47 Komponen • 6 Tema & Custom Builder",
     "title": "PUNCH UI",
-    "description": "Koleksi komponen shadcn/ui bergaya Neobrutalism dengan garis tepi tegas 2px, bayangan keras, 6 preset warna + Custom Theme Builder real-time, dan distribusi Custom Registry CLI.",
+    "description": "Bangun antarmuka Neobrutalism lebih cepat. Tarik komponen siap pakai berbasis shadcn/ui, sesuaikan tema secara real-time, dan langsung pakai di Next.js maupun React.",
     "ctaDocs": "Buka Dokumentasi & Katalog",
     "ctaShowcase": "Lihat Live Showcase"
   },
@@ -15,6 +15,25 @@
     "title": "Siap Bangun Dashboard Neobrutalism?",
     "description": "Salin token CSS dari halaman panduan setup, lalu tarik komponen yang kamu butuhkan langsung lewat shadcn Custom Registry CLI.",
     "button": "Mulai Setup Sekarang"
+  },
+  "story": {
+    "badge": "Tentang Punch UI",
+    "title": "Dibuat untuk UI yang Berani Tampil Beda",
+    "lead": "Punch UI lahir dari kejenuhan melihat antarmuka web modern yang seragam — terlalu lembut, serba blur, dan terasa generik. Kami menggabungkan ketegasan visual Neobrutalism (garis tepi 2px, bayangan keras, warna kontras tinggi) dengan ergonomi produksi shadcn/ui & Radix UI.",
+    "pillars": [
+      {
+        "title": "Tegas & Mekanis",
+        "description": "Tanpa gradien buram atau bayangan halus. Setiap tombol dan kartu memberi umpan balik tekan yang tajam dan kontras tinggi."
+      },
+      {
+        "title": "Pasang yang Dibutuhkan Saja",
+        "description": "Tarik satu per satu lewat shadcn CLI langsung ke proyekmu. Tanpa bundle membengkak dan bebas diubah kapan saja."
+      },
+      {
+        "title": "Mesin Tema Real-Time",
+        "description": "Berbasis CSS Variables murni untuk 6 preset warna, Custom Color Builder, radius dinamis, serta Light & Dark Mode instan."
+      }
+    ]
   },
   "cards": {
     "kpi": {

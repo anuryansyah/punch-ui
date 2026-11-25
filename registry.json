@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "punch-ui",
-  "homepage": "https://punch-ui.vercel.app",
+  "homepage": "https://punch-ui-seven.vercel.app",
   "items": [
     {
       "name": "button",

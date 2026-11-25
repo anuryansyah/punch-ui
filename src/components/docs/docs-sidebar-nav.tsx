@@ -24,6 +24,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@/components/ui/sidebar";
+import { PunchLogo } from "@/components/docs/punch-logo";
 import { siteConfig } from "@/lib/config";
 import { useLanguage } from "@/lib/i18n";
 
@@ -192,7 +193,7 @@ export function DocsMobileNav() {
       <SheetContent side="left" size="sm" className="gap-0 p-0">
         <SheetHeader className="border-b-2 border-border bg-secondary px-4 py-3.5 pr-14 text-left">
           <SheetTitle className="flex items-center gap-2 font-mono text-sm font-black uppercase text-secondary-foreground">
-            <Layers className="h-4 w-4" strokeWidth={2.5} />
+            <PunchLogo className="h-4 w-4" />
             {siteConfig.name} {siteConfig.version}
           </SheetTitle>
           <SheetDescription className="sr-only">

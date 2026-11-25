@@ -6,12 +6,16 @@ import {
   ArrowUpRight,
   BookOpen,
   Check,
+  Code2,
   Copy,
+  Palette,
   Sparkles,
   Terminal,
+  Zap,
 } from "lucide-react";
 import { DocsSearchCommand } from "@/components/docs/docs-search-command";
 import { HomepageShowcase } from "@/components/docs/homepage-showcase";
+import { PunchLogo } from "@/components/docs/punch-logo";
 import { ThemeCustomizer } from "@/components/docs/theme-customizer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -79,10 +83,11 @@ export default function MarketingPage() {
           </div>
         </div>
 
-        <h1 className="text-3xl font-black tracking-tight md:text-5xl">
-          {m.hero.title}
+        <h1 className="flex items-center gap-3 text-3xl font-black tracking-tight md:gap-4 md:text-5xl">
+          <PunchLogo className="h-9 w-9 md:h-11 md:w-11" />
+          <span>{m.hero.title}</span>
         </h1>
-        <p className="mt-3 max-w-2xl text-base text-muted-foreground md:text-lg">
+        <p className="mt-3 max-w-3xl text-base text-muted-foreground md:text-lg">
           {m.hero.description}
         </p>
 
@@ -150,6 +155,40 @@ export default function MarketingPage() {
         </Marquee>
       </section>
 
+      {/* Story & Design Philosophy */}
+      <section id="story" className="scroll-mt-6 space-y-5">
+        <div className="space-y-2">
+          <Badge variant="secondary" className="font-mono">
+            {m.story.badge}
+          </Badge>
+          <h2 className="text-2xl font-black tracking-tight md:text-3xl">
+            {m.story.title}
+          </h2>
+          <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
+            {m.story.lead}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {m.story.pillars.map((pillar, idx) => {
+            const Icon = idx === 0 ? Zap : idx === 1 ? Code2 : Palette;
+            return (
+              <Card key={pillar.title} className="space-y-3 p-5">
+                <div className="inline-flex h-10 w-10 items-center justify-center rounded-md border-2 border-border bg-primary text-primary-foreground shadow-brutal-sm">
+                  <Icon className="h-5 w-5" strokeWidth={2.5} />
+                </div>
+                <h3 className="text-base font-black tracking-tight">
+                  {pillar.title}
+                </h3>
+                <p className="text-xs leading-relaxed text-muted-foreground md:text-sm">
+                  {pillar.description}
+                </p>
+              </Card>
+            );
+          })}
+        </div>
+      </section>
+
       {/* Interactive Theme Customizer (Inline di Homepage) */}
       <section id="customizer" className="scroll-mt-6">
         <ThemeCustomizer variant="inline" />
@@ -197,6 +236,7 @@ export default function MarketingPage() {
       {/* Footer */}
       <footer className="flex flex-col items-start justify-between gap-3 border-t-2 border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center">
         <div className="flex items-center gap-2 font-mono font-bold text-foreground">
+          <PunchLogo className="h-5 w-5" />
           <span>{siteConfig.name}</span>
           <Badge variant="outline" size="sm" noShadow className="font-mono">
             {siteConfig.version}

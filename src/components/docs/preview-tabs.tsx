@@ -16,7 +16,7 @@ interface PreviewTabsProps {
 
 export function PreviewTabs({
   title,
-  filePath,
+  filePath: _filePath,
   rawCode,
   highlightedHtml,
   children,

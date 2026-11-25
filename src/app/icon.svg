@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect
+    x="7"
+    y="7"
+    width="23"
+    height="23"
+    fill="#ffe566"
+    stroke="#000000"
+    stroke-width="2.5"
+  />
+  <rect
+    x="2"
+    y="2"
+    width="23"
+    height="23"
+    fill="#ff8a00"
+    stroke="#000000"
+    stroke-width="2.5"
+  />
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M7.5 6.5H19.5V15.5H11.5V20.5H7.5V6.5ZM11.5 9.75V12.25H15.75V9.75H11.5Z"
+    fill="#000000"
+  />
+</svg>
