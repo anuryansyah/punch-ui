@@ -1,9 +1,39 @@
 {
   "hero": {
-    "badge": "Design System & 6 Active Themes",
+    "badge": "47 Components • 6 Presets & Custom Builder",
     "title": "PUNCH UI",
-    "description": "Neobrutalist shadcn/ui component collection featuring crisp 2px borders, 4px 4px 0px hard shadows, and 6 real-time color presets.",
-    "ctaDocs": "Open Documentation & Live Preview"
+    "description": "Build bold Neobrutalist interfaces faster. Pull ready-to-use shadcn/ui components, customize themes live, and ship seamlessly in Next.js or React.",
+    "ctaDocs": "Browse Docs & Catalog",
+    "ctaShowcase": "Explore Live Showcase"
+  },
+  "showcase": {
+    "badge": "Real-Case Interactive Playground",
+    "title": "Live Production-Ready Showcase",
+    "description": "Switch color presets, custom tokens, border radius, or Dark Mode in the Theme Customizer above — every real-world card below updates in real time."
+  },
+  "cta": {
+    "title": "Ready to Build Your Neobrutalist Dashboard?",
+    "description": "Follow the 4-step setup guide in Docs, then pull only the components you need directly through the shadcn Custom Registry CLI.",
+    "button": "Start Setup Guide"
+  },
+  "story": {
+    "badge": "About Punch UI",
+    "title": "Built for Interfaces That Refuse to Blend In",
+    "lead": "Punch UI was born out of fatigue with look-alike, overly soft, blurry web apps. It pairs the unapologetic clarity of Neobrutalism (2px borders, hard offset shadows, high-contrast color) with the production ergonomics of shadcn/ui and Radix UI.",
+    "pillars": [
+      {
+        "title": "Bold & Tactile",
+        "description": "Zero blurry gradients or timid shadows. Every button, input, and card delivers crisp mechanical press feedback and clear focus states."
+      },
+      {
+        "title": "Take Only What You Need",
+        "description": "Install individual components via the shadcn CLI directly into your repo — zero bloated bundles and easy to modify."
+      },
+      {
+        "title": "Live Theme Engine",
+        "description": "Powered by pure CSS variables supporting 6 presets, a live Custom Color Builder, dynamic radius, and instant Light & Dark mode."
+      }
+    ]
   },
   "cards": {
     "kpi": {

@@ -6,7 +6,7 @@ import { COMPONENT_DOCS, type CompositionTreeNode } from "@/lib/docs-data";
 import { siteConfig } from "@/lib/config";
 import { T } from "@/lib/i18n";
 import { dictionaries } from "@/locales";
-import { Layers, Terminal } from "lucide-react";
+import { Layers, Package, Terminal } from "lucide-react";
 
 function RenderTreeBranch({ nodes }: { nodes: CompositionTreeNode[] }) {
   return (
@@ -95,6 +95,83 @@ export default async function ComponentDocPage({
           </span>
         </div>
       </Card>
+
+      {/* Panduan Dependensi / Instalasi Manual (Jika tersedia) */}
+      {doc.installGuide && (
+        <Card className="space-y-4 p-6">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h2
+              id="instalasi-dependensi"
+              className="flex scroll-mt-24 items-center gap-2 text-base font-bold uppercase tracking-wider"
+            >
+              <Package className="h-4 w-4 shrink-0" strokeWidth={2.5} />
+              <T
+                text={{
+                  id: "Kebutuhan Instalasi (Dependencies)",
+                  en: "Installation Requirements (Dependencies)",
+                }}
+              />
+            </h2>
+            <Badge variant="secondary" className="font-mono text-[11px]">
+              {doc.installGuide.packages.length} npm packages
+            </Badge>
+          </div>
+
+          {doc.installGuide.note && (
+            <p className="text-sm text-muted-foreground">
+              <T text={doc.installGuide.note} />
+            </p>
+          )}
+
+          {/* Perintah npm install */}
+          <div className="overflow-x-auto rounded-md border-2 border-border bg-[#141923] px-4 py-3 font-mono text-xs text-[#f8fafc] shadow-brutal-sm">
+            <code>{doc.installGuide.npmCommand}</code>
+          </div>
+
+          {/* Rincian Paket NPM */}
+          <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+            {doc.installGuide.packages.map((pkg) => (
+              <div
+                key={pkg.name}
+                className="flex flex-col gap-1 rounded-md border-2 border-border bg-muted/40 p-3"
+              >
+                <code className="font-mono text-xs font-bold text-foreground">
+                  {pkg.name}
+                </code>
+                <span className="text-xs text-muted-foreground">
+                  <T text={pkg.purpose} />
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Komponen Punch UI yang digunakan */}
+          {doc.installGuide.registryDependencies &&
+            doc.installGuide.registryDependencies.length > 0 && (
+              <div className="flex flex-wrap items-center gap-2 border-t-2 border-border pt-3">
+                <span className="font-mono text-xs font-bold uppercase text-muted-foreground">
+                  <T
+                    text={{
+                      id: "Komponen Punch UI:",
+                      en: "Punch UI Components:",
+                    }}
+                  />
+                </span>
+                {doc.installGuide.registryDependencies.map((dep) => (
+                  <Badge
+                    key={dep}
+                    variant="outline"
+                    size="sm"
+                    noShadow
+                    className="font-mono lowercase"
+                  >
+                    {dep}
+                  </Badge>
+                ))}
+              </div>
+            )}
+        </Card>
+      )}
 
       {/* Daftar Section Terpisah (seperti pada Button & Card) atau Preview Tunggal */}
       {doc.sections && doc.sections.length > 0 ? (

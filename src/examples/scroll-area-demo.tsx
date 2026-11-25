@@ -5,6 +5,7 @@ import { ScrollArea, type ScrollbarSize } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const DEPLOY_LOGS = [
   { id: "REL-101", service: "auth-gateway", status: "Active" },
@@ -151,25 +152,30 @@ export function ScrollAreaSizeDemo() {
         <span className="font-mono text-xs font-bold uppercase">
           scrollbarSize:
         </span>
-        <div className="flex flex-wrap gap-1.5">
-          {SIZE_OPTIONS.map((opt) => {
-            const active = size === opt.value;
-            return (
-              <button
-                key={String(opt.value)}
-                type="button"
-                onClick={() => setSize(opt.value)}
-                className={`rounded-sm border-2 border-border px-2.5 py-1 font-mono text-xs font-bold transition-all ${
-                  active
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-muted text-foreground hover:bg-secondary hover:text-secondary-foreground"
-                }`}
-              >
-                {opt.label}
-              </button>
+        <ToggleGroup
+          type="single"
+          variant="outline"
+          size="sm"
+          noShadow
+          value={String(size)}
+          onValueChange={(value) => {
+            const match = SIZE_OPTIONS.find(
+              (opt) => String(opt.value) === value
             );
-          })}
-        </div>
+            if (match) setSize(match.value);
+          }}
+          aria-label="Scrollbar size"
+        >
+          {SIZE_OPTIONS.map((opt) => (
+            <ToggleGroupItem
+              key={String(opt.value)}
+              value={String(opt.value)}
+              className="font-mono"
+            >
+              {opt.label}
+            </ToggleGroupItem>
+          ))}
+        </ToggleGroup>
       </div>
 
       <ScrollArea

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "marquee",
+  "type": "registry:ui",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/marquee.tsx",
+      "content": "import * as React from \"react\";\nimport { cva, type VariantProps } from \"class-variance-authority\";\nimport { cn } from \"@/lib/utils\";\n\nconst marqueeVariants = cva(\n  \"group relative flex w-full select-none overflow-hidden rounded-md border-2 border-border\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-card text-card-foreground\",\n        primary: \"bg-primary text-primary-foreground\",\n        secondary: \"bg-secondary text-secondary-foreground\",\n        muted: \"bg-muted text-foreground\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n    },\n  }\n);\n\nexport interface MarqueeProps\n  extends\n    React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof marqueeVariants> {\n  /** Scroll direction */\n  direction?: \"left\" | \"right\";\n  /** Animation speed preset */\n  speed?: \"slow\" | \"normal\" | \"fast\";\n  /** Pause scrolling when user hovers over the strip */\n  pauseOnHover?: boolean;\n  /** Remove hard Neobrutalist drop shadow */\n  noShadow?: boolean;\n}\n\nconst SPEED_DURATION: Record<\"slow\" | \"normal\" | \"fast\", string> = {\n  slow: \"44s\",\n  normal: \"28s\",\n  fast: \"18s\",\n};\n\n/**\n * Infinite Neobrutalist Marquee ticker strip with seamless 2x track duplication\n * and optional pause-on-hover.\n */\nexport const Marquee = React.forwardRef<HTMLDivElement, MarqueeProps>(\n  (\n    {\n      className,\n      variant,\n      direction = \"left\",\n      speed = \"normal\",\n      pauseOnHover = true,\n      noShadow = false,\n      children,\n      style,\n      ...props\n    },\n    ref\n  ) => {\n    const trackStyle = {\n      \"--marquee-duration\": SPEED_DURATION[speed],\n      ...style,\n    } as React.CSSProperties;\n\n    return (\n      <div\n        ref={ref}\n        className={cn(\n          marqueeVariants({ variant }),\n          !noShadow && \"shadow-brutal-sm\",\n          className\n        )}\n        style={trackStyle}\n        {...props}\n      >\n        <div\n          className={cn(\n            \"flex w-max shrink-0 items-center\",\n            direction === \"right\"\n              ? \"animate-marquee-reverse\"\n              : \"animate-marquee\",\n            pauseOnHover && \"group-hover:[animation-play-state:paused]\"\n          )}\n        >\n          <div className=\"flex shrink-0 items-center gap-4 py-2.5 pr-4\">\n            {children}\n          </div>\n          <div\n            aria-hidden=\"true\"\n            className=\"flex shrink-0 items-center gap-4 py-2.5 pr-4\"\n          >\n            {children}\n          </div>\n        </div>\n      </div>\n    );\n  }\n);\nMarquee.displayName = \"Marquee\";\n",
+      "type": "registry:ui"
+    }
+  ]
+}

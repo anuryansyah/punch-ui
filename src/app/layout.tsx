@@ -18,11 +18,39 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
 });
 
+const SITE_DESCRIPTION =
+  "Neobrutalist shadcn/ui component library & custom registry featuring 47 components, 6 color presets + live Custom Theme Builder, Light/Dark mode, and bilingual docs.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: `${siteConfig.name} — Neobrutalist Component Library`,
-  description:
-    "Koleksi komponen Neobrutalism UI berbasis shadcn/ui, Tailwind CSS, dan 6 Preset Tema Warna.",
+  title: {
+    default: `${siteConfig.name} — Neobrutalist Component Library`,
+    template: `%s — ${siteConfig.name}`,
+  },
+  description: SITE_DESCRIPTION,
+  keywords: [
+    "Punch UI",
+    "Neobrutalism",
+    "Neobrutalist UI",
+    "shadcn/ui",
+    "Tailwind CSS",
+    "Radix UI",
+    "React Components",
+    "Next.js",
+    "Component Registry",
+  ],
+  openGraph: {
+    type: "website",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: `${siteConfig.name} — Neobrutalist Component Library`,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} — Neobrutalist Component Library`,
+    description: SITE_DESCRIPTION,
+  },
 };
 
 const THEME_INIT_SCRIPT = `

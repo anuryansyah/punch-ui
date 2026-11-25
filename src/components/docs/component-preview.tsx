@@ -269,6 +269,94 @@ import {
   SonnerPromiseDemo,
   SonnerVariantsDemo,
 } from "@/examples/sonner-demo";
+import {
+  ChartAreaDemo,
+  ChartBarDemo,
+  ChartDonutDemo,
+  ChartInteractiveDemo,
+  ChartLineDemo,
+  ChartStackedBarDemo,
+  ChartTreemapDemo,
+} from "@/examples/chart-demo";
+import {
+  ProgressAnimatedDemo,
+  ProgressBasicDemo,
+  ProgressNoShadowDemo,
+  ProgressQuotaCardDemo,
+  ProgressSizeDemo,
+  ProgressStripedDemo,
+  ProgressVariantsDemo,
+} from "@/examples/progress-demo";
+import {
+  SkeletonBasicDemo,
+  SkeletonCardDemo,
+  SkeletonInteractiveDemo,
+  SkeletonTableDemo,
+} from "@/examples/skeleton-demo";
+import {
+  AccordionBasicDemo,
+  AccordionMultipleDemo,
+  AccordionRichDemo,
+  AccordionVariantsDemo,
+} from "@/examples/accordion-demo";
+import {
+  ToggleGroupBasicDemo,
+  ToggleGroupSingleDemo,
+  ToggleGroupSizeDemo,
+  ToggleGroupStatesDemo,
+  ToggleGroupVariantsDemo,
+} from "@/examples/toggle-group-demo";
+import {
+  RichTextEditorBasicDemo,
+  RichTextEditorDemo,
+  RichTextEditorFormDemo,
+  RichTextEditorMinimalDemo,
+  RichTextEditorSizeDemo,
+  RichTextEditorStatesDemo,
+} from "@/examples/rich-text-editor-demo";
+import {
+  FileUploadBasicDemo,
+  FileUploadCompactDemo,
+  FileUploadDemo,
+  FileUploadImageDemo,
+  FileUploadStatesDemo,
+  FileUploadValidationDemo,
+} from "@/examples/file-upload-demo";
+import {
+  EmptyStateBasicDemo,
+  EmptyStateContextualDemo,
+  EmptyStateDemo,
+  EmptyStateSizeDemo,
+  EmptyStateVariantsDemo,
+} from "@/examples/empty-state-demo";
+import {
+  KbdBasicDemo,
+  KbdDemo,
+  KbdInContextDemo,
+  KbdSizeDemo,
+  KbdVariantsDemo,
+} from "@/examples/kbd-demo";
+import {
+  ColorPickerBasicDemo,
+  ColorPickerCardDemo,
+  ColorPickerDemo,
+  ColorPickerPresetsDemo,
+  ColorPickerSizeDemo,
+  ColorPickerStatesDemo,
+} from "@/examples/color-picker-demo";
+import {
+  NavigationMenuBasicDemo,
+  NavigationMenuDemo,
+  NavigationMenuSimpleDemo,
+  NavigationMenuTopbarDemo,
+} from "@/examples/navigation-menu-demo";
+import {
+  MarqueeBasicDemo,
+  MarqueeDemo,
+  MarqueeDualDemo,
+  MarqueeNoShadowDemo,
+  MarqueeVariantsDemo,
+} from "@/examples/marquee-demo";
 
 const DEMO_REGISTRY: Record<
   string,
@@ -4090,6 +4178,678 @@ toast.error("Connection Failed");`,
   position: "top-right",
 });`,
     Component: SonnerPositionDemo,
+  },
+  "chart-demo": {
+    title: "Charts Overview",
+    filePath: "src/examples/chart-demo.tsx",
+    Component: ChartBarDemo,
+  },
+  "chart-bar-demo": {
+    title: "Bar Chart (Grouped)",
+    filePath: "src/examples/chart-demo.tsx",
+    codeSnippet: `<ChartContainer config={BAR_CONFIG} className="h-[280px]">
+  <BarChart data={MONTHLY_TRAFFIC}>
+    <CartesianGrid vertical={false} strokeDasharray="3 3" />
+    <XAxis dataKey="month" />
+    <YAxis />
+    <ChartTooltip content={<ChartTooltipContent />} />
+    <ChartLegend content={<ChartLegendContent />} />
+    <Bar dataKey="desktop" fill="var(--color-desktop)" stroke="var(--border)" strokeWidth={2} />
+    <Bar dataKey="mobile" fill="var(--color-mobile)" stroke="var(--border)" strokeWidth={2} />
+  </BarChart>
+</ChartContainer>`,
+    Component: ChartBarDemo,
+  },
+  "chart-stacked-demo": {
+    title: "Stacked Bar Chart",
+    filePath: "src/examples/chart-demo.tsx",
+    codeSnippet: `<Bar dataKey="subscriptions" stackId="rev" fill="var(--color-subscriptions)" stroke="var(--border)" strokeWidth={2} />
+<Bar dataKey="addons" stackId="rev" fill="var(--color-addons)" stroke="var(--border)" strokeWidth={2} />
+<Bar dataKey="services" stackId="rev" fill="var(--color-services)" stroke="var(--border)" strokeWidth={2} />`,
+    Component: ChartStackedBarDemo,
+  },
+  "chart-line-demo": {
+    title: "Line Chart (Multi-Series)",
+    filePath: "src/examples/chart-demo.tsx",
+    codeSnippet: `<LineChart data={LINE_DATA}>
+  <ChartTooltip content={<ChartTooltipContent indicator="line" />} />
+  <Line type="linear" dataKey="sessions" stroke="var(--color-sessions)" strokeWidth={3} />
+  <Line type="linear" dataKey="conversions" stroke="var(--color-conversions)" strokeWidth={3} />
+</LineChart>`,
+    Component: ChartLineDemo,
+  },
+  "chart-area-demo": {
+    title: "Area Chart (Solid)",
+    filePath: "src/examples/chart-demo.tsx",
+    codeSnippet: `<AreaChart data={AREA_DATA}>
+  <Area
+    type="monotone"
+    dataKey="users"
+    fill="var(--color-users)"
+    fillOpacity={0.85}
+    stroke="var(--border)"
+    strokeWidth={2.5}
+  />
+</AreaChart>`,
+    Component: ChartAreaDemo,
+  },
+  "chart-donut-demo": {
+    title: "Donut / Pie Chart",
+    filePath: "src/examples/chart-demo.tsx",
+    codeSnippet: `<PieChart>
+  <ChartTooltip content={<ChartTooltipContent nameKey="source" hideLabel />} />
+  <Pie data={PIE_DATA} dataKey="visitors" innerRadius={58} outerRadius={94} stroke="var(--border)" strokeWidth={2.5} />
+</PieChart>`,
+    Component: ChartDonutDemo,
+  },
+  "chart-treemap-demo": {
+    title: "Treemap",
+    filePath: "src/examples/chart-demo.tsx",
+    codeSnippet: `<ChartContainer config={TREEMAP_CONFIG} className="h-[300px]">
+  <Treemap
+    data={TREEMAP_DATA}
+    dataKey="size"
+    stroke="var(--border)"
+    content={<NeobrutalTreemapCell />}
+  >
+    <ChartTooltip content={<ChartTooltipContent hideLabel />} />
+  </Treemap>
+</ChartContainer>`,
+    Component: ChartTreemapDemo,
+  },
+  "chart-interactive-demo": {
+    title: "Interactive Dashboard Chart",
+    filePath: "src/examples/chart-demo.tsx",
+    codeSnippet: `<Card>
+  <CardHeader>
+    <CardTitle>API Request Volume</CardTitle>
+    {/* 7D / 30D / 90D range toggle buttons */}
+  </CardHeader>
+  <CardContent>
+    <ChartContainer config={INTERACTIVE_CONFIG} className="h-[240px]">
+      <BarChart data={data}>...</BarChart>
+    </ChartContainer>
+  </CardContent>
+</Card>`,
+    Component: ChartInteractiveDemo,
+  },
+  "progress-demo": {
+    title: "Progress Overview",
+    filePath: "src/examples/progress-demo.tsx",
+    Component: ProgressBasicDemo,
+  },
+  "progress-basic-demo": {
+    title: "Basic & Interactive Progress",
+    filePath: "src/examples/progress-demo.tsx",
+    codeSnippet: `<Progress value={progress} showValue aria-label="Build progress" />`,
+    Component: ProgressBasicDemo,
+  },
+  "progress-variants-demo": {
+    title: "Semantic Variants",
+    filePath: "src/examples/progress-demo.tsx",
+    codeSnippet: `<Progress variant="default" value={78} />
+<Progress variant="secondary" value={65} />
+<Progress variant="success" value={92} />
+<Progress variant="info" value={54} />
+<Progress variant="warning" value={72} />
+<Progress variant="danger" value={38} />`,
+    Component: ProgressVariantsDemo,
+  },
+  "progress-size-demo": {
+    title: "Size",
+    filePath: "src/examples/progress-demo.tsx",
+    codeSnippet: `<Progress size="sm" value={45} showValue />
+<Progress size="default" value={68} showValue />
+<Progress size="lg" value={82} showValue />`,
+    Component: ProgressSizeDemo,
+  },
+  "progress-striped-demo": {
+    title: "Striped & Indeterminate",
+    filePath: "src/examples/progress-demo.tsx",
+    codeSnippet: `<Progress value={74} size="lg" striped showValue />
+<Progress indeterminate variant="info" striped />`,
+    Component: ProgressStripedDemo,
+  },
+  "progress-noshadow-demo": {
+    title: "No Shadow",
+    filePath: "src/examples/progress-demo.tsx",
+    codeSnippet: `<Progress value={60} noShadow />
+<Progress value={85} variant="success" noShadow showValue />`,
+    Component: ProgressNoShadowDemo,
+  },
+  "progress-card-demo": {
+    title: "Workspace Quota Card",
+    filePath: "src/examples/progress-demo.tsx",
+    codeSnippet: `<Card>
+  <CardHeader><CardTitle>Workspace Quotas</CardTitle></CardHeader>
+  <CardContent className="space-y-4">
+    <Progress value={82} variant="warning" noShadow />
+    <Progress value={42} variant="success" noShadow />
+    <Progress value={94} variant="danger" noShadow />
+  </CardContent>
+</Card>`,
+    Component: ProgressQuotaCardDemo,
+  },
+  "progress-animated-demo": {
+    title: "Animated (0% – 100%)",
+    filePath: "src/examples/progress-demo.tsx",
+    codeSnippet: `<Progress
+  value={value}
+  size="lg"
+  variant={value >= 100 ? "success" : "default"}
+  striped={value < 100}
+  showValue
+/>`,
+    Component: ProgressAnimatedDemo,
+  },
+  "skeleton-demo": {
+    title: "Skeleton Overview",
+    filePath: "src/examples/skeleton-demo.tsx",
+    Component: SkeletonBasicDemo,
+  },
+  "skeleton-basic-demo": {
+    title: "Basic Shapes",
+    filePath: "src/examples/skeleton-demo.tsx",
+    codeSnippet: `<div className="flex items-center gap-4">
+  <Skeleton shape="circle" className="h-12 w-12" />
+  <div className="flex-1 space-y-2.5">
+    <Skeleton className="h-4 w-3/4" />
+    <Skeleton className="h-3.5 w-1/2" />
+  </div>
+</div>`,
+    Component: SkeletonBasicDemo,
+  },
+  "skeleton-card-demo": {
+    title: "Card Skeleton",
+    filePath: "src/examples/skeleton-demo.tsx",
+    codeSnippet: `<Card className="w-full max-w-sm">
+  <div className="border-b-2 border-border p-4">
+    <Skeleton variant="flat" className="h-36 w-full" />
+  </div>
+  <CardHeader>
+    <Skeleton variant="flat" className="h-5 w-2/3" />
+    <Skeleton variant="flat" className="h-3.5 w-full" />
+  </CardHeader>
+</Card>`,
+    Component: SkeletonCardDemo,
+  },
+  "skeleton-table-demo": {
+    title: "Table Rows Skeleton",
+    filePath: "src/examples/skeleton-demo.tsx",
+    codeSnippet: `<div className="grid grid-cols-4 items-center gap-3 px-4 py-3">
+  <Skeleton variant="flat" className="h-4 w-16" />
+  <Skeleton variant="flat" className="h-4 w-24" />
+  <Skeleton variant="flat" className="h-4 w-20" />
+  <Skeleton variant="flat" className="h-5 w-14" />
+</div>`,
+    Component: SkeletonTableDemo,
+  },
+  "skeleton-interactive-demo": {
+    title: "Loading to Loaded Toggle",
+    filePath: "src/examples/skeleton-demo.tsx",
+    codeSnippet: `{loading ? (
+  <Skeleton shape="circle" variant="flat" className="h-11 w-11" />
+) : (
+  <Avatar><AvatarFallback>AM</AvatarFallback></Avatar>
+)}`,
+    Component: SkeletonInteractiveDemo,
+  },
+  "accordion-demo": {
+    title: "Accordion Overview",
+    filePath: "src/examples/accordion-demo.tsx",
+    Component: AccordionBasicDemo,
+  },
+  "accordion-basic-demo": {
+    title: "Basic Accordion",
+    filePath: "src/examples/accordion-demo.tsx",
+    codeSnippet: `<Accordion type="single" collapsible defaultValue="item-1">
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Is Punch UI accessible?</AccordionTrigger>
+    <AccordionContent>Yes, built on Radix UI primitives.</AccordionContent>
+  </AccordionItem>
+</Accordion>`,
+    Component: AccordionBasicDemo,
+  },
+  "accordion-multiple-demo": {
+    title: "Multiple Open",
+    filePath: "src/examples/accordion-demo.tsx",
+    codeSnippet: `<Accordion type="multiple" defaultValue={["deploy", "tokens"]}>
+  <AccordionItem value="deploy">...</AccordionItem>
+  <AccordionItem value="tokens">...</AccordionItem>
+</Accordion>`,
+    Component: AccordionMultipleDemo,
+  },
+  "accordion-variants-demo": {
+    title: "Variants",
+    filePath: "src/examples/accordion-demo.tsx",
+    codeSnippet: `<Accordion type="single" collapsible variant="separated">...</Accordion>
+<Accordion type="single" collapsible variant="flush">...</Accordion>`,
+    Component: AccordionVariantsDemo,
+  },
+  "accordion-rich-demo": {
+    title: "Icons, Badges, Disabled & No Shadow",
+    filePath: "src/examples/accordion-demo.tsx",
+    codeSnippet: `<Accordion type="single" collapsible noShadow>
+  <AccordionItem value="cli">
+    <AccordionTrigger>
+      <Terminal className="h-4 w-4" strokeWidth={2.5} />
+      <span>CLI &amp; Registry</span>
+      <Badge variant="success" size="sm" noShadow className="ml-auto">READY</Badge>
+    </AccordionTrigger>
+    <AccordionContent>...</AccordionContent>
+  </AccordionItem>
+</Accordion>`,
+    Component: AccordionRichDemo,
+  },
+  "toggle-group-demo": {
+    title: "Toggle Group Overview",
+    filePath: "src/examples/toggle-group-demo.tsx",
+    Component: ToggleGroupBasicDemo,
+  },
+  "toggle-group-basic-demo": {
+    title: "Multiple Formatting",
+    filePath: "src/examples/toggle-group-demo.tsx",
+    codeSnippet: `<ToggleGroup type="multiple" value={formats} onValueChange={setFormats}>
+  <ToggleGroupItem value="bold" aria-label="Toggle bold"><Bold /></ToggleGroupItem>
+  <ToggleGroupItem value="italic" aria-label="Toggle italic"><Italic /></ToggleGroupItem>
+  <ToggleGroupItem value="underline" aria-label="Toggle underline"><Underline /></ToggleGroupItem>
+</ToggleGroup>`,
+    Component: ToggleGroupBasicDemo,
+  },
+  "toggle-group-single-demo": {
+    title: "Single Selection",
+    filePath: "src/examples/toggle-group-demo.tsx",
+    codeSnippet: `<ToggleGroup type="single" value={align} onValueChange={(v) => v && setAlign(v)}>
+  <ToggleGroupItem value="left"><AlignLeft /></ToggleGroupItem>
+  <ToggleGroupItem value="center"><AlignCenter /></ToggleGroupItem>
+  <ToggleGroupItem value="right"><AlignRight /></ToggleGroupItem>
+</ToggleGroup>`,
+    Component: ToggleGroupSingleDemo,
+  },
+  "toggle-group-variants-demo": {
+    title: "Variants",
+    filePath: "src/examples/toggle-group-demo.tsx",
+    codeSnippet: `<ToggleGroup type="single" variant="outline">...</ToggleGroup>
+<ToggleGroup type="multiple" variant="secondary">...</ToggleGroup>`,
+    Component: ToggleGroupVariantsDemo,
+  },
+  "toggle-group-size-demo": {
+    title: "Size",
+    filePath: "src/examples/toggle-group-demo.tsx",
+    codeSnippet: `<ToggleGroup type="single" size="sm" variant="outline">...</ToggleGroup>
+<ToggleGroup type="single" size="default" variant="outline">...</ToggleGroup>
+<ToggleGroup type="single" size="lg" variant="outline">...</ToggleGroup>`,
+    Component: ToggleGroupSizeDemo,
+  },
+  "toggle-group-states-demo": {
+    title: "Disabled & No Shadow",
+    filePath: "src/examples/toggle-group-demo.tsx",
+    codeSnippet: `<ToggleGroupItem value="kanban" disabled>Kanban (Pro)</ToggleGroupItem>
+<ToggleGroup type="multiple" variant="outline" noShadow>...</ToggleGroup>`,
+    Component: ToggleGroupStatesDemo,
+  },
+  "rich-text-editor-demo": {
+    title: "Rich Text Editor",
+    filePath: "src/examples/rich-text-editor-demo.tsx",
+    Component: RichTextEditorDemo,
+  },
+  "rich-text-editor-basic-demo": {
+    title: "Basic (Full Toolbar)",
+    filePath: "src/examples/rich-text-editor-demo.tsx",
+    codeSnippet: `const [html, setHtml] = useState("<h2>Punch UI Release Notes</h2><p>...</p>");
+
+<RichTextEditor
+  value={html}
+  onChange={setHtml}
+  showCharacterCount
+  placeholder="Start writing your announcement..."
+/>`,
+    Component: RichTextEditorBasicDemo,
+  },
+  "rich-text-editor-minimal-demo": {
+    title: "Minimal Toolbar",
+    filePath: "src/examples/rich-text-editor-demo.tsx",
+    codeSnippet: `<RichTextEditor
+  variant="minimal"
+  size="sm"
+  value={comment}
+  onChange={setComment}
+  maxLength={280}
+  showCharacterCount
+  placeholder="Write a concise reply..."
+/>`,
+    Component: RichTextEditorMinimalDemo,
+  },
+  "rich-text-editor-size-demo": {
+    title: "Size",
+    filePath: "src/examples/rich-text-editor-demo.tsx",
+    codeSnippet: `<RichTextEditor size="sm" variant="minimal" defaultValue="<p>Compact...</p>" />
+<RichTextEditor size="default" defaultValue="<p>Standard...</p>" />
+<RichTextEditor size="lg" defaultValue="<p>Spacious...</p>" />`,
+    Component: RichTextEditorSizeDemo,
+  },
+  "rich-text-editor-states-demo": {
+    title: "Read-Only, Disabled, No Shadow & Error",
+    filePath: "src/examples/rich-text-editor-demo.tsx",
+    codeSnippet: `<RichTextEditor readOnly defaultValue={html} />
+<RichTextEditor disabled size="sm" variant="minimal" defaultValue="<p>Locked</p>" />
+<RichTextEditor noShadow size="sm" variant="minimal" defaultValue="<p>Flat</p>" />
+<RichTextEditor error size="sm" variant="minimal" placeholder="Required..." />`,
+    Component: RichTextEditorStatesDemo,
+  },
+  "rich-text-editor-form-demo": {
+    title: "Form Integration",
+    filePath: "src/examples/rich-text-editor-demo.tsx",
+    codeSnippet: `<Card>
+  <form onSubmit={handlePublish}>
+    <CardContent className="space-y-4">
+      <Input value={title} onChange={(e) => setTitle(e.target.value)} />
+      <RichTextEditor
+        value={body}
+        onChange={setBody}
+        error={hasError}
+        showCharacterCount
+        maxLength={500}
+      />
+    </CardContent>
+    <CardFooter>
+      <Button type="submit" size="sm">Publish Update</Button>
+    </CardFooter>
+  </form>
+</Card>`,
+    Component: RichTextEditorFormDemo,
+  },
+  "file-upload-demo": {
+    title: "File Upload",
+    filePath: "src/examples/file-upload-demo.tsx",
+    Component: FileUploadDemo,
+  },
+  "file-upload-basic-demo": {
+    title: "Basic Dropzone",
+    filePath: "src/examples/file-upload-demo.tsx",
+    codeSnippet: `const [files, setFiles] = useState<File[]>([]);
+
+<FileUpload value={files} onChange={setFiles} />`,
+    Component: FileUploadBasicDemo,
+  },
+  "file-upload-image-demo": {
+    title: "Image Upload with Preview",
+    filePath: "src/examples/file-upload-demo.tsx",
+    codeSnippet: `<FileUpload
+  value={images}
+  onChange={setImages}
+  accept={{ "image/*": [".png", ".jpg", ".jpeg", ".webp"] }}
+  maxSize={5 * 1024 * 1024}
+  maxFiles={4}
+  showPreview
+  title="Drop product images here"
+/>`,
+    Component: FileUploadImageDemo,
+  },
+  "file-upload-validation-demo": {
+    title: "Validation (Type, Max Size & Max Files)",
+    filePath: "src/examples/file-upload-demo.tsx",
+    codeSnippet: `<FileUpload
+  value={docs}
+  onChange={setDocs}
+  accept={{
+    "application/pdf": [".pdf"],
+    "text/csv": [".csv"],
+  }}
+  maxSize={2 * 1024 * 1024}
+  maxFiles={2}
+/>`,
+    Component: FileUploadValidationDemo,
+  },
+  "file-upload-compact-demo": {
+    title: "Compact Variant",
+    filePath: "src/examples/file-upload-demo.tsx",
+    codeSnippet: `<FileUpload
+  variant="compact"
+  multiple={false}
+  accept={{ "text/csv": [".csv"] }}
+  maxSize={5 * 1024 * 1024}
+  value={files}
+  onChange={setFiles}
+/>`,
+    Component: FileUploadCompactDemo,
+  },
+  "file-upload-states-demo": {
+    title: "Disabled, No Shadow & Error",
+    filePath: "src/examples/file-upload-demo.tsx",
+    codeSnippet: `<FileUpload disabled variant="compact" title="Uploads locked" />
+<FileUpload noShadow variant="compact" title="Flat dropzone surface" />
+<FileUpload error variant="compact" title="Please attach at least 1 file" />`,
+    Component: FileUploadStatesDemo,
+  },
+  "empty-state-demo": {
+    title: "Empty State",
+    filePath: "src/examples/empty-state-demo.tsx",
+    Component: EmptyStateDemo,
+  },
+  "empty-state-basic-demo": {
+    title: "Basic Empty State",
+    filePath: "src/examples/empty-state-demo.tsx",
+    codeSnippet: `<EmptyState>
+  <EmptyStateIcon><Inbox strokeWidth={2.5} /></EmptyStateIcon>
+  <EmptyStateTitle>No projects created yet</EmptyStateTitle>
+  <EmptyStateDescription>
+    Kick off your workspace by creating a new project or importing a repository.
+  </EmptyStateDescription>
+  <EmptyStateActions>
+    <Button size="sm">New Project</Button>
+    <Button variant="outline" size="sm">Import CSV</Button>
+  </EmptyStateActions>
+</EmptyState>`,
+    Component: EmptyStateBasicDemo,
+  },
+  "empty-state-variants-demo": {
+    title: "Variants",
+    filePath: "src/examples/empty-state-demo.tsx",
+    codeSnippet: `<EmptyState variant="default">...</EmptyState>
+<EmptyState variant="dashed">...</EmptyState>
+<EmptyState variant="muted">...</EmptyState>
+<EmptyState variant="ghost">...</EmptyState>`,
+    Component: EmptyStateVariantsDemo,
+  },
+  "empty-state-size-demo": {
+    title: "Size",
+    filePath: "src/examples/empty-state-demo.tsx",
+    codeSnippet: `<EmptyState size="sm" variant="dashed" noShadow>...</EmptyState>
+<EmptyState size="default" variant="dashed" noShadow>...</EmptyState>
+<EmptyState size="lg" variant="dashed" noShadow>...</EmptyState>`,
+    Component: EmptyStateSizeDemo,
+  },
+  "empty-state-contextual-demo": {
+    title: "No Shadow & Contextual",
+    filePath: "src/examples/empty-state-demo.tsx",
+    codeSnippet: `<EmptyState noShadow size="sm">
+  <EmptyStateIcon variant="destructive" noShadow><AlertTriangle /></EmptyStateIcon>
+  <EmptyStateTitle>Failed to load analytics</EmptyStateTitle>
+  <EmptyStateActions>
+    <Button variant="destructive" size="sm" noShadow>Retry</Button>
+  </EmptyStateActions>
+</EmptyState>`,
+    Component: EmptyStateContextualDemo,
+  },
+  "kbd-demo": {
+    title: "Kbd",
+    filePath: "src/examples/kbd-demo.tsx",
+    Component: KbdDemo,
+  },
+  "kbd-basic-demo": {
+    title: "Basic & Key Combinations",
+    filePath: "src/examples/kbd-demo.tsx",
+    codeSnippet: `<KbdGroup>
+  <Kbd>⌘</Kbd>
+  <Kbd>K</Kbd>
+</KbdGroup>
+
+<Kbd>Esc</Kbd>`,
+    Component: KbdBasicDemo,
+  },
+  "kbd-variants-demo": {
+    title: "Variants",
+    filePath: "src/examples/kbd-demo.tsx",
+    codeSnippet: `<Kbd variant="default">⌘K</Kbd>
+<Kbd variant="secondary">⌘S</Kbd>
+<Kbd variant="primary">Enter</Kbd>
+<Kbd variant="muted">Esc</Kbd>`,
+    Component: KbdVariantsDemo,
+  },
+  "kbd-size-demo": {
+    title: "Size",
+    filePath: "src/examples/kbd-demo.tsx",
+    codeSnippet: `<Kbd size="sm">⌘</Kbd>
+<Kbd size="default">⌘</Kbd>
+<Kbd size="lg">⌘</Kbd>`,
+    Component: KbdSizeDemo,
+  },
+  "kbd-context-demo": {
+    title: "Inside UI & Shortcut Cheat Sheet",
+    filePath: "src/examples/kbd-demo.tsx",
+    codeSnippet: `<Button variant="outline" className="justify-between">
+  <span>Search documentation...</span>
+  <KbdGroup>
+    <Kbd size="sm" variant="secondary" noShadow>⌘</Kbd>
+    <Kbd size="sm" variant="secondary" noShadow>K</Kbd>
+  </KbdGroup>
+</Button>`,
+    Component: KbdInContextDemo,
+  },
+  "color-picker-demo": {
+    title: "Color Picker",
+    filePath: "src/examples/color-picker-demo.tsx",
+    Component: ColorPickerDemo,
+  },
+  "color-picker-basic-demo": {
+    title: "Basic Color Picker",
+    filePath: "src/examples/color-picker-demo.tsx",
+    codeSnippet: `const [color, setColor] = useState("#ff8a00");
+
+<ColorPicker value={color} onChange={setColor} />`,
+    Component: ColorPickerBasicDemo,
+  },
+  "color-picker-presets-demo": {
+    title: "Custom Presets & Swatch-Only",
+    filePath: "src/examples/color-picker-demo.tsx",
+    codeSnippet: `<ColorPicker
+  value={brandColor}
+  onChange={setBrandColor}
+  presets={["#3b82f6", "#06b6d4", "#10b981", "#facc15", "#ff8a00", "#dc2626"]}
+/>
+
+<ColorPicker value={tagColor} onChange={setTagColor} showHex={false} />`,
+    Component: ColorPickerPresetsDemo,
+  },
+  "color-picker-size-demo": {
+    title: "Size",
+    filePath: "src/examples/color-picker-demo.tsx",
+    codeSnippet: `<ColorPicker size="sm" defaultValue="#ff8a00" />
+<ColorPicker size="default" defaultValue="#3b82f6" />
+<ColorPicker size="lg" defaultValue="#10b981" />`,
+    Component: ColorPickerSizeDemo,
+  },
+  "color-picker-states-demo": {
+    title: "Disabled, No Shadow & Error",
+    filePath: "src/examples/color-picker-demo.tsx",
+    codeSnippet: `<ColorPicker disabled defaultValue="#141923" />
+<ColorPicker noShadow defaultValue="#facc15" />
+<ColorPicker error defaultValue="#be123c" />`,
+    Component: ColorPickerStatesDemo,
+  },
+  "color-picker-card-demo": {
+    title: "Workspace Branding Preview",
+    filePath: "src/examples/color-picker-demo.tsx",
+    codeSnippet: `<ColorPicker size="sm" value={accent} onChange={setAccent} className="w-full" />
+<ColorPicker size="sm" value={surface} onChange={setSurface} className="w-full" />`,
+    Component: ColorPickerCardDemo,
+  },
+  "navigation-menu-demo": {
+    title: "Navigation Menu",
+    filePath: "src/examples/navigation-menu-demo.tsx",
+    Component: NavigationMenuDemo,
+  },
+  "navigation-menu-basic-demo": {
+    title: "Mega Menu (Featured Card + Grid Links)",
+    filePath: "src/examples/navigation-menu-demo.tsx",
+    codeSnippet: `<NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Overview</NavigationMenuTrigger>
+      <NavigationMenuContent>...</NavigationMenuContent>
+    </NavigationMenuItem>
+    <NavigationMenuItem>
+      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+        Changelog
+      </NavigationMenuLink>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenu>`,
+    Component: NavigationMenuBasicDemo,
+  },
+  "navigation-menu-simple-demo": {
+    title: "Simple List with Icons & Badges",
+    filePath: "src/examples/navigation-menu-demo.tsx",
+    codeSnippet: `<NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <ul className="w-[240px] space-y-1">...</ul>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenu>`,
+    Component: NavigationMenuSimpleDemo,
+  },
+  "navigation-menu-topbar-demo": {
+    title: "Topbar Context & No Shadow",
+    filePath: "src/examples/navigation-menu-demo.tsx",
+    codeSnippet: `<header className="flex items-center justify-between rounded-lg border-2 border-border bg-card px-4 py-2.5">
+  <span>Punch Admin</span>
+  <NavigationMenu noShadow>...</NavigationMenu>
+  <Button size="sm" noShadow>Get Started</Button>
+</header>`,
+    Component: NavigationMenuTopbarDemo,
+  },
+  "marquee-demo": {
+    title: "Marquee",
+    filePath: "src/examples/marquee-demo.tsx",
+    Component: MarqueeDemo,
+  },
+  "marquee-basic-demo": {
+    title: "Basic Marquee Ticker",
+    filePath: "src/examples/marquee-demo.tsx",
+    codeSnippet: `<Marquee variant="secondary">
+  <span>47 COMPONENTS</span>
+  <span>✦</span>
+  <span>6 LIVE PRESETS</span>
+  <span>✦</span>
+</Marquee>`,
+    Component: MarqueeBasicDemo,
+  },
+  "marquee-variants-demo": {
+    title: "Variants",
+    filePath: "src/examples/marquee-demo.tsx",
+    codeSnippet: `<Marquee variant="default">...</Marquee>
+<Marquee variant="primary">...</Marquee>
+<Marquee variant="secondary">...</Marquee>
+<Marquee variant="muted">...</Marquee>`,
+    Component: MarqueeVariantsDemo,
+  },
+  "marquee-dual-demo": {
+    title: "Dual Opposite-Direction & Speed",
+    filePath: "src/examples/marquee-demo.tsx",
+    codeSnippet: `<Marquee variant="primary" direction="left" speed="fast">...</Marquee>
+<Marquee variant="default" direction="right" speed="slow">...</Marquee>`,
+    Component: MarqueeDualDemo,
+  },
+  "marquee-no-shadow-demo": {
+    title: "No Shadow",
+    filePath: "src/examples/marquee-demo.tsx",
+    codeSnippet: `<Marquee variant="muted" noShadow pauseOnHover>...</Marquee>`,
+    Component: MarqueeNoShadowDemo,
   },
 };
 

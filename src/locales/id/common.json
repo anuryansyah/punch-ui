@@ -5,9 +5,11 @@
   "sidebar": {
     "groups": {
       "gettingStarted": "Memulai",
+      "components": "Komponen",
       "tier1": "Tier 1 • Pondasi Komponen",
       "tier2": "Tier 2 • Form & Kontrol Input",
-      "tier3": "Tier 3 • Overlay & Navigasi"
+      "tier3": "Tier 3 • Overlay & Navigasi",
+      "tier4": "Tier 4 • Visualisasi & Pelengkap"
     },
     "items": {
       "introCatalog": "Pengenalan & Katalog",
@@ -34,6 +36,8 @@
       "command": "Command",
       "combobox": "Combobox",
       "inputOtp": "Input OTP",
+      "fileUpload": "File Upload",
+      "colorPicker": "Color Picker",
       "dialog": "Dialog",
       "alertDialog": "Alert Dialog",
       "sheet": "Sheet",
@@ -42,8 +46,18 @@
       "tooltip": "Tooltip",
       "tabs": "Tabs",
       "breadcrumb": "Breadcrumb",
+      "navigationMenu": "Navigation Menu",
       "alert": "Alert",
-      "sonner": "Toast (Sonner)"
+      "sonner": "Toast (Sonner)",
+      "chart": "Charts (Recharts)",
+      "progress": "Progress",
+      "skeleton": "Skeleton",
+      "accordion": "Accordion",
+      "toggleGroup": "Toggle Group",
+      "richTextEditor": "Rich Text Editor",
+      "emptyState": "Empty State",
+      "kbd": "Kbd",
+      "marquee": "Marquee"
     },
     "liveThemeCard": {
       "title": "Tema Live Aktif",
@@ -62,6 +76,9 @@
     "copyCss": "Copy Theme CSS",
     "copiedCss": "Copied CSS!",
     "step1Presets": "1. Preset Warna (6 Tema)",
+    "presetsTab": "6 Preset",
+    "customTab": "Custom Warna",
+    "customHint": "Pilih warna sendiri — teks kontras (--*-foreground) dihitung otomatis.",
     "step2Radius": "2. Border Radius",
     "step3Mode": "3. Mode Tampilan (Light / Dark)",
     "lightMode": "Light Mode",
