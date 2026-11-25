@@ -1091,6 +1091,57 @@
         "Gunakan <KbdGroup> untuk merangkai kombinasi beberapa tombol seperti ⌘ + K atau Ctrl + Shift + P dengan jarak yang konsisten.",
         "Gunakan size=\"sm\" dan noShadow saat menyematkan Kbd di dalam tombol pencarian (Search Trigger) atau item DropdownMenu."
       ]
+    },
+    "color-picker": {
+      "title": "Color Picker",
+      "tier": "Tier 2 • Form & Input",
+      "description": "Pemilih warna Neobrutalism zero-dependency di atas Popover dengan kanvas 2D Saturation/Brightness, slider Hue, preset swatches, input Hex, tombol Copy, dan dukungan native EyeDropper.",
+      "sections": {
+        "basic": "1. Basic Color Picker",
+        "presets": "2. Custom Presets & Swatch-Only Trigger",
+        "size": "3. Size",
+        "states": "4. Disabled, No Shadow & Error",
+        "card": "5. Workspace Branding Preview"
+      },
+      "props": {
+        "value": "Nilai warna hex 6-digit terkontrol (misal \"#ff8a00\").",
+        "defaultValue": "Nilai warna hex awal untuk mode tidak terkontrol.",
+        "onChange": "Callback yang dipanggil dengan nilai hex lowercase setiap kali warna berubah.",
+        "presets": "Daftar warna preset swatches di dalam Popover (kirim [] untuk menyembunyikan).",
+        "showHex": "Menampilkan label kode hex di samping kotak warna pada tombol trigger.",
+        "size": "Ukuran tombol trigger: sm, default, atau lg.",
+        "disabled": "Menonaktifkan interaksi klik dan pembukaan Popover.",
+        "noShadow": "Menghilangkan bayangan keras pada tombol trigger.",
+        "error": "Menampilkan border dan bayangan merah (destructive) untuk status error validasi."
+      },
+      "usageNotes": [
+        "Color Picker ini dibangun tanpa dependensi NPM tambahan (cukup Popover, Input, Button, dan lucide-react) dan langsung dipakai pada Theme Customizer Punch UI.",
+        "Tombol Eyedropper muncul otomatis pada browser yang mendukung EyeDropper API (Chrome/Edge) untuk mengambil warna dari mana saja di layar.",
+        "Gunakan showHex={false} jika ingin tombol trigger ringkas hanya menampilkan kotak swatch warna."
+      ]
+    },
+    "navigation-menu": {
+      "title": "Navigation Menu",
+      "tier": "Tier 3 • Overlay & Navigasi",
+      "description": "Bar navigasi horizontal & mega-menu Neobrutalism berbasis @radix-ui/react-navigation-menu dengan viewport animasi, tombol trigger mekanis, dan navigasi keyboard penuh.",
+      "sections": {
+        "basic": "1. Mega Menu (Featured Card + Grid Links)",
+        "composition": "2. Composition",
+        "simple": "3. Simple List with Icons & Badges",
+        "topbar": "4. Topbar Context (No Border & No Shadow)"
+      },
+      "props": {
+        "viewport": "Menampilkan kontainer NavigationMenuViewport melayang di bawah bar navigasi.",
+        "noShadow": "Menghilangkan bayangan keras pada NavigationMenuTrigger dan NavigationMenuViewport (ideal di dalam Topbar padat).",
+        "noBorder": "Menghilangkan border & latar pada trigger (dapat dipasang di parent NavigationMenu, per NavigationMenuTrigger, atau pada navigationMenuTriggerStyle({ noBorder: true })).",
+        "delayDuration": "Durasi tunda (ms) sebelum panel menu terbuka saat kursor diarahkan (hover).",
+        "asChild": "Pada NavigationMenuLink: meneruskan styling ke komponen Next.js <Link /> atau tag <a>."
+      },
+      "usageNotes": [
+        "Gunakan helper navigationMenuTriggerStyle() pada NavigationMenuLink langsung (tanpa dropdown) agar tampilan tinggi & border seragam dengan NavigationMenuTrigger.",
+        "Aktifkan prop noShadow saat menyematkan NavigationMenu di dalam header/topbar berbingkai agar bayangan tidak bertumpuk.",
+        "Navigasi keyboard penuh (Tab, ←/→, Enter, Escape) bekerja otomatis dari Radix Navigation Menu."
+      ]
     }
   }
 }

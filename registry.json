@@ -514,6 +514,33 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "color-picker",
+      "type": "registry:ui",
+      "dependencies": ["class-variance-authority", "lucide-react"],
+      "registryDependencies": ["button", "input", "popover"],
+      "files": [
+        {
+          "path": "src/components/ui/color-picker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-navigation-menu",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

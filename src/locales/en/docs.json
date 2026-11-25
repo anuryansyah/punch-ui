@@ -1091,6 +1091,57 @@
         "Wrap multi-key shortcuts like ⌘ + K or Ctrl + Shift + P in <KbdGroup> for consistent horizontal spacing.",
         "Use size=\"sm\" with noShadow when embedding Kbd inside search trigger buttons or menu items."
       ]
+    },
+    "color-picker": {
+      "title": "Color Picker",
+      "tier": "Tier 2 • Form & Input",
+      "description": "Zero-dependency Neobrutalist color picker built on Popover with a 2D Saturation/Brightness canvas, Hue slider, preset swatches, Hex input, Copy button, and native EyeDropper support.",
+      "sections": {
+        "basic": "1. Basic Color Picker",
+        "presets": "2. Custom Presets & Swatch-Only Trigger",
+        "size": "3. Size",
+        "states": "4. Disabled, No Shadow & Error",
+        "card": "5. Workspace Branding Preview"
+      },
+      "props": {
+        "value": "Controlled 6-digit hex color string (e.g. \"#ff8a00\").",
+        "defaultValue": "Initial hex color for uncontrolled usage.",
+        "onChange": "Callback fired with the updated lowercase hex color whenever the selection changes.",
+        "presets": "Array of quick-pick swatch hex colors shown inside the Popover (pass [] to hide).",
+        "showHex": "Displays the monospace hex code next to the swatch inside the trigger button.",
+        "size": "Trigger button size scale: sm, default, or lg.",
+        "disabled": "Disables clicking and opening the color picker popover.",
+        "noShadow": "Removes the hard offset shadow on the trigger button.",
+        "error": "Applies destructive border and shadow styling for form validation feedback."
+      },
+      "usageNotes": [
+        "Zero extra NPM dependencies — composed entirely from Punch UI's Popover, Input, Button, and lucide-react, and dogfooded directly inside ThemeCustomizer.",
+        "The Eyedropper button automatically appears in browsers supporting the EyeDropper API (Chrome/Edge) to sample any color on screen.",
+        "Pass showHex={false} for a compact swatch-only trigger button."
+      ]
+    },
+    "navigation-menu": {
+      "title": "Navigation Menu",
+      "tier": "Tier 3 • Overlays & Navigation",
+      "description": "Neobrutalist horizontal navigation bar and mega-menu powered by @radix-ui/react-navigation-menu with an animated viewport, tactile triggers, and full keyboard support.",
+      "sections": {
+        "basic": "1. Mega Menu (Featured Card + Grid Links)",
+        "composition": "2. Composition",
+        "simple": "3. Simple List with Icons & Badges",
+        "topbar": "4. Topbar Context (No Border & No Shadow)"
+      },
+      "props": {
+        "viewport": "Renders the floating NavigationMenuViewport panel beneath the trigger bar.",
+        "noShadow": "Removes hard offset shadows on NavigationMenuTrigger and NavigationMenuViewport (ideal inside dense topbars).",
+        "noBorder": "Removes borders & card fill on triggers (configurable on NavigationMenu parent, individual NavigationMenuTrigger, or navigationMenuTriggerStyle({ noBorder: true })).",
+        "delayDuration": "Hover delay duration (ms) before opening a dropdown panel.",
+        "asChild": "On NavigationMenuLink: forwards props and styling to Next.js <Link /> or an anchor tag."
+      },
+      "usageNotes": [
+        "Apply navigationMenuTriggerStyle() on standalone NavigationMenuLink items so their height and borders match NavigationMenuTrigger buttons.",
+        "Enable noShadow when nesting NavigationMenu inside a bordered header/topbar to avoid stacked shadows.",
+        "Full keyboard navigation (Tab, ←/→, Enter, Escape) works out of the box via Radix Navigation Menu."
+      ]
     }
   }
 }

@@ -33,6 +33,7 @@ export function DocsSidebarNav() {
     { title: nav.items.card, href: "/docs/components/card" },
     { title: nav.items.chart, href: "/docs/components/chart" },
     { title: nav.items.checkbox, href: "/docs/components/checkbox" },
+    { title: nav.items.colorPicker, href: "/docs/components/color-picker" },
     { title: nav.items.combobox, href: "/docs/components/combobox" },
     { title: nav.items.command, href: "/docs/components/command" },
     { title: nav.items.dataTable, href: "/docs/components/data-table" },
@@ -45,6 +46,10 @@ export function DocsSidebarNav() {
     { title: nav.items.input, href: "/docs/components/input" },
     { title: nav.items.inputOtp, href: "/docs/components/input-otp" },
     { title: nav.items.kbd, href: "/docs/components/kbd" },
+    {
+      title: nav.items.navigationMenu,
+      href: "/docs/components/navigation-menu",
+    },
     { title: nav.items.pagination, href: "/docs/components/pagination" },
     { title: nav.items.popover, href: "/docs/components/popover" },
     { title: nav.items.progress, href: "/docs/components/progress" },

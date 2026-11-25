@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const alertVariants = cva(
   [
     "relative w-full rounded-md border-2 border-border px-4 py-3.5 text-sm",
-    "[&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:h-4 [&>svg]:w-4 [&>svg~*]:pl-7",
+    "[&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:h-4 [&>svg]:w-4 [&>svg~*:not([data-alert-dismiss])]:pl-7",
   ].join(" "),
   {
     variants: {
@@ -73,9 +73,10 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       {dismissible && (
         <button
           type="button"
+          data-alert-dismiss=""
           aria-label="Dismiss alert"
           onClick={onDismiss}
-          className="border-current/30 absolute right-3 top-3 inline-flex h-6 w-6 items-center justify-center rounded-sm border-2 transition-colors hover:bg-black/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+          className="absolute right-3 top-3 inline-flex h-6 w-6 cursor-pointer items-center justify-center rounded-sm border-2 border-current p-0 transition-colors hover:bg-black/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
         >
           <X className="h-3.5 w-3.5" strokeWidth={2.5} />
         </button>

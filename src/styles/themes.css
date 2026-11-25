@@ -31,16 +31,16 @@
 /* 3. Cyber Yellow */
 :root[data-theme="cyber-yellow"],
 [data-theme="cyber-yellow"] {
-  --background: #fef9c3;
+  --background: #fefdf5;
   --foreground: #000000;
-  --card: #fefce8;
+  --card: #ffffff;
   --card-foreground: #000000;
   --primary: #facc15;
   --primary-foreground: #000000;
-  --secondary: #fde047;
+  --secondary: #fef08a;
   --secondary-foreground: #000000;
-  --muted: #fef08a;
-  --muted-foreground: #422006;
+  --muted: #f6f4e8;
+  --muted-foreground: #525252;
 }
 
 /* 4. Deep Ink (Kanvas Terang Cool Slate + Aksen Tinta Gelap) */
@@ -67,7 +67,7 @@
   --card-foreground: #000000;
   --primary: #f46b86;
   --primary-foreground: #ffffff;
-  --secondary: #fce7f3;
+  --secondary: #fbcfe8;
   --secondary-foreground: #000000;
   --muted: #fce7eb;
   --muted-foreground: #525252;

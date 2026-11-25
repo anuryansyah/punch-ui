@@ -336,6 +336,20 @@ import {
   KbdSizeDemo,
   KbdVariantsDemo,
 } from "@/examples/kbd-demo";
+import {
+  ColorPickerBasicDemo,
+  ColorPickerCardDemo,
+  ColorPickerDemo,
+  ColorPickerPresetsDemo,
+  ColorPickerSizeDemo,
+  ColorPickerStatesDemo,
+} from "@/examples/color-picker-demo";
+import {
+  NavigationMenuBasicDemo,
+  NavigationMenuDemo,
+  NavigationMenuSimpleDemo,
+  NavigationMenuTopbarDemo,
+} from "@/examples/navigation-menu-demo";
 
 const DEMO_REGISTRY: Record<
   string,
@@ -4695,6 +4709,102 @@ toast.error("Connection Failed");`,
   </KbdGroup>
 </Button>`,
     Component: KbdInContextDemo,
+  },
+  "color-picker-demo": {
+    title: "Color Picker",
+    filePath: "src/examples/color-picker-demo.tsx",
+    Component: ColorPickerDemo,
+  },
+  "color-picker-basic-demo": {
+    title: "Basic Color Picker",
+    filePath: "src/examples/color-picker-demo.tsx",
+    codeSnippet: `const [color, setColor] = useState("#ff8a00");
+
+<ColorPicker value={color} onChange={setColor} />`,
+    Component: ColorPickerBasicDemo,
+  },
+  "color-picker-presets-demo": {
+    title: "Custom Presets & Swatch-Only",
+    filePath: "src/examples/color-picker-demo.tsx",
+    codeSnippet: `<ColorPicker
+  value={brandColor}
+  onChange={setBrandColor}
+  presets={["#3b82f6", "#06b6d4", "#10b981", "#facc15", "#ff8a00", "#dc2626"]}
+/>
+
+<ColorPicker value={tagColor} onChange={setTagColor} showHex={false} />`,
+    Component: ColorPickerPresetsDemo,
+  },
+  "color-picker-size-demo": {
+    title: "Size",
+    filePath: "src/examples/color-picker-demo.tsx",
+    codeSnippet: `<ColorPicker size="sm" defaultValue="#ff8a00" />
+<ColorPicker size="default" defaultValue="#3b82f6" />
+<ColorPicker size="lg" defaultValue="#10b981" />`,
+    Component: ColorPickerSizeDemo,
+  },
+  "color-picker-states-demo": {
+    title: "Disabled, No Shadow & Error",
+    filePath: "src/examples/color-picker-demo.tsx",
+    codeSnippet: `<ColorPicker disabled defaultValue="#141923" />
+<ColorPicker noShadow defaultValue="#facc15" />
+<ColorPicker error defaultValue="#be123c" />`,
+    Component: ColorPickerStatesDemo,
+  },
+  "color-picker-card-demo": {
+    title: "Workspace Branding Preview",
+    filePath: "src/examples/color-picker-demo.tsx",
+    codeSnippet: `<ColorPicker size="sm" value={accent} onChange={setAccent} className="w-full" />
+<ColorPicker size="sm" value={surface} onChange={setSurface} className="w-full" />`,
+    Component: ColorPickerCardDemo,
+  },
+  "navigation-menu-demo": {
+    title: "Navigation Menu",
+    filePath: "src/examples/navigation-menu-demo.tsx",
+    Component: NavigationMenuDemo,
+  },
+  "navigation-menu-basic-demo": {
+    title: "Mega Menu (Featured Card + Grid Links)",
+    filePath: "src/examples/navigation-menu-demo.tsx",
+    codeSnippet: `<NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Overview</NavigationMenuTrigger>
+      <NavigationMenuContent>...</NavigationMenuContent>
+    </NavigationMenuItem>
+    <NavigationMenuItem>
+      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+        Changelog
+      </NavigationMenuLink>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenu>`,
+    Component: NavigationMenuBasicDemo,
+  },
+  "navigation-menu-simple-demo": {
+    title: "Simple List with Icons & Badges",
+    filePath: "src/examples/navigation-menu-demo.tsx",
+    codeSnippet: `<NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <ul className="w-[240px] space-y-1">...</ul>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenu>`,
+    Component: NavigationMenuSimpleDemo,
+  },
+  "navigation-menu-topbar-demo": {
+    title: "Topbar Context & No Shadow",
+    filePath: "src/examples/navigation-menu-demo.tsx",
+    codeSnippet: `<header className="flex items-center justify-between rounded-lg border-2 border-border bg-card px-4 py-2.5">
+  <span>Punch Admin</span>
+  <NavigationMenu noShadow>...</NavigationMenu>
+  <Button size="sm" noShadow>Get Started</Button>
+</header>`,
+    Component: NavigationMenuTopbarDemo,
   },
 };
 

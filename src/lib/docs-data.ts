@@ -802,6 +802,42 @@ function getKbdPropDesc(
   };
 }
 
+function getColorPickerSectionTitle(
+  secId: keyof (typeof dictionaries.id.docs.components)["color-picker"]["sections"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["color-picker"].sections[secId],
+    en: dictionaries.en.docs.components["color-picker"].sections[secId],
+  };
+}
+
+function getColorPickerPropDesc(
+  propName: keyof (typeof dictionaries.id.docs.components)["color-picker"]["props"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["color-picker"].props[propName],
+    en: dictionaries.en.docs.components["color-picker"].props[propName],
+  };
+}
+
+function getNavigationMenuSectionTitle(
+  secId: keyof (typeof dictionaries.id.docs.components)["navigation-menu"]["sections"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["navigation-menu"].sections[secId],
+    en: dictionaries.en.docs.components["navigation-menu"].sections[secId],
+  };
+}
+
+function getNavigationMenuPropDesc(
+  propName: keyof (typeof dictionaries.id.docs.components)["navigation-menu"]["props"]
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components["navigation-menu"].props[propName],
+    en: dictionaries.en.docs.components["navigation-menu"].props[propName],
+  };
+}
+
 export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
   button: {
     slug: "button",
@@ -5015,6 +5051,218 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
         type: "boolean",
         defaultValue: "false",
         description: getKbdPropDesc("noShadow"),
+      },
+    ],
+  },
+  "color-picker": {
+    slug: "color-picker",
+    ...getComponentText("color-picker"),
+    demoName: "color-picker-demo",
+    sourceFile: "src/components/ui/color-picker.tsx",
+    registryItem: "color-picker",
+    sections: [
+      {
+        id: "basic",
+        title: getColorPickerSectionTitle("basic"),
+        demoName: "color-picker-basic-demo",
+        propsUsed: "ColorPicker value onChange",
+      },
+      {
+        id: "presets",
+        title: getColorPickerSectionTitle("presets"),
+        demoName: "color-picker-presets-demo",
+        propsUsed: "presets showHex={false}",
+      },
+      {
+        id: "size",
+        title: getColorPickerSectionTitle("size"),
+        demoName: "color-picker-size-demo",
+        propsUsed: 'size="sm | default | lg"',
+      },
+      {
+        id: "states",
+        title: getColorPickerSectionTitle("states"),
+        demoName: "color-picker-states-demo",
+        propsUsed: "disabled noShadow error",
+      },
+      {
+        id: "card",
+        title: getColorPickerSectionTitle("card"),
+        demoName: "color-picker-card-demo",
+        propsUsed: "Card ColorPicker live branding",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "value",
+        type: "string",
+        defaultValue: "undefined",
+        description: getColorPickerPropDesc("value"),
+      },
+      {
+        prop: "defaultValue",
+        type: "string",
+        defaultValue: '"#ff8a00"',
+        description: getColorPickerPropDesc("defaultValue"),
+      },
+      {
+        prop: "onChange",
+        type: "(hex: string) => void",
+        defaultValue: "undefined",
+        description: getColorPickerPropDesc("onChange"),
+      },
+      {
+        prop: "presets",
+        type: "string[]",
+        defaultValue: "12 colors",
+        description: getColorPickerPropDesc("presets"),
+      },
+      {
+        prop: "showHex",
+        type: "boolean",
+        defaultValue: "true",
+        description: getColorPickerPropDesc("showHex"),
+      },
+      {
+        prop: "size",
+        type: '"sm" | "default" | "lg"',
+        defaultValue: '"default"',
+        description: getColorPickerPropDesc("size"),
+      },
+      {
+        prop: "disabled",
+        type: "boolean",
+        defaultValue: "false",
+        description: getColorPickerPropDesc("disabled"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getColorPickerPropDesc("noShadow"),
+      },
+      {
+        prop: "error",
+        type: "boolean",
+        defaultValue: "false",
+        description: getColorPickerPropDesc("error"),
+      },
+    ],
+  },
+  "navigation-menu": {
+    slug: "navigation-menu",
+    ...getComponentText("navigation-menu"),
+    demoName: "navigation-menu-demo",
+    sourceFile: "src/components/ui/navigation-menu.tsx",
+    registryItem: "navigation-menu",
+    installGuide: {
+      npmCommand:
+        "npm install @radix-ui/react-navigation-menu class-variance-authority lucide-react",
+      note: {
+        id: "Perintah CLI shadcn di atas otomatis memasang semua paket berikut. Jika copy-paste manual, pastikan paket-paket ini terpasang:",
+        en: "The shadcn CLI command above installs all packages below automatically. If copying manually, install these packages:",
+      },
+      packages: [
+        {
+          name: "@radix-ui/react-navigation-menu",
+          purpose: {
+            id: "Primitif navigasi & mega-menu aksesibel dengan hover intent, viewport dinamis, dan navigasi keyboard.",
+            en: "Accessible navigation and mega-menu primitive with hover intent, dynamic viewport, and keyboard navigation.",
+          },
+        },
+        {
+          name: "class-variance-authority",
+          purpose: {
+            id: "Helper navigationMenuTriggerStyle() untuk menyeragamkan gaya trigger dan link langsung.",
+            en: "Powers navigationMenuTriggerStyle() to keep triggers and standalone links visually consistent.",
+          },
+        },
+        {
+          name: "lucide-react",
+          purpose: {
+            id: "Ikon ChevronDown yang berputar otomatis saat dropdown menu terbuka.",
+            en: "Rotating ChevronDown indicator icon on NavigationMenuTrigger.",
+          },
+        },
+      ],
+    },
+    sections: [
+      {
+        id: "basic",
+        title: getNavigationMenuSectionTitle("basic"),
+        demoName: "navigation-menu-basic-demo",
+        propsUsed: "NavigationMenu NavigationMenuTrigger NavigationMenuContent",
+      },
+      {
+        id: "composition",
+        title: getNavigationMenuSectionTitle("composition"),
+        propsUsed: "NavigationMenu anatomy",
+        tree: {
+          name: "NavigationMenu",
+          role: "root",
+          children: [
+            {
+              name: "NavigationMenuList",
+              role: "section",
+              children: [
+                {
+                  name: "NavigationMenuItem",
+                  role: "section",
+                  children: [
+                    { name: "NavigationMenuTrigger", role: "leaf" },
+                    { name: "NavigationMenuContent", role: "leaf" },
+                    { name: "NavigationMenuLink", role: "leaf" },
+                  ],
+                },
+              ],
+            },
+            { name: "NavigationMenuViewport", role: "leaf" },
+          ],
+        },
+      },
+      {
+        id: "simple",
+        title: getNavigationMenuSectionTitle("simple"),
+        demoName: "navigation-menu-simple-demo",
+        propsUsed: "NavigationMenuLink Badge Icons",
+      },
+      {
+        id: "topbar",
+        title: getNavigationMenuSectionTitle("topbar"),
+        demoName: "navigation-menu-topbar-demo",
+        propsUsed: "NavigationMenu noBorder noShadow",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "viewport",
+        type: "boolean",
+        defaultValue: "true",
+        description: getNavigationMenuPropDesc("viewport"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getNavigationMenuPropDesc("noShadow"),
+      },
+      {
+        prop: "noBorder",
+        type: "boolean",
+        defaultValue: "false",
+        description: getNavigationMenuPropDesc("noBorder"),
+      },
+      {
+        prop: "delayDuration",
+        type: "number",
+        defaultValue: "200",
+        description: getNavigationMenuPropDesc("delayDuration"),
+      },
+      {
+        prop: "NavigationMenuLink.asChild",
+        type: "boolean",
+        defaultValue: "false",
+        description: getNavigationMenuPropDesc("asChild"),
       },
     ],
   },
