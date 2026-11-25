@@ -22,6 +22,10 @@ export interface ScrollAreaProps extends React.HTMLAttributes<HTMLDivElement> {
    */
   noShadow?: boolean;
   /**
+   * Menghilangkan garis tepi (border-2) pada kontainer luar
+   */
+  noBorder?: boolean;
+  /**
    * Ketebalan scrollbar:
    * - "sm" = 8px (default tipis)
    * - "md" = 10px
@@ -60,6 +64,7 @@ export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
       orientation = "vertical",
       variant = "default",
       noShadow = false,
+      noBorder = false,
       scrollbarSize = "sm",
       scrollbarVariant = "default",
       viewportClassName,
@@ -244,7 +249,8 @@ export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
           "relative flex overflow-hidden",
           variant === "default"
             ? cn(
-                "rounded-lg border-2 border-border bg-card text-card-foreground",
+                "rounded-lg bg-card text-card-foreground",
+                noBorder ? "border-0" : "border-2 border-border",
                 noShadow ? "shadow-none" : "shadow-brutal-sm"
               )
             : "rounded-none border-0 bg-transparent shadow-none",

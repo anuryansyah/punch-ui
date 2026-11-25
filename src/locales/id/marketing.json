@@ -1,9 +1,20 @@
 {
   "hero": {
-    "badge": "Sistem Desain & 6 Tema Aktif",
+    "badge": "47 Komponen • 6 Tema & Custom Builder",
     "title": "PUNCH UI",
-    "description": "Koleksi komponen shadcn/ui bergaya Neobrutalism dengan garis tepi tegas 2px, bayangan keras 4px 4px 0px, dan 6 preset warna real-time.",
-    "ctaDocs": "Buka Dokumentasi & Live Preview"
+    "description": "Koleksi komponen shadcn/ui bergaya Neobrutalism dengan garis tepi tegas 2px, bayangan keras, 6 preset warna + Custom Theme Builder real-time, dan distribusi Custom Registry CLI.",
+    "ctaDocs": "Buka Dokumentasi & Katalog",
+    "ctaShowcase": "Lihat Live Showcase"
+  },
+  "showcase": {
+    "badge": "Real-Case Interactive Playground",
+    "title": "Semua Komponen Hidup & Interaktif",
+    "description": "Coba ubah tema warna, radius, atau Dark Mode di Theme Customizer di atas — seluruh kartu skenario nyata di bawah ini akan ikut berubah secara real-time."
+  },
+  "cta": {
+    "title": "Siap Bangun Dashboard Neobrutalism?",
+    "description": "Salin token CSS dari halaman panduan setup, lalu tarik komponen yang kamu butuhkan langsung lewat shadcn Custom Registry CLI.",
+    "button": "Mulai Setup Sekarang"
   },
   "cards": {
     "kpi": {

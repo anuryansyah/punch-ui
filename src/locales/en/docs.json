@@ -207,6 +207,7 @@
         "scrollbarVariant": "Track style & visibility: 'default' (borderless track, always visible), 'auto' (borderless track, revealed on scroll/hover/drag), or 'bordered' (transparent track with 1.5px border).",
         "variant": "Outer container style: 'default' (2px border + bg-card) or 'ghost' (borderless & shadowless for embedding inside Cards/Sidebars).",
         "noShadow": "Removes the hard shadow on the outer ScrollArea container.",
+        "noBorder": "Removes the 2px outer border on ScrollArea while keeping the bg-card surface.",
         "viewportClassName": "Additional CSS classes applied directly to the inner scrollable viewport."
       },
       "usageNotes": [
@@ -1141,6 +1142,29 @@
         "Apply navigationMenuTriggerStyle() on standalone NavigationMenuLink items so their height and borders match NavigationMenuTrigger buttons.",
         "Enable noShadow when nesting NavigationMenu inside a bordered header/topbar to avoid stacked shadows.",
         "Full keyboard navigation (Tab, ←/→, Enter, Escape) works out of the box via Radix Navigation Menu."
+      ]
+    },
+    "marquee": {
+      "title": "Marquee",
+      "tier": "Tier 4 • Data Viz & Utilities",
+      "description": "Seamless infinite-scrolling Neobrutalist ticker strip supporting left/right directions, 3 speed presets, pause-on-hover, and 4 surface variants.",
+      "sections": {
+        "basic": "1. Basic Marquee Ticker",
+        "variants": "2. Variants (Default, Primary, Secondary & Muted)",
+        "dual": "3. Dual Opposite-Direction & Speed",
+        "no-shadow": "4. No Shadow"
+      },
+      "props": {
+        "variant": "Strip surface palette: default (card), primary, secondary, or muted.",
+        "direction": "Scroll direction: left or right.",
+        "speed": "Animation speed preset: slow (44s), normal (28s), or fast (18s).",
+        "pauseOnHover": "Automatically pauses scrolling when hovering over the marquee strip.",
+        "noShadow": "Removes the hard offset drop shadow from the Marquee container."
+      },
+      "usageNotes": [
+        "Include @keyframes marquee and .animate-marquee / .animate-marquee-reverse from globals.css in your project.",
+        "Stack two Marquee rows with direction=\"left\" and direction=\"right\" for a classic Neobrutalist landing page banner.",
+        "Keep pauseOnHover enabled (default) whenever the marquee contains clickable links or badges."
       ]
     }
   }

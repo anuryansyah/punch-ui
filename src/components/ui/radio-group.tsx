@@ -34,7 +34,7 @@ RadioGroup.displayName = RadioGroupPrimitive.Root.displayName;
 
 const radioItemVariants = cva(
   [
-    "aspect-square shrink-0 cursor-pointer border-2 bg-card transition-[box-shadow,border-color,background-color]",
+    "inline-flex aspect-square shrink-0 cursor-pointer items-center justify-center border-2 bg-card p-0 transition-[box-shadow,border-color,background-color]",
     "focus-visible:outline-none",
     "disabled:cursor-not-allowed disabled:opacity-50",
   ].join(" "),
@@ -68,7 +68,7 @@ const radioItemVariants = cva(
   }
 );
 
-const radioIndicatorVariants = cva("block", {
+const radioIndicatorVariants = cva("block h-full w-full", {
   variants: {
     variant: {
       primary: "bg-primary",
@@ -83,16 +83,10 @@ const radioIndicatorVariants = cva("block", {
       circle: "rounded-full",
       square: "rounded-[1px]",
     },
-    radioSize: {
-      sm: "h-2 w-2",
-      default: "h-2.5 w-2.5",
-      lg: "h-3 w-3",
-    },
   },
   defaultVariants: {
     variant: "primary",
     shape: "circle",
-    radioSize: "default",
   },
 });
 
@@ -132,10 +126,17 @@ export const RadioGroupItem = React.forwardRef<
       )}
       {...rest}
     >
-      <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
-        <span
-          className={radioIndicatorVariants({ variant, shape, radioSize })}
-        />
+      <RadioGroupPrimitive.Indicator
+        className={cn(
+          "block h-full w-full border-transparent",
+          radioSize === "sm"
+            ? "border-[3px]"
+            : radioSize === "lg"
+              ? "border-[5px]"
+              : "border-4"
+        )}
+      >
+        <span className={radioIndicatorVariants({ variant, shape })} />
       </RadioGroupPrimitive.Indicator>
     </RadioGroupPrimitive.Item>
   )

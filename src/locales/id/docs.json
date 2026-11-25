@@ -207,6 +207,7 @@
         "scrollbarVariant": "Gaya track & visibilitas scrollbar: 'default' (tanpa border track, selalu tampil), 'auto' (tanpa border track, muncul hanya saat scroll/hover/drag), atau 'bordered' (track transparan ber-border 1.5px).",
         "variant": "Gaya kontainer luar: 'default' (border 2px + bg-card) atau 'ghost' (tanpa border & bayangan agar menyatu di dalam Card/Sidebar).",
         "noShadow": "Menghilangkan bayangan keras pada kontainer ScrollArea.",
+        "noBorder": "Menghilangkan garis tepi (border-2) pada kontainer ScrollArea sambil tetap mempertahankan latar bg-card.",
         "viewportClassName": "Class CSS tambahan khusus untuk elemen viewport bagian dalam."
       },
       "usageNotes": [
@@ -1141,6 +1142,29 @@
         "Gunakan helper navigationMenuTriggerStyle() pada NavigationMenuLink langsung (tanpa dropdown) agar tampilan tinggi & border seragam dengan NavigationMenuTrigger.",
         "Aktifkan prop noShadow saat menyematkan NavigationMenu di dalam header/topbar berbingkai agar bayangan tidak bertumpuk.",
         "Navigasi keyboard penuh (Tab, ←/→, Enter, Escape) bekerja otomatis dari Radix Navigation Menu."
+      ]
+    },
+    "marquee": {
+      "title": "Marquee",
+      "tier": "Tier 4 • Visualisasi & Pelengkap",
+      "description": "Strip ticker berjalan tanpa putus (infinite loop) bergaya Neobrutalism dengan dukungan arah kiri/kanan, 3 kecepatan, pause-on-hover, dan 4 varian warna.",
+      "sections": {
+        "basic": "1. Basic Marquee Ticker",
+        "variants": "2. Variants (Default, Primary, Secondary & Muted)",
+        "dual": "3. Dual Opposite-Direction & Speed",
+        "no-shadow": "4. No Shadow"
+      },
+      "props": {
+        "variant": "Warna latar strip: default (card), primary, secondary, atau muted.",
+        "direction": "Arah gulir animasi: left (kiri) atau right (kanan).",
+        "speed": "Kecepatan animasi: slow (44s), normal (28s), atau fast (18s).",
+        "pauseOnHover": "Menjeda animasi secara otomatis saat kursor berada di atas strip.",
+        "noShadow": "Menghilangkan bayangan keras pada kontainer Marquee."
+      },
+      "usageNotes": [
+        "Pastikan keyframes @keyframes marquee dan utility .animate-marquee / .animate-marquee-reverse dari globals.css sudah disalin ke proyekmu.",
+        "Kombinasikan dua Marquee dengan direction=\"left\" dan direction=\"right\" untuk efek dual ticker khas landing page Neobrutalism.",
+        "Aktifkan pauseOnHover (aktif secara default) jika di dalam Marquee terdapat link atau Badge yang bisa diklik."
       ]
     }
   }

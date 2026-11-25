@@ -122,7 +122,9 @@ export function ChartStackedBarDemo() {
         <ChartTooltip
           content={
             <ChartTooltipContent
-              valueFormatter={(v) => `$${Number(v ?? 0).toLocaleString()}`}
+              valueFormatter={(v) =>
+                `$${Number(v ?? 0).toLocaleString("en-US")}`
+              }
             />
           }
         />
@@ -330,7 +332,7 @@ export function ChartDonutDemo() {
         </ChartContainer>
         <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
           <span className="font-mono text-2xl font-black leading-none">
-            {totalVisitors.toLocaleString()}
+            {totalVisitors.toLocaleString("en-US")}
           </span>
           <span className="mt-1 font-mono text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
             Visitors
@@ -464,7 +466,7 @@ function NeobrutalTreemapCell({
           stroke="none"
           className="font-mono text-xs font-bold opacity-90"
         >
-          ${size.toLocaleString()}
+          ${size.toLocaleString("en-US")}
         </text>
       )}
     </g>
@@ -486,7 +488,9 @@ export function ChartTreemapDemo() {
           content={
             <ChartTooltipContent
               hideLabel
-              valueFormatter={(v) => `$${Number(v ?? 0).toLocaleString()} / mo`}
+              valueFormatter={(v) =>
+                `$${Number(v ?? 0).toLocaleString("en-US")} / mo`
+              }
             />
           }
         />
@@ -540,7 +544,7 @@ export function ChartInteractiveDemo() {
           <CardDescription>
             Total in window:{" "}
             <span className="font-mono font-black text-foreground">
-              {total.toLocaleString()}
+              {total.toLocaleString("en-US")}
             </span>
           </CardDescription>
         </div>

@@ -77,11 +77,11 @@ export function LanguageSwitcher() {
 
   return (
     <div className="inline-flex items-center gap-1.5">
-      <Globe
+      {/* <Globe
         className="h-4 w-4 text-muted-foreground"
         strokeWidth={2.5}
         aria-hidden="true"
-      />
+      /> */}
       <ToggleGroup
         type="single"
         variant="outline"

@@ -5,8 +5,9 @@ import { cn } from "@/lib/utils";
 
 const buttonGroupVariants = cva(
   [
-    "inline-flex w-fit items-stretch rounded-md",
+    "inline-flex w-fit items-stretch rounded-md transition-all",
     "[&>*]:!shadow-none [&>*]:active:!translate-x-0 [&>*]:active:!translate-y-0",
+    "[&>button:not(:disabled):active]:brightness-95",
     "[&>*:focus-visible]:relative [&>*:focus-visible]:z-10",
   ].join(" "),
   {

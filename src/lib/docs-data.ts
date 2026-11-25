@@ -838,6 +838,24 @@ function getNavigationMenuPropDesc(
   };
 }
 
+function getMarqueeSectionTitle(
+  secId: keyof typeof dictionaries.id.docs.components.marquee.sections
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.marquee.sections[secId],
+    en: dictionaries.en.docs.components.marquee.sections[secId],
+  };
+}
+
+function getMarqueePropDesc(
+  propName: keyof typeof dictionaries.id.docs.components.marquee.props
+): Bilingual {
+  return {
+    id: dictionaries.id.docs.components.marquee.props[propName],
+    en: dictionaries.en.docs.components.marquee.props[propName],
+  };
+}
+
 export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
   button: {
     slug: "button",
@@ -1513,6 +1531,12 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
         type: "boolean",
         defaultValue: "false",
         description: getScrollAreaPropDesc("noShadow"),
+      },
+      {
+        prop: "noBorder",
+        type: "boolean",
+        defaultValue: "false",
+        description: getScrollAreaPropDesc("noBorder"),
       },
       {
         prop: "viewportClassName",
@@ -5263,6 +5287,71 @@ export const COMPONENT_DOCS: Record<string, ComponentDocData> = {
         type: "boolean",
         defaultValue: "false",
         description: getNavigationMenuPropDesc("asChild"),
+      },
+    ],
+  },
+  marquee: {
+    slug: "marquee",
+    ...getComponentText("marquee"),
+    demoName: "marquee-demo",
+    sourceFile: "src/components/ui/marquee.tsx",
+    registryItem: "marquee",
+    sections: [
+      {
+        id: "basic",
+        title: getMarqueeSectionTitle("basic"),
+        demoName: "marquee-basic-demo",
+        propsUsed: 'Marquee variant="secondary"',
+      },
+      {
+        id: "variants",
+        title: getMarqueeSectionTitle("variants"),
+        demoName: "marquee-variants-demo",
+        propsUsed: 'variant="default | primary | secondary | muted"',
+      },
+      {
+        id: "dual",
+        title: getMarqueeSectionTitle("dual"),
+        demoName: "marquee-dual-demo",
+        propsUsed: 'direction="left | right" speed="slow | normal | fast"',
+      },
+      {
+        id: "no-shadow",
+        title: getMarqueeSectionTitle("no-shadow"),
+        demoName: "marquee-no-shadow-demo",
+        propsUsed: "noShadow pauseOnHover",
+      },
+    ],
+    propsTable: [
+      {
+        prop: "variant",
+        type: '"default" | "primary" | "secondary" | "muted"',
+        defaultValue: '"default"',
+        description: getMarqueePropDesc("variant"),
+      },
+      {
+        prop: "direction",
+        type: '"left" | "right"',
+        defaultValue: '"left"',
+        description: getMarqueePropDesc("direction"),
+      },
+      {
+        prop: "speed",
+        type: '"slow" | "normal" | "fast"',
+        defaultValue: '"normal"',
+        description: getMarqueePropDesc("speed"),
+      },
+      {
+        prop: "pauseOnHover",
+        type: "boolean",
+        defaultValue: "true",
+        description: getMarqueePropDesc("pauseOnHover"),
+      },
+      {
+        prop: "noShadow",
+        type: "boolean",
+        defaultValue: "false",
+        description: getMarqueePropDesc("noShadow"),
       },
     ],
   },

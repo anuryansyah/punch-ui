@@ -350,6 +350,13 @@ import {
   NavigationMenuSimpleDemo,
   NavigationMenuTopbarDemo,
 } from "@/examples/navigation-menu-demo";
+import {
+  MarqueeBasicDemo,
+  MarqueeDemo,
+  MarqueeDualDemo,
+  MarqueeNoShadowDemo,
+  MarqueeVariantsDemo,
+} from "@/examples/marquee-demo";
 
 const DEMO_REGISTRY: Record<
   string,
@@ -4805,6 +4812,44 @@ toast.error("Connection Failed");`,
   <Button size="sm" noShadow>Get Started</Button>
 </header>`,
     Component: NavigationMenuTopbarDemo,
+  },
+  "marquee-demo": {
+    title: "Marquee",
+    filePath: "src/examples/marquee-demo.tsx",
+    Component: MarqueeDemo,
+  },
+  "marquee-basic-demo": {
+    title: "Basic Marquee Ticker",
+    filePath: "src/examples/marquee-demo.tsx",
+    codeSnippet: `<Marquee variant="secondary">
+  <span>47 COMPONENTS</span>
+  <span>✦</span>
+  <span>6 LIVE PRESETS</span>
+  <span>✦</span>
+</Marquee>`,
+    Component: MarqueeBasicDemo,
+  },
+  "marquee-variants-demo": {
+    title: "Variants",
+    filePath: "src/examples/marquee-demo.tsx",
+    codeSnippet: `<Marquee variant="default">...</Marquee>
+<Marquee variant="primary">...</Marquee>
+<Marquee variant="secondary">...</Marquee>
+<Marquee variant="muted">...</Marquee>`,
+    Component: MarqueeVariantsDemo,
+  },
+  "marquee-dual-demo": {
+    title: "Dual Opposite-Direction & Speed",
+    filePath: "src/examples/marquee-demo.tsx",
+    codeSnippet: `<Marquee variant="primary" direction="left" speed="fast">...</Marquee>
+<Marquee variant="default" direction="right" speed="slow">...</Marquee>`,
+    Component: MarqueeDualDemo,
+  },
+  "marquee-no-shadow-demo": {
+    title: "No Shadow",
+    filePath: "src/examples/marquee-demo.tsx",
+    codeSnippet: `<Marquee variant="muted" noShadow pauseOnHover>...</Marquee>`,
+    Component: MarqueeNoShadowDemo,
   },
 };
 

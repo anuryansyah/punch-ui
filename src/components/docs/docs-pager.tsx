@@ -36,6 +36,7 @@ export function DocsPager() {
     { title: nav.input, href: "/docs/components/input" },
     { title: nav.inputOtp, href: "/docs/components/input-otp" },
     { title: nav.kbd, href: "/docs/components/kbd" },
+    { title: nav.marquee, href: "/docs/components/marquee" },
     { title: nav.navigationMenu, href: "/docs/components/navigation-menu" },
     { title: nav.pagination, href: "/docs/components/pagination" },
     { title: nav.popover, href: "/docs/components/popover" },

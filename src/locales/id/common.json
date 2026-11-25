@@ -56,7 +56,8 @@
       "toggleGroup": "Toggle Group",
       "richTextEditor": "Rich Text Editor",
       "emptyState": "Empty State",
-      "kbd": "Kbd"
+      "kbd": "Kbd",
+      "marquee": "Marquee"
     },
     "liveThemeCard": {
       "title": "Tema Live Aktif",

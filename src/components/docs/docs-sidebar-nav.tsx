@@ -1,8 +1,18 @@
 "use client";
 
+import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, Layers } from "lucide-react";
+import { BookOpen, Layers, Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import {
   Sidebar,
   SidebarContent,
@@ -14,9 +24,18 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@/components/ui/sidebar";
+import { siteConfig } from "@/lib/config";
 import { useLanguage } from "@/lib/i18n";
 
-export function DocsSidebarNav() {
+export interface DocsSidebarNavProps {
+  onNavigate?: () => void;
+  embedded?: boolean;
+}
+
+export function DocsSidebarNav({
+  onNavigate,
+  embedded = false,
+}: DocsSidebarNavProps = {}) {
   const pathname = usePathname();
   const { dict } = useLanguage();
   const nav = dict.common.sidebar;
@@ -46,6 +65,7 @@ export function DocsSidebarNav() {
     { title: nav.items.input, href: "/docs/components/input" },
     { title: nav.items.inputOtp, href: "/docs/components/input-otp" },
     { title: nav.items.kbd, href: "/docs/components/kbd" },
+    { title: nav.items.marquee, href: "/docs/components/marquee" },
     {
       title: nav.items.navigationMenu,
       href: "/docs/components/navigation-menu",
@@ -90,11 +110,21 @@ export function DocsSidebarNav() {
   ];
 
   return (
-    <SidebarProvider className="min-h-0 flex-col bg-transparent">
+    <SidebarProvider
+      className={
+        embedded
+          ? "min-h-0 flex-1 flex-col overflow-hidden bg-transparent"
+          : "min-h-0 flex-col bg-transparent"
+      }
+    >
       <Sidebar
-        variant="floating"
+        variant={embedded ? "sidebar" : "floating"}
         collapsible="none"
-        className="m-0 flex max-h-[calc(100vh-8rem)] w-full"
+        className={
+          embedded
+            ? "m-0 flex h-full w-full border-0 shadow-none"
+            : "m-0 flex max-h-[calc(100vh-8rem)] w-full"
+        }
       >
         <SidebarContent className="p-3">
           {sections.map((section) => (
@@ -122,6 +152,7 @@ export function DocsSidebarNav() {
                           <Link
                             href={item.href}
                             aria-current={isActive ? "page" : undefined}
+                            onClick={onNavigate}
                           >
                             <span>{item.title}</span>
                           </Link>
@@ -136,5 +167,40 @@ export function DocsSidebarNav() {
         </SidebarContent>
       </Sidebar>
     </SidebarProvider>
+  );
+}
+
+/**
+ * Mobile drawer trigger + left Sheet containing DocsSidebarNav (visible below md breakpoint).
+ */
+export function DocsMobileNav() {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <Sheet open={open} onOpenChange={setOpen}>
+      <SheetTrigger asChild>
+        <Button
+          type="button"
+          variant="outline"
+          size="icon"
+          aria-label="Open documentation menu"
+          className="h-9 w-9 shrink-0 md:hidden"
+        >
+          <Menu className="h-4 w-4" strokeWidth={2.5} />
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="left" size="sm" className="gap-0 p-0">
+        <SheetHeader className="border-b-2 border-border bg-secondary px-4 py-3.5 pr-14 text-left">
+          <SheetTitle className="flex items-center gap-2 font-mono text-sm font-black uppercase text-secondary-foreground">
+            <Layers className="h-4 w-4" strokeWidth={2.5} />
+            {siteConfig.name} {siteConfig.version}
+          </SheetTitle>
+          <SheetDescription className="sr-only">
+            Documentation navigation menu
+          </SheetDescription>
+        </SheetHeader>
+        <DocsSidebarNav embedded onNavigate={() => setOpen(false)} />
+      </SheetContent>
+    </Sheet>
   );
 }

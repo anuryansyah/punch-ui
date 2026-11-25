@@ -541,6 +541,17 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "marquee",
+      "type": "registry:ui",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "src/components/ui/marquee.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
