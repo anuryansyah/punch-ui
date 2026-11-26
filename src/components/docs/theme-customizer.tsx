@@ -218,8 +218,8 @@ function applyCustomOverridesToDom(overrides: CustomColorOverrides) {
 
 export interface ThemeCustomizerProps {
   /**
-   * "inline" = Ditampilkan sebagai kartu penuh di halaman utama (Homepage)
-   * "drawer" = Ditampilkan sebagai tombol mengambang kanan bawah + slide-over drawer di halaman Docs
+   * "inline" = Rendered as a full card on the Homepage
+   * "drawer" = Rendered as a bottom-right floating button + slide-over drawer on Docs pages
    */
   variant?: "inline" | "drawer";
 }

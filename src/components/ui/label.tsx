@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {}
 
 /**
- * Label formulir dengan tipografi bold kontras tinggi
+ * Form label with high-contrast bold typography.
  */
 export const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
   ({ className, ...rest }, ref) => (

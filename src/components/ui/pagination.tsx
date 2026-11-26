@@ -11,7 +11,7 @@ import { buttonVariants, type ButtonProps } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 /**
- * Kontainer navigasi Pagination (<nav role="navigation" aria-label="pagination">)
+ * Pagination navigation container (<nav role="navigation" aria-label="pagination">).
  */
 export const Pagination = React.forwardRef<
   HTMLElement,

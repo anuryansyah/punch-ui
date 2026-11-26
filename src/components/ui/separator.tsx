@@ -3,24 +3,24 @@ import { cn } from "@/lib/utils";
 
 export interface SeparatorProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Orientasi garis pemisah: horizontal (default) atau vertical
+   * Divider orientation: horizontal (default) or vertical.
    */
   orientation?: "horizontal" | "vertical";
   /**
-   * Gaya garis pemisah: solid (default), dashed, dotted, atau muted
+   * Divider line style: solid (default), dashed, dotted, or muted.
    */
   variant?: "solid" | "dashed" | "dotted" | "muted";
   /**
-   * Ketebalan garis pemisah: thin (1px), default (2px), atau thick (4px)
+   * Divider thickness: thin (1px), default (2px), or thick (4px).
    */
   thickness?: "thin" | "default" | "thick";
   /**
-   * Jika true (default), dianggap dekoratif oleh pembaca layar (role="none").
-   * Set false untuk menyertakan role="separator".
+   * When true (default), treated as decorative by screen readers (role="none").
+   * Set to false to expose role="separator".
    */
   decorative?: boolean;
   /**
-   * Teks atau elemen label opsional di tengah garis (khusus orientasi horizontal)
+   * Optional centered text or label element (horizontal orientation only).
    */
   label?: React.ReactNode;
 }
@@ -45,8 +45,8 @@ const VARIANT_CLASSES = {
 } as const;
 
 /**
- * Garis pemisah Neobrutalism dengan opsi orientasi, gaya garis (solid/dashed/dotted/muted),
- * ketebalan (thin/default/thick), serta label di tengah.
+ * Neobrutalist Separator with orientation, line style (solid/dashed/dotted/muted),
+ * thickness (thin/default/thick), and centered label options.
  */
 export const Separator = React.forwardRef<HTMLDivElement, SeparatorProps>(
   (

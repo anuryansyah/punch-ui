@@ -43,7 +43,7 @@
   --muted-foreground: #525252;
 }
 
-/* 4. Deep Ink (Kanvas Terang Cool Slate + Aksen Tinta Gelap) */
+/* 4. Deep Ink (Cool Slate Light Canvas + Deep Ink Accent) */
 :root[data-theme="deep-ink"],
 [data-theme="deep-ink"] {
   --background: #eef2f6;
@@ -88,7 +88,7 @@
   --muted-foreground: #525252;
 }
 
-/* Dark Mode Overrides untuk masing-masing preset */
+/* Dark Mode Overrides for each preset */
 :root.dark[data-theme="tangerine"],
 .dark [data-theme="tangerine"] {
   --background: #1c1917;

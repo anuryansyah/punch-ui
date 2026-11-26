@@ -46,8 +46,8 @@ export interface InputProps
 }
 
 /**
- * Input Neobrutalism dengan pilihan ukuran (inputSize), status validasi (state),
- * styling file upload bawaan, dan opsi noShadow.
+ * Neobrutalist Input with size options (inputSize), validation states (state),
+ * built-in file upload styling, and noShadow option.
  */
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (

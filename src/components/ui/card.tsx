@@ -42,8 +42,8 @@ export interface CardProps
 }
 
 /**
- * Kontainer Card Neobrutalism dengan border 2px, pilihan varian tema/status,
- * opsi noShadow, dan mode interactive.
+ * Neobrutalist Card container with a 2px border, theme/status variants,
+ * noShadow option, and interactive mode.
  */
 export const Card = React.forwardRef<HTMLDivElement, CardProps>(
   (

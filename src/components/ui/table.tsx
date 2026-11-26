@@ -23,31 +23,31 @@ const TableContext = React.createContext<TableContextValue>({
 
 export interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> {
   /**
-   * Warna latar belakang header tabel: secondary (default), primary, muted, atau default
+   * Table header background color: secondary (default), primary, muted, or default.
    */
   headerVariant?: TableHeaderVariant;
   /**
-   * Menambahkan garis batas vertikal antar-kolom selain garis horizontal
+   * Adds vertical dividers between columns in addition to horizontal borders.
    */
   grid?: boolean;
   /**
-   * Memberikan warna selang-seling pada baris genap
+   * Applies alternating background shading to even rows.
    */
   striped?: boolean;
   /**
-   * Menyorot baris tabel saat kursor hover di atasnya
+   * Highlights table rows on pointer hover.
    */
   hoverable?: boolean;
   /**
-   * Mengurangi padding sel untuk tabel yang padat
+   * Reduces cell padding for denser tables.
    */
   compact?: boolean;
   /**
-   * Menghilangkan bayangan keras pada kontainer luar tabel
+   * Removes the hard drop shadow on the outer table container.
    */
   noShadow?: boolean;
   /**
-   * Class tambahan untuk wrapper kontainer luar tabel
+   * Additional classes for the outer table container wrapper.
    */
   containerClassName?: string;
 }
@@ -60,8 +60,8 @@ const HEADER_VARIANT_CLASSES: Record<TableHeaderVariant, string> = {
 };
 
 /**
- * Komponen Table Neobrutalism dengan garis tepi 2px tegas, pilihan warna header,
- * opsi grid vertikal, baris striped, mode compact, dan noShadow.
+ * Neobrutalist Table component with crisp 2px borders, header color variants,
+ * vertical grid option, striped rows, compact mode, and noShadow.
  */
 export const Table = React.forwardRef<HTMLTableElement, TableProps>(
   (

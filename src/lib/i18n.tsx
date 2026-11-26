@@ -60,8 +60,8 @@ export function useLanguage() {
 }
 
 /**
- * Helper komponen kecil untuk merender teks dua bahasa dari file JSON
- * di dalam Server Component (misal halaman Docs yang memanggil Shiki).
+ * Small helper component for rendering bilingual text from JSON files
+ * inside Server Components (e.g. Docs pages that invoke Shiki).
  */
 export function T({ text }: { text: Bilingual }) {
   const { lang } = useLanguage();
@@ -69,7 +69,7 @@ export function T({ text }: { text: Bilingual }) {
 }
 
 /**
- * Tombol Switcher Bahasa (ID | EN) bergaya Neobrutalism untuk dipasang di Topbar
+ * Neobrutalist Language Switcher (ID | EN) button for the Topbar.
  */
 export function LanguageSwitcher() {
   const { lang, setLang } = useLanguage();
