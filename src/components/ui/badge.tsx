@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 /**
- * Badge Neobrutalism untuk label status, kategori, dan penghitung (counter)
+ * Neobrutalist Badge for status labels, categories, and counters.
  */
 const brutalBadgeStyles = cva(
   [
@@ -50,15 +50,15 @@ export interface BadgeProps
     React.HTMLAttributes<HTMLSpanElement>,
     VariantProps<typeof brutalBadgeStyles> {
   /**
-   * Menghilangkan bayangan keras pada varian warna apa pun
+   * Removes the hard drop shadow on any color variant.
    */
   noShadow?: boolean;
   /**
-   * Menampilkan indikator titik bulat di sebelah kiri teks
+   * Displays a circular indicator dot to the left of the text.
    */
   dot?: boolean;
   /**
-   * Meneruskan kelas Badge ke elemen anak tunggal (misal <Link />)
+   * Forwards Badge classes to a single child element (e.g. <Link />).
    */
   asChild?: boolean;
 }

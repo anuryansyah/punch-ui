@@ -38,7 +38,7 @@ export interface TextareaProps
 }
 
 /**
- * Textarea Neobrutalism dengan dukungan status validasi (state) dan opsi noShadow.
+ * Neobrutalist Textarea with validation state support (state) and noShadow option.
  */
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, state, noShadow = false, ...rest }, ref) => (

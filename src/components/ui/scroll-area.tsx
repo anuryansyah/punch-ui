@@ -8,40 +8,40 @@ export type ScrollbarVariant = "default" | "auto" | "bordered";
 
 export interface ScrollAreaProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Orientasi area scroll: vertical (default), horizontal, atau both
+   * Scroll area orientation: vertical (default), horizontal, or both.
    */
   orientation?: "vertical" | "horizontal" | "both";
   /**
-   * Gaya kontainer luar:
-   * - "default": Bingkai border 2px + bg-card + shadow
-   * - "ghost": Tanpa border & tanpa shadow (cocok disisipkan di dalam Card/Sidebar)
+   * Outer container style:
+   * - "default": 2px border frame + bg-card + shadow
+   * - "ghost": No border & no shadow (ideal for embedding inside a Card/Sidebar)
    */
   variant?: "default" | "ghost";
   /**
-   * Menghilangkan bayangan keras pada kontainer luar
+   * Removes the hard drop shadow on the outer container.
    */
   noShadow?: boolean;
   /**
-   * Menghilangkan garis tepi (border-2) pada kontainer luar
+   * Removes the border (border-2) on the outer container.
    */
   noBorder?: boolean;
   /**
-   * Ketebalan scrollbar:
-   * - "sm" = 8px (default tipis)
+   * Scrollbar thickness:
+   * - "sm" = 8px (slim default)
    * - "md" = 10px
    * - "lg" = 14px
-   * - atau angka pixel kustom, misal: scrollbarSize={6}
+   * - or a custom pixel number, e.g. scrollbarSize={6}
    */
   scrollbarSize?: ScrollbarSize;
   /**
-   * Gaya tampilan track & visibilitas scrollbar:
-   * - "default": Track transparan tanpa border, thumb selalu terlihat
-   * - "auto": Track transparan tanpa border, thumb hanya muncul saat di-scroll / hover / drag
-   * - "bordered": Track transparan dengan border 1.5px penuh, thumb selalu terlihat
+   * Track appearance & scrollbar visibility mode:
+   * - "default": Transparent borderless track, thumb always visible
+   * - "auto": Transparent borderless track, thumb only appears on scroll / hover / drag
+   * - "bordered": Transparent track with a full 1.5px border, thumb always visible
    */
   scrollbarVariant?: ScrollbarVariant;
   /**
-   * Class tambahan untuk viewport bagian dalam
+   * Additional classes for the inner viewport.
    */
   viewportClassName?: string;
 }
@@ -53,8 +53,8 @@ const SIZE_MAP: Record<"sm" | "md" | "lg", number> = {
 };
 
 /**
- * Komponen ScrollArea Neobrutalism dengan custom track & thumb yang ramping
- * serta ukuran ketebalan dan mode tampilan scrollbar yang dapat dikustomisasi.
+ * Neobrutalist ScrollArea component with a slim custom track & thumb
+ * plus customizable scrollbar thickness and visibility modes.
  */
 export const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
   (

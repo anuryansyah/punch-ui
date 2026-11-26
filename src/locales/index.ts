@@ -13,8 +13,8 @@ export const id = {
 };
 
 /**
- * Type-check otomatis: memastikan seluruh file JSON di folder en/
- * memiliki struktur dan key yang sama persis dengan folder id/
+ * Automatic type-check: ensures all JSON files in en/
+ * have the exact same structure and keys as those in id/.
  */
 export const en: typeof id = {
   common: enCommon,

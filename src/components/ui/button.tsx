@@ -5,10 +5,10 @@ import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
- * Definisi variasi tombol bergaya Neobrutalism:
- * - Garis tepi 2px mengikuti variabel --border
- * - Efek tekan mekanis (translate ke arah bayangan saat active)
- * - Prop `noShadow` dapat dikombinasikan dengan semua varian warna
+ * Neobrutalist Button variant definitions:
+ * - 2px border following the --border CSS variable
+ * - Mechanical press effect (translates toward the shadow on active)
+ * - `noShadow` prop can be combined with any color variant
  */
 const brutalButtonStyles = cva(
   [
@@ -65,20 +65,20 @@ export interface ButtonProps
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof brutalButtonStyles> {
   /**
-   * Merender elemen child sebagai root tombol (menggunakan Radix Slot)
+   * Renders the child element as the button root (using Radix Slot).
    */
   asChild?: boolean;
   /**
-   * Menghilangkan bayangan keras dan efek geser tekan pada varian warna apa pun
-   * (misal: <Button variant="danger" noShadow />)
+   * Removes the hard drop shadow and press-shift effect on any color variant
+   * (e.g. <Button variant="danger" noShadow />).
    */
   noShadow?: boolean;
   /**
-   * Menampilkan indikator loading spinner dan menonaktifkan interaksi tombol
+   * Displays a loading spinner and disables button interactions.
    */
   isLoading?: boolean;
   /**
-   * Teks opsional pengganti children saat isLoading bernilai true
+   * Optional text that replaces children while isLoading is true.
    */
   loadingText?: string;
 }

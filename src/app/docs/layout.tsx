@@ -23,7 +23,7 @@ export default function DocsLayout({
 }) {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Topbar Dokumentasi (Tinggi tetap h-16 = 64px) */}
+      {/* Documentation Topbar (Fixed height h-16 = 64px) */}
       <header className="sticky top-0 z-30 flex h-16 items-center border-b-2 border-border bg-card text-card-foreground">
         <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between px-4 sm:px-6 lg:px-10">
           <div className="flex items-center gap-2.5">
@@ -62,7 +62,7 @@ export default function DocsLayout({
         </aside>
       </div>
 
-      {/* Floating Back to Top + Drawer Theme Customizer khusus di halaman Docs */}
+      {/* Floating Back to Top + Theme Customizer Drawer on Docs pages */}
       <DocsBackToTop />
       <ThemeCustomizer variant="drawer" />
     </div>

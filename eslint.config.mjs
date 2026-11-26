@@ -13,7 +13,7 @@ const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
     rules: {
-      // 1. Kebersihan TypeScript
+      // 1. TypeScript Hygiene
       "@typescript-eslint/consistent-type-imports": [
         "warn",
         {
@@ -32,7 +32,7 @@ const eslintConfig = [
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/no-empty-object-type": "off",
 
-      // 2. Kerapian JSX & React
+      // 2. JSX & React Cleanliness
       "react/self-closing-comp": "warn",
       "react/jsx-curly-brace-presence": [
         "warn",
@@ -42,13 +42,13 @@ const eslintConfig = [
         },
       ],
 
-      // 3. Aksesibilitas Komponen
+      // 3. Component Accessibility
       "jsx-a11y/alt-text": "error",
       "jsx-a11y/aria-props": "error",
       "jsx-a11y/aria-proptypes": "error",
       "jsx-a11y/role-has-required-aria-props": "error",
 
-      // 4. Kebersihan Kode Produksi & Registry
+      // 4. Production & Registry Code Hygiene
       "no-console": ["warn", { allow: ["warn", "error"] }],
       eqeqeq: ["error", "always"],
       "prefer-const": "warn",

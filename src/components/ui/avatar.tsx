@@ -39,8 +39,8 @@ export interface AvatarProps
 }
 
 /**
- * Avatar Neobrutalism — mendukung bentuk bulat (default) dan kotak (square)
- * untuk kebutuhan profil pengguna maupun logo workspace.
+ * Neobrutalist Avatar supporting circular (default) and square shapes
+ * for user profiles or workspace logos.
  */
 export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
   ({ className, size, shape, noShadow = false, ...rest }, ref) => (

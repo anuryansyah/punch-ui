@@ -71,7 +71,7 @@ export function DocsPager() {
       aria-label="Pagination"
       className="grid grid-cols-2 divide-x-2 divide-border overflow-hidden rounded-lg border-2 border-border bg-card text-card-foreground shadow-brutal-sm md:shadow-brutal"
     >
-      {/* Kolom Kiri (Previous) */}
+      {/* Left Column (Previous) */}
       {prev ? (
         <Link
           href={prev.href}
@@ -94,7 +94,7 @@ export function DocsPager() {
         <div className="px-5 py-4" />
       )}
 
-      {/* Kolom Kanan (Next) */}
+      {/* Right Column (Next) */}
       {next ? (
         <Link
           href={next.href}

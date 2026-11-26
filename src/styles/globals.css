@@ -5,22 +5,22 @@
 @layer base {
   :root {
     /* Default Theme: Tangerine Punch (Default Orange) */
-    --background: #fffbf5; /* Kanvas terang warm off-white */
-    --foreground: #000000; /* Teks utama hitam pekat */
+    --background: #fffbf5; /* Warm off-white light canvas */
+    --foreground: #000000; /* Pure black primary text */
 
-    --card: #ffffff; /* Latar Card / Input / Modal */
+    --card: #ffffff; /* Card / Input / Modal surface */
     --card-foreground: #000000;
 
     --primary: #ff8a00; /* Tangerine Orange */
     --primary-foreground: #000000;
 
-    --secondary: #ffe566; /* Soft Yellow untuk badge & highlight tabel */
+    --secondary: #ffe566; /* Soft Yellow for badges & table highlights */
     --secondary-foreground: #000000;
 
     --muted: #f5efe6;
     --muted-foreground: #525252;
 
-    /* Semantic Status Tokens (Berbeda dari warna --primary 6 tema) */
+    /* Semantic Status Tokens (Distinct from the 6 theme --primary colors) */
     --success: #10b981; /* Emerald Mint */
     --success-foreground: #000000;
 
@@ -33,19 +33,19 @@
     --destructive: #be123c; /* Deep Ruby Red */
     --destructive-foreground: #ffffff;
 
-    --border: #000000; /* Warna garis tepi */
+    --border: #000000; /* Border color */
     --ring: #000000;
 
-    /* Pengaturan Geometri & Shadow */
+    /* Geometry & Shadow Tokens */
     --radius: 0px; /* 0px (Sharp - Default), 4px (Crisp), 8px (Smooth), 12px (Playful) */
-    --scrollbar-size: 8px; /* Ketebalan scrollbar global (bisa dikustomisasi) */
+    --scrollbar-size: 8px; /* Global scrollbar thickness (customizable) */
     --shadow: 4px 4px 0px 0px var(--border);
     --shadow-sm: 2px 2px 0px 0px var(--border);
     --shadow-lg: 6px 6px 0px 0px var(--border);
   }
 
   .dark {
-    --background: #1c1917; /* Warm Charcoal agar border hitam tetap terlihat */
+    --background: #1c1917; /* Warm Charcoal to keep high contrast in dark mode */
     --foreground: #fafaf9;
 
     --card: #292524;
@@ -75,13 +75,13 @@
     @apply bg-background font-sans text-foreground antialiased;
   }
 
-  /* Global Neobrutalism Custom Scrollbar (Mengikuti --scrollbar-size, default 8px) */
+  /* Global Neobrutalist Custom Scrollbar (Follows --scrollbar-size, default 8px) */
   ::-webkit-scrollbar {
     width: var(--scrollbar-size, 8px);
     height: var(--scrollbar-size, 8px);
   }
 
-  /* Tampilkan scrollbar standar pada Radix SelectViewport agar seragam */
+  /* Show standard scrollbar on Radix SelectViewport for consistency */
   [data-radix-select-viewport] {
     scrollbar-width: auto !important;
     -ms-overflow-style: auto !important;
